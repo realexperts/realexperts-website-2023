@@ -1,0 +1,36 @@
+{
+    "hero": {
+        "backgroundImage": "/images/heros/header_2023_01.webp",
+        "buttonLink": "/",
+        "buttonText" : "Jetzt Rockstar werden",
+        "headline": "Stockt es oder rockt es?",
+        "text": "Digitale Strategien für Organisationen,<br>in denen es einfach läuft."
+    },
+    "pageTeaser": "Als Unternehmensberater entwickeln wir Strategien für die Digitalisierung in mittelständigen Unternehmen und begleiten bei der nachhaltigen Umsetzung. Daraus entstehen einheitlich digitalisierte Prozesse und Werkzeuge zur Steigerung der Zufriedenheit der Mitarbeiter*innen und der Produktivität einer Organisation.",
+    "sectionProzesse": {
+        "headline": "Ihre Prozesse stehen bei uns im Rampenlicht",
+        "teaser": "Mit digitalen Technologien am Arbeitsplatz schaffen Sie eine leistungsfähige, agile und innovative Organisation.",
+        "benefits": [
+            {
+                "icon": "/images/icons/monitor_bulb.png",
+                "headline": "Effiziente IT-unterstützte Prozesse ",
+                "text": "durch eine konsolidierte Strategie."
+            },
+            {
+                "icon": "/images/icons/monitor_speech_bubble.png",
+                "headline": "Produktive Mitarbeitende ",
+                "text": "durch die richtige Auswahl von Systemen."
+            },
+            {
+                "icon": "/images/icons/monitor_clock.png",
+                "headline": "Einsparung von Kosten ",
+                "text": "durch effizienteres Arbeiten und weniger Systembrüche."
+            }
+        ],
+        "button": {
+            "color": "red",
+            "link": "/",
+            "label": "Jetzt Rockstar werden"
+        }
+    }
+}

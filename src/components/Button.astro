@@ -1,0 +1,32 @@
+---
+import type { ButtonColors } from '../types/button-colors.type';
+import type { ButtonSizes } from '../types/button-sizes.type';
+
+export interface Props {
+	link: string,
+    color?: ButtonColors,
+    label: string,
+    size?: ButtonSizes    
+}
+
+const {color="turquoise", label, link, size = "normal"} = Astro.props
+
+const colorSchema = {
+    red: 'bg-re-red text-white',
+    white: 'bg-white text-re-blue',
+    turquoise: 'bg-re-turquoise text-white'
+    }
+
+const sizeSchema = {
+    normal: 'px-5 py-2 text-normal',
+    lg: 'px-6 py-3 text-lg'
+}
+---
+<a 
+    href={link} 
+    class:list={[
+        colorSchema[color],
+        sizeSchema[size],
+        'inline-block whitespace-nowrap font-bold tracking-wide uppercase'
+    ]}
+    set:text={label}></a> 

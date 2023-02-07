@@ -1,0 +1,37 @@
+---
+import Section  from "../components/Section.astro"
+import Container from "../components/Container.astro";
+import genralData from "../data/general.json";
+import MainNavigation from "../components/MainNavigation.astro";
+---
+
+<header>
+    <Section background="gray" standardPadding={false}>
+        <Container centered={false}>
+            <div class="hidden lg:flex justify-between items-center h-[38px] text-re-blue text-sm">
+                <div>
+                    <a href={genralData.topInfo.link}>{genralData.topInfo.text}</a>
+                </div>
+                <div class="flex font-bold">
+                    <div class="mr-12">
+                        <i class="fa-solid fa-phone-flip mr-2"></i>
+                        <a href={"tel:" + genralData.company.phone}>{genralData.company.phone}</a>
+                    </div>
+                    <div>
+                        <i class="fa-solid fa-location-dot mr-2"></i>{genralData.company.addressLine}
+                    </div>                
+                </div>
+            </div>
+        </Container>
+    </Section>
+    <Section standardPadding={false}>
+        <Container centered={false}>
+            <div class="flex justify-between items-end my-[30px] relative">
+                <a href="/">
+                    <img src="/images/logo/logo-dark-re.png" class="h-16 lg:h-[89px]" alt="Logo Real Experts Network GmbH" />
+                </a>
+               <MainNavigation></MainNavigation>
+            </div>
+        </Container>
+    </Section>
+</header>

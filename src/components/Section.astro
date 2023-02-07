@@ -1,0 +1,25 @@
+---
+import type { BackgroundColors } from '../types/backgrounds-colors.type';
+
+export interface Props {
+	background?: BackgroundColors,
+    standardPadding?: boolean
+}
+
+const { background = 'white', standardPadding = true } = Astro.props;
+
+const colorSchema = {
+    blue: 'bg-re-blue text-white',
+    gray: 'bg-re-gray text-black',
+    transparent: 'bg-transparent text-black',
+    turquoise: 'bg-re-turquoise-light text-re-blue',
+    white: 'bg-white text-re-blue'
+}
+---
+
+<div  class:list={[
+            colorSchema[background],
+            {'py-16': standardPadding}
+        ]}>
+    <slot />
+</div>

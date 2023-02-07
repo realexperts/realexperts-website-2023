@@ -1,0 +1,30 @@
+---
+import type { BackgroundColors } from '../types/backgrounds-colors.type';
+
+export interface Props {
+    centered?: boolean,
+    background?: BackgroundColors,
+    standardPadding?: boolean,
+    rounded?: boolean
+}
+
+const {centered = true, standardPadding = false, background = "transparent", rounded = false} = Astro.props;
+
+const colorSchema =  {
+    blue: 'bg-re-blue text-white',
+    gray: 'bg-re-gray text-black',
+    transparent: 'bg-transparent text-inherit text-current',
+    turquoise: 'bg-re-turquoise-light text-re-blue',
+    white: 'bg-white text-black'
+}
+---
+<div 
+    class:list={[
+        'container mx-auto px-16 md:px-0',
+        colorSchema[background],
+        {'text-center': centered},
+        {'px-24': standardPadding},
+        {'pt-14 pb-12 rounded-bl-[70px]': rounded}
+    ]}>
+    <slot />
+</div>

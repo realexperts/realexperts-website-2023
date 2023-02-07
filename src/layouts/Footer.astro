@@ -1,0 +1,36 @@
+---
+import Section from "../components/Section.astro";
+import Container from "../components/Container.astro";
+import Heading from "../components/Heading.astro";
+import genralData from "../data/general.json";
+import footerData from "../data/footer.json";
+import FooterMenu from "../components/FooterMenu.astro";
+---
+
+<footer>
+    <Section background='blue'>
+        <Container centered={false}>
+            <div class="lg:flex justify-between">
+                <div>
+                    <div class="h-[177px] mb-12">
+                        <img src="/images/logo/logo_footer.png" alt="Logo Real Experts Network GmbH"/>
+                    </div>
+                    <p class="mb-2">{genralData.company.addressLine}</p>
+                    <p class="mb-2"><a href={'mailto:' + genralData.company.mail}>{genralData.company.mail}</a></p>
+                    <p class="mb-2 font-bold"><a href={"tel:" + genralData.company.phone}>{genralData.company.phone}</a></p>
+                    <p class="mb-2"><a href={genralData.company.webLink}>{genralData.company.web}</a></p>
+                </div>
+                <div>
+                    <div class="h-[177px] mb-12 flex items-center">
+                        <Heading>Gemeinsam entfalten wir Ihr volles Potential. </Heading>
+                    </div>                    
+                    <div class="lg:flex justify-between">
+                        <FooterMenu menu={footerData.menus[0]}></FooterMenu>
+                        <FooterMenu menu={footerData.menus[1]}></FooterMenu>
+                        <FooterMenu menu={footerData.menus[2]}></FooterMenu>
+                    </div>
+                </div>
+            </div>
+        </Container>
+    </Section>    
+</footer>

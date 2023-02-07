@@ -1,0 +1,24 @@
+
+[
+    {
+        "text": "Expertisen",
+        "link": "/expertisen"
+    },
+    {
+        "text": "Referenzen",
+        "link": "/referenzen"
+    },
+    {
+        "text": "Über uns",
+        "link": "/ueber_uns"
+    },
+    {
+        "text": "Blog",
+        "link": "/blog"
+    },
+    {
+        "text": "Podcast",
+        "link": "/podcast"
+    }
+]
+

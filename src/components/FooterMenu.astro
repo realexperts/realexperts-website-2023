@@ -1,0 +1,13 @@
+---
+const { menu } = Astro.props;
+---
+<div>
+    <h1 class="font-bold mb-2">{menu ? menu.headline : ''}</h1>
+    <ul>
+    {menu?.items.map((menuItem: any) => {
+        return (
+            <li class="mb-2"><a href={menuItem.link}>{menuItem.text}</a></li>
+        )
+    })}
+    </ul>
+</div>

@@ -1,0 +1,13 @@
+{
+    "company": {
+        "addressLine": "Ostra-Allee 11, 01067 Dresden",
+        "mail": "office@realexperts.de",
+        "phone": "+49 (0) 351-41 88 24 11",
+        "web": "www.realexperts.de",
+        "webLink": "https://www.realexperts.de"
+    },
+    "topInfo": {
+        "link": "/stelleangebote",
+        "text": "Wir stellen ein: Bist Du ein Digitalisierungsverwirklicher?"
+    }
+}

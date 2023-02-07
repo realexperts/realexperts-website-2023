@@ -1,0 +1,67 @@
+{
+    "menus": [
+        {
+            "headline": "Expertisen",
+            "items": [
+                {
+                    "link": "/",
+                    "text": "Digitaler Arbeitsplatz"
+                },
+                {
+                    "link": "/",
+                    "text": "Organisationsentwicklung"
+                }
+            ]
+        },
+        {
+            "headline": "Informationen",
+            "items": [
+                {
+                    "link": "/",
+                    "text": "Blog"
+                },
+                {
+                    "link": "/",
+                    "text": "Podcast"
+                },
+                {
+                    "link": "/",
+                    "text": "RE Academy"
+                },
+                {
+                    "link": "/",
+                    "text": "Videos"
+                },
+                {
+                    "link": "/",
+                    "text": "Whitepaper"
+                },
+                {
+                    "link": "/",
+                    "text": "Workshop"
+                }
+            ]
+        },
+        {
+            "headline": "Weiteres",
+            "items": [
+                {
+                    "link": "/",
+                    "text": "Stellenangebote"
+                },
+                {
+                    "link": "/",
+                    "text": "Kontakt"
+                },
+                {
+                    "link": "/",
+                    "text": "Datenschutzerklärung"
+                },
+                {
+                    "link": "/",
+                    "text": "Impressum"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,72 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Section from '../components/Section.astro';
+import Container from '../components/Container.astro';
+import Hero from '../components/Hero.astro';
+import indexData from '../data/index.json';
+import PageTeaser from '../components/PageTeaser.astro';
+import Heading from '../components/Heading.astro';
+import Button from '../components/Button.astro';
+import type { ButtonColors } from '../types/button-colors.type';
+---
+
+<Layout title="Home">
+	<Section standardPadding={false}>
+		<Container centered={false}>
+			<Hero 
+				backgroundImage={indexData.hero.backgroundImage} 
+				buttonLink={indexData.hero.buttonLink} 
+				buttonText={indexData.hero.buttonText} 
+				headline={indexData.hero.headline}
+				text={indexData.hero.text}
+			/>
+		</Container>
+	</Section>
+	<Section>
+		<Container>
+			<PageTeaser>{indexData.pageTeaser}</PageTeaser>
+		</Container>
+	</Section>
+	<Section background="blue">
+		<Container standardPadding={true}>
+			<Heading>{indexData.sectionProzesse.headline}</Heading>
+			<p class="text-re-turquoise-bright text-xl" set:html={indexData.sectionProzesse.teaser}></p>
+			<div class="grid grid-cols-3 gap-20 my-20">
+				{indexData.sectionProzesse.benefits.map((benefit) => {
+					return (
+						<div>
+							{benefit.icon ? <img src={benefit.icon} class="block mx-auto mb-10" alt="Prozesse Icon" /> : ''}
+							<span class="font-bold" set:html={benefit.headline}></span>
+							<span set:html={benefit.text}></span>
+						</div>
+					)
+				})}
+			</div>
+			<Button size="lg" color={indexData.sectionProzesse.button.color as ButtonColors} label={indexData.sectionProzesse.button.label} link={indexData.sectionProzesse.button.link}></Button>
+		</Container>
+	</Section>
+	<Section>
+		<Container background="turquoise" standardPadding={true} rounded={true}>
+			<Heading>Starten Sie Ihre Transformation</Heading>
+			<p>Auf unseren vier Stages durchlaufen Sie die digitalen Technologien am Arbeitsplatz und schaffen somit eine leistungsfähige, agile und innovative Organisation.</p>
+			<Button size="lg" color="red" label="Jetzt Expertengepräch vereinbaren" link="/"></Button>
+		</Container>
+	</Section>
+	<Section standardPadding={false}>
+		<Container standardPadding={true}>
+			<Heading>Gemeinsam auf Ihrem Weg nach oben</Heading>
+			<p>Gemeinsam auf Ihrem Weg nach oben</p>
+			<Button size="lg" color="red" label="Jetzt Rockstar werden" link="/"></Button>
+			<div class="mb-24"></div>
+		</Container>
+	</Section>
+	<Section background="turquoise">
+		<Container>
+			<Heading>Digitalisierung von Geschäftsprozessen</Heading>
+			<p>Ausgehend von zehn Irrtümern wird ein Phasenmodell aufgezeigt, welches den Lesenden als Leitfaden für eine umfassende Analyse und der Definition bzw. Umsetzung geeigneter Maßnahmen hin zur Digitalisierung herangezogen werden kann. </p>
+			<p>Die Praxisbeispiele zeigen, wie die Digitalisierung der Geschäftsprozesse aussehen kann und ein Exkurs über die drei häufigsten Fehler bei der Auswahl einer passenden Software, gibt weitere praktische Hinweise.</p>
+			<Button color="turquoise" label="Whitepaper Herunterladen" link="/"></Button>
+		</Container>
+	</Section>
+</Layout>
+
