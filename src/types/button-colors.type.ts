@@ -1,1 +1,1 @@
-export type ButtonColors = "red" | "turquoise" | "white";
+export type ButtonColors = 'red' | 'turquoise' | 'white';

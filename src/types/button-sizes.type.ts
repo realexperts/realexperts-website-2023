@@ -1,1 +1,1 @@
-export type ButtonSizes = "normal" | "lg";
+export type ButtonSizes = 'normal' | 'lg';

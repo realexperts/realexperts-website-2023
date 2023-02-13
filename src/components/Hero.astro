@@ -2,23 +2,29 @@
 import Button from './Button.astro';
 
 export interface Props {
-	backgroundImage: string,
-    buttonLink?: string,
-    buttonText?: string,
-    headline?: string,
-    text?: string
+  backgroundImage: string;
+  buttonLink?: string;
+  buttonText?: string;
+  headline?: string;
+  text?: string;
 }
 
 const { backgroundImage, buttonLink, buttonText, headline, text } = Astro.props;
 ---
-<div class="h-[488px] rounded-bl-[70px] flex items-center bg-re-gray bg-cover" style={"background-image: url(" + backgroundImage + ");"}>
-    <div class="mx-24 w-[620px] mb-2 text-white">
-        <div class="font-serif font-semibold text-5xl mb-4" set:text={headline} />
-        <div class="text-lg font-medium mb-16" set:html={text} />
-        {buttonLink && buttonText ? 
-            <Button color="red" size="lg" link={buttonLink} label={buttonText}></Button>
-            : 
-            ''
-        }
-    </div>
+
+<div
+  class="bg-re-gray flex h-[488px] items-center rounded-bl-[70px] bg-cover"
+  style={`background-image: url(${backgroundImage});`}
+>
+  <div class="mx-24 mb-2 w-[620px] text-white">
+    <div class="mb-4 font-serif text-5xl font-semibold" set:text={headline} />
+    <div class="mb-16 text-lg font-medium" set:html={text} />
+    {
+      buttonLink && buttonText ? (
+        <Button color="red" size="lg" link={buttonLink} label={buttonText} />
+      ) : (
+        ''
+      )
+    }
+  </div>
 </div>

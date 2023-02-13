@@ -1,53 +1,68 @@
 ---
-import Section from "../../components/Section.astro";
-import Container from "../../components/Container.astro";
-import Layout from "../../layouts/Layout.astro";
-import Heading from "../../components/Heading.astro";
-import Button from "../../components/Button.astro";
+import Button from '../../components/Button.astro';
+import Container from '../../components/Container.astro';
+import Heading from '../../components/Heading.astro';
+import Section from '../../components/Section.astro';
+import Layout from '../../layouts/Layout.astro';
 
-const resPosts = await fetch("https://cms.real-experts.de/wp-json/wp/v2/posts");
+const resPosts = await fetch('https://cms.real-experts.de/wp-json/wp/v2/posts');
 const posts = await resPosts.json();
 
-const resTags = await fetch("https://cms.real-experts.de/wp-json/wp/v2/tags");
+const resTags = await fetch('https://cms.real-experts.de/wp-json/wp/v2/tags');
 const tags = await resTags.json();
 
 const formatDate = (date: Date): string => {
-    const myDate = new Date(date);
-    return myDate.toLocaleDateString('de-DE', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })
-}
+  const myDate = new Date(date);
+  return myDate.toLocaleDateString('de-DE', {
+    weekday: 'long',
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+  });
+};
 
 const getPostImage = async (apiUrl: string): Promise<string> => {
-    const response = await fetch(apiUrl);
-    const mediaData = await response.json();
-    const url = mediaData?.media_details?.sizes?.medium_large?.source_url;
-    return url ? `<img src="${url}">` : '';
-}
+  const response = await fetch(apiUrl);
+  const mediaData = await response.json();
+  const url = mediaData?.media_details?.sizes?.medium_large?.source_url;
+  return url ? `<img src="${url}">` : '';
+};
 
 const getTagName = (id: number): string => {
-    return tags.find((tag) => tag.id === id)?.name;
-}
+  return tags.find((tag) => tag.id === id)?.name;
+};
 const stringifyIt = (value: any): string => {
-    return JSON.stringify(value);
-}
+  return JSON.stringify(value);
+};
 ---
+
 <Layout title="Blog">
-    <Section>
-        <Container centered={false}>
-            <Heading>Blog</Heading>
-            <div class="grid grid-cols-3 gap-12">
-            {posts.map((post: any) => (
-                <div>
-                    <div set:html={getPostImage(post._links['wp:featuredmedia'][0]?.href)} />
-                    {post.tags.map((tagId: any) => (
-                        <span>{getTagName(tagId)}</span>        
-                    ))}
-                    <h2 set:html={post.title.rendered} class="font-serif text-2xl font-bold" />
-                    <div set:text={formatDate(post.date)} class="text-gray-400"></div>
-                    <div set:html={post.excerpt.rendered} class="my-3" />
-                    <Button label="Mehr lesen" link={post.slug}></Button>
-                </div>
-            ))}
+  <Section>
+    <Container centered={false}>
+      <Heading>Blog</Heading>
+      <div class="grid grid-cols-3 gap-12">
+        {
+          posts.map((post: any) => (
+            <div>
+              <div
+                set:html={getPostImage(
+                  post._links['wp:featuredmedia'][0]?.href
+                )}
+              />
+              {post.tags.map((tagId: any) => (
+                <span>{getTagName(tagId)}</span>
+              ))}
+              <h2
+                set:html={post.title.rendered}
+                class="font-serif text-2xl font-bold"
+              />
+              <div set:text={formatDate(post.date)} class="text-gray-400" />
+              <div set:html={post.excerpt.rendered} class="my-3" />
+              <Button label="Mehr lesen" link={post.slug} />
             </div>
-        </Container>
-    </Section>    
+          ))
+        }
+      </div>
+    </Container>
+  </Section>
 </Layout>
