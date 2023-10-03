@@ -1,23 +1,23 @@
----
-import Button from '../../components/Button.astro';
-import Container from '../../components/Container.astro';
-import Heading from '../../components/Heading.astro';
-import Section from '../../components/Section.astro';
-import Layout from '../../layouts/Layout.astro';
+<!-- ---
+import Button from "@/components/Button.astro";
+import Container from "@/components/Container.astro";
+import Heading from "@/components/Heading.astro";
+import Section from "@/components/Section.astro";
+import Layout from "@/layouts/Layout.astro";
 
-const resPosts = await fetch('https://cms.real-experts.de/wp-json/wp/v2/posts');
+const resPosts = await fetch("https://cms.real-experts.de/wp-json/wp/v2/posts");
 const posts = await resPosts.json();
 
-const resTags = await fetch('https://cms.real-experts.de/wp-json/wp/v2/tags');
+const resTags = await fetch("https://cms.real-experts.de/wp-json/wp/v2/tags");
 const tags = await resTags.json();
 
 const formatDate = (date: Date): string => {
   const myDate = new Date(date);
-  return myDate.toLocaleDateString('de-DE', {
-    weekday: 'long',
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric',
+  return myDate.toLocaleDateString("de-DE", {
+    weekday: "long",
+    year: "numeric",
+    month: "long",
+    day: "numeric",
   });
 };
 
@@ -25,7 +25,7 @@ const getPostImage = async (apiUrl: string): Promise<string> => {
   const response = await fetch(apiUrl);
   const mediaData = await response.json();
   const url = mediaData?.media_details?.sizes?.medium_large?.source_url;
-  return url ? `<img src="${url}">` : '';
+  return url ? `<img src="${url}">` : "";
 };
 
 const getTagName = (id: number): string => {
@@ -46,7 +46,7 @@ const stringifyIt = (value: any): string => {
             <div>
               <div
                 set:html={getPostImage(
-                  post._links['wp:featuredmedia'][0]?.href
+                  post._links["wp:featuredmedia"][0]?.href
                 )}
               />
               {post.tags.map((tagId: any) => (
@@ -65,4 +65,4 @@ const stringifyIt = (value: any): string => {
       </div>
     </Container>
   </Section>
-</Layout>
+</Layout> -->

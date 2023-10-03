@@ -1,13 +1,13 @@
 ---
-import Button from '../components/Button.astro';
-import Container from '../components/Container.astro';
-import Heading from '../components/Heading.astro';
-import Hero from '../components/Hero.astro';
-import PageTeaser from '../components/PageTeaser.astro';
-import Section from '../components/Section.astro';
-import indexData from '../data/index.json';
-import Layout from '../layouts/Layout.astro';
-import type { ButtonColors } from '../types/button-colors.type';
+import Button from "@/components/Button.astro";
+import Container from "@/components/Container.astro";
+import Heading from "@/components/Heading.astro";
+import Hero from "@/components/Hero.astro";
+import PageTeaser from "@/components/PageTeaser.astro";
+import Section from "@/components/Section.astro";
+import indexData from "@/data/index.json";
+import Layout from "@/layouts/Layout.astro";
+import type { ButtonColors } from "@/types/button-colors.type";
 ---
 
 <Layout title="Home">
@@ -46,7 +46,7 @@ import type { ButtonColors } from '../types/button-colors.type';
                     alt="Prozesse Icon"
                   />
                 ) : (
-                  ''
+                  ""
                 )}
                 <span class="font-bold" set:html={benefit.headline} />
                 <span set:html={benefit.text} />
