@@ -1,37 +1,37 @@
 ---
-import Container from "@/components/Container.astro";
-import Heading from "@/components/Heading.astro";
-import Section from "@/components/Section.astro";
-import Layout from "@/layouts/Layout.astro";
-import { fetchPages } from "@/lib/directus";
-import { Page } from "@/lib/types";
+import Container from '@/components/Container.astro';
+import Heading from '@/components/Heading.astro';
+import Section from '@/components/Section.astro';
+import Layout from '@/layouts/Layout.astro';
+import { fetchPages } from '@/lib/directus';
+import type { Page } from '@/lib/types';
 
 let page: Page | Record<string, any>;
 
+// Only for production purposes.
 export async function getStaticPaths() {
   const pages = await fetchPages();
-  return pages.map((page) => ({
+  return pages.map((p) => ({
     params: {
-      slug: page.slug,
+      slug: p.slug,
     },
     props: {
-      ...page,
+      ...p,
     },
   }));
 }
 
-if (import.meta.env.NODE_ENV !== "production") {
-  // Im Entwicklungsmodus: Hole Seiten live von der API
+// Only for preview/development purposes.
+if (import.meta.env.NODE_ENV !== 'production') {
   const pages = await fetchPages();
   const { slug } = Astro.params;
 
-  // Finde die richtige Seite basierend auf dem slug
-  page = pages.find((page) => page.slug === slug) as Page;
-
-  // Wenn die Seite nicht gefunden wird, leite zur 404-Seite um
-  if (!page) return Astro.redirect("/404");
+  page = pages.find((p) => p.slug === slug) as Page;
+  if (!page) {
+    return Astro.redirect('/404');
+  }
 } else {
-  // Im Produktionsmodus: Nutze die von getStaticPaths bereitgestellten Props
+  // From getStaticPaths above.
   page = Astro.props;
 }
 ---
