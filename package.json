@@ -4,14 +4,13 @@
   "version": "0.0.1",
   "private": true,
   "engines": {
-    "node": "^18",
-    "npm": "^9"
+    "node": "18.17.1",
+    "npm": "9.8.1"
   },
   "scripts": {
     "dev": "astro dev",
     "start": "astro preview",
     "build": "astro build",
-    "heroku-postbuild": "astro build",
     "preview": "astro preview",
     "astro": "astro",
     "typecheck": "tsc --noEmit",
