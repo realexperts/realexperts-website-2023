@@ -4,12 +4,12 @@
   "version": "0.0.1",
   "private": true,
   "engines": {
-    "node": ">=18.18.0",
+    "node": "18.18.0",
     "npm": ">=10.0.0"
   },
   "scripts": {
     "dev": "astro dev",
-    "start": "astro dev",
+    "start": "astro preview",
     "build": "astro build",
     "heroku-postbuild": "astro build",
     "preview": "astro preview",
