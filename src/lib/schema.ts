@@ -1,15 +1,22 @@
 import { z } from 'zod';
 
+const TextBlockSchema = z.object({
+  id: z.number(),
+  text: z.string(),
+});
+
 const BlockSchema = z.object({
   id: z.number(),
   sections_id: z.number(),
-  item: z.string(),
+  item: TextBlockSchema,
   collection: z.string(),
-  sort: z.number(),
+  sort: z.number().nullable(),
 });
 
 const SectionSchema = z.object({
-  blocks: z.array(BlockSchema),
+  sections_id: z.object({
+    blocks: z.array(BlockSchema),
+  }),
 });
 
 const TranslationSchema = z.object({
