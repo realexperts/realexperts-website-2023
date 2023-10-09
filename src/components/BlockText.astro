@@ -1,0 +1,11 @@
+---
+import {BlockText} from "@/lib/schema";
+
+export interface Props extends BlockText {}
+
+const {text} = Astro.props;
+---
+
+<div class="block">
+    <p>{text}</p>
+</div>

@@ -1,12 +1,10 @@
 ---
-import type { BackgroundColors } from '../types/backgrounds-colors.type';
+import {Section} from "../lib/schema";
+import { twMerge } from 'tailwind-merge';
 
-export interface Props {
-  background?: BackgroundColors;
-  standardPadding?: boolean;
-}
+export interface Props extends Section {}
 
-const { background = 'white', standardPadding = true } = Astro.props;
+const { background = 'white', standardPadding = true, section, section_styles, color} = Astro.props;
 
 const colorSchema = {
   blue: 'bg-re-blue text-white',
@@ -15,8 +13,26 @@ const colorSchema = {
   turquoise: 'bg-re-turquoise-light text-re-blue',
   white: 'bg-white text-re-blue',
 };
+
+
+const stylesMapping = {
+    "full_width": "w-full",
+};
+
+const sectionStyles = section_styles?.map(style => {
+    // Check if cornerMapping contains a mapping for the current corner
+    if (style in stylesMapping) {
+        return `${stylesMapping[style]}`;
+    }
+    // If no mapping is found, return the original string
+    return style;
+}).join(' ');
+
+const sectionWidth = !(!!section_styles?.includes('full_width')) && 'container mx-auto';
+
+const classes = twMerge(colorSchema[background], sectionWidth, sectionStyles, 'py-16');
 ---
 
-<div class:list={[colorSchema[background], { 'py-16': standardPadding }]}>
-  <slot />
+<div class={classes} style={`background-color: ${color}`}>
+    <slot />
 </div>
