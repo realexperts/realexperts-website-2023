@@ -1,14 +1,14 @@
 ---
-import Container from '@/components/Container.astro';
-import Heading from '@/components/Heading.astro';
-import Section from '@/components/Section.astro';
+
 import Block from '@/components/Block.astro';
 import BlockHero from "@/components/BlockHero.astro";
 import BlockText from '@/components/BlockText.astro';
+import Container from '@/components/Container.astro';
+import Heading from '@/components/Heading.astro';
+import Section from '@/components/Section.astro';
 import Layout from '@/layouts/Layout.astro';
 import { fetchPages } from '@/lib/directus';
 import type { Page } from '@/lib/types';
-import { Debug } from 'astro/components';
 
 let page: Page | Record<string, any>;
 

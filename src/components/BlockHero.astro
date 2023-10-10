@@ -1,9 +1,8 @@
 ---
-import { Debug } from 'astro/components';
-import { CTAExternal, CTAInternal } from "../lib/schema";
-import Button from './Button.astro';
 import { getImage } from 'astro:assets';
-import {BlockHero} from "../lib/schema";
+
+import type { BlockHero, CTAExternal, CTAInternal } from "../lib/schema";
+import Button from './Button.astro';
 
 export interface Props extends BlockHero {}
 
@@ -15,8 +14,11 @@ const {
     ctas
 } = Astro.props;
 
-const src = import.meta.env.DIRECTUS_URL + '/assets/' + image.id
-const optimizedBackground = await getImage({src, format: 'jpg', width: image.width, height: image.height, quality: 80})
+let optimizedBackground
+if (image) {
+    const src = `${import.meta.env.DIRECTUS_URL  }/assets/${  image.id}`
+    optimizedBackground = await getImage({src, format: 'jpg', width: image.width, height: image.height, quality: 80})
+}
 
 const isInternalLink = (b: unknown): b is CTAInternal => {
     return (b as CTAInternal).collection === 'element_cta_internal'
@@ -33,7 +35,7 @@ const stylesMapping = {
     "rounded_br": "rounded-br-[70px]"
 };
 
-const imageStyles = image_styles.map(corner => {
+const imageStyles = image_styles?.map(corner => {
     // Check if cornerMapping contains a mapping for the current corner
     if (corner in stylesMapping) {
         return `${stylesMapping[corner]}`;
@@ -44,8 +46,8 @@ const imageStyles = image_styles.map(corner => {
 
 ---
 <div
-    class={`bg-re-gray flex h-[488px] items-center bg-cover bg-center ${imageStyles}`}
-    style={`background-image: url(${optimizedBackground.src});`}
+    class={`flex h-[488px] items-center bg-re-gray bg-cover bg-center ${imageStyles}`}
+    style={`background-image: url(${optimizedBackground?.src});`}
 >
     <div class="mx-24 mb-2 w-[620px] text-white">
         <div class="mb-4 font-serif text-5xl font-semibold" set:text={title} />
@@ -53,7 +55,7 @@ const imageStyles = image_styles.map(corner => {
         {ctas.map((cta) => {
             return (
                 <div class="mb-4">
-                    {isInternalLink(cta) && (
+                    {isInternalLink(cta) && cta.item.linked_page?.url && (
                         <Button color="red" size="lg" link={cta.item.linked_page.url} label={cta.item.title} />
                     )}
                     {isExternalLink(cta) && (

@@ -1,7 +1,6 @@
 import { RootSchema } from '@/lib/schema';
 
 export const fetchPages = async () => {
-
   const fields = [
     'url',
     'translations.show_title',
@@ -14,7 +13,7 @@ export const fetchPages = async () => {
     'translations.sections.sections_id.blocks.item.ctas.collection',
     'translations.sections.sections_id.blocks.item.ctas.item.*.*',
     'translations.sections.sections_id.blocks.item.image.*',
-  ]
+  ];
 
   const response = await fetch(
     `${import.meta.env.DIRECTUS_URL}/items/pages?access_token=${
