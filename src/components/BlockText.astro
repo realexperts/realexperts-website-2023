@@ -1,11 +1,17 @@
 ---
-import {BlockText} from "@/lib/schema";
+
+import { Markdown } from 'astro/components';
+
+import type {BlockText} from "@/lib/schema";
 
 export interface Props extends BlockText {}
 
-const {text} = Astro.props;
+
+const { text, design } = Astro.props;
+
+const classNames = design === 'style_1' ? 'block block-text' : 'block block-text block-text--style-2';
 ---
 
-<div class="block">
-    <p>{text}</p>
+<div class={classNames}>
+    <Markdown content={text} />
 </div>

@@ -1,6 +1,7 @@
 ---
-import {Section} from "../lib/schema";
 import { twMerge } from 'tailwind-merge';
+
+import type { Section } from "@/lib/schema";
 
 export interface Props extends Section {}
 
@@ -28,7 +29,7 @@ const sectionStyles = section_styles?.map(style => {
     return style;
 }).join(' ');
 
-const sectionWidth = !(!!section_styles?.includes('full_width')) && 'container mx-auto';
+const sectionWidth = !(section_styles?.includes('full_width')) && 'container mx-auto';
 
 const classes = twMerge(colorSchema[background], sectionWidth, sectionStyles, 'py-16');
 ---
