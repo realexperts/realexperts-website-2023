@@ -50,9 +50,9 @@ if (import.meta.env.NODE_ENV !== 'production') {
   }
   {
     page?.sections.map((section) => (
-      <Section {...section?.sections_id}>
+      <Section {...section.sections_id}>
         <Container>
-          {section?.sections_id.blocks.map((block) => (
+          {section.sections_id.blocks.map((block) => (
             <>
               <Block block={block}>
                 {block.collection === 'block_hero' && (
