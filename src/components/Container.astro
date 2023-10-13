@@ -12,7 +12,7 @@ const {
   centered = true,
   standardPadding = false,
   background = 'transparent',
-  rounded = false,
+  rounded = false
 } = Astro.props;
 
 const colorSchema = {
@@ -20,7 +20,7 @@ const colorSchema = {
   gray: 'bg-re-gray text-black',
   transparent: 'bg-transparent text-inherit text-current',
   turquoise: 'bg-re-turquoise-light text-re-blue',
-  white: 'bg-white text-black',
+  white: 'bg-white text-black'
 };
 ---
 
@@ -30,7 +30,7 @@ const colorSchema = {
     colorSchema[background],
     { 'text-center': centered },
     { 'px-24': standardPadding },
-    { 'pt-14 pb-12 rounded-bl-[70px]': rounded },
+    { 'rounded-bl-[70px] pb-12 pt-14': rounded }
   ]}
 >
   <slot />

@@ -13,15 +13,15 @@ const { backgroundImage, buttonLink, buttonText, headline, text } = Astro.props;
 ---
 
 <div
-  class="bg-re-gray flex h-[488px] items-center rounded-bl-[70px] bg-cover"
+  class='flex h-[488px] items-center rounded-bl-[70px] bg-re-gray bg-cover'
   style={`background-image: url(${backgroundImage});`}
 >
-  <div class="mx-24 mb-2 w-[620px] text-white">
-    <div class="mb-4 font-serif text-5xl font-semibold" set:text={headline} />
-    <div class="mb-16 text-lg font-medium" set:html={text} />
+  <div class='mx-24 mb-2 w-[620px] text-white'>
+    <div class='mb-4 font-serif text-5xl font-semibold' set:text={headline} />
+    <div class='mb-16 text-lg font-medium' set:html={text} />
     {
       buttonLink && buttonText ? (
-        <Button color="red" size="lg" link={buttonLink} label={buttonText} />
+        <Button color='red' size='lg' link={buttonLink} label={buttonText} />
       ) : (
         ''
       )

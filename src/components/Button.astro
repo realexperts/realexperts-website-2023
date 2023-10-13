@@ -14,12 +14,12 @@ const { color = 'turquoise', label, link, size = 'normal' } = Astro.props;
 const colorSchema = {
   red: 'bg-re-red text-white',
   white: 'bg-white text-re-blue',
-  turquoise: 'bg-re-turquoise text-white',
+  turquoise: 'bg-re-turquoise text-white'
 };
 
 const sizeSchema = {
   normal: 'px-5 py-2 text-normal',
-  lg: 'px-6 py-3 text-lg',
+  lg: 'px-6 py-3 text-lg'
 };
 ---
 
@@ -28,7 +28,7 @@ const sizeSchema = {
   class:list={[
     colorSchema[color],
     sizeSchema[size],
-    'inline-block whitespace-nowrap font-bold tracking-wide uppercase',
+    'inline-block whitespace-nowrap font-bold uppercase tracking-wide'
   ]}
   set:text={label}
 />

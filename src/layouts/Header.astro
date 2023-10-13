@@ -6,23 +6,23 @@ import genralData from '../data/general.json';
 ---
 
 <header>
-  <Section background="gray" standardPadding={false}>
+  <Section background='gray' standardPadding={false}>
     <Container centered={false}>
       <div
-        class="text-re-blue hidden h-[38px] items-center justify-between text-sm lg:flex"
+        class='hidden h-[38px] items-center justify-between text-sm text-re-blue lg:flex'
       >
         <div>
           <a href={genralData.topInfo.link}>{genralData.topInfo.text}</a>
         </div>
-        <div class="flex font-bold">
-          <div class="mr-12">
-            <i class="fa-solid fa-phone-flip mr-2"></i>
+        <div class='flex font-bold'>
+          <div class='mr-12'>
+            <i class='fa-solid fa-phone-flip mr-2'></i>
             <a href={`tel:${genralData.company.phone}`}
               >{genralData.company.phone}</a
             >
           </div>
           <div>
-            <i class="fa-solid fa-location-dot mr-2"></i>{
+            <i class='fa-solid fa-location-dot mr-2'></i>{
               genralData.company.addressLine
             }
           </div>
@@ -32,12 +32,12 @@ import genralData from '../data/general.json';
   </Section>
   <Section standardPadding={false}>
     <Container centered={false}>
-      <div class="relative my-[30px] flex items-end justify-between">
-        <a href="/">
+      <div class='relative my-[30px] flex items-end justify-between'>
+        <a href='/'>
           <img
-            src="/images/logo/logo-dark-re.png"
-            class="h-16 lg:h-[89px]"
-            alt="Logo Real Experts Network GmbH"
+            src='/images/logo/logo-dark-re.png'
+            class='h-16 lg:h-[89px]'
+            alt='Logo Real Experts Network GmbH'
           />
         </a>
         <MainNavigation />

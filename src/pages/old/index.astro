@@ -1,16 +1,16 @@
 ---
-import Button from "@/components/Button.astro";
-import Container from "@/components/Container.astro";
-import Heading from "@/components/Heading.astro";
-import Hero from "@/components/Hero.astro";
-import PageTeaser from "@/components/PageTeaser.astro";
-import Section from "@/components/Section.astro";
-import indexData from "@/data/index.json";
-import Layout from "@/layouts/Layout.astro";
-import type { ButtonColors } from "@/types/button-colors.type";
+import Button from '@/components/Button.astro';
+import Container from '@/components/Container.astro';
+import Heading from '@/components/Heading.astro';
+import Hero from '@/components/Hero.astro';
+import PageTeaser from '@/components/PageTeaser.astro';
+import Section from '@/components/Section.astro';
+import indexData from '@/data/index.json';
+import Layout from '@/layouts/Layout.astro';
+import type { ButtonColors } from '@/types/button-colors.type';
 ---
 
-<Layout title="Home">
+<Layout title='Home'>
   <Section standardPadding={false}>
     <Container centered={false}>
       <Hero
@@ -27,14 +27,14 @@ import type { ButtonColors } from "@/types/button-colors.type";
       <PageTeaser>{indexData.pageTeaser}</PageTeaser>
     </Container>
   </Section>
-  <Section background="blue">
+  <Section background='blue'>
     <Container standardPadding={true}>
       <Heading>{indexData.sectionProzesse.headline}</Heading>
       <p
-        class="text-xl text-re-turquoise-bright"
+        class='text-xl text-re-turquoise-bright'
         set:html={indexData.sectionProzesse.teaser}
       />
-      <div class="my-20 grid grid-cols-3 gap-20">
+      <div class='my-20 grid grid-cols-3 gap-20'>
         {
           indexData.sectionProzesse.benefits.map((benefit) => {
             return (
@@ -42,13 +42,13 @@ import type { ButtonColors } from "@/types/button-colors.type";
                 {benefit.icon ? (
                   <img
                     src={benefit.icon}
-                    class="mx-auto mb-10 block"
-                    alt="Prozesse Icon"
+                    class='mx-auto mb-10 block'
+                    alt='Prozesse Icon'
                   />
                 ) : (
-                  ""
+                  ''
                 )}
-                <span class="font-bold" set:html={benefit.headline} />
+                <span class='font-bold' set:html={benefit.headline} />
                 <span set:html={benefit.text} />
               </div>
             );
@@ -56,7 +56,7 @@ import type { ButtonColors } from "@/types/button-colors.type";
         }
       </div>
       <Button
-        size="lg"
+        size='lg'
         color={indexData.sectionProzesse.button.color as ButtonColors}
         label={indexData.sectionProzesse.button.label}
         link={indexData.sectionProzesse.button.link}
@@ -64,7 +64,7 @@ import type { ButtonColors } from "@/types/button-colors.type";
     </Container>
   </Section>
   <Section>
-    <Container background="turquoise" standardPadding={true} rounded={true}>
+    <Container background='turquoise' standardPadding={true} rounded={true}>
       <Heading>Starten Sie Ihre Transformation</Heading>
       <p>
         Auf unseren vier Stages durchlaufen Sie die digitalen Technologien am
@@ -72,10 +72,10 @@ import type { ButtonColors } from "@/types/button-colors.type";
         innovative Organisation.
       </p>
       <Button
-        size="lg"
-        color="red"
-        label="Jetzt Expertengepräch vereinbaren"
-        link="/"
+        size='lg'
+        color='red'
+        label='Jetzt Expertengepräch vereinbaren'
+        link='/'
       />
     </Container>
   </Section>
@@ -83,11 +83,11 @@ import type { ButtonColors } from "@/types/button-colors.type";
     <Container standardPadding={true}>
       <Heading>Gemeinsam auf Ihrem Weg nach oben</Heading>
       <p>Gemeinsam auf Ihrem Weg nach oben</p>
-      <Button size="lg" color="red" label="Jetzt Rockstar werden" link="/" />
-      <div class="mb-24"></div>
+      <Button size='lg' color='red' label='Jetzt Rockstar werden' link='/' />
+      <div class='mb-24'></div>
     </Container>
   </Section>
-  <Section background="turquoise">
+  <Section background='turquoise'>
     <Container>
       <Heading>Digitalisierung von Geschäftsprozessen</Heading>
       <p>
@@ -102,7 +102,7 @@ import type { ButtonColors } from "@/types/button-colors.type";
         Fehler bei der Auswahl einer passenden Software, gibt weitere praktische
         Hinweise.
       </p>
-      <Button color="turquoise" label="Whitepaper Herunterladen" link="/" />
+      <Button color='turquoise' label='Whitepaper Herunterladen' link='/' />
     </Container>
   </Section>
 </Layout>

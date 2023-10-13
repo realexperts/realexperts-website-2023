@@ -11,6 +11,31 @@
     ]
   },
   "overrides": [
+  {
+      "files": ["*.astro"],
+      "rules": {
+        "indent": "off"
+      }
+    },
+    {
+      "files": ["*.astro"],
+      "plugins": ["astro"],
+      "env": {
+        "astro/astro": true,
+        "node": true,
+        "es2022": true
+      },
+      "parser": "astro-eslint-parser",
+      "parserOptions": {
+        "parser": "@typescript-eslint/parser",
+        "extraFileExtensions": [".astro"],
+        "sourceType": "module"
+      },
+      "rules": {
+        "astro/no-conflict-set-directives": "error",
+        "astro/no-unused-define-vars-in-style": "error"
+      }
+    },
     // Configuration for mjs files
     {
       "files": ["**/*.mjs"],

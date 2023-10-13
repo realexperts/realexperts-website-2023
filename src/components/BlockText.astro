@@ -1,17 +1,34 @@
 ---
-
-import { Markdown } from 'astro/components';
-
-import type {BlockText} from "@/lib/schema";
+import type { BlockText } from '@/lib/schema';
+import { marked } from 'marked';
 
 export interface Props extends BlockText {}
 
-
 const { text, design } = Astro.props;
 
-const classNames = design === 'style_1' ? 'block block-text' : 'block block-text block-text--style-2';
+// Create a custom renderer
+const renderer = new marked.Renderer();
+
+// Override function for rendering 'h1' elements
+renderer.heading = function (text, level) {
+  return level === 1
+    ? `<h1 class="bold">${text}</h1>\n`
+    : `<h${level}>${text}</h${level}>\n`;
+};
+
+// Use the custom renderer in the marked options
+marked.setOptions({
+  renderer: renderer
+});
+
+const classNames =
+  design === 'style_1'
+    ? 'block block-text'
+    : 'block block-text block-text--style-2';
+
+const renderedMarkdown = marked(text);
 ---
 
 <div class={classNames}>
-    <Markdown content={text} />
+  {renderedMarkdown}
 </div>

@@ -4,15 +4,15 @@ import navigationData from '../data/navigation.json';
 const { pathname } = new URL(Astro.request.url);
 ---
 
-<nav id="navbar" class="mb-1">
-  <div id="hamburger">
+<nav id='navbar' class='mb-1'>
+  <div id='hamburger'>
     <div></div>
     <div></div>
     <div></div>
   </div>
   <ul
-    id="main-menu"
-    class="absolute top-0 left-0 mt-[89px] w-full items-center bg-white font-medium lg:relative lg:mt-0 lg:flex"
+    id='main-menu'
+    class='absolute left-0 top-0 mt-[89px] w-full items-center bg-white font-medium lg:relative lg:mt-0 lg:flex'
   >
     {
       navigationData.map((menuItem, index) => {
@@ -21,7 +21,7 @@ const { pathname } = new URL(Astro.request.url);
             class:list={[
               'ml-11 text-right hover:text-re-turquoise',
               { 'text-re-turquoise': pathname === menuItem.link },
-              { 'text-re-blue': pathname !== menuItem.link },
+              { 'text-re-blue': pathname !== menuItem.link }
             ]}
           >
             <a href={menuItem.link} set:text={menuItem.text} />
@@ -29,40 +29,40 @@ const { pathname } = new URL(Astro.request.url);
         );
       })
     }
-    <li class="ml-9 text-right">
-      <i class="fa-solid fa-magnifying-glass text-2xl"></i>
+    <li class='ml-9 text-right'>
+      <i class='fa-solid fa-magnifying-glass text-2xl'></i>
     </li>
-    <li class="ml-6 text-right">
-      <i class="fa-regular fa-envelope text-2xl"></i>
+    <li class='ml-6 text-right'>
+      <i class='fa-regular fa-envelope text-2xl'></i>
     </li>
   </ul>
 </nav>
 
 <style>
   #hamburger {
-    @apply flex lg:hidden flex-col justify-between w-12 h-8;
+    @apply flex h-8 w-12 flex-col justify-between lg:hidden;
   }
   #hamburger div {
-    @apply bg-black h-[3px] transition-all duration-200 ease-in-out;
+    @apply h-[3px] bg-black transition-all duration-200 ease-in-out;
   }
   #navbar.main-menu-open #hamburger div:nth-child(1) {
-    @apply rotate-45 origin-center translate-y-[0.95rem] bg-transparent;
+    @apply origin-center translate-y-[0.95rem] rotate-45 bg-transparent;
   }
   #navbar.main-menu-open #hamburger div:nth-child(2) {
-    @apply rotate-45 origin-center;
+    @apply origin-center rotate-45;
   }
   #navbar.main-menu-open #hamburger div:nth-child(3) {
-    @apply -rotate-45 origin-center -translate-y-[0.95rem];
+    @apply origin-center -translate-y-[0.95rem] -rotate-45;
   }
 
   #main-menu {
-    @apply transition-all duration-200 ease-in-out opacity-0 lg:opacity-100;
+    @apply opacity-0 transition-all duration-200 ease-in-out lg:opacity-100;
   }
   #main-menu li {
-    @apply transition-all duration-200 ease-in-out text-[0px] lg:text-base;
+    @apply text-[0px] transition-all duration-200 ease-in-out lg:text-base;
   }
   #navbar.main-menu-open #main-menu {
-    @apply block pt-0 opacity-100 max-h-fit;
+    @apply block max-h-fit pt-0 opacity-100;
   }
   #navbar.main-menu-open #main-menu li {
     @apply my-4 text-base;

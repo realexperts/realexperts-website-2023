@@ -1,7 +1,6 @@
 ---
-
 import Block from '@/components/Block.astro';
-import BlockHero from "@/components/BlockHero.astro";
+import BlockHero from '@/components/BlockHero.astro';
 import BlockText from '@/components/BlockText.astro';
 import Container from '@/components/Container.astro';
 import Heading from '@/components/Heading.astro';
@@ -17,11 +16,11 @@ export async function getStaticPaths() {
   const pages = await fetchPages();
   return pages.map((p) => ({
     params: {
-      slug: p.slug,
+      slug: p.slug
     },
     props: {
-      ...p,
-    },
+      ...p
+    }
   }));
 }
 
@@ -30,34 +29,45 @@ if (import.meta.env.NODE_ENV !== 'production') {
   const pages = await fetchPages();
   const { slug } = Astro.params;
 
-  page = pages.find((p) => p.slug === `/${slug}` || slug === undefined && p.slug === undefined) as Page;
+  page = pages.find(
+    (p) => p.slug === `/${slug}` || (slug === undefined && p.slug === undefined)
+  ) as Page;
   if (!page) {
-    return Astro.redirect('/404');
+    Astro.redirect('/404');
   }
-} else {
-  // From getStaticPaths above.
-  page = Astro.props;
 }
 ---
 
-<Layout title={page.title}>
-  {page.showTitle && <Section>
-    <Container>
-      <Heading>{page.title}</Heading>
-    </Container>
-  </Section>}
-  {page.sections.map((section) => (
-    <Section {...section.sections_id}>
-      <Container>
-        {section.sections_id.blocks.map((block) => (
-            <Block block={block}>
-              {block.collection === "block_hero" && <BlockHero {...block.item} />}
-            </Block>
-            <Block block={block}>
-              {block.collection === "block_text" && <BlockText {...block.item} />}
-            </Block>
-        ))}
-      </Container>
-    </Section>
-  ))}
+<Layout title={page?.title}>
+  {
+    page?.showTitle && (
+      <Section>
+        <Container>
+          <Heading>{page?.title}</Heading>
+        </Container>
+      </Section>
+    )
+  }
+  {
+    page?.sections.map((section) => (
+      <Section {...section?.sections_id}>
+        <Container>
+          {section?.sections_id.blocks.map((block) => (
+            <>
+              <Block block={block}>
+                {block.collection === 'block_hero' && (
+                  <BlockHero {...block.item} />
+                )}
+              </Block>
+              <Block block={block}>
+                {block.collection === 'block_text' && (
+                  <BlockText {...block.item} />
+                )}
+              </Block>
+            </>
+          ))}
+        </Container>
+      </Section>
+    ))
+  }
 </Layout>

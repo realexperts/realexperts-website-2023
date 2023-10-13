@@ -11,23 +11,23 @@ const { title } = Astro.props;
 const pageTitle = title ? `| ${title}` : '';
 ---
 
-<!DOCTYPE html>
-<html lang="de">
+<!doctype html>
+<html lang='de'>
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.png" />
+    <meta charset='utf8' />
+    <meta name='viewport' content='width=device-width' />
+    <link rel='icon' type='image/svg+xml' href='/favicon.png' />
     <link
-      rel="stylesheet"
-      type="text/css"
-      href="/fonts/fontawesome/css/all.min.css"
+      rel='stylesheet'
+      type='text/css'
+      href='/fonts/fontawesome/css/all.min.css'
     />
-    <meta name="generator" content={Astro.generator} />
+    <meta name='generator' content={Astro.generator} />
     <title>
       Real Experts {pageTitle}
     </title>
   </head>
-  <body class="caret-transparent">
+  <body class='caret-transparent'>
     <Header />
     <main>
       <slot />
@@ -43,7 +43,8 @@ const pageTitle = title ? `| ${title}` : '';
     font-family: 'Changa';
     font-style: normal;
     font-weight: 400;
-    src: url('../fonts/changa/changa-v20-latin-regular.woff2') format('woff2'),
+    src:
+      url('../fonts/changa/changa-v20-latin-regular.woff2') format('woff2'),
       /* Chrome 36+, Opera 23+, Firefox 39+ */
         url('../fonts/changa/changa-v20-latin-regular.woff') format('woff'); /* Chrome 5+, Firefox 3.6+, IE 9+, Safari 5.1+ */
   }
@@ -53,7 +54,8 @@ const pageTitle = title ? `| ${title}` : '';
     font-family: 'Changa';
     font-style: normal;
     font-weight: 600;
-    src: url('../fonts/changa/changa-v20-latin-600.woff2') format('woff2'),
+    src:
+      url('../fonts/changa/changa-v20-latin-600.woff2') format('woff2'),
       /* Chrome 36+, Opera 23+, Firefox 39+ */
         url('../fonts/changa/changa-v20-latin-600.woff') format('woff'); /* Chrome 5+, Firefox 3.6+, IE 9+, Safari 5.1+ */
   }
@@ -63,7 +65,8 @@ const pageTitle = title ? `| ${title}` : '';
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 400;
-    src: url('../fonts/poppins/poppins-v20-latin-regular.woff2') format('woff2'),
+    src:
+      url('../fonts/poppins/poppins-v20-latin-regular.woff2') format('woff2'),
       /* Chrome 36+, Opera 23+, Firefox 39+ */
         url('../fonts/poppins/poppins-v20-latin-regular.woff') format('woff'); /* Chrome 5+, Firefox 3.6+, IE 9+, Safari 5.1+ */
   }
@@ -73,7 +76,8 @@ const pageTitle = title ? `| ${title}` : '';
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 500;
-    src: url('../fonts/poppins/poppins-v20-latin-500.woff2') format('woff2'),
+    src:
+      url('../fonts/poppins/poppins-v20-latin-500.woff2') format('woff2'),
       /* Chrome 36+, Opera 23+, Firefox 39+ */
         url('../fonts/poppins/poppins-v20-latin-500.woff') format('woff'); /* Chrome 5+, Firefox 3.6+, IE 9+, Safari 5.1+ */
   }
@@ -83,7 +87,8 @@ const pageTitle = title ? `| ${title}` : '';
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 700;
-    src: url('../fonts/poppins/poppins-v20-latin-700.woff2') format('woff2'),
+    src:
+      url('../fonts/poppins/poppins-v20-latin-700.woff2') format('woff2'),
       /* Chrome 36+, Opera 23+, Firefox 39+ */
         url('../fonts/poppins/poppins-v20-latin-700.woff') format('woff'); /* Chrome 5+, Firefox 3.6+, IE 9+, Safari 5.1+ */
   }
