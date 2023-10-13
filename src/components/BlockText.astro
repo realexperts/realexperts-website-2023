@@ -17,9 +17,7 @@ renderer.heading = function (text, level) {
 };
 
 // Use the custom renderer in the marked options
-marked.setOptions({
-  renderer: renderer
-});
+marked.setOptions({ renderer });
 
 const classNames =
   design === 'style_1'
@@ -29,6 +27,7 @@ const classNames =
 const renderedMarkdown = marked(text);
 ---
 
-<div class={classNames}>
-  {renderedMarkdown}
-</div>
+<div
+  class:list={['prose max-w-none', classNames]}
+  set:html={renderedMarkdown}
+/>

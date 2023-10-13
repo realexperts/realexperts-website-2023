@@ -2,7 +2,12 @@
 import type { Section } from '@/lib/schema';
 import { twMerge } from 'tailwind-merge';
 
-export interface Props extends Section {}
+export interface Props extends Section {
+  background?: 'blue' | 'gray' | 'transparent' | 'turquoise' | 'white';
+  standardPadding?: boolean;
+  section?: boolean;
+  color?: string;
+}
 
 const {
   background = 'white',

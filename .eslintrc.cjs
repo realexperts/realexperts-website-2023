@@ -1,6 +1,7 @@
 /** @type {import("eslint").Linter.Config} */
 module.exports = {
   plugins: [],
+
   extends: [
     'plugin:jsx-a11y/recommended',
     'plugin:promise/recommended',
@@ -8,6 +9,7 @@ module.exports = {
     'plugin:unicorn/recommended',
     'plugin:prettier/recommended'
   ],
+
   overrides: [
     {
       files: ['*.astro'],
@@ -32,7 +34,7 @@ module.exports = {
       rules: {
         'astro/no-conflict-set-directives': 'error',
         'astro/no-unused-define-vars-in-style': 'error',
-        "jsx-a11y/anchor-has-content": "off",
+        'jsx-a11y/anchor-has-content': 'off'
       }
     },
     {
@@ -68,13 +70,13 @@ module.exports = {
       }
     }
   ],
+
   rules: {
     // base
     indent: ['error', 2, { SwitchCase: 1 }],
     'linebreak-style': ['error', 'windows'],
     quotes: ['error', 'single'],
     semi: ['error', 'always'],
-    // end
 
     // prettier
     'arrow-body-style': 'off',
@@ -95,11 +97,9 @@ module.exports = {
         endOfLine: 'crlf'
       }
     ],
-    // end prettier
 
     // unicorn
     'unicorn/filename-case': 'off',
     'unicorn/prevent-abbreviations': 'off'
-    // end unicorn
   }
 };
