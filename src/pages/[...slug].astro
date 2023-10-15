@@ -13,13 +13,14 @@ import {
   fetchPages
 } from '@/lib/directus';
 import type { Page } from '@/lib/types';
+import { Debug } from 'astro:components';
 
 let page: Page | Record<string, any>;
 
 // Only for production purposes.
 export async function getStaticPaths() {
   const pages = await fetchPages();
-  return pages.map((page) => ({
+  return pages?.map((page) => ({
     params: {
       slug: page.slug
     },
@@ -30,7 +31,9 @@ export async function getStaticPaths() {
 }
 
 // Only for preview/development purposes.
-if (import.meta.env.NODE_ENV !== 'production') {
+if (import.meta.env.NODE_ENV === 'production') {
+  page = Astro.props;
+} else {
   const pages = await fetchPages();
   const { slug } = Astro.params;
 
@@ -62,7 +65,7 @@ const metaInformation = await fetchMetaInformation(page?.id);
     )
   }
   {
-    page?.sections.map((section) => (
+    page?.sections?.map((section) => (
       <Section {...section.sections_id}>
         <Container>
           {section.sections_id.blocks.map((block) => (
