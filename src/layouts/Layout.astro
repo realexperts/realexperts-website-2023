@@ -1,5 +1,9 @@
 ---
-import type { fetchMainMenu, fetchMetaInformation } from '@/lib/directus';
+import type {
+  fetchMainMenu,
+  fetchMetaInformation,
+  fetchSettings
+} from '@/lib/directus';
 import { getImage } from 'astro:assets';
 import Footer from './Footer.astro';
 import Header from './Header.astro';
@@ -8,9 +12,10 @@ export interface Props {
   title: string;
   mainMenu: Awaited<ReturnType<typeof fetchMainMenu>>;
   metaInformation: Awaited<ReturnType<typeof fetchMetaInformation>>;
+  settings: Awaited<ReturnType<typeof fetchSettings>>;
 }
 
-const { title, mainMenu, metaInformation } = Astro.props;
+const { title, mainMenu, metaInformation, settings } = Astro.props;
 
 const pageTitle = title ? `| ${title}` : '';
 
@@ -31,6 +36,20 @@ if (metaInformation?.data?.meta_image) {
     quality: 80
   });
 }
+
+// Create favicon from source
+let favicon;
+if (settings.data?.favicon) {
+  const src = `${import.meta.env.DIRECTUS_URL}/assets/${
+    settings.data?.favicon.id
+  }`;
+  favicon = await getImage({
+    src,
+    format: 'png',
+    width: settings?.data?.favicon.width,
+    height: settings?.data?.favicon.height
+  });
+}
 ---
 
 <!doctype html>
@@ -38,7 +57,7 @@ if (metaInformation?.data?.meta_image) {
   <head>
     <meta charset='utf8' />
     <meta name='viewport' content='width=device-width' />
-    <link rel='icon' type='image/svg+xml' href='/favicon.png' />
+    {favicon && <link rel='icon' type='image/svg+xml' href={favicon.src} />}
     <link
       rel='stylesheet'
       type='text/css'

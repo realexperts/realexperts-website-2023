@@ -2,6 +2,18 @@ import { MainMenuSchema } from '@/lib/directus-menus';
 import { MetaInformationSchema } from '@/lib/directus-meta-information';
 import { RootSchema } from '@/lib/schema';
 
+export const fetchSettings = async () => {
+  const fields = ['favicon.width', 'favicon.height', 'favicon.id'];
+
+  const response = await fetch(
+    `${import.meta.env.DIRECTUS_URL}/items/settings?access_token=${
+      import.meta.env.DIRECTUS_TOKEN
+    }&fields[]=${fields.join(',')}`
+  );
+
+  return await response.json();
+};
+
 export const fetchMetaInformation = async (id: number) => {
   const fields = ['meta_title', 'meta_description', 'meta_image.*'];
 
