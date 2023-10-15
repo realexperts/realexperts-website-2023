@@ -39,9 +39,9 @@ if (metaInformation?.data?.meta_image) {
 
 // Create favicon from source
 let favicon;
-if (settings.data?.favicon) {
+if (settings?.data?.favicon) {
   const src = `${import.meta.env.DIRECTUS_URL}/assets/${
-    settings.data?.favicon.id
+    settings?.data?.favicon.id
   }`;
   favicon = await getImage({
     src,
