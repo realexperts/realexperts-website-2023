@@ -4,30 +4,78 @@ import { marked } from 'marked';
 
 export interface Props extends BlockText {}
 
-const { text, design } = Astro.props;
+const {
+  alignment = 'center',
+  max_width,
+  max_width_container,
+  text,
+  design
+} = Astro.props;
 
-// Create a custom renderer
+// Define constants for reused class names
+const BLUE_BOLD_CLASSES = 'text-re-blue font-bold';
+const NO_MAX_WIDTH = 'max-w-none';
+
+const designs = {
+  style_1: BLUE_BOLD_CLASSES,
+  style_2: { heading: 'text-white font-bold', text: 'text-white' },
+  style_3: 'text-re-turquoise font-bold',
+  style_4: BLUE_BOLD_CLASSES,
+  style_5: BLUE_BOLD_CLASSES
+};
+
+const alignments = {
+  left: 'text-left',
+  center: 'text-center mx-auto',
+  right: 'text-right'
+};
+
+// Add NO_MAX_WIDTH to Set
+const maxWidths = new Set([
+  NO_MAX_WIDTH,
+  'max-w-xs',
+  'max-w-sm',
+  'max-w-md',
+  'max-w-lg',
+  'max-w-xl',
+  'max-w-2xl'
+]);
+
+// Find class name by key or return default
+const getClassName = (map, key, defaultValue = '') => map[key] || defaultValue;
+
+// Find max width class name or return default
+const getMaxWidthClass = (width, defaultValue = NO_MAX_WIDTH) =>
+  maxWidths.has(width) ? width : defaultValue;
+
+// Configure custom renderer
 const renderer = new marked.Renderer();
 
+const designClasses =
+  typeof designs[design] === 'string'
+    ? { heading: designs[design], text: designs[design] }
+    : getClassName(designs, design);
+const headingClassNames = designClasses.heading || '';
+const textClassNames = designClasses.text || '';
+
 // Override function for rendering 'h1' elements
-renderer.heading = function (text, level) {
-  return level === 1
-    ? `<h1 class="bold">${text}</h1>\n`
-    : `<h${level}>${text}</h${level}>\n`;
-};
+renderer.heading = (content, level) =>
+  `<h${level} class="${headingClassNames}">${content}</h${level}>\n`;
 
 // Use the custom renderer in the marked options
 marked.setOptions({ renderer });
 
-const classNames =
-  design === 'style_1'
-    ? 'block block-text'
-    : 'block block-text block-text--style-2';
-
 const renderedMarkdown = marked(text);
 ---
 
-<div
-  class:list={['prose max-w-none', classNames]}
-  set:html={renderedMarkdown}
-/>
+<div class:list={['mx-auto', getMaxWidthClass(max_width_container)]}>
+  <div
+    class:list={[
+      'prose my-8 max-w-none prose-a:text-inherit prose-strong:text-inherit',
+      textClassNames,
+      getClassName(alignments, alignment),
+      getMaxWidthClass(max_width)
+    ]}
+    set:html={renderedMarkdown}
+  />
+</div>

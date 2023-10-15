@@ -1,0 +1,10 @@
+---
+import CTAs from '@/components/CTAs.astro';
+import type { BlockCTA } from '@/lib/schema';
+
+export interface Props extends BlockCTA {}
+
+const props = Astro.props;
+---
+
+<CTAs {...props} />

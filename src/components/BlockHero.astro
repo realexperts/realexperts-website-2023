@@ -1,7 +1,9 @@
 ---
 import { getImage } from 'astro:assets';
+import { Debug } from 'astro:components';
 import type { BlockHero, CTAExternal, CTAInternal } from '../lib/schema';
 import Button from './Button.astro';
+import CTAs from './CTAs.astro';
 
 export interface Props extends BlockHero {}
 
@@ -19,14 +21,6 @@ if (image) {
     quality: 80
   });
 }
-
-const isInternalLink = (b: unknown): b is CTAInternal => {
-  return (b as CTAInternal).collection === 'element_cta_internal';
-};
-
-const isExternalLink = (b: unknown): b is CTAExternal => {
-  return (b as CTAExternal).collection === 'element_cta_external';
-};
 
 const stylesMapping = {
   rounded_tl: 'rounded-tl-[70px]',
@@ -54,29 +48,6 @@ const imageStyles = image_styles
   <div class='mx-24 mb-2 w-[620px] text-white'>
     <div class='mb-4 font-serif text-5xl font-semibold' set:text={title} />
     <div class='mb-16 text-lg font-medium' set:html={subtitle} />
-    {
-      ctas.map((cta) => {
-        return (
-          <div class='mb-4'>
-            {isInternalLink(cta) && cta.item.linked_page?.url && (
-              <Button
-                color='red'
-                size='lg'
-                link={cta.item.linked_page.url}
-                label={cta.item.title}
-              />
-            )}
-            {isExternalLink(cta) && (
-              <Button
-                color='red'
-                size='lg'
-                link={cta.item.url}
-                label={cta.item.title}
-              />
-            )}
-          </div>
-        );
-      })
-    }
+    <CTAs ctas={ctas} />
   </div>
 </div>

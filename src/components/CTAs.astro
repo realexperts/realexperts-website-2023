@@ -1,0 +1,56 @@
+---
+import Button from '@/components/Button.astro';
+import type { CTAExternal, CTAInternal, CTAs } from '@/lib/schema';
+
+export interface Props {
+  alignment?: 'left' | 'center' | 'right';
+  ctas?: CTAs;
+}
+
+const { alignment = 'center', ctas } = Astro.props as Props;
+
+const isInternalLink = (b: unknown): b is CTAInternal => {
+  return (b as CTAInternal).collection === 'element_cta_internal';
+};
+
+const isExternalLink = (b: unknown): b is CTAExternal => {
+  return (b as CTAExternal).collection === 'element_cta_external';
+};
+
+const classNames =
+  alignment === 'center'
+    ? 'justify-center'
+    : alignment === 'right'
+    ? 'justify-end'
+    : 'justify-start';
+---
+
+<div class:list={['flex gap-6 py-4', classNames]}>
+  {
+    ctas?.map((cta) => {
+      return (
+        <div class='mb-4'>
+          {isInternalLink(cta) && cta.item.linked_page?.url && (
+            <Button
+              color='red'
+              size='lg'
+              link={
+                cta.item.linked_page.url +
+                `${cta.item.anchor?.slug ? '#' + cta.item.anchor.slug : ''}`
+              }
+              label={cta.item.title}
+            />
+          )}
+          {isExternalLink(cta) && (
+            <Button
+              color='red'
+              size='lg'
+              link={cta.item.url}
+              label={cta.item.title}
+            />
+          )}
+        </div>
+      );
+    })
+  }
+</div>

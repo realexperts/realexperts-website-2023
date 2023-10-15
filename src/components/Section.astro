@@ -14,7 +14,8 @@ const {
   standardPadding = true,
   section,
   section_styles,
-  color
+  color,
+  slug
 } = Astro.props;
 
 const colorSchema = {
@@ -47,10 +48,10 @@ const classes = twMerge(
   colorSchema[background],
   sectionWidth,
   sectionStyles,
-  'py-16'
+  standardPadding && 'py-16'
 );
 ---
 
-<div class={classes} style={`background-color: ${color}`}>
+<section class:list={[classes]} style={`background-color: ${color}`} id={slug}>
   <slot />
-</div>
+</section>

@@ -1,18 +1,40 @@
 ---
+import type { fetchMainMenu, fetchMetaInformation } from '@/lib/directus';
+import { getImage } from 'astro:assets';
 import Footer from './Footer.astro';
 import Header from './Header.astro';
 
 export interface Props {
   title: string;
+  mainMenu: Awaited<ReturnType<typeof fetchMainMenu>>;
+  metaInformation: Awaited<ReturnType<typeof fetchMetaInformation>>;
 }
 
-const { title } = Astro.props;
+const { title, mainMenu, metaInformation } = Astro.props;
 
 const pageTitle = title ? `| ${title}` : '';
+
+const metaTitle = metaInformation?.data?.meta_title || title;
+const metaDescription = metaInformation?.data?.meta_description;
+const metaImage = metaInformation?.data?.meta_image?.id;
+
+let optimizedBackground;
+if (metaInformation?.data?.meta_image) {
+  const src = `${import.meta.env.DIRECTUS_URL}/assets/${
+    metaInformation?.data?.meta_image.id
+  }`;
+  optimizedBackground = await getImage({
+    src,
+    format: 'jpg',
+    width: metaInformation?.data?.meta_image.width,
+    height: metaInformation?.data?.meta_image.height,
+    quality: 80
+  });
+}
 ---
 
 <!doctype html>
-<html lang='de'>
+<html lang='de' class='scroll-smooth focus:scroll-auto'>
   <head>
     <meta charset='utf8' />
     <meta name='viewport' content='width=device-width' />
@@ -22,13 +44,31 @@ const pageTitle = title ? `| ${title}` : '';
       type='text/css'
       href='/fonts/fontawesome/css/all.min.css'
     />
-    <meta name='generator' content={Astro.generator} />
     <title>
       Real Experts {pageTitle}
     </title>
+
+    {metaTitle && <meta name='title' content={metaTitle} />}
+    {metaDescription && <meta name='description' content={metaDescription} />}
+    {metaTitle && <meta property='og:title' content={metaTitle} />}
+    {
+      metaDescription && (
+        <meta property='og:description' content={metaDescription} />
+      )
+    }
+    <meta property='og:type' content='website' />
+    <meta property='og:url' content='https://realexperts.de/' />
+    {
+      metaImage && (
+        <meta
+          property='og:image'
+          content={`https://realexperts.de${optimizedBackground.src}`}
+        />
+      )
+    }
   </head>
   <body class='caret-transparent'>
-    <Header />
+    <Header mainMenu={mainMenu} />
     <main>
       <slot />
     </main>

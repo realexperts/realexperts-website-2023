@@ -1,8 +1,15 @@
 ---
+import type { fetchMainMenu } from '@/lib/directus';
 import Container from '../components/Container.astro';
 import MainNavigation from '../components/MainNavigation.astro';
 import Section from '../components/Section.astro';
 import genralData from '../data/general.json';
+
+export interface Props {
+  mainMenu: Awaited<ReturnType<typeof fetchMainMenu>>;
+}
+
+const { mainMenu } = Astro.props;
 ---
 
 <header>
@@ -44,7 +51,7 @@ import genralData from '../data/general.json';
             alt='Logo Real Experts Network GmbH'
           />
         </a>
-        <MainNavigation />
+        <MainNavigation mainMenu={mainMenu} />
       </div>
     </Container>
   </Section>

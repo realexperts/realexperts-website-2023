@@ -1,12 +1,17 @@
 ---
 import Block from '@/components/Block.astro';
+import BlockCTA from '@/components/BlockCTA.astro';
 import BlockHero from '@/components/BlockHero.astro';
 import BlockText from '@/components/BlockText.astro';
 import Container from '@/components/Container.astro';
 import Heading from '@/components/Heading.astro';
 import Section from '@/components/Section.astro';
 import Layout from '@/layouts/Layout.astro';
-import { fetchPages } from '@/lib/directus';
+import {
+  fetchMainMenu,
+  fetchMetaInformation,
+  fetchPages
+} from '@/lib/directus';
 import type { Page } from '@/lib/types';
 
 let page: Page | Record<string, any>;
@@ -14,12 +19,12 @@ let page: Page | Record<string, any>;
 // Only for production purposes.
 export async function getStaticPaths() {
   const pages = await fetchPages();
-  return pages.map((p) => ({
+  return pages.map((page) => ({
     params: {
-      slug: p.slug
+      slug: page.slug
     },
     props: {
-      ...p
+      ...page
     }
   }));
 }
@@ -36,9 +41,17 @@ if (import.meta.env.NODE_ENV !== 'production') {
     Astro.redirect('/404');
   }
 }
+
+// Fetch Main Menu
+const mainMenu = await fetchMainMenu();
+const metaInformation = await fetchMetaInformation(page?.id);
 ---
 
-<Layout title={page?.title}>
+<Layout
+  title={page?.title}
+  mainMenu={mainMenu}
+  metaInformation={metaInformation}
+>
   {
     page?.showTitle && (
       <Section>
@@ -54,16 +67,21 @@ if (import.meta.env.NODE_ENV !== 'production') {
         <Container>
           {section.sections_id.blocks.map((block) => (
             <>
-              <Block block={block}>
-                {block.collection === 'block_hero' && (
+              {block.collection === 'block_hero' && (
+                <Block block={block}>
                   <BlockHero {...block.item} />
-                )}
-              </Block>
-              <Block block={block}>
-                {block.collection === 'block_text' && (
+                </Block>
+              )}
+              {block.collection === 'block_text' && (
+                <Block block={block}>
                   <BlockText {...block.item} />
-                )}
-              </Block>
+                </Block>
+              )}
+              {block.collection === 'block_cta' && (
+                <Block block={block}>
+                  <BlockCTA {...block.item} />
+                </Block>
+              )}
             </>
           ))}
         </Container>

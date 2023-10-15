@@ -1,7 +1,29 @@
 ---
+import type { fetchMainMenu } from '@/lib/directus';
+import type { Node } from '@/lib/directus-menus';
+import { transitionEnabledOnThisPage } from 'astro:transitions/client';
 import navigationData from '../data/navigation.json';
 
 const { pathname } = new URL(Astro.request.url);
+
+export interface Props {
+  mainMenu: Awaited<ReturnType<typeof fetchMainMenu>>;
+}
+
+const { mainMenu } = Astro.props;
+
+function getHref(menuItem: Node) {
+  if (menuItem.type === 'intern' && menuItem.linked_page?.url) {
+    return (
+      menuItem.linked_page?.url +
+      `${menuItem.anchor?.slug ? '#' + menuItem.anchor?.slug : ''}`
+    );
+  }
+  if (menuItem.type === 'extern' && menuItem?.url) {
+    return menuItem?.url;
+  }
+  return '#';
+}
 ---
 
 <nav id='navbar' class='mb-1'>
@@ -15,19 +37,21 @@ const { pathname } = new URL(Astro.request.url);
     class='absolute left-0 top-0 mt-[89px] w-full items-center bg-white font-medium lg:relative lg:mt-0 lg:flex'
   >
     {
-      navigationData.map((menuItem, index) => {
-        return (
-          <li
-            class:list={[
-              'ml-11 text-right hover:text-re-turquoise',
-              { 'text-re-turquoise': pathname === menuItem.link },
-              { 'text-re-blue': pathname !== menuItem.link }
-            ]}
-          >
-            <a href={menuItem.link} set:text={menuItem.text} />
-          </li>
-        );
-      })
+      mainMenu?.data?.translations
+        .find((t) => t.languages_code == 'de-DE')
+        .nodes?.map((menuItem, index) => {
+          return (
+            <li
+              class:list={[
+                'ml-11 text-right hover:text-re-turquoise',
+                { 'text-re-turquoise': pathname === getHref(menuItem) },
+                { 'text-re-blue': pathname !== getHref(menuItem) }
+              ]}
+            >
+              <a href={getHref(menuItem)} set:text={menuItem?.title} />
+            </li>
+          );
+        })
     }
     <li class='ml-9 text-right'>
       <i class='fa-solid fa-magnifying-glass text-2xl'></i>
