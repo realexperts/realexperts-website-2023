@@ -3,7 +3,12 @@ import { MetaInformationSchema } from '@/lib/directus-meta-information';
 import { RootSchema } from '@/lib/schema';
 
 export const fetchSettings = async () => {
-  const fields = ['favicon.width', 'favicon.height', 'favicon.id'];
+  const fields = [
+    'favicon.width',
+    'favicon.height',
+    'favicon.id',
+    'robots_index'
+  ];
 
   const response = await fetch(
     `${import.meta.env.DIRECTUS_URL}/items/settings?access_token=${

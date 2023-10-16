@@ -13,6 +13,7 @@
     "src",
     "astro.config.mjs",
     ".eslintrc.cjs",
+    "robots-txt.config.mjs",
     "**/*.js",
     "**/*.ts",
     "**/*.cjs",
@@ -20,4 +21,4 @@
     "**/*.tsx",
     "./tailwind.config.ts"
   ]
-}
+} 
