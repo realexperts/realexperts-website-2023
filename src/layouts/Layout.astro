@@ -58,6 +58,7 @@ if (settings?.data?.favicon) {
     <meta charset='utf8' />
     <meta name='viewport' content='width=device-width' />
     {favicon && <link rel='icon' type='image/svg+xml' href={favicon.src} />}
+    {!settings?.data?.robots_index && <meta name='robots' content='noindex' />}
     <link
       rel='stylesheet'
       type='text/css'
