@@ -24,7 +24,7 @@ const output = process.env.NODE_ENV === 'production' ? 'static' : 'server';
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [tailwind(), robotsTxt(robotsConfig)],
+  integrations: [tailwind()],
   output,
   adapter
 });
