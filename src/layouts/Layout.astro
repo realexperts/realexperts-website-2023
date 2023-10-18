@@ -4,6 +4,7 @@ import type {
   fetchMetaInformation,
   fetchSettings
 } from '@/lib/directus';
+import type { GetImageResult } from 'astro';
 import { getImage } from 'astro:assets';
 import Footer from './Footer.astro';
 import Header from './Header.astro';
@@ -23,7 +24,7 @@ const metaTitle = metaInformation?.data?.meta_title || title;
 const metaDescription = metaInformation?.data?.meta_description;
 const metaImage = metaInformation?.data?.meta_image?.id;
 
-let optimizedBackground;
+let optimizedBackground: GetImageResult;
 if (metaInformation?.data?.meta_image) {
   const src = `${import.meta.env.DIRECTUS_URL}/assets/${
     metaInformation?.data?.meta_image.id
@@ -38,7 +39,7 @@ if (metaInformation?.data?.meta_image) {
 }
 
 // Create favicon from source
-let favicon;
+let favicon: GetImageResult;
 if (settings?.data?.favicon) {
   const src = `${import.meta.env.DIRECTUS_URL}/assets/${
     settings?.data?.favicon.id

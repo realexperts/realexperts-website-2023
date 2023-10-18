@@ -2,6 +2,7 @@
 import Block from '@/components/Block.astro';
 import BlockCTA from '@/components/BlockCTA.astro';
 import BlockHero from '@/components/BlockHero.astro';
+import BlockLogoSlider from '@/components/BlockLogoSlider.astro';
 import BlockText from '@/components/BlockText.astro';
 import Container from '@/components/Container.astro';
 import Heading from '@/components/Heading.astro';
@@ -86,6 +87,11 @@ const settings = await fetchSettings();
               {block.collection === 'block_cta' && (
                 <Block block={block}>
                   <BlockCTA {...block.item} />
+                </Block>
+              )}
+              {block.collection === 'block_logo_slider' && (
+                <Block block={block}>
+                  <BlockLogoSlider {...block.item} />
                 </Block>
               )}
             </>

@@ -1,4 +1,5 @@
 ---
+import type { GetImageResult } from 'astro';
 import { getImage } from 'astro:assets';
 import { Debug } from 'astro:components';
 import type { BlockHero, CTAExternal, CTAInternal } from '../lib/schema';
@@ -9,7 +10,7 @@ export interface Props extends BlockHero {}
 
 const { image, image_styles, title, subtitle, ctas } = Astro.props;
 
-let optimizedBackground;
+let optimizedBackground: GetImageResult;
 
 if (image) {
   const src = `${import.meta.env.DIRECTUS_URL}/assets/${image.id}`;

@@ -79,13 +79,41 @@ const BlockCTASchema = z.object({
 });
 export type BlockCTA = z.infer<typeof BlockCTASchema>;
 
+const BlockLogoSliderSchema = z.object({
+  id: z.number(),
+  slides: z.array(
+    z.object({
+      id: z.number(),
+      title: z.string(),
+      image: z
+        .object({
+          id: z.string(),
+          width: z.number(),
+          height: z.number()
+        })
+        .nullable()
+    })
+  )
+});
+export type BlockLogoSlider = z.infer<typeof BlockLogoSliderSchema>;
+
 const BlockSchema = z.object({
   id: z.number(),
   sections_id: z.number(),
   item: z.lazy(() =>
-    z.union([BlockTextSchema, BlockHeroSchema, BlockCTASchema])
+    z.union([
+      BlockTextSchema,
+      BlockHeroSchema,
+      BlockCTASchema,
+      BlockLogoSliderSchema
+    ])
   ),
-  collection: z.enum(['block_text', 'block_hero', 'block_cta']),
+  collection: z.enum([
+    'block_text',
+    'block_hero',
+    'block_cta',
+    'block_logo_slider'
+  ]),
   sort: z.number().nullable()
 });
 

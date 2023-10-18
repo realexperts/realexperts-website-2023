@@ -1,0 +1,47 @@
+---
+import type { BlockLogoSlider } from '@/lib/schema';
+import { getImage } from 'astro:assets';
+
+export interface Props extends BlockLogoSlider {}
+
+const { slides } = Astro.props;
+
+// Loop all slides and get the image for each slide
+const getOptimizedSlide = async (slide: BlockLogoSlider['slides'][0]) => {
+  const src = `${import.meta.env.DIRECTUS_URL}/assets/${slide.image.id}`;
+  const optimizedImage = await getImage({
+    src,
+    format: 'jpg',
+    width: slide.image.width,
+    height: slide.image.height,
+    quality: 80
+  });
+  return {
+    ...slide,
+    image: optimizedImage
+  };
+};
+
+const getSlidesWithImages = async (slides: BlockLogoSlider['slides']) => {
+  return Promise.all(slides.map((slide) => getOptimizedSlide(slide)));
+};
+
+const slidesWithImages = await getSlidesWithImages(slides);
+---
+
+<div class='slider-container relative w-full overflow-hidden'>
+  <div class='slider-wrapper grid grid-flow-col grid-cols-3 gap-4'>
+    {
+      slidesWithImages.map((slide) => (
+        <img src={slide.image.src} alt={slide.title} class='slider-img' />
+      ))
+    }
+  </div>
+
+  <button class='prev absolute left-0 top-1/2 -translate-y-1/2 transform'
+    >Prev</button
+  >
+  <button class='next absolute right-0 top-1/2 -translate-y-1/2 transform'
+    >Next</button
+  >
+</div>

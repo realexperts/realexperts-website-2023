@@ -71,14 +71,14 @@ export const fetchPages = async () => {
     'translations.sections.sections_id.blocks.item.*',
     'translations.sections.sections_id.blocks.item.ctas.collection',
     'translations.sections.sections_id.blocks.item.ctas.item.*.*',
-    'translations.sections.sections_id.blocks.item.image.*'
+    'translations.sections.sections_id.blocks.item.image.*',
+    'translations.sections.sections_id.blocks.item.slides.*.*.*'
   ];
 
-  const response = await fetch(
-    `${import.meta.env.DIRECTUS_URL}/items/pages?access_token=${
-      import.meta.env.DIRECTUS_TOKEN
-    }&fields[]=${fields.join(',')}`
-  );
+  const url = `${import.meta.env.DIRECTUS_URL}/items/pages?access_token=${
+    import.meta.env.DIRECTUS_TOKEN
+  }&fields[]=${fields.join(',')}`;
+  const response = await fetch(url);
   const data = await response.json();
   const root = RootSchema.parse(data);
 
