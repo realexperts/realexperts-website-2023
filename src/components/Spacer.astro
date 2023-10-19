@@ -1,0 +1,9 @@
+---
+const { times = 1 } = Astro.props;
+---
+
+{
+  Array.from({ length: times }).map((_) => (
+    <div class='h-10 font-[0px]'>&nbsp;</div>
+  ))
+}
