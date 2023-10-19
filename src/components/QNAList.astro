@@ -1,0 +1,53 @@
+---
+const { questionHeading, answerHeading, qNaList = [] } = Astro.props;
+---
+
+{
+  questionHeading && answerHeading && (
+    <div class='flex text-2xl'>
+      <div class=' bold w-1/2 px-10 py-5 text-right font-bold uppercase'>
+        {questionHeading}
+      </div>
+      <div class='bold ml-20 w-1/2 px-10 py-5 font-bold uppercase'>
+        {answerHeading}
+      </div>
+    </div>
+  )
+}
+{
+  qNaList.map((item, index) => {
+    const isFirst = index === 0;
+    const isLast = index === qNaList.length - 1;
+    return (
+      <div class='relative flex items-center items-stretch text-xl'>
+        <div
+          class:list={[
+            'flex w-1/2 items-center justify-end px-10 py-5 text-right',
+            isFirst && 'pt-10',
+            isLast && 'pb-10'
+          ]}
+        >
+          {item.question}
+        </div>
+        <div
+          class:list={[
+            'absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2',
+            isFirst && 'pt-5',
+            isLast && 'pb-5'
+          ]}
+        >
+          <div class='h-8 w-8 -translate-x-2 rotate-45 border-r-[8px] border-t-[8px] border-re-turquoise' />
+        </div>
+        <div
+          class:list={[
+            'ml-20 flex w-1/2 items-center justify-start bg-re-turquoise-light px-10 py-5 font-bold',
+            isFirst && 'pt-10',
+            isLast && 'rounded-br-[70px] pb-10'
+          ]}
+        >
+          {item.answer}
+        </div>
+      </div>
+    );
+  })
+}
