@@ -22,6 +22,9 @@ if (isDraft) {
 }
 
 export default defineConfig({
+  image: {
+    remotePatterns: [{ protocol: 'https' }]
+  },
   integrations: [tailwind(), robotsTxt(robotsConfig)],
   output: isProduction ? 'static' : 'server',
   adapter
