@@ -1,0 +1,203 @@
+---
+import BlockCTA from '@/components/BlockCTA.astro';
+import BlockHero from '@/components/BlockHero.astro';
+import BlockText from '@/components/BlockText.astro';
+import Heading from '@/components/Heading.astro';
+import Hero from '@/components/Hero.astro';
+import QNAList from '@/components/QNAList.astro';
+import Section from '@/components/Section.astro';
+import Spacer from '@/components/Spacer.astro';
+import Layout from '@/layouts/Layout.astro';
+import {
+  fetchMainMenu,
+  fetchMetaInformation,
+  fetchPages,
+  fetchSettings
+} from '@/lib/directus';
+import type { Page } from '@/lib/types';
+
+let page: Page | Record<string, any>;
+
+// Only for production purposes.
+
+export async function getStaticPaths() {
+  const pages = await fetchPages();
+
+  return pages?.map((page) => ({
+    params: {
+      slug: page.slug
+    },
+
+    props: {
+      ...page
+    }
+  }));
+}
+
+// Only for preview/development purposes.
+
+if (import.meta.env.NODE_ENV === 'production') {
+  page = Astro.props;
+} else {
+  const pages = await fetchPages();
+
+  const { slug } = Astro.params;
+
+  page = pages.find(
+    (p) => p.slug === `/${slug}` || (slug === undefined && p.slug === undefined)
+  ) as Page;
+
+  if (!page) {
+    Astro.redirect('/404');
+  }
+}
+
+// Fetch Main Menu
+
+const mainMenu = await fetchMainMenu();
+
+const metaInformation = await fetchMetaInformation(page?.id);
+
+const settings = await fetchSettings();
+---
+
+<Layout
+  title={page?.title}
+  mainMenu={mainMenu}
+  metaInformation={metaInformation}
+  settings={settings}
+>
+  <Section>
+    <BlockHero
+      image={{
+        id: '3f135461-0cfe-4d29-9b7d-27741a9b0cdd',
+        width: 1250,
+        height: 508
+      }}
+      title='Packen wir’s an!'
+      subtitle='Digitalisierungsstrategien<br>für den Mittelstand'
+      ctas={[
+        {
+          collection: 'element_cta_internal',
+          item: {
+            title: 'Kontakt aufnehmen',
+            linked_page: {
+              url: '#'
+            }
+          }
+        }
+      ]}
+    />
+  </Section>
+  <Section>
+    <BlockText
+      alignment='center'
+      text='Alle reden von Digitalisierung – mit uns wird sie Wirklichkeit. Sie wollen die Zusammenarbeit in Ihrem Unternehmen verbessern? Sie wollen Prozesse effizienter und transparenter gestalten? Wir entwickeln Strategien und finden die passenden digitalen Lösungen. Real Experts steht für eine bodenständige Art der Beratung: pragmatisch, zielorientiert und ganz nah dran an den Bedürfnissen mittelständischer Unternehmen.'
+      design='style_1'
+    />
+  </Section>
+  <Section>
+    <Heading>Stockt es oder rockt es?</Heading>
+    <BlockText
+      alignment='center'
+      text='Hand aufs Herz: Wo stehst du bei der Digitalisierung von Prozessen in deinem Unternehmen? Diese Tabelle verrät es dir. Wir holen dich dort ab, wo du stehst – und entwickeln eine Anwendungslandschaft, die zu dir und deiner Branche passt.'
+      design='style_3'
+      max_width_container='max-w-2xl'
+    />
+    <QNAList
+      questionHeading='Hier stockt es'
+      answerHeading='Hier rockt es'
+      qNaList={[
+        {
+          question: 'Fehlende digitale Anwendungen',
+          answer: 'Voll digitalisierte Geschäftsprozesse'
+        },
+        {
+          question: 'Hohes IT-Budget bei geringer Effizienz',
+          answer: 'IT-Investitionen bringen spürbaren Mehrwert'
+        },
+        {
+          question: 'Wartungsprobleme bei Eigenentwicklungen',
+          answer: 'Zukunftssichere IT-Landschaft'
+        },
+        {
+          question: 'Fehlende Koordination der Digitalisierungsaktivitäten',
+          answer: 'verbindliche Roadmap und Priorisierung von Maßnahmen'
+        },
+        {
+          question: 'Intransparente Softwareauswahl',
+          answer: 'IT-Entscheidungen auf Basis objektiver Kriterien'
+        }
+      ]}
+    />
+    <Spacer times={2} />
+    <BlockCTA
+      ctas={[
+        {
+          collection: 'element_cta_internal',
+          item: {
+            title: 'JETZT KOSTENLOSES ERSTGESPRÄCH BUCHEN',
+            linked_page: {
+              url: '#'
+            }
+          }
+        }
+      ]}
+    />
+    <Spacer />
+  </Section>
+  <Section background='turquoise'>
+    <Heading>Ihre Digitalstrategie – Ihre Vorteile</Heading>
+    <BlockText
+      alignment='center'
+      text='Mit der konsequenten Umstellung auf digitale Technologien stellen Sie sicher, dass Ihr Unternehmen wirtschaftlich arbeitet – und auch in Zukunft als relevanter Akteur sowie attraktiver Arbeitgeber wahrgenommen wird.'
+      design='style_3'
+      max_width_container='max-w-4xl'
+    />
+    <BlockCTA
+      ctas={[
+        {
+          collection: 'element_cta_internal',
+          item: {
+            title: 'JETZT KONTAKT AUFNEHMEN',
+            linked_page: {
+              url: '#'
+            }
+          }
+        }
+      ]}
+    />
+  </Section>
+  <Section background='blue' standardPadding={false}>
+    <BlockHero
+      image={{
+        id: '3f135461-0cfe-4d29-9b7d-27741a9b0cdd',
+        width: 1250,
+        height: 508
+      }}
+    />
+    <Spacer />
+    <Heading>Branchen brauchen Spezialisten!</Heading>
+    <BlockText
+      alignment='center'
+      text='Ob digitaler Leistungsnachweis für die Baustelle, ein CRM für den Friseursalon oder Automatisierung in der Fertigung: Digitalisierung bedeutet bedeutet für jede Branche etwas anders. In unseren Kundeninterviews erfährst du mehr über aktuelle Projekte!'
+      design='style_3'
+      max_width_container='max-w-4xl'
+    />
+    <BlockCTA
+      ctas={[
+        {
+          collection: 'element_cta_internal',
+          item: {
+            title: 'JETZT KONTAKT AUFNEHMEN',
+            linked_page: {
+              url: '#'
+            }
+          }
+        }
+      ]}
+    />
+    <Spacer />
+  </Section>
+  <Section />
+</Layout>
