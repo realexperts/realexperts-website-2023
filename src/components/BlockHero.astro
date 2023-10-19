@@ -1,9 +1,7 @@
 ---
 import type { GetImageResult } from 'astro';
 import { getImage } from 'astro:assets';
-import { Debug } from 'astro:components';
-import type { BlockHero, CTAExternal, CTAInternal } from '../lib/schema';
-import Button from './Button.astro';
+import type { BlockHero } from '../lib/schema';
 import CTAs from './CTAs.astro';
 
 export interface Props extends BlockHero {}
