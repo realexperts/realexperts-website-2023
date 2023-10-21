@@ -1,9 +1,7 @@
 ---
 import type { GetImageResult } from 'astro';
 import { getImage } from 'astro:assets';
-import { Debug } from 'astro:components';
-import type { BlockHero, CTAExternal, CTAInternal } from '../lib/schema';
-import Button from './Button.astro';
+import type { BlockHero } from '../lib/schema';
 import CTAs from './CTAs.astro';
 
 export interface Props extends BlockHero {}
@@ -49,6 +47,6 @@ const imageStyles = image_styles
   <div class='mx-24 mb-2 w-[620px] text-white'>
     <div class='mb-4 font-serif text-5xl font-semibold' set:text={title} />
     <div class='mb-16 text-lg font-medium' set:html={subtitle} />
-    <CTAs ctas={ctas} />
+    <CTAs ctas={ctas} alignment='left' />
   </div>
 </div>

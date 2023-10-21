@@ -7,7 +7,9 @@ const maxWidthValues = z.enum([
   'max-w-md',
   'max-w-lg',
   'max-w-xl',
-  'max-w-2xl'
+  'max-w-2xl',
+  'max-w-3xl',
+  'max-w-4xl'
 ]);
 
 const BlockTextSchema = z.object({
