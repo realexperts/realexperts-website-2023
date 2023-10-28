@@ -13,37 +13,11 @@ const { mainMenu } = Astro.props;
 ---
 
 <header>
-  <Section
-    background='gray'
-    standardPadding={false}
-    section_styles={['full_width']}
-  >
-    <Container centered={false}>
-      <div
-        class='hidden h-[38px] items-center justify-between text-sm text-re-blue lg:flex'
-      >
-        <div>
-          <a href={genralData.topInfo.link}>{genralData.topInfo.text}</a>
-        </div>
-        <div class='flex font-bold'>
-          <div class='mr-12'>
-            <i class='fa-solid fa-phone-flip mr-2'></i>
-            <a href={`tel:${genralData.company.phone}`}
-              >{genralData.company.phone}</a
-            >
-          </div>
-          <div>
-            <i class='fa-solid fa-location-dot mr-2'></i>{
-              genralData.company.addressLine
-            }
-          </div>
-        </div>
-      </div>
-    </Container>
-  </Section>
   <Section standardPadding={false}>
     <Container centered={false}>
-      <div class='relative my-[30px] flex items-end justify-between'>
+      <div
+        class='relative mx-5 my-[30px] flex items-end justify-between 2xl:mx-0'
+      >
         <a href='/'>
           <img
             src='/images/logo/logo-dark-re.png'

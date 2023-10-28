@@ -42,7 +42,7 @@ const sectionStyles = section_styles
   .join(' ');
 
 const sectionWidth =
-  !section_styles?.includes('full_width') && 'container mx-auto';
+  !section_styles?.includes('full_width') && 'w-full max-w-website mx-auto';
 
 const classes = twMerge(
   colorSchema[background],

@@ -1,16 +1,14 @@
 ---
+import BlockCTA from './BlockCTA.astro';
+
 const { questionHeading, answerHeading, qNaList = [] } = Astro.props;
 ---
 
 {
   questionHeading && answerHeading && (
-    <div class='flex text-2xl'>
-      <div class=' bold w-1/2 px-10 py-5 text-right font-bold uppercase'>
-        {questionHeading}
-      </div>
-      <div class='bold ml-20 w-1/2 px-10 py-5 font-bold uppercase'>
-        {answerHeading}
-      </div>
+    <div class='flex font-serif text-2xl font-bold uppercase'>
+      <div class='bold w-1/2 px-10 py-5 text-right'>{questionHeading}</div>
+      <div class='bold ml-20 w-1/2 px-10 py-5'>{answerHeading}</div>
     </div>
   )
 }
@@ -19,7 +17,7 @@ const { questionHeading, answerHeading, qNaList = [] } = Astro.props;
     const isFirst = index === 0;
     const isLast = index === qNaList.length - 1;
     return (
-      <div class='relative flex items-center items-stretch text-xl'>
+      <div class='relative flex items-stretch text-xl'>
         <div
           class:list={[
             'flex w-1/2 items-center justify-end px-10 py-5 text-right',
@@ -51,3 +49,18 @@ const { questionHeading, answerHeading, qNaList = [] } = Astro.props;
     );
   })
 }
+<div class='mb-10 mt-20'>
+  <BlockCTA
+    ctas={[
+      {
+        collection: 'element_cta_internal',
+        item: {
+          title: 'JETZT KOSTENLOSES ERSTGESPRÄCH BUCHEN',
+          linked_page: {
+            url: '#'
+          }
+        }
+      }
+    ]}
+  />
+</div>

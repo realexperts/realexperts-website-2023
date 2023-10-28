@@ -40,6 +40,9 @@ module.exports = {
       fontFamily: {
         sans: ['Poppins', ...defaultTheme.fontFamily.sans],
         serif: ['Changa', ...defaultTheme.fontFamily.sans]
+      },
+      maxWidth: {
+        website: '1250px'
       }
     }
   },

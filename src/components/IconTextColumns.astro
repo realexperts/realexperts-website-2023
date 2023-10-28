@@ -1,0 +1,62 @@
+---
+const alignmentDefault = 'center';
+const headingLevelDefault = 3;
+
+const { columns = [] } = Astro.props;
+
+const alignments = {
+  left: 'text-left',
+  center: 'text-center',
+  right: 'text-right'
+};
+
+const textColors = {
+  blue: 'text-re-blue',
+  turquoise: 'text-re-turquoise',
+  white: 'text-white'
+};
+
+const getHeadingLevel = (headingLevel) => {
+  return headingLevel > 6 || headingLevel < 1
+    ? headingLevelDefault
+    : headingLevel;
+};
+---
+
+<div class='flex flex-wrap justify-center'>
+  {
+    columns.map((column) => (
+      <div
+        class:list={[
+          'px-12',
+          'pb-12',
+          alignments[column.alignment] || alignments[alignmentDefault]
+        ]}
+        style={`width: ${column.columnWidthPercent}%;`}
+      >
+        <article class:list={[`${textColors[column.color] || 'text-re-blue'}`]}>
+          {column.imageUrl && (
+            <img
+              src={column.imageUrl}
+              alt={column.imageAlt || ''}
+              class='mb-12 inline-block'
+              style={`width: ${column.imageWidth || '100%'}; 
+                        height: ${column.imageHeight || '100%'};
+                        object-fit: ${column.imageObjectFit || 'contain'};`}
+            />
+          )}
+          {column.headline && (
+            <span
+              set:html={`<h${getHeadingLevel(
+                column.headingLevel
+              )} class='font-bold'>${column.headline}</h${getHeadingLevel(
+                column.headingLevel
+              )}>`}
+            />
+          )}
+          <div set:html={column.text} class='leading-relaxed' />
+        </article>
+      </div>
+    ))
+  }
+</div>
