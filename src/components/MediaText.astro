@@ -26,19 +26,18 @@ const maxWidths = new Set([
   'max-w-3xl',
   'max-w-4xl'
 ]);
+const getMaxWidthClass = (width, defaultValue = NO_MAX_WIDTH) =>
+  maxWidths.has(width) ? width : defaultValue;
 
 const mediaPositonClasses = {
   left: '',
   right: 'order-last'
 };
-
-const getMaxWidthClass = (width, defaultValue = NO_MAX_WIDTH) =>
-  maxWidths.has(width) ? width : defaultValue;
 ---
 
 <div
   class:list={[
-    'mx-auto mb-12 flex items-start gap-28',
+    'mx-auto mb-12 flex items-start gap-32',
     getMaxWidthClass(max_width_container)
   ]}
 >
