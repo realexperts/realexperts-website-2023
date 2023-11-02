@@ -21,7 +21,7 @@ const getMaxWidthClass = (width, defaultValue = NO_MAX_WIDTH) =>
   testimonals && (
     <div
       class:list={[
-        'mx-auto my-28 flex items-center justify-center',
+        'mx-auto my-14 flex items-center justify-center',
         getMaxWidthClass(max_width_container)
       ]}
     >
@@ -90,7 +90,7 @@ const getMaxWidthClass = (width, defaultValue = NO_MAX_WIDTH) =>
   import { Navigation } from 'swiper/modules';
   import 'swiper/css';
 
-  for (const [element] of document
+  for (const [index, element] of document
     .querySelectorAll('.testimonials-slider')
     .entries()) {
     new Swiper(element, {

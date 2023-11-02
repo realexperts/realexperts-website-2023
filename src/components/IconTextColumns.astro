@@ -1,4 +1,6 @@
 ---
+import { marked } from 'marked';
+
 const alignmentDefault = 'center';
 const headingLevelDefault = 3;
 
@@ -54,7 +56,7 @@ const getHeadingLevel = (headingLevel) => {
               )}>`}
             />
           )}
-          <div set:html={column.text} class='leading-relaxed' />
+          <div set:html={marked(column.text)} class='leading-relaxed' />
         </article>
       </div>
     ))
