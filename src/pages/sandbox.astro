@@ -5,6 +5,8 @@ import BlockText from '@/components/BlockText.astro';
 import Heading from '@/components/Heading.astro';
 import IconTextColumns from '@/components/IconTextColumns.astro';
 import LogoSlider from '@/components/LogoSlider.astro';
+import Media from '@/components/Media.astro';
+import MediaText from '@/components/MediaText.astro';
 import QNAList from '@/components/QNAList.astro';
 import Section from '@/components/Section.astro';
 import SocialTextLinkBox from '@/components/SocialTextLinkBox.astro';
@@ -213,6 +215,45 @@ const image1Id = '3f135461-0cfe-4d29-9b7d-27741a9b0cdd';
       design='style_3'
       max_width_container='max-w-4xl'
     />
+    <MediaText
+      videoUrl='/videos/video1.mp4'
+      imageUrl='/images/previews/video1.png'
+      imageAlt='Testbild 1'
+      text='## Bau\n\nUnserErfolgsrezept lorm ipsum Aenean commodo ligula eget dolor. Aenean massa. Cum sociis oque. Ipsum dolor sit amet, consectetuer adipiscing elit. '
+      textAlignment='left'
+      textDesign='style_2'
+      max_width_container='max-w-4xl'
+    />
+    <MediaText
+      videoUrl='/videos/video1.mp4'
+      imageUrl='/images/previews/video1.png'
+      imageAlt='Testbild 1'
+      text='## Industrie\n\nUnserErfolgsrezept lorm ipsum Aenean commodo ligula eget dolor. Aenean massa. Cum sociis oque. Ipsum dolor sit amet, consectetuer adipiscing elit. '
+      textAlignment='left'
+      textDesign='style_2'
+      max_width_container='max-w-4xl'
+      mediaPositon='right'
+    />
+    <MediaText
+      videoUrl='/videos/video1.mp4'
+      imageUrl='/images/previews/video1.png'
+      imageAlt='Testbild 1'
+      text='## Bau- und Ingenieurwesen\n\nUnserErfolgsrezept lorm ipsum Aenean commodo ligula eget dolor. Aenean massa. Cum sociis oque. Ipsum dolor sit amet, consectetuer adipiscing elit. '
+      textAlignment='left'
+      textDesign='style_2'
+      max_width_container='max-w-4xl'
+      mediaPositon='left'
+    />
+    <MediaText
+      videoUrl='/videos/video1.mp4'
+      imageUrl='/images/previews/video1.png'
+      imageAlt='Testbild 1'
+      text='## Gemeinnützige Organisationen\n\nUnserErfolgsrezept lorm ipsum Aenean commodo ligula eget dolor. Aenean massa. Cum sociis oque. Ipsum dolor sit amet, consectetuer adipiscing elit. '
+      textAlignment='left'
+      textDesign='style_2'
+      max_width_container='max-w-4xl'
+      mediaPositon='right'
+    />
     <BlockCTA
       ctas={[
         {
@@ -294,6 +335,13 @@ const image1Id = '3f135461-0cfe-4d29-9b7d-27741a9b0cdd';
           }
         }
       ]}
+    />
+  </Section>
+  <Section>
+    <Media
+      videoUrl='/videos/video1.mp4'
+      captionUrl='/videos/captions/video1.vtt'
+      imageUrl='/images/previews/video1.png'
     />
   </Section>
 </Layout>

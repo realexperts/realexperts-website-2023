@@ -1,0 +1,61 @@
+---
+let { videoUrl, captionUrl, imageUrl, imageAlt = '' } = Astro.props;
+---
+
+<div class='media-component relative'>
+  <!-- Video Thumbnail mit Play-Icon -->
+  {
+    videoUrl && imageUrl && (
+      <div class='video-thumbnail-wrapper absolute bottom-0 left-0 right-0 top-0 z-10 cursor-pointer'>
+        <img
+          class='h-full w-full object-cover'
+          src={imageUrl}
+          alt='Video Thumbnail'
+        />
+        <div class='absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transform'>
+          <div class='text-8xl text-white'>
+            <i class='fa-solid fa-play' />
+          </div>
+        </div>
+      </div>
+    )
+  }
+
+  {
+    !videoUrl && imageUrl && (
+      <img class='w-full' src={imageUrl} alt={imageAlt} />
+    )
+  }
+
+  {
+    videoUrl && (
+      // eslint-disable-next-line jsx-a11y/media-has-caption
+      <video class='video-player w-full' controls src={videoUrl}>
+        {captionUrl && (
+          <track kind='captions' src={captionUrl} srclang='de' label='German' />
+        )}
+      </video>
+    )
+  }
+</div>
+
+<script>
+  (function () {
+    const videoComponents = document.querySelectorAll('.media-component');
+
+    for (const component of videoComponents) {
+      const thumbnailWrapper = component.querySelector(
+        '.video-thumbnail-wrapper'
+      );
+      const videoPlayer = component.querySelector('.video-player');
+
+      if (thumbnailWrapper && videoPlayer) {
+        thumbnailWrapper.addEventListener('click', function () {
+          thumbnailWrapper.style.display = 'none';
+          videoPlayer.style.display = 'block';
+          videoPlayer.play();
+        });
+      }
+    }
+  })();
+</script>
