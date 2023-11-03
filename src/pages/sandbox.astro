@@ -2,6 +2,7 @@
 import BlockCTA from '@/components/BlockCTA.astro';
 import BlockHero from '@/components/BlockHero.astro';
 import BlockText from '@/components/BlockText.astro';
+import ContactForm from '@/components/ContactForm.astro';
 import Heading from '@/components/Heading.astro';
 import IconTextColumns from '@/components/IconTextColumns.astro';
 import LogoSlider from '@/components/LogoSlider.astro';
@@ -396,6 +397,38 @@ const image1Id = '3f135461-0cfe-4d29-9b7d-27741a9b0cdd';
       videoUrl='/videos/video1.mp4'
       captionUrl='/videos/captions/video1.vtt'
       imageUrl='/images/previews/video1.png'
+      max_width_container='max-w-4xl'
     />
   </Section>
+  <Section background='blue' standardPadding={false}>
+    <BlockHero
+      image={{
+        id: image1Id,
+        width: 1250,
+        height: 508
+      }}
+    />
+    <BlockText
+      alignment='center'
+      text='# Team Real: Digitalisierungsexperten für den Mittelstand\n\nWas auch immer Sie für Ihr Digitalisierungsprojekt brauchen: Bei Real Experts finden Sie Experten aus allen Disziplinen unter einem Dach: u. a. Berater, Entwickler, Strategen, Gestalter. Wir arbeiten in verschiedenen Konstellationen seit vielen Jahren erfolgreich zusammen. Für jedes Projekt stellen wir ein individuelles Team zusammen.'
+      design='style_2'
+      max_width_container='max-w-4xl'
+    />
+    <BlockCTA
+      ctas={[
+        {
+          collection: 'element_cta_internal',
+          item: {
+            title: 'Jetzt kennenlernen',
+            linked_page: {
+              url: '#'
+            }
+          }
+        }
+      ]}
+    />
+    </Section>
+    <Section background='turquoise-dark'>
+      <ContactForm />
+    </Section>
 </Layout>

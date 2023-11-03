@@ -3,7 +3,13 @@ import type { Section } from '@/lib/schema';
 import { twMerge } from 'tailwind-merge';
 
 export interface Props extends Section {
-  background?: 'blue' | 'gray' | 'transparent' | 'turquoise' | 'white';
+  background?:
+    | 'blue'
+    | 'gray'
+    | 'transparent'
+    | 'turquoise'
+    | 'turquoise-dark'
+    | 'white';
   standardPadding?: boolean;
   section?: boolean;
   color?: string;
@@ -23,6 +29,7 @@ const colorSchema = {
   gray: 'bg-re-gray text-black',
   transparent: 'bg-transparent text-black',
   turquoise: 'bg-re-turquoise-light text-re-blue',
+  'turquoise-dark': 'bg-re-turquoise text-white',
   white: 'bg-white text-re-blue'
 };
 
