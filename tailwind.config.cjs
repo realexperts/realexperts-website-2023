@@ -43,6 +43,15 @@ module.exports = {
       },
       maxWidth: {
         website: '1250px'
+      },
+      typography: {
+        DEFAULT: {
+          css: {
+            h1: {
+              lineHeight: '1.625'
+            }
+          }
+        }
       }
     }
   },
