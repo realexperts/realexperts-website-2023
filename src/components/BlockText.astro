@@ -1,10 +1,13 @@
 ---
 import type { BlockText } from '@/lib/schema';
 import { marked } from 'marked';
+import { twMerge } from 'tailwind-merge';
 
 export interface Props extends BlockText {}
 
 const {
+  colorHeadline = 're-blue',
+  colorText = 're-blue',
   alignment = 'center',
   max_width,
   max_width_container,
@@ -15,14 +18,6 @@ const {
 // Define constants for reused class names
 const BLUE_BOLD_CLASSES = 'text-re-blue font-bold';
 const NO_MAX_WIDTH = 'max-w-none';
-
-const designs = {
-  style_1: BLUE_BOLD_CLASSES,
-  style_2: { heading: 'text-white font-bold', text: 'text-white' },
-  style_3: 'text-re-turquoise font-bold',
-  style_4: BLUE_BOLD_CLASSES,
-  style_5: BLUE_BOLD_CLASSES
-};
 
 const alignments = {
   left: 'text-left',
@@ -53,16 +48,75 @@ const getMaxWidthClass = (width, defaultValue = NO_MAX_WIDTH) =>
 // Configure custom renderer
 const renderer = new marked.Renderer();
 
-const designClasses =
-  typeof designs[design] === 'string'
-    ? { heading: designs[design], text: designs[design] }
-    : getClassName(designs, design);
-const headingClassNames = designClasses.heading || '';
-const textClassNames = designClasses.text || '';
+// Color
+const getColor = (color: string) => {
+  switch (color) {
+    case 'torquoise': {
+      return 'text-torquoise';
+    }
+    case 'white': {
+      return 'text-white';
+    }
+    default: {
+      return 'text-re-blue';
+    }
+  }
+};
+
+const headingClassNames = twMerge(
+  'font-serif font-semibold',
+  getColor(colorHeadline)
+);
+
+const textClassNames = twMerge('font-sans font-bold', getColor(colorText));
 
 // Override function for rendering 'h1' elements
-renderer.heading = (content, level) =>
-  `<h${level} class="${headingClassNames}">${content}</h${level}>\n`;
+renderer.heading = (content, level) => {
+  switch (level) {
+    case 1: {
+      return `<h1 class="${twMerge(
+        'text-5xl mb-8',
+        headingClassNames
+      )}">${content}</h1>`;
+    }
+    case 2: {
+      return `<h2 class="${twMerge(
+        'text-4xl mb-8',
+        headingClassNames
+      )}">${content}</h2>`;
+    }
+    case 3: {
+      return `<h3 class="${twMerge(
+        'text-3xl mb-8',
+        headingClassNames
+      )}">${content}</h3>`;
+    }
+    case 4: {
+      return `<h4 class="${twMerge(
+        'text-2xl mb-8',
+        headingClassNames
+      )}">${content}</h4>`;
+    }
+    case 5: {
+      return `<h5 class="${twMerge(
+        'text-xl mb-8',
+        headingClassNames
+      )}">${content}</h5>`;
+    }
+    case 6: {
+      return `<h6 class="${twMerge(
+        'text-lg mb-8',
+        headingClassNames
+      )}">${content}</h6>`;
+    }
+    default: {
+      return `<h${level} class="${twMerge(
+        'text-5xl mb-8',
+        headingClassNames
+      )}">${content}</h${level}>`;
+    }
+  }
+};
 
 // Use the custom renderer in the marked options
 marked.setOptions({ renderer });

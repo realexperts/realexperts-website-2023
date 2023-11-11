@@ -29,19 +29,69 @@ const getSlidesWithImages = async (slides: BlockLogoSlider['slides']) => {
 const slidesWithImages = await getSlidesWithImages(slides);
 ---
 
-<div class='slider-container relative w-full overflow-hidden'>
-  <div class='slider-wrapper grid grid-flow-col grid-cols-3 gap-4'>
-    {
-      slidesWithImages.map((slide) => (
-        <img src={slide.image.src} alt={slide.title} class='slider-img' />
-      ))
-    }
+<div class='flex items-center justify-center'>
+  <div
+    class='swiper-button-prev
+      cursor-pointer
+      p-1
+      text-3xl
+      text-zinc-300
+      transition-colors
+      duration-200
+      ease-in-out
+      hover:text-re-blue'
+  >
+    <i class='fa-solid fa-chevron-left'></i>
   </div>
-
-  <button class='prev absolute left-0 top-1/2 -translate-y-1/2 transform'
-    >Prev</button
+  <div class='swiper logo-slider'>
+    <div class='swiper-wrapper'>
+      {
+        slidesWithImages.map((slide) => (
+          <div class='swiper-slide w-1/4 overflow-hidden'>
+            <div class='flex items-center justify-center'>
+              <img
+                src={slide.image.src}
+                alt={slide.title}
+                class='h-[70px] w-[185px] object-contain'
+              />
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+  <div
+    class='swiper-button-next
+      cursor-pointer
+      p-1
+      text-3xl
+      text-zinc-300
+      transition-colors
+      duration-200
+      ease-in-out
+      hover:text-re-blue'
   >
-  <button class='next absolute right-0 top-1/2 -translate-y-1/2 transform'
-    >Next</button
-  >
+    <i class='fa-solid fa-chevron-right'></i>
+  </div>
 </div>
+
+<script>
+  import Swiper from 'swiper';
+  import { Navigation } from 'swiper/modules';
+  import 'swiper/css';
+
+  for (const [index, element] of document
+    .querySelectorAll('.logo-slider')
+    .entries()) {
+    new Swiper(element, {
+      slidesPerView: 4,
+      loop: true,
+      modules: [Navigation],
+
+      navigation: {
+        nextEl: element.parentElement.querySelector('.swiper-button-next'),
+        prevEl: element.parentElement.querySelector('.swiper-button-prev')
+      }
+    });
+  }
+</script>
