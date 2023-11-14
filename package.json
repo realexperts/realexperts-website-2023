@@ -1,18 +1,22 @@
 {
   "name": "realexperts-website-2023",
   "module": "index.ts",
-  "type": "module",
-  "scripts": {
-    "dev:backend": "bun run --cwd packages/backend dev",
-    "dev:frontend": "bun run --cwd packages/frontend dev"
-  },
   "devDependencies": {
-    "bun-types": "latest"
+    "bun-types": "latest",
+    "concurrently": "^8.2.2"
   },
-  "workspaces": [
-    "packages/*"
-  ],
   "peerDependencies": {
     "typescript": "^5.0.0"
-  }
+  },
+  "scripts": {
+    "dev": "concurrently --kill-others \"bun dev:backend\" \"bun dev:frontend\"",
+    "dev:backend": "bun run --cwd packages/backend dev",
+    "dev:frontend": "bun run --cwd packages/frontend dev",
+    "lint": "bun run --cwd packages/frontend lint",
+    "check-types": "bun run --cwd packages/frontend check-types"
+  },
+  "type": "module",
+  "workspaces": [
+    "packages/*"
+  ]
 }

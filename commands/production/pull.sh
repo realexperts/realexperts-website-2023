@@ -30,4 +30,4 @@ echo "# Syncing files from production to local"
 echo "######################################"
 echo ""
 
-rsync -avz --delete -e "ssh -p $REMOTE_PORT" "$REMOTE_USER"@"$REMOTE_HOST":~/backend-uploads/ ./packages/backend/uploads
+rsync -avz --delete -e "ssh -p $REMOTE_PORT" "$REMOTE_USER"@"$REMOTE_HOST":~/backend_uploads/ ./packages/backend/uploads
