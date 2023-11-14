@@ -1,8 +1,12 @@
 {
   "name": "realexperts-website-2023",
-  "module": "index.ts",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "author": "",
+  "license": "ISC",
+  "private": true,
   "devDependencies": {
-    "bun-types": "latest",
     "concurrently": "^8.2.2"
   },
   "peerDependencies": {
@@ -10,12 +14,12 @@
   },
   "scripts": {
     "dev": "concurrently --kill-others \"bun dev:backend\" \"bun dev:frontend\"",
-    "dev:backend": "bun run --cwd packages/backend dev",
-    "dev:frontend": "bun run --cwd packages/frontend dev",
-    "lint": "bun run --cwd packages/frontend lint",
-    "check-types": "bun run --cwd packages/frontend check-types"
+    "dev:backend": "yarn workspace @realexperts/backend dev",
+    "dev:frontend": "yarn workspace @realexperts/frontend dev",
+    "lint": "yarn workspace @realexperts/frontend lint",
+    "lint:fix": "yarn workspace @realexperts/frontend lint:fix",
+    "check-types": "yarn workspace @realexperts/frontend check-types"
   },
-  "type": "module",
   "workspaces": [
     "packages/*"
   ]

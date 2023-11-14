@@ -1,7 +1,6 @@
 /** @type {import("eslint").Linter.Config} */
 module.exports = {
   plugins: [],
-
   extends: [
     'plugin:jsx-a11y/recommended',
     'plugin:promise/recommended',
@@ -9,7 +8,6 @@ module.exports = {
     'plugin:unicorn/recommended',
     'plugin:prettier/recommended'
   ],
-
   overrides: [
     {
       files: ['*.astro'],
@@ -38,9 +36,10 @@ module.exports = {
       }
     },
     {
-      files: ['*.ts'],
+      files: ['*.{ts,tsx}'],
       parser: '@typescript-eslint/parser',
       extends: ['plugin:@typescript-eslint/recommended'],
+      plugins: ['@typescript-eslint', 'react'],
       rules: {
         '@typescript-eslint/no-unused-vars': [
           'error',
@@ -71,14 +70,12 @@ module.exports = {
       }
     }
   ],
-
   rules: {
     // base
     indent: ['error', 2, { SwitchCase: 1 }],
-    'linebreak-style': ['error', 'windows'],
+    'linebreak-style': ['error', 'unix'],
     quotes: ['error', 'single'],
     semi: ['error', 'always'],
-
     // prettier
     'arrow-body-style': 'off',
     'prefer-arrow-callback': 'off',
@@ -94,11 +91,9 @@ module.exports = {
         trailingComma: 'none',
         bracketSpacing: true,
         bracketSameLine: false,
-        arrowParens: 'always',
-        endOfLine: 'crlf'
+        arrowParens: 'always'
       }
     ],
-
     // unicorn
     'unicorn/filename-case': 'off',
     'unicorn/prevent-abbreviations': 'off'

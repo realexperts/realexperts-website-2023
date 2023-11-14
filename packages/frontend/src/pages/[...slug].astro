@@ -1,8 +1,5 @@
 ---
 import Block from '@/components/Block.astro';
-import BlockCTA from '@/components/BlockCTA.astro';
-import BlockLogoSlider from '@/components/BlockLogoSlider.astro';
-import BlockText from '@/components/BlockText.astro';
 import Container from '@/components/Container.astro';
 import Heading from '@/components/Heading.astro';
 import Section from '@/components/Section.astro';
@@ -11,8 +8,8 @@ import { fetchPages } from '@/lib/directus';
 import type { ArrayElement } from '@/lib/typescript';
 import BlockCTALoader from '@/loaders/BlockCTALoader.astro';
 import BlockHeroLoader from '@/loaders/BlockHeroLoader.astro';
+import BlockLogoSliderLoader from '@/loaders/BlockLogoSliderLoader.astro';
 import BlockTextLoader from '@/loaders/BlockTextLoader.astro';
-import type { Code } from 'astro:components';
 
 type Props = {
   page: ArrayElement<Awaited<ReturnType<typeof fetchPages>>>;
@@ -86,7 +83,7 @@ if (
                   )}
                   {block.collection === 'block_logo_slider' && (
                     <Block block={block}>
-                      <BlockLogoSlider itemId={block.item} />
+                      <BlocklogoSliderLoader itemId={block.item} />
                     </Block>
                   )}
                 </>

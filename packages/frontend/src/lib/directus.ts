@@ -103,6 +103,6 @@ export const fetchPages = async () => {
   );
 
   return response.flatMap((page) => {
-    return page.translations.map((translation) => translation);
+    return page.translations?.map((translation) => translation);
   });
 };

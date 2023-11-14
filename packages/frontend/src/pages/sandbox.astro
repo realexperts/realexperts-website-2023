@@ -17,6 +17,8 @@ import TopicBoxList from '@/components/TopicBoxList.astro';
 import Layout from '@/layouts/Layout.astro';
 
 const image1Id = '3f135461-0cfe-4d29-9b7d-27741a9b0cdd';
+
+const jetzt = 'Jetzt Erstgespräch buchen';
 ---
 
 <Layout>
@@ -134,7 +136,7 @@ const image1Id = '3f135461-0cfe-4d29-9b7d-27741a9b0cdd';
       ctas={[
         {
           type: 'internal',
-          title: 'Jetzt Erstgespräch buchen',
+          title: jetzt,
           url: '#'
         }
       ]}
@@ -264,7 +266,7 @@ const image1Id = '3f135461-0cfe-4d29-9b7d-27741a9b0cdd';
       ctas={[
         {
           type: 'internal',
-          title: 'Jetzt Erstgespräch buchen',
+          title: jetzt,
           url: '#'
         }
       ]}
@@ -273,7 +275,7 @@ const image1Id = '3f135461-0cfe-4d29-9b7d-27741a9b0cdd';
   <Section>
     <SocialTextLinkBox
       faIcon='podcast'
-      linkText='Jetzt Podcast abonnieren'
+      linkText={jetzt}
       linkHref='#'
       linkTarget='_self'
     >
@@ -333,49 +335,49 @@ const image1Id = '3f135461-0cfe-4d29-9b7d-27741a9b0cdd';
           text: 'Mit Real Experts als Partner Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu.',
           name: 'Stefan Mustermann',
           company: 'Firma XYZ',
-          image:
-            'https://i.pravatar.cc/300?img=' +
-            Math.floor(Math.random() * 50 + 1)
+          image: `https://i.pravatar.cc/300?img=${Math.floor(
+            Math.random() * 50 + 1
+          )}`
         },
         {
           text: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.',
           name: 'Max Mütze',
           company: 'Mircotest',
-          image:
-            'https://i.pravatar.cc/300?img=' +
-            Math.floor(Math.random() * 50 + 1)
+          image: `https://i.pravatar.cc/300?img=${Math.floor(
+            Math.random() * 50 + 1
+          )}`
         },
         {
           text: 'Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus.',
           name: 'Test Tester',
           company: 'Test GmbH',
-          image:
-            'https://i.pravatar.cc/300?img=' +
-            Math.floor(Math.random() * 50 + 1)
+          image: `https://i.pravatar.cc/300?img=${Math.floor(
+            Math.random() * 50 + 1
+          )}`
         },
         {
           text: 'Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi.',
           name: 'Heinz Heinz',
           company: 'Testfirma',
-          image:
-            'https://i.pravatar.cc/300?img=' +
-            Math.floor(Math.random() * 50 + 1)
+          image: `https://i.pravatar.cc/300?img=${Math.floor(
+            Math.random() * 50 + 1
+          )}`
         },
         {
           text: 'Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc,',
           name: 'Prima Ballerina',
           company: 'Tanzsalon',
-          image:
-            'https://i.pravatar.cc/300?img=' +
-            Math.floor(Math.random() * 50 + 1)
+          image: `https://i.pravatar.cc/300?img=${Math.floor(
+            Math.random() * 50 + 1
+          )}`
         },
         {
           text: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium.',
           name: 'Stefanie Musterfrau',
           company: 'Testmuster GmbH',
-          image:
-            'https://i.pravatar.cc/300?img=' +
-            Math.floor(Math.random() * 50 + 1)
+          image: `https://i.pravatar.cc/300?img=${Math.floor(
+            Math.random() * 50 + 1
+          )}`
         }
       ]}
     />
