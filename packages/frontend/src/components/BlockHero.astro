@@ -1,0 +1,49 @@
+---
+import type { fetchBlockHero } from '@/loaders/BlockHeroLoader.astro';
+import type { GetImageResult } from 'astro';
+import { getImage } from 'astro:assets';
+import BlockCTA from './BlockCTA.astro';
+
+type Props = Awaited<ReturnType<typeof fetchBlockHero>>;
+
+const { image, imageStyles = [], title, subtitle, ctas } = Astro.props;
+
+let optimizedBackground: GetImageResult;
+
+if (image) {
+  optimizedBackground = await getImage({
+    src: image.src,
+    format: 'jpg',
+    width: image.width,
+    height: image.height,
+    quality: 80
+  });
+}
+
+const stylesMapping = {
+  rounded_tl: 'rounded-tl-[70px]',
+  rounded_tr: 'rounded-tr-[70px]',
+  rounded_bl: 'rounded-bl-[70px]',
+  rounded_br: 'rounded-br-[70px]'
+};
+
+const imageStyleClasses = imageStyles
+  ?.map((corner) => {
+    if (corner in stylesMapping) {
+      return `${stylesMapping[corner]}`;
+    }
+    return corner;
+  })
+  .join(' ');
+---
+
+<div
+  class={`text-left flex h-[488px] items-center bg-re-gray bg-cover bg-center ${imageStyleClasses}`}
+  style={`background-image: url(${optimizedBackground?.src});`}
+>
+  <div class='mx-24 mb-2 w-[620px] text-white'>
+    <div class='mb-4 font-serif text-5xl font-semibold' set:text={title} />
+    <div class='mb-16 text-lg font-medium' set:html={subtitle} />
+    {ctas && <BlockCTA alignment='left' ctas={ctas} />}
+  </div>
+</div>

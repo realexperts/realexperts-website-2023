@@ -1,0 +1,121 @@
+---
+const topicBoxes = [
+  {
+    topic: 'Podcast',
+    text: 'Dies ist die Titelbezeichnung der aktuellen Podcast Folge',
+    imageSrc: '/images/previews/podcast1.jpg',
+    showPlayIcon: true,
+    linkText: 'Podcast entdecken',
+    link: '#',
+    colorScheme: 'turquoise',
+    roundedCorner: 'bottom-left'
+  },
+  {
+    topic: 'Blog',
+    text: 'Dies ist die Titelbezeichnung des aktuellen Blog Posts.',
+    imageSrc: '/images/previews/blog1.jpg',
+    showPlayIcon: true,
+    linkText: 'Blog entdecken',
+    link: '#',
+    colorScheme: 'blue'
+  },
+  {
+    topic: 'Video',
+    text: 'Dies ist die Titelbezeichnung unseres Youtube Channels',
+    imageSrc: '/images/previews/video2.jpg',
+    showPlayIcon: true,
+    linkText: 'Alle Videos',
+    link: '#',
+    colorScheme: 'blue',
+    roundedCorner: 'bottom-right'
+  }
+];
+
+const colorSchemes = {
+  blue: {
+    bg: 'bg-re-blue',
+    accentedText: 'text-re-turquoise'
+  },
+  turquoise: {
+    bg: 'bg-re-turquoise',
+    accentedText: 'text-re-blue'
+  }
+};
+
+const roundedCornerClasses = {
+  'top-left': 'rounded-tl-[50px]',
+  'top-right': 'rounded-tr-[50px]',
+  'bottom-left': 'rounded-bl-[50px]',
+  'bottom-right': 'rounded-br-[50px]'
+};
+
+const getSchemeClass = (colorScheme, key) => {
+  const safeColorScheme = colorSchemes[colorScheme] ? colorScheme : 'blue';
+  return colorSchemes[safeColorScheme][key] || '';
+};
+
+const getRoundedCornerClass = (roundedCorner) => {
+  return roundedCornerClasses[roundedCorner] || '';
+};
+---
+
+<div class='grid grid-cols-3 gap-8'>
+  {
+    topicBoxes.map((topicBox) => (
+      <div
+        class:list={[
+          'flex flex-col overflow-hidden',
+          getSchemeClass(topicBox.colorScheme, 'bg'),
+          getRoundedCornerClass(topicBox.roundedCorner)
+        ]}
+      >
+        {topicBox.imageSrc && (
+          <div class='group relative overflow-hidden pb-[60%]'>
+            {topicBox.link && (
+              <a href={topicBox.link} class='absolute inset-0 z-10'>
+                123
+              </a>
+            )}
+            <img
+              src={topicBox.imageSrc}
+              alt={topicBox.topic}
+              class='absolute bottom-0 left-0 right-0 top-0 h-full w-full object-cover'
+            />
+            {topicBox.showPlayIcon && (
+              <div class='absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2'>
+                <i class='fa-solid fa-play text-6xl text-white drop-shadow-md transition ease-in-out group-hover:scale-110' />
+              </div>
+            )}
+          </div>
+        )}
+
+        <div class='m-9 mb-5 flex-1'>
+          {topicBox.topic && (
+            <div
+              class:list={[
+                'mb-3 text-sm font-bold',
+                getSchemeClass(topicBox.colorScheme, 'accentedText')
+              ]}
+            >
+              {topicBox.topic}
+            </div>
+          )}
+          <div class='text-white'>{topicBox.text}</div>
+        </div>
+        {topicBox.linkText && topicBox.link && (
+          <div
+            class:list={[
+              'mx-8 mb-14 mt-auto text-[16px]',
+              getSchemeClass(topicBox.colorScheme, 'accentedText')
+            ]}
+          >
+            <a href={topicBox.link}>
+              <i class='fa-solid fa-play mr-3 text-white' />
+              {topicBox.linkText}
+            </a>
+          </div>
+        )}
+      </div>
+    ))
+  }
+</div>

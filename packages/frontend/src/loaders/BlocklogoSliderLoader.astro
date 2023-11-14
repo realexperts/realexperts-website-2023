@@ -1,0 +1,38 @@
+---
+import BlockLogoSlider from '@/components/BlockLogoSlider.astro';
+import { client } from '@/lib/directus';
+import { readItem } from '@directus/sdk';
+
+type Props = {
+  itemId: number;
+};
+
+const { itemId } = Astro.props;
+
+export const getBlockLogoSlider = async (itemId: number) => {
+  const res = await client.request(
+    readItem('block_logo_slider', itemId, {
+      fields: [
+        {
+          slides: [{ image: ['id', 'height', 'width'] }, 'title']
+        }
+      ]
+    })
+  );
+
+  return {
+    slides: res.slides.map((slide) => ({
+      title: slide.title,
+      image: {
+        src: `${import.meta.env.DIRECTUS_URL}/assets/${slide.image.id}`,
+        width: slide.image.width,
+        height: slide.image.height
+      }
+    }))
+  };
+};
+
+const response = await getBlockLogoSlider(itemId);
+---
+
+<BlockLogoSlider {...response} />

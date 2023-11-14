@@ -1,0 +1,53 @@
+---
+import BlockHeroComponent from '@/components/BlockHero.astro';
+import { client } from '@/lib/directus';
+import { readItem } from '@directus/sdk';
+import { getTypedCtaArray } from './BlockCTALoader.astro';
+
+type Props = {
+  itemId: string;
+};
+
+const { itemId } = Astro.props;
+
+export const fetchBlockHero = async (itemId: string) => {
+  const response = await client.request(
+    readItem('block_hero', itemId, {
+      fields: [
+        'image_styles',
+        'subtitle',
+        'title',
+        {
+          ctas: ['item', 'collection'],
+          image: ['id', 'width', 'height']
+        }
+      ]
+    })
+  );
+
+  const ctaArray = response.ctas.map((cta) => {
+    return {
+      item: cta.item as number,
+      collection: cta.collection
+    };
+  });
+
+  const ctas = await getTypedCtaArray(ctaArray);
+
+  return {
+    image: {
+      src: `${import.meta.env.DIRECTUS_URL}/assets/${response.image.id}`,
+      width: response.image.width,
+      height: response.image.height
+    },
+    ...(response.image_styles ? { imageStyles: response.image_styles } : {}),
+    ...(response.ctas ? { ctas } : {}),
+    ...(response.subtitle ? { subtitle: response.subtitle } : {}),
+    ...(response.title ? { title: response.title } : {})
+  };
+};
+
+const response = await fetchBlockHero(itemId);
+---
+
+<BlockHeroComponent {...response} />

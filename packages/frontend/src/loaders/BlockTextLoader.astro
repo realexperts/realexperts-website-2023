@@ -1,0 +1,39 @@
+---
+import BlockText from '@/components/BlockText.astro';
+import { client } from '@/lib/directus';
+import { readItem } from '@directus/sdk';
+
+type Props = {
+  itemId: number;
+};
+
+const { itemId } = Astro.props;
+
+const loadBlockText = async (itemId: number) => {
+  const response = await client.request(
+    readItem('block_text', itemId, {
+      fields: [
+        'alignment',
+        'color_headline',
+        'color_text',
+        'max_width',
+        'max_width_container',
+        'text'
+      ]
+    })
+  );
+
+  return {
+    alignment: response.alignment,
+    colorHeadline: response.color_headline,
+    colorText: response.color_text,
+    maxWidth: response.max_width,
+    maxWidthContainer: response.max_width_container,
+    text: response.text
+  };
+};
+
+const blockText = await loadBlockText(itemId);
+---
+
+<BlockText {...blockText} />

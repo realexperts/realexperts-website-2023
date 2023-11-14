@@ -1,0 +1,13 @@
+---
+import Button from './Button.astro';
+
+type Props = {
+  type: 'external';
+  title: string;
+  url: string;
+};
+
+const { title, url } = Astro.props;
+---
+
+<Button color='red' size='lg' link={url} label={title} />

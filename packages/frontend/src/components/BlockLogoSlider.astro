@@ -1,0 +1,108 @@
+---
+import type { ArrayElement } from '@/lib/typescript';
+import type { getBlockLogoSlider } from '@/loaders/BlocklogoSliderLoader.astro';
+import { getImage } from 'astro:assets';
+
+type Props = Awaited<ReturnType<typeof getBlockLogoSlider>>;
+
+const { slides } = Astro.props;
+
+const getOptimizedSlide = async (
+  slide: ArrayElement<Awaited<ReturnType<typeof getBlockLogoSlider>>['slides']>
+) => {
+  const { src, width, height } = slide.image;
+  const optimizedImage = await getImage({
+    format: 'jpg',
+    src,
+    width,
+    height,
+    quality: 80
+  });
+  return {
+    ...slide,
+    image: optimizedImage
+  };
+};
+
+const getSlidesWithImages = async (
+  slides: Awaited<ReturnType<typeof getBlockLogoSlider>>['slides']
+) => {
+  return Promise.all(slides.map((slide) => getOptimizedSlide(slide)));
+};
+
+const slidesWithImages = await getSlidesWithImages(slides);
+---
+
+<div class='flex items-center justify-center'>
+  <div
+    class='swiper-button-prev
+      cursor-pointer
+      p-1
+      text-3xl
+      text-zinc-300
+      transition-colors
+      duration-200
+      ease-in-out
+      hover:text-re-blue'
+  >
+    <i class='fa-solid fa-chevron-left'></i>
+  </div>
+  <div class='swiper logo-slider'>
+    <div class='swiper-wrapper'>
+      {
+        slidesWithImages.map((slide) => (
+          <div class='swiper-slide w-1/4 overflow-hidden'>
+            <div class='flex items-center justify-center'>
+              <img
+                src={slide.image.src}
+                alt={slide.title}
+                class='h-[70px] w-[185px] object-contain'
+              />
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+  <div
+    class='swiper-button-next
+      cursor-pointer
+      p-1
+      text-3xl
+      text-zinc-300
+      transition-colors
+      duration-200
+      ease-in-out
+      hover:text-re-blue'
+  >
+    <i class='fa-solid fa-chevron-right'></i>
+  </div>
+</div>
+
+<script>
+  import Swiper from 'swiper';
+  import { Navigation } from 'swiper/modules';
+  import 'swiper/css';
+
+  for (const element of document.querySelectorAll('.logo-slider')) {
+    const swiperElement = element;
+    const nextButton = swiperElement.parentElement?.querySelector(
+      '.swiper-button-next'
+    );
+    const prevButton = swiperElement.parentElement?.querySelector(
+      '.swiper-button-prev'
+    );
+
+    // @ts-ignore
+    new Swiper(swiperElement, {
+      slidesPerView: 4,
+      loop: true,
+      modules: [Navigation],
+
+      navigation: {
+        nextEl: nextButton,
+        prevEl: prevButton
+      }
+    });
+  }
+</script>

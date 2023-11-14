@@ -1,0 +1,25 @@
+{
+  "extends": "astro/tsconfigs/base",
+  "compilerOptions": {
+    "allowSyntheticDefaultImports": true,
+    "jsx": "preserve",
+    "skipLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"]
+    }
+  },
+  "include": [
+    "src",
+    "astro.config.mjs",
+    ".eslintrc.cjs",
+    "robots-txt.config.mjs",
+    "**/*.js",
+    "**/*.ts",
+    "**/*.cjs",
+    "**/*.mjs",
+    "**/*.tsx",
+    "./tailwind.config.ts"
+  ]
+}
+

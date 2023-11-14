@@ -1,0 +1,102 @@
+---
+import { fetchMainMenu } from '@/lib/directus';
+import type { ArrayElement } from '@/lib/typescript';
+
+const { pathname } = new URL(Astro.request.url);
+
+const mainMenu = await fetchMainMenu();
+
+function getHref(
+  menuItem: ArrayElement<
+    ArrayElement<
+      Awaited<ReturnType<typeof fetchMainMenu>>['translations']
+    >['nodes']
+  >
+) {
+  if (menuItem.type === 'intern' && menuItem.linked_page?.url) {
+    return (
+      menuItem.linked_page?.url +
+      `${menuItem.anchor?.slug ? '#' + menuItem.anchor?.slug : ''}`
+    );
+  }
+  if (menuItem.type === 'extern' && menuItem?.url) {
+    return menuItem?.url;
+  }
+  return '#';
+}
+---
+
+<nav id='navbar' class='mb-1'>
+  <div id='hamburger'>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+  <ul
+    id='main-menu'
+    class='absolute left-0 top-0 mt-[89px] w-full items-center bg-white font-medium lg:relative lg:mt-0 lg:flex'
+  >
+    {
+      mainMenu?.translations
+        .find((t) => t.languages_code == 'de-DE')
+        .nodes?.map((menuItem, index) => {
+          return (
+            <li
+              class:list={[
+                'ml-11 text-right hover:text-re-turquoise',
+                { 'text-re-turquoise': pathname === getHref(menuItem) },
+                { 'text-re-blue': pathname !== getHref(menuItem) }
+              ]}
+            >
+              <a href={getHref(menuItem)} set:text={menuItem?.title} />
+            </li>
+          );
+        })
+    }
+    <li class='ml-9 text-right'>
+      <i class='fa-solid fa-magnifying-glass text-2xl'></i>
+    </li>
+    <li class='ml-6 text-right'>
+      <i class='fa-regular fa-envelope text-2xl'></i>
+    </li>
+  </ul>
+</nav>
+
+<style>
+  #hamburger {
+    @apply flex h-8 w-12 flex-col justify-between lg:hidden;
+  }
+  #hamburger div {
+    @apply h-[3px] bg-black transition-all duration-200 ease-in-out;
+  }
+  #navbar.main-menu-open #hamburger div:nth-child(1) {
+    @apply origin-center translate-y-[0.95rem] rotate-45 bg-transparent;
+  }
+  #navbar.main-menu-open #hamburger div:nth-child(2) {
+    @apply origin-center rotate-45;
+  }
+  #navbar.main-menu-open #hamburger div:nth-child(3) {
+    @apply origin-center -translate-y-[0.95rem] -rotate-45;
+  }
+
+  #main-menu {
+    @apply opacity-0 transition-all duration-200 ease-in-out lg:opacity-100;
+  }
+  #main-menu li {
+    @apply text-[0px] transition-all duration-200 ease-in-out lg:text-base;
+  }
+  #navbar.main-menu-open #main-menu {
+    @apply block max-h-fit pt-0 opacity-100;
+  }
+  #navbar.main-menu-open #main-menu li {
+    @apply my-4 text-base;
+  }
+</style>
+<script>
+  document.querySelector('#hamburger')?.addEventListener('click', () => {
+    document.querySelector('#navbar')?.classList.toggle('main-menu-open');
+  });
+  window.addEventListener('resize', () => {
+    document.querySelector('#navbar')?.classList.remove('main-menu-open');
+  });
+</script>

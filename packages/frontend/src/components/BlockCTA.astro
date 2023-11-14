@@ -1,0 +1,39 @@
+---
+import type {
+  getBlockCta,
+  getTypedCtaArray
+} from '@/loaders/BlockCTALoader.astro';
+import CTAExternal from './CTAExternal.astro';
+import CTAInternal from './CTAInternal.astro';
+
+type Props = {
+  alignment: Awaited<ReturnType<typeof getBlockCta>>['alignment'];
+  ctas: Awaited<ReturnType<typeof getTypedCtaArray>>;
+};
+
+const { alignment, ctas } = Astro.props;
+
+const classNames =
+  alignment === 'center'
+    ? 'justify-center'
+    : alignment === 'right'
+    ? 'justify-end'
+    : 'justify-start';
+---
+
+<div class:list={['flex gap-6 py-4', classNames]}>
+  {
+    ctas?.map((cta) => {
+      return (
+        <div class='mb-4'>
+          {cta.type === 'internal' && (
+            <CTAInternal type='internal' title={cta.title} url={cta.url} />
+          )}
+          {cta.type === 'external' && (
+            <CTAExternal type='external' title={cta.title} url={cta.url} />
+          )}
+        </div>
+      );
+    })
+  }
+</div>

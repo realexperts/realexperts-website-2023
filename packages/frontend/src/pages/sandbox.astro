@@ -1,0 +1,442 @@
+---
+import BlockCTA from '@/components/BlockCTA.astro';
+import BlockHero from '@/components/BlockHero.astro';
+import BlockText from '@/components/BlockText.astro';
+import ContactForm from '@/components/ContactForm.astro';
+import Heading from '@/components/Heading.astro';
+import IconTextColumns from '@/components/IconTextColumns.astro';
+import LogoSlider from '@/components/LogoSlider.astro';
+import Media from '@/components/Media.astro';
+import MediaText from '@/components/MediaText.astro';
+import QNAList from '@/components/QNAList.astro';
+import Section from '@/components/Section.astro';
+import SocialTextLinkBox from '@/components/SocialTextLinkBox.astro';
+import Spacer from '@/components/Spacer.astro';
+import Testimonials from '@/components/Testimonials.astro';
+import TopicBoxList from '@/components/TopicBoxList.astro';
+import Layout from '@/layouts/Layout.astro';
+
+const image1Id = '3f135461-0cfe-4d29-9b7d-27741a9b0cdd';
+---
+
+<Layout>
+  <Section>
+    <BlockHero
+      image={{
+        src: `${import.meta.env.DIRECTUS_URL}/assets/${image1Id}`,
+        width: 1250,
+        height: 508
+      }}
+      title='Packen wir’s an!'
+      subtitle='Digitalisierungsstrategien<br>für den Mittelstand'
+      ctas={[
+        {
+          type: 'internal',
+          title: 'Kontakt aufnehmen',
+          url: '#'
+        }
+      ]}
+    />
+
+    <BlockText
+      alignment='center'
+      colorHeadline='turquoise'
+      colorText='re_blue'
+      maxWidth='max-w-2xl'
+      maxWidthContainer='max-w-2xl'
+      text='Alle reden von Digitalisierung – mit uns wird sie Wirklichkeit. Sie wollen die Zusammenarbeit in Ihrem Unternehmen verbessern? Sie wollen Prozesse effizienter und transparenter gestalten? Wir entwickeln Strategien und finden die passenden digitalen Lösungen. Real Experts steht für eine bodenständige Art der Beratung: pragmatisch, zielorientiert und ganz nah dran an den Bedürfnissen mittelständischer Unternehmen.'
+    />
+    <LogoSlider />
+  </Section>
+  <Section>
+    <Heading>Stockt es oder rockt es?</Heading>
+    <BlockText
+      alignment='center'
+      text='Hand aufs Herz: Wo stehst du bei der Digitalisierung von Prozessen in deinem Unternehmen? Diese Tabelle verrät es dir. Wir holen dich dort ab, wo du stehst – und entwickeln eine Anwendungslandschaft, die zu dir und deiner Branche passt.'
+      colorHeadline='turquoise'
+      colorText='re_blue'
+      maxWidth='max-w-2xl'
+      maxWidthContainer='max-w-2xl'
+    />
+    <QNAList
+      questionHeading='Hier stockt es'
+      answerHeading='Hier rockt es'
+      qNaList={[
+        {
+          question: 'Fehlende digitale Anwendungen',
+          answer: 'Voll digitalisierte Geschäftsprozesse'
+        },
+        {
+          question: 'Hohes IT-Budget bei geringer Effizienz',
+          answer: 'IT-Investitionen bringen spürbaren Mehrwert'
+        },
+        {
+          question: 'Wartungsprobleme bei Eigenentwicklungen',
+          answer: 'Zukunftssichere IT-Landschaft'
+        },
+        {
+          question: 'Fehlende Koordination der Digitalisierungsaktivitäten',
+          answer: 'verbindliche Roadmap und Priorisierung von Maßnahmen'
+        },
+        {
+          question: 'Intransparente Softwareauswahl',
+          answer: 'IT-Entscheidungen auf Basis objektiver Kriterien'
+        }
+      ]}
+    />
+  </Section>
+  <Section background='turquoise'>
+    <Heading>Ihre Digitalstrategie – Ihre Vorteile</Heading>
+    <BlockText
+      alignment='center'
+      text='Mit der konsequenten Umstellung auf digitale Technologien stellen Sie sicher, dass Ihr Unternehmen wirtschaftlich arbeitet – und auch in Zukunft als relevanter Akteur sowie attraktiver Arbeitgeber wahrgenommen wird.'
+      maxWidth='max-w-2xl'
+      maxWidthContainer='max-w-2xl'
+      colorHeadline='turquoise'
+      colorText='re_blue'
+    />
+    <IconTextColumns
+      columns={[
+        {
+          imageUrl: '/images/icons/zukunftssicher.svg',
+          imageAlt: 'Icon Zukunftssicher',
+          imageWidth: '200px',
+          imageHeight: undefined,
+          imageObjectFit: undefined,
+          alignment: 'center',
+          text: '**Zukunftssicher**  \nWir entwickeln Strategien und Lösungen, die nachhaltig wirken – für eine starke Marktposition in der digitalen Zeit.',
+          columnWidthPercent: 33
+        },
+        {
+          imageUrl: '/images/icons/persoenlich.svg',
+          imageAlt: 'Icon Persönlich',
+          imageWidth: '200px',
+          imageHeight: undefined,
+          imageObjectFit: undefined,
+          alignment: 'center',
+          text: '**Persönlich**  \nDie Bedürfnisse Ihrer Mitarbeiter und Kunden rücken in den Mittelpunkt. Für bessere Ergebnisse und hohe Zufriedenheit.',
+          columnWidthPercent: 33
+        },
+        {
+          imageUrl: '/images/icons/effizient.svg',
+          imageAlt: 'Icon Effizient',
+          imageWidth: '200px',
+          imageHeight: undefined,
+          imageObjectFit: undefined,
+          alignment: 'center',
+          text: '**Effizient**  \nDurch die Digitalisierung generieren Sie echte Wettbewerbsvorteile und Mehrwerte für Ihr Unternehmen.',
+          columnWidthPercent: 33
+        }
+      ]}
+    />
+    <BlockCTA
+      alignment='center'
+      ctas={[
+        {
+          type: 'internal',
+          title: 'Jetzt Erstgespräch buchen',
+          url: '#'
+        }
+      ]}
+    />
+  </Section>
+  <Section background='blue' standardPadding={false}>
+    <BlockHero
+      image={{
+        src: `${import.meta.env.DIRECTUS_URL}/assets/${image1Id}`,
+        width: 1250,
+        height: 508
+      }}
+    />
+    <Spacer />
+    <Heading>Branchen brauchen Spezialisten!</Heading>
+    <BlockText
+      alignment='center'
+      text='Ob digitaler Leistungsnachweis für die Baustelle, ein CRM für den Friseursalon oder Automatisierung in der Fertigung: Digitalisierung bedeutet bedeutet für jede Branche etwas anders. In unseren Kundeninterviews erfährst du mehr über aktuelle Projekte!'
+      maxWidth='max-w-2xl'
+      maxWidthContainer='max-w-2xl'
+      colorHeadline='turquoise'
+      colorText='re_blue'
+    />
+    <MediaText
+      videoUrl='/videos/video1.mp4'
+      imageUrl='/images/previews/video1.png'
+      imageAlt='Testbild 1'
+      text='## Bau\n\nUnserErfolgsrezept lorm ipsum Aenean commodo ligula eget dolor. Aenean massa. Cum sociis oque. Ipsum dolor sit amet, consectetuer adipiscing elit. '
+      textAlignment='left'
+      textDesign='style_2'
+      max_width_container='max-w-4xl'
+    />
+    <MediaText
+      videoUrl='/videos/video1.mp4'
+      imageUrl='/images/previews/video1.png'
+      imageAlt='Testbild 1'
+      text='## Industrie\n\nUnserErfolgsrezept lorm ipsum Aenean commodo ligula eget dolor. Aenean massa. Cum sociis oque. Ipsum dolor sit amet, consectetuer adipiscing elit. '
+      textAlignment='left'
+      textDesign='style_2'
+      max_width_container='max-w-4xl'
+      mediaPositon='right'
+    />
+    <MediaText
+      videoUrl='/videos/video1.mp4'
+      imageUrl='/images/previews/video1.png'
+      imageAlt='Testbild 1'
+      text='## Bau- und Ingenieurwesen\n\nUnserErfolgsrezept lorm ipsum Aenean commodo ligula eget dolor. Aenean massa. Cum sociis oque. Ipsum dolor sit amet, consectetuer adipiscing elit. '
+      textAlignment='left'
+      textDesign='style_2'
+      max_width_container='max-w-4xl'
+      mediaPositon='left'
+    />
+    <MediaText
+      videoUrl='/videos/video1.mp4'
+      imageUrl='/images/previews/video1.png'
+      imageAlt='Testbild 1'
+      text='## Gemeinnützige Organisationen\n\nUnserErfolgsrezept lorm ipsum Aenean commodo ligula eget dolor. Aenean massa. Cum sociis oque. Ipsum dolor sit amet, consectetuer adipiscing elit. '
+      textAlignment='left'
+      textDesign='style_2'
+      max_width_container='max-w-4xl'
+      mediaPositon='right'
+    />
+    <BlockCTA
+      alignment='center'
+      ctas={[
+        {
+          type: 'internal',
+          title: 'Jetzt Erstgespräch buchen',
+          url: '#'
+        }
+      ]}
+    />
+    <Spacer />
+  </Section>
+  <Section>
+    <BlockText
+      alignment='center'
+      text='# In 4 Schritten zur zielführenden Digitalstrategie'
+      maxWidth='max-w-2xl'
+      maxWidthContainer='max-w-2xl'
+      colorHeadline='turquoise'
+      colorText='re_blue'
+    />
+    <IconTextColumns
+      max_width_container='max-w-2xl'
+      columns={[
+        {
+          imageUrl: '/images/icons/one.svg',
+          imageAlt: 'Schritt 1',
+          imageHeight: '200px',
+          imageObjectFit: undefined,
+          alignment: 'center',
+          text: '## Bestandsaufnahme\n\nWir analysieren den Status quo, entwickeln ein Leitbild und definieren konkrete Ziele für unser gemeinsames Prohjekt.',
+          columnWidthPercent: 50
+        },
+        {
+          imageUrl: '/images/icons/two.svg',
+          imageAlt: 'Schritt 2',
+          imageHeight: '200px',
+          imageObjectFit: undefined,
+          alignment: 'center',
+          text: '## Priorisierung\n\nDamit Sie schnell Erfolge erzielen, priorisieren wir die definierten Maßnamen. Wo sind Quick Wins zu erwarten? Was hat noch Zeit?',
+          columnWidthPercent: 50
+        },
+        {
+          imageUrl: '/images/icons/three.svg',
+          imageAlt: 'Schritt 3',
+          imageHeight: '200px',
+          imageObjectFit: undefined,
+          alignment: 'center',
+          text: '## Lösungsentwicklung\n\nWir scannen den Markt und suchen die Technologie, die am besten zu Uhren Anfoderungen und Ihrem Budget passt.',
+          columnWidthPercent: 50
+        },
+        {
+          imageUrl: '/images/icons/four.svg',
+          imageAlt: 'Schritt 4',
+          imageHeight: '200px',
+          imageObjectFit: undefined,
+          alignment: 'center',
+          text: '## Entscheidungsvorlage\n\nSie verfügen über alle Informationen für eine fundierte Entscheidung. Jetzt müssen Sie nur noch den Startschuss zur Umsetzung geben.',
+          columnWidthPercent: 50
+        }
+      ]}
+    />
+    <BlockCTA
+      alignment='center'
+      ctas={[
+        {
+          type: 'internal',
+          title: 'Jetzt Erstgespräch buchen',
+          url: '#'
+        }
+      ]}
+    />
+  </Section>
+  <Section>
+    <SocialTextLinkBox
+      faIcon='podcast'
+      linkText='Jetzt Podcast abonnieren'
+      linkHref='#'
+      linkTarget='_self'
+    >
+      <p>
+        Sie wollen tiefer ins Thema Digitalisierung für KMU eintauchen?<br />
+         Dann abonnieren Sie unseren Podcast!
+      </p>
+    </SocialTextLinkBox>
+  </Section>
+  <Section background='turquoise' standardPadding={false}>
+    <BlockHero
+      image={{
+        src: `${import.meta.env.DIRECTUS_URL}/assets/${image1Id}`,
+        width: 1250,
+        height: 508
+      }}
+    />
+    <Heading>
+      Real Experts:<br /> konkrete Lösungen für konkrete Probleme
+    </Heading>
+    <BlockText
+      alignment='center'
+      text='Wir gestalten Digitalisierung  so, dass sie kleine und mittelständische Unternehmen nicht überfordert – weder finanziell noch organisatorisch Dabei spielen wir alle unsere Stärken aus.'
+      maxWidth='max-w-2xl'
+      maxWidthContainer='max-w-2xl'
+      colorHeadline='turquoise'
+      colorText='re_blue'
+    />
+    <IconTextColumns
+      columns={[
+        {
+          alignment: 'left',
+          text: '**Bodenständig:** Wir lassen die Luft aus aufgeblasenen Begriffen wie „Transformation“ und bearbeiten das Thema mit der Hands-on-Mentalität unserer Kunden.',
+          columnWidthPercent: 47
+        },
+        {
+          alignment: 'left',
+          text: '**Unabhängig:** Wir arbeiten unabhängig und systemoffen. Bei der Auswahl der für Sie passenden Technologie haben wir den gesamten Markt im Blick.',
+          columnWidthPercent: 47
+        },
+        {
+          alignment: 'left',
+          text: '**Erfahren:** Wir beraten seit mehr als 20 Jahren kleine und mittelständische Unternehmen zu Digitalisierungsthemen und bringen praktische Erfahrung aus vielen Branchen mit.',
+          columnWidthPercent: 47
+        },
+        {
+          alignment: 'left',
+          text: '**Agil:** Wir sind ein Netzwerk von Experten. Das bedeutet für Sie: persönliche Ansprechpartner, schnelle Umsetzung und Beraterhonorar statt Agenturrechnung.',
+          columnWidthPercent: 47
+        }
+      ]}
+    />
+    <Testimonials
+      max_width_container='max-w-4xl'
+      testimonals={[
+        {
+          text: 'Mit Real Experts als Partner Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu.',
+          name: 'Stefan Mustermann',
+          company: 'Firma XYZ',
+          image:
+            'https://i.pravatar.cc/300?img=' +
+            Math.floor(Math.random() * 50 + 1)
+        },
+        {
+          text: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.',
+          name: 'Max Mütze',
+          company: 'Mircotest',
+          image:
+            'https://i.pravatar.cc/300?img=' +
+            Math.floor(Math.random() * 50 + 1)
+        },
+        {
+          text: 'Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus.',
+          name: 'Test Tester',
+          company: 'Test GmbH',
+          image:
+            'https://i.pravatar.cc/300?img=' +
+            Math.floor(Math.random() * 50 + 1)
+        },
+        {
+          text: 'Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi.',
+          name: 'Heinz Heinz',
+          company: 'Testfirma',
+          image:
+            'https://i.pravatar.cc/300?img=' +
+            Math.floor(Math.random() * 50 + 1)
+        },
+        {
+          text: 'Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc,',
+          name: 'Prima Ballerina',
+          company: 'Tanzsalon',
+          image:
+            'https://i.pravatar.cc/300?img=' +
+            Math.floor(Math.random() * 50 + 1)
+        },
+        {
+          text: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium.',
+          name: 'Stefanie Musterfrau',
+          company: 'Testmuster GmbH',
+          image:
+            'https://i.pravatar.cc/300?img=' +
+            Math.floor(Math.random() * 50 + 1)
+        }
+      ]}
+    />
+    <BlockCTA
+      alignment='center'
+      ctas={[
+        {
+          type: 'internal',
+          title: 'JETZT KONTAKT AUFNEHMEN',
+          url: '#'
+        }
+      ]}
+    />
+  </Section>
+  <Section>
+    <Media
+      videoUrl='/videos/video1.mp4'
+      captionUrl='/videos/captions/video1.vtt'
+      imageUrl='/images/previews/video1.png'
+      max_width_container='max-w-4xl'
+    />
+  </Section>
+  <Section background='blue' standardPadding={false}>
+    <BlockHero
+      image={{
+        src: `${import.meta.env.DIRECTUS_URL}/assets/${image1Id}`,
+        width: 1250,
+        height: 508
+      }}
+    />
+    <BlockText
+      alignment='center'
+      text='# Team Real: Digitalisierungsexperten für den Mittelstand\n\nWas auch immer Sie für Ihr Digitalisierungsprojekt brauchen: Bei Real Experts finden Sie Experten aus allen Disziplinen unter einem Dach: u. a. Berater, Entwickler, Strategen, Gestalter. Wir arbeiten in verschiedenen Konstellationen seit vielen Jahren erfolgreich zusammen. Für jedes Projekt stellen wir ein individuelles Team zusammen.'
+      maxWidth='max-w-2xl'
+      maxWidthContainer='max-w-2xl'
+      colorHeadline='turquoise'
+      colorText='white'
+    />
+    <BlockCTA
+      alignment='center'
+      ctas={[
+        {
+          type: 'internal',
+          title: 'Jetzt kennenlernen',
+          url: '#'
+        }
+      ]}
+    />
+  </Section>
+  <Section background='turquoise-dark'>
+    <ContactForm />
+  </Section>
+  <Section>
+    <BlockText
+      alignment='center'
+      text='# Unsere aktuellsten Themen'
+      maxWidth='max-w-2xl'
+      maxWidthContainer='max-w-2xl'
+      colorHeadline='turquoise'
+      colorText='re_blue'
+    />
+    <TopicBoxList />
+  </Section>
+</Layout>

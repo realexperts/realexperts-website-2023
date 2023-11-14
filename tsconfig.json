@@ -1,24 +1,22 @@
 {
-  "extends": "astro/tsconfigs/base",
   "compilerOptions": {
-    "allowSyntheticDefaultImports": true,
-    "jsx": "preserve",
+    "lib": ["ESNext"],
+    "module": "esnext",
+    "target": "esnext",
+    "moduleResolution": "bundler",
+    "moduleDetection": "force",
+    "allowImportingTsExtensions": true,
+    "noEmit": true,
+    "composite": true,
+    "strict": true,
+    "downlevelIteration": true,
     "skipLibCheck": true,
-    "baseUrl": ".",
-    "paths": {
-      "@/*": ["./src/*"]
-    }
-  },
-  "include": [
-    "src",
-    "astro.config.mjs",
-    ".eslintrc.cjs",
-    "robots-txt.config.mjs",
-    "**/*.js",
-    "**/*.ts",
-    "**/*.cjs",
-    "**/*.mjs",
-    "**/*.tsx",
-    "./tailwind.config.ts"
-  ]
-} 
+    "jsx": "react-jsx",
+    "allowSyntheticDefaultImports": true,
+    "forceConsistentCasingInFileNames": true,
+    "allowJs": true,
+    "types": [
+      "bun-types" // add Bun global
+    ]
+  }
+}

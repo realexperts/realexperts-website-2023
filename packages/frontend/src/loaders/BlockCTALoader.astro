@@ -1,0 +1,94 @@
+---
+import BlockCTA from '@/components/BlockCTA.astro';
+import { client } from '@/lib/directus';
+import { readItem } from '@directus/sdk';
+
+const { itemId } = Astro.props;
+
+export const getBlockCta = async (itemId: number) => {
+  return await client.request(
+    readItem('block_cta', itemId, {
+      fields: ['alignment', { ctas: ['item', 'collection'] }]
+    })
+  );
+};
+
+export const getTypedCtaArray = async (
+  ctaArray: {
+    collection: string;
+    item: number;
+  }[]
+) => {
+  // @eslint-ignore next-line
+  const fetchElementCtaInternal = async (ctaId: number) => {
+    const response = await client.request(
+      readItem('element_cta_internal', ctaId, {
+        fields: [
+          'title',
+          'anchor',
+          {
+            linked_page: ['url']
+          }
+        ]
+      })
+    );
+
+    return {
+      type: 'internal' as 'internal',
+      title: response.title,
+      url: `${response.linked_page.url}${
+        response.anchor ? `#${response.anchor}` : ''
+      }`
+    };
+  };
+
+  // @eslint-ignore next-line
+  const fetchElementCtaExternal = async (ctaId: number) => {
+    const response = await client.request(
+      readItem('element_cta_external', ctaId, {
+        fields: ['title', 'url']
+      })
+    );
+
+    return {
+      type: 'external' as 'external',
+      title: response.title,
+      url: response.url
+    };
+  };
+
+  let ctas: Awaited<
+    Promise<{
+      type: 'internal' | 'external';
+      title: string;
+      url: string;
+    }>
+  >[] = [];
+
+  for (const element of ctaArray) {
+    if (element.collection === 'element_cta_internal') {
+      ctas.push(await fetchElementCtaInternal(element.item));
+    } else if (element.collection === 'element_cta_external') {
+      ctas.push(await fetchElementCtaExternal(element.item));
+    }
+  }
+
+  return ctas;
+};
+
+const response = await getBlockCta(itemId);
+
+const typedCtaArray = await getTypedCtaArray(
+  response.ctas.map((cta) => ({
+    collection: cta.collection,
+    item: cta.item as number
+  }))
+);
+
+const blockCta = {
+  alignment: response.alignment,
+  ctas: typedCtaArray
+};
+---
+
+<BlockCTA {...blockCta} />

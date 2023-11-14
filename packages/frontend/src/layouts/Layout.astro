@@ -1,0 +1,160 @@
+---
+import {
+  fetchMetaInformation,
+  fetchPages,
+  fetchSettings
+} from '@/lib/directus';
+import type { ArrayElement } from '@/lib/typescript';
+import type { GetImageResult } from 'astro';
+import { getImage } from 'astro:assets';
+import Footer from './Footer.astro';
+import Header from './Header.astro';
+
+export interface Props {
+  page?: ArrayElement<Awaited<ReturnType<typeof fetchPages>>>;
+}
+
+const { page } = Astro.props;
+
+const metaInformation = await fetchMetaInformation(page?.id);
+const settings = await fetchSettings();
+
+const pageTitle = page?.title ? `| ${page?.title}` : '';
+
+const metaTitle = metaInformation?.meta_title || page?.title;
+const metaDescription = metaInformation?.meta_description;
+const metaImage = metaInformation?.meta_image?.id;
+
+let optimizedBackground: GetImageResult;
+if (metaInformation?.meta_image) {
+  const src = `${import.meta.env.DIRECTUS_URL}/assets/${
+    metaInformation?.meta_image.id
+  }`;
+  optimizedBackground = await getImage({
+    src,
+    format: 'jpg',
+    width: metaInformation?.meta_image.width,
+    height: metaInformation?.meta_image.height,
+    quality: 80
+  });
+}
+
+// Create favicon from source
+let favicon: GetImageResult;
+if (settings?.favicon) {
+  const src = `${import.meta.env.DIRECTUS_URL}/assets/${settings?.favicon.id}`;
+  favicon = await getImage({
+    src,
+    format: 'png',
+    width: settings?.favicon.width,
+    height: settings?.favicon.height
+  });
+}
+---
+
+<!doctype html>
+<html lang='de' class='scroll-smooth focus:scroll-auto'>
+  <head>
+    <meta charset='utf8' />
+    <meta name='viewport' content='width=device-width' />
+    {favicon && <link rel='icon' type='image/svg+xml' href={favicon.src} />}
+    {!settings?.robots_index && <meta name='robots' content='noindex' />}
+    <link
+      rel='stylesheet'
+      type='text/css'
+      href='/fonts/fontawesome/css/all.min.css'
+    />
+    <title>
+      Real Experts {pageTitle}
+    </title>
+
+    {metaTitle && <meta name='title' content={metaTitle} />}
+    {metaDescription && <meta name='description' content={metaDescription} />}
+    {metaTitle && <meta property='og:title' content={metaTitle} />}
+    {
+      metaDescription && (
+        <meta property='og:description' content={metaDescription} />
+      )
+    }
+    <meta property='og:type' content='website' />
+    <meta property='og:url' content='https://realexperts.de/' />
+    {
+      metaImage && (
+        <meta
+          property='og:image'
+          content={`https://realexperts.de${optimizedBackground.src}`}
+        />
+      )
+    }
+  </head>
+  <body class='caret-transparent'>
+    <Header />
+    <main>
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>
+
+<style is:global>
+  /* changa-regular - latin */
+  @font-face {
+    font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: 'Changa';
+    font-style: normal;
+    font-weight: 400;
+    src:
+      url('../fonts/changa/changa-v20-latin-regular.woff2') format('woff2'),
+      /* Chrome 36+, Opera 23+, Firefox 39+ */
+        url('../fonts/changa/changa-v20-latin-regular.woff') format('woff'); /* Chrome 5+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  }
+  /* changa-600 - latin */
+  @font-face {
+    font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: 'Changa';
+    font-style: normal;
+    font-weight: 600;
+    src:
+      url('../fonts/changa/changa-v20-latin-600.woff2') format('woff2'),
+      /* Chrome 36+, Opera 23+, Firefox 39+ */
+        url('../fonts/changa/changa-v20-latin-600.woff') format('woff'); /* Chrome 5+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  }
+  /* poppins-regular - latin */
+  @font-face {
+    font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    src:
+      url('../fonts/poppins/poppins-v20-latin-regular.woff2') format('woff2'),
+      /* Chrome 36+, Opera 23+, Firefox 39+ */
+        url('../fonts/poppins/poppins-v20-latin-regular.woff') format('woff'); /* Chrome 5+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  }
+  /* poppins-500 - latin */
+  @font-face {
+    font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    src:
+      url('../fonts/poppins/poppins-v20-latin-500.woff2') format('woff2'),
+      /* Chrome 36+, Opera 23+, Firefox 39+ */
+        url('../fonts/poppins/poppins-v20-latin-500.woff') format('woff'); /* Chrome 5+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  }
+  /* poppins-700 - latin */
+  @font-face {
+    font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    src:
+      url('../fonts/poppins/poppins-v20-latin-700.woff2') format('woff2'),
+      /* Chrome 36+, Opera 23+, Firefox 39+ */
+        url('../fonts/poppins/poppins-v20-latin-700.woff') format('woff'); /* Chrome 5+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  }
+
+  html,
+  body {
+    font-size: 18px;
+  }
+</style>

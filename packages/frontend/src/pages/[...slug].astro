@@ -1,0 +1,99 @@
+---
+import Block from '@/components/Block.astro';
+import BlockCTA from '@/components/BlockCTA.astro';
+import BlockLogoSlider from '@/components/BlockLogoSlider.astro';
+import BlockText from '@/components/BlockText.astro';
+import Container from '@/components/Container.astro';
+import Heading from '@/components/Heading.astro';
+import Section from '@/components/Section.astro';
+import Layout from '@/layouts/Layout.astro';
+import { fetchPages } from '@/lib/directus';
+import type { ArrayElement } from '@/lib/typescript';
+import BlockCTALoader from '@/loaders/BlockCTALoader.astro';
+import BlockHeroLoader from '@/loaders/BlockHeroLoader.astro';
+import BlockTextLoader from '@/loaders/BlockTextLoader.astro';
+import type { Code } from 'astro:components';
+
+type Props = {
+  page: ArrayElement<Awaited<ReturnType<typeof fetchPages>>>;
+};
+
+let page: ArrayElement<Awaited<ReturnType<typeof fetchPages>>>;
+
+// Only for production purposes.
+export async function getStaticPaths() {
+  const pages = await fetchPages();
+
+  return pages?.map((page) => ({
+    params: {
+      slug: page.url === '/' ? undefined : page.url.replace('/', '')
+    },
+    props: {
+      page
+    }
+  }));
+}
+
+// Only for preview/development purposes.
+if (
+  import.meta.env.BUILD_MODE === 'production' ||
+  import.meta.env.BUILD_MODE === 'development'
+) {
+  const props = Astro.props;
+  page = props.page;
+} else {
+  const { slug } = Astro.params;
+  const pages = await fetchPages();
+
+  page = pages.find(
+    (p) => p.url === `/${slug}` || (slug === undefined && p.url === '/')
+  );
+}
+---
+
+<Layout page={page}>
+  {
+    page?.show_title && (
+      <Section>
+        <Container>
+          <Heading>{page?.title}</Heading>
+        </Container>
+      </Section>
+    )
+  }
+  {
+    page?.sections?.map((section) => (
+      <Section {...section.sections_id}>
+        <Container>
+          {section.sections_id.blocks.map(
+            (block) =>
+              typeof block.item === 'string' && (
+                <>
+                  {block.collection === 'block_hero' && (
+                    <Block block={block}>
+                      <BlockHeroLoader itemId={block.item} />
+                    </Block>
+                  )}
+                  {block.collection === 'block_text' && (
+                    <Block block={block}>
+                      <BlockTextLoader itemId={block.item} />
+                    </Block>
+                  )}
+                  {block.collection === 'block_cta' && (
+                    <Block block={block}>
+                      <BlockCTALoader itemId={block.item} />
+                    </Block>
+                  )}
+                  {block.collection === 'block_logo_slider' && (
+                    <Block block={block}>
+                      <BlockLogoSlider itemId={block.item} />
+                    </Block>
+                  )}
+                </>
+              )
+          )}
+        </Container>
+      </Section>
+    ))
+  }
+</Layout>

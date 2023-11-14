@@ -1,0 +1,24 @@
+---
+import Container from '../components/Container.astro';
+import MainNavigation from '../components/MainNavigation.astro';
+import Section from '../components/Section.astro';
+---
+
+<header>
+  <Section standardPadding={false}>
+    <Container centered={false}>
+      <div
+        class='relative mx-5 my-[30px] flex items-end justify-between 2xl:mx-0'
+      >
+        <a href='/'>
+          <img
+            src='/images/logo/logo-dark-re.png'
+            class='h-16 lg:h-[89px]'
+            alt='Logo Real Experts Network GmbH'
+          />
+        </a>
+        <MainNavigation />
+      </div>
+    </Container>
+  </Section>
+</header>
