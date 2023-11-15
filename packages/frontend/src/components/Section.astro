@@ -1,29 +1,25 @@
 ---
 import { twMerge } from 'tailwind-merge';
 
-export interface Props extends Section {
-  background?:
-    | 'blue'
-    | 'gray'
-    | 'transparent'
-    | 'turquoise'
-    | 'turquoise-dark'
-    | 'white';
-  standardPadding?: boolean;
-  section?: boolean;
-  color?: string;
-}
+type Props = {
+  padding?: boolean | null;
+  section_styles?: string[] | null;
+  color?: string | null;
+  slug?: string | null;
+};
 
-const {
-  background = 'white',
-  standardPadding = true,
-  section,
-  section_styles,
-  color,
-  slug
-} = Astro.props;
+const { padding = true, section_styles, color = 'white', slug } = Astro.props;
 
-const colorSchema = {
+// Define a type for the keys of colorMapping
+type ColorKey =
+  | 'blue'
+  | 'gray'
+  | 'transparent'
+  | 'turquoise'
+  | 'turquoise-dark'
+  | 'white';
+
+const colorMapping: Record<ColorKey, string> = {
   blue: 'bg-re-blue text-white',
   gray: 'bg-re-gray text-black',
   transparent: 'bg-transparent text-black',
@@ -32,17 +28,27 @@ const colorSchema = {
   white: 'bg-white text-re-blue'
 };
 
-const stylesMapping = {
-  full_width: 'w-full'
+// Define a type for the keys of stylesMapping
+type StyleKey =
+  | 'full_width'
+  | 'rounded_tl'
+  | 'rounded_tr'
+  | 'rounded_bl'
+  | 'rounded_br';
+
+const stylesMapping: Record<StyleKey, string> = {
+  full_width: 'w-full',
+  rounded_tl: 'rounded-tl-3xl',
+  rounded_tr: 'rounded-tr-3xl',
+  rounded_bl: 'rounded-bl-3xl',
+  rounded_br: 'rounded-br-3xl'
 };
 
 const sectionStyles = section_styles
   ?.map((style) => {
-    // Check if cornerMapping contains a mapping for the current corner
     if (style in stylesMapping) {
-      return `${stylesMapping[style]}`;
+      return stylesMapping[style as StyleKey];
     }
-    // If no mapping is found, return the original string
     return style;
   })
   .join(' ');
@@ -51,13 +57,13 @@ const sectionWidth =
   !section_styles?.includes('full_width') && 'w-full max-w-website mx-auto';
 
 const classes = twMerge(
-  colorSchema[background],
+  colorMapping[color as ColorKey],
   sectionWidth,
   sectionStyles,
-  standardPadding && 'py-16'
+  padding && 'py-16'
 );
 ---
 
-<section class:list={[classes]} style={`background-color: ${color}`} id={slug}>
+<section class:list={[classes]} id={slug}>
   <slot />
 </section>

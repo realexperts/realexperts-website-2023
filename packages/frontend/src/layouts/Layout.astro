@@ -5,7 +5,6 @@ import {
   fetchSettings
 } from '@/lib/directus';
 import type { ArrayElement } from '@/lib/typescript';
-import type { GetImageResult } from 'astro';
 import { getImage } from 'astro:assets';
 import Footer from './Footer.astro';
 import Header from './Header.astro';
@@ -23,33 +22,28 @@ const pageTitle = page?.title ? `| ${page?.title}` : '';
 
 const metaTitle = metaInformation?.meta_title || page?.title;
 const metaDescription = metaInformation?.meta_description;
-const metaImage = metaInformation?.meta_image?.id;
 
-let optimizedBackground: GetImageResult;
-if (metaInformation?.meta_image) {
-  const src = `${import.meta.env.DIRECTUS_URL}/assets/${
-    metaInformation?.meta_image.id
-  }`;
-  optimizedBackground = await getImage({
-    src,
-    format: 'jpg',
-    width: metaInformation?.meta_image.width,
-    height: metaInformation?.meta_image.height,
-    quality: 80
-  });
-}
+const optimizedMetaImage = metaInformation?.meta_image
+  ? await getImage({
+      src: `${import.meta.env.DIRECTUS_URL}/assets/${
+        metaInformation?.meta_image.id
+      }`,
+      format: 'jpg',
+      width: metaInformation?.meta_image.width,
+      height: metaInformation?.meta_image.height,
+      quality: 80
+    })
+  : undefined;
 
 // Create favicon from source
-let favicon: GetImageResult;
-if (settings?.favicon) {
-  const src = `${import.meta.env.DIRECTUS_URL}/assets/${settings?.favicon.id}`;
-  favicon = await getImage({
-    src,
-    format: 'png',
-    width: settings?.favicon.width,
-    height: settings?.favicon.height
-  });
-}
+const favicon = settings?.favicon
+  ? await getImage({
+      src: `${import.meta.env.DIRECTUS_URL}/assets/${settings?.favicon.id}`,
+      format: 'png',
+      width: settings?.favicon.width,
+      height: settings?.favicon.height
+    })
+  : undefined;
 ---
 
 <!doctype html>
@@ -79,10 +73,10 @@ if (settings?.favicon) {
     <meta property='og:type' content='website' />
     <meta property='og:url' content='https://realexperts.de/' />
     {
-      metaImage && (
+      optimizedMetaImage && (
         <meta
           property='og:image'
-          content={`https://realexperts.de${optimizedBackground.src}`}
+          content={`https://realexperts.de${optimizedMetaImage.src}`}
         />
       )
     }

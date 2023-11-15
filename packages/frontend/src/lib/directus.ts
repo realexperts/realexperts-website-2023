@@ -86,6 +86,7 @@ export const fetchPages = async () => {
               sections: [
                 {
                   sections_id: [
+                    'padding',
                     'section_styles',
                     'color',
                     'slug',
