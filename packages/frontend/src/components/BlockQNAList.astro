@@ -1,23 +1,30 @@
 ---
-import BlockCTA from './BlockCTA.astro';
+type Props = {
+  questionHeading?: string | null;
+  answerHeading?: string | null;
+  qnaList: {
+    question: string;
+    answer: string;
+  }[];
+};
 
-const { questionHeading, answerHeading, qNaList = [] } = Astro.props;
+const { questionHeading, answerHeading, qnaList = [] } = Astro.props;
 ---
 
 {
   questionHeading && answerHeading && (
-    <div class='flex font-serif text-2xl font-bold uppercase'>
+    <div class='flex font-serif text-2xl font-bold uppercase text-re-blue'>
       <div class='bold w-1/2 px-10 py-5 text-right'>{questionHeading}</div>
       <div class='bold ml-20 w-1/2 px-10 py-5'>{answerHeading}</div>
     </div>
   )
 }
 {
-  qNaList.map((item, index) => {
+  qnaList.map((item, index) => {
     const isFirst = index === 0;
-    const isLast = index === qNaList.length - 1;
+    const isLast = index === qnaList.length - 1;
     return (
-      <div class='relative flex items-stretch text-xl'>
+      <div class='relative flex items-stretch text-xl text-re-blue'>
         <div
           class:list={[
             'flex w-1/2 items-center justify-end px-10 py-5 text-right',
@@ -49,15 +56,3 @@ const { questionHeading, answerHeading, qNaList = [] } = Astro.props;
     );
   })
 }
-<div class='mb-10 mt-20'>
-  <BlockCTA
-    alignment='center'
-    ctas={[
-      {
-        type: 'internal',
-        title: 'JETZT KOSTENLOSES ERSTGESPRÄCH BUCHEN',
-        url: '#'
-      }
-    ]}
-  />
-</div>

@@ -1,6 +1,7 @@
 ---
 import BlockCTA from '@/components/BlockCTA.astro';
 import BlockHero from '@/components/BlockHero.astro';
+import BlockQNAList from '@/components/BlockQNAList.astro';
 import BlockText from '@/components/BlockText.astro';
 import ContactForm from '@/components/ContactForm.astro';
 import Heading from '@/components/Heading.astro';
@@ -8,7 +9,6 @@ import IconTextColumns from '@/components/IconTextColumns.astro';
 import LogoSlider from '@/components/LogoSlider.astro';
 import Media from '@/components/Media.astro';
 import MediaText from '@/components/MediaText.astro';
-import QNAList from '@/components/QNAList.astro';
 import Section from '@/components/Section.astro';
 import SocialTextLinkBox from '@/components/SocialTextLinkBox.astro';
 import Spacer from '@/components/Spacer.astro';
@@ -57,10 +57,10 @@ const jetzt = 'Jetzt Erstgespräch buchen';
       color_headline='re_blue'
       max_width_container={'max-w-2xl'}
     />
-    <QNAList
+    <BlockQNAList
       questionHeading='Hier stockt es'
       answerHeading='Hier rockt es'
-      qNaList={[
+      qnaList={[
         {
           question: 'Fehlende digitale Anwendungen',
           answer: 'Voll digitalisierte Geschäftsprozesse'
@@ -84,7 +84,7 @@ const jetzt = 'Jetzt Erstgespräch buchen';
       ]}
     />
   </Section>
-  <Section color='turquoise' section_styles={['rounded_tl', 'rounded_tr']}>
+  <Section color='#EAF4F5' section_styles={['rounded_tl', 'rounded_tr']}>
     <BlockText
       alignment='center'
       text='## Ihre Digitalstrategie \n Ihre Vorteile\nMit der konsequenten Umstellung auf digitale Technologien stellen Sie sicher, dass Ihr Unternehmen wirtschaftlich arbeitet – und auch in Zukunft als relevanter Akteur sowie attraktiver Arbeitgeber wahrgenommen wird.'

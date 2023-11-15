@@ -9,6 +9,7 @@ import type { ArrayElement } from '@/lib/typescript';
 import BlockCTALoader from '@/loaders/BlockCTALoader.astro';
 import BlockHeroLoader from '@/loaders/BlockHeroLoader.astro';
 import BlockLogoSliderLoader from '@/loaders/BlockLogoSliderLoader.astro';
+import BlockQNALoader from '@/loaders/BlockQNALoader.astro';
 import BlockTextLoader from '@/loaders/BlockTextLoader.astro';
 
 type Props = {
@@ -84,6 +85,11 @@ if (
                   {block.collection === 'block_logo_slider' && (
                     <Block block={block}>
                       <BlockLogoSliderLoader itemId={block.item} />
+                    </Block>
+                  )}
+                  {block.collection === 'block_qna_list' && (
+                    <Block block={block}>
+                      <BlockQNALoader itemId={block.item} />
                     </Block>
                   )}
                 </>

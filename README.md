@@ -43,7 +43,7 @@ Follow these steps to set up the project locally:
 
 - Run the following command to export TypeScript models for the frontend:
   ```bash
-  bun run --cwd packages/backend directus models snapshot ../frontend/directus.d.ts
+  bun run --cwd packages/backend directus models snapshot ../frontend/src/lib/types.ts
   ```
 
 ## Start Development

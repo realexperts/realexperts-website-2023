@@ -1,0 +1,32 @@
+---
+import BlockQNAList from '@/components/BlockQNAList.astro';
+import { client } from '@/lib/directus';
+import { readItem } from '@directus/sdk';
+
+type Props = {
+  itemId: number;
+};
+
+const { itemId } = Astro.props;
+
+export const loadBlockText = async (itemId: number) => {
+  return await client.request(
+    readItem('block_qna_list', itemId, {
+      fields: ['question_heading', 'answer_heading', 'qna_list']
+    })
+  );
+};
+
+const response = await loadBlockText(itemId);
+
+const properties = {
+  questionHeading: response.question_heading,
+  answerHeading: response.answer_heading,
+  qnaList: response.qna_list as {
+    question: string;
+    answer: string;
+  }[]
+};
+---
+
+<BlockQNAList {...properties} />

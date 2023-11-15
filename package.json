@@ -14,11 +14,11 @@
   },
   "scripts": {
     "dev": "concurrently --kill-others \"bun dev:backend\" \"bun dev:frontend\"",
-    "dev:backend": "yarn workspace @realexperts/backend dev",
-    "dev:frontend": "yarn workspace @realexperts/frontend dev",
-    "lint": "yarn workspace @realexperts/frontend lint",
-    "lint:fix": "yarn workspace @realexperts/frontend lint:fix",
-    "check-types": "yarn workspace @realexperts/frontend check-types"
+    "dev:backend": "bun run --cwd packages/backend dev",
+    "dev:frontend": "bun run --cwd packages/frontend dev",
+    "lint": "bun run --cwd packages/frontend lint",
+    "lint:fix": "bun run --cwd packages/frontend lint:fix",
+    "check-types": "bun run --cwd packages/frontend check-types"
   },
   "workspaces": [
     "packages/*"
