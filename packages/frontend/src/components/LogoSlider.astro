@@ -1,5 +1,5 @@
 ---
-
+import { Image } from 'astro:assets';
 ---
 
 <div class='flex items-center justify-center'>
@@ -22,10 +22,12 @@
         Array.from({ length: 10 }).map((_, index) => () => (
           <div class='swiper-slide w-1/4 overflow-hidden'>
             <div class='flex items-center justify-center'>
-              <img
+              <Image
                 src={`https://picsum.photos/id/${index + 50}/300/100`}
                 alt={`Logog ${index + 1}`}
                 class='h-[70px] w-[185px] object-contain'
+                width={70}
+                height={185}
               />
             </div>
           </div>
@@ -53,7 +55,7 @@
   import { Navigation } from 'swiper/modules';
   import 'swiper/css';
 
-  for (const [index, element] of document
+  for (const [_index, element] of document
     .querySelectorAll('.logo-slider')
     .entries()) {
     new Swiper(element, {
@@ -62,8 +64,8 @@
       modules: [Navigation],
 
       navigation: {
-        nextEl: element.parentElement.querySelector('.swiper-button-next'),
-        prevEl: element.parentElement.querySelector('.swiper-button-prev')
+        nextEl: element.parentElement?.querySelector('.swiper-button-next'),
+        prevEl: element.parentElement?.querySelector('.swiper-button-prev')
       }
     });
   }

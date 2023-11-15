@@ -1,6 +1,9 @@
 ---
-const alignmentDefault = 'center';
-const { alignment = alignmentDefault } = Astro.props;
+type Props = {
+  alignment?: 'left' | 'center' | 'right';
+};
+
+const { alignment = 'center' } = Astro.props;
 
 const alignments = {
   left: 'text-left',
@@ -10,10 +13,7 @@ const alignments = {
 ---
 
 <h2
-  class:list={[
-    'mb-8 font-serif text-4xl font-semibold',
-    alignments[alignment] || alignments[alignmentDefault]
-  ]}
+  class:list={['mb-8 font-serif text-4xl font-semibold', alignments[alignment]]}
 >
   <slot />
 </h2>

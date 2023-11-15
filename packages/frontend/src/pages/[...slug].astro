@@ -23,7 +23,7 @@ export async function getStaticPaths() {
 
   return pages?.map((page) => ({
     params: {
-      slug: page.url === '/' ? undefined : page.url.replace('/', '')
+      slug: page?.url === '/' ? undefined : page?.url?.replace('/', '')
     },
     props: {
       page
@@ -43,7 +43,7 @@ if (
   const pages = await fetchPages();
 
   page = pages.find(
-    (p) => p.url === `/${slug}` || (slug === undefined && p.url === '/')
+    (p) => p?.url === `/${slug}` || (slug === undefined && p?.url === '/')
   );
 }
 ---
@@ -62,7 +62,7 @@ if (
     page?.sections?.map((section) => (
       <Section {...section.sections_id}>
         <Container>
-          {section.sections_id.blocks.map(
+          {section.sections_id?.blocks?.map(
             (block) =>
               typeof block.item === 'string' && (
                 <>
@@ -83,7 +83,7 @@ if (
                   )}
                   {block.collection === 'block_logo_slider' && (
                     <Block block={block}>
-                      <BlocklogoSliderLoader itemId={block.item} />
+                      <BlockLogoSliderLoader itemId={block.item} />
                     </Block>
                   )}
                 </>

@@ -1,36 +1,10 @@
 ---
-import type { ArrayElement } from '@/lib/typescript';
-import type { getBlockLogoSlider } from '@/loaders/BlocklogoSliderLoader.astro';
-import { getImage } from 'astro:assets';
+import type { getBlockLogoSlider } from '@/loaders/BlockLogoSliderLoader.astro';
+import { Image } from 'astro:assets';
 
 type Props = Awaited<ReturnType<typeof getBlockLogoSlider>>;
 
 const { slides } = Astro.props;
-
-const getOptimizedSlide = async (
-  slide: ArrayElement<Awaited<ReturnType<typeof getBlockLogoSlider>>['slides']>
-) => {
-  const { src, width, height } = slide.image;
-  const optimizedImage = await getImage({
-    format: 'jpg',
-    src,
-    width,
-    height,
-    quality: 80
-  });
-  return {
-    ...slide,
-    image: optimizedImage
-  };
-};
-
-const getSlidesWithImages = async (
-  slides: Awaited<ReturnType<typeof getBlockLogoSlider>>['slides']
-) => {
-  return Promise.all(slides.map((slide) => getOptimizedSlide(slide)));
-};
-
-const slidesWithImages = await getSlidesWithImages(slides);
 ---
 
 <div class='flex items-center justify-center'>
@@ -50,13 +24,15 @@ const slidesWithImages = await getSlidesWithImages(slides);
   <div class='swiper logo-slider'>
     <div class='swiper-wrapper'>
       {
-        slidesWithImages.map((slide) => (
+        slides?.map((slide) => (
           <div class='swiper-slide w-1/4 overflow-hidden'>
             <div class='flex items-center justify-center'>
-              <img
+              <Image
                 src={slide.image.src}
-                alt={slide.title}
+                alt={slide.title ?? ''}
                 class='h-[70px] w-[185px] object-contain'
+                width='70'
+                height='185'
               />
             </div>
           </div>

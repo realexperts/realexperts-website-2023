@@ -6,9 +6,11 @@ import { readItem } from '@directus/sdk';
 type Props = {
   itemId: number;
 };
+
 const { itemId } = Astro.props;
+
 export const getBlockLogoSlider = async (itemId: number) => {
-  const res = await client.request(
+  const response = await client.request(
     readItem('block_logo_slider', itemId, {
       fields: [
         {
@@ -17,13 +19,14 @@ export const getBlockLogoSlider = async (itemId: number) => {
       ]
     })
   );
+
   return {
-    slides: res.slides?.map((slide) => ({
-      title: slide.title,
-      image: slide.image && {
-        src: `${import.meta.env.DIRECTUS_URL}/assets/${slide.image.id}`,
-        width: slide.image.width,
-        height: slide.image.height
+    ...response,
+    slides: response.slides?.map((slide) => ({
+      ...slide,
+      image: {
+        ...slide.image,
+        src: `${import.meta.env.DIRECTUS_URL}/assets/${slide.image?.id}`
       }
     }))
   };

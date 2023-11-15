@@ -51,15 +51,12 @@ const { questionHeading, answerHeading, qNaList = [] } = Astro.props;
 }
 <div class='mb-10 mt-20'>
   <BlockCTA
+    alignment='center'
     ctas={[
       {
-        collection: 'element_cta_internal',
-        item: {
-          title: 'JETZT KOSTENLOSES ERSTGESPRÄCH BUCHEN',
-          linked_page: {
-            url: '#'
-          }
-        }
+        type: 'internal',
+        title: 'JETZT KOSTENLOSES ERSTGESPRÄCH BUCHEN',
+        url: '#'
       }
     ]}
   />

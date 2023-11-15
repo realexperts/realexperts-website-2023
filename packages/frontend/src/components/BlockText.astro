@@ -1,43 +1,19 @@
 ---
+import type { loadBlockText } from '@/loaders/BlockTextLoader.astro';
 import { marked } from 'marked';
 import { twMerge } from 'tailwind-merge';
 
-type Props = {
-  alignment: 'left' | 'center' | 'right';
-  colorHeadline: 'turquoise' | 'white' | 're_blue';
-  colorText: 'turquoise' | 'white' | 're_blue';
-  maxWidth:
-    | 'max-w-none'
-    | 'max-w-xs'
-    | 'max-w-sm'
-    | 'max-w-md'
-    | 'max-w-lg'
-    | 'max-w-xl'
-    | 'max-w-2xl'
-    | null;
-  maxWidthContainer:
-    | 'max-w-none'
-    | 'max-w-xs'
-    | 'max-w-sm'
-    | 'max-w-md'
-    | 'max-w-lg'
-    | 'max-w-xl'
-    | 'max-w-2xl'
-    | null;
-  text: string;
-};
+type Props = Awaited<ReturnType<typeof loadBlockText>>;
 
 const {
   alignment,
-  colorHeadline,
-  colorText,
-  maxWidth,
-  maxWidthContainer,
+  color_headline,
+  color_text,
+  max_width_container = 'max-w-4xl',
   text
 } = Astro.props;
 
 // Define constants for reused class names
-const BLUE_BOLD_CLASSES = 'text-re-blue font-bold';
 const NO_MAX_WIDTH = 'max-w-none';
 
 const alignments = {
@@ -64,14 +40,14 @@ const getAlignmentClass = (key: typeof alignments, defaultValue = '') =>
   key.hasOwnProperty(alignment) ? key[alignment] : defaultValue;
 
 // Find max width class name or return default
-const getMaxWidthClass = (width, defaultValue = NO_MAX_WIDTH) =>
+const getMaxWidthClass = (width: string, defaultValue = NO_MAX_WIDTH) =>
   maxWidths.has(width) ? width : defaultValue;
 
 // Configure custom renderer
 const renderer = new marked.Renderer();
 
 // Color
-const getColor = (color: string) => {
+const getColor = (color: string | null) => {
   switch (color) {
     case 'turquoise': {
       return 'text-re-turquoise';
@@ -85,15 +61,15 @@ const getColor = (color: string) => {
   }
 };
 
-const headingClassNames = twMerge(
-  'font-serif font-semibold',
-  getColor(colorHeadline)
-);
-
-const textClassNames = twMerge('font-sans font-bold', getColor(colorText));
+const textClassNames = twMerge('font-sans text-[24px]', getColor(color_text));
 
 // Override function for rendering 'h1' elements
 renderer.heading = (content, level) => {
+  const headingClassNames = twMerge(
+    'font-serif font-semibold',
+    getColor(color_headline)
+  );
+
   switch (level) {
     case 1: {
       return `<h1 class="${twMerge(
@@ -143,16 +119,20 @@ renderer.heading = (content, level) => {
 // Use the custom renderer in the marked options
 marked.setOptions({ renderer });
 
-const renderedMarkdown = marked(text);
+const renderedMarkdown = marked(text ?? '');
 ---
 
-<div class:list={['mx-auto', getMaxWidthClass(maxWidthContainer)]}>
+<div
+  class:list={[
+    'mx-auto',
+    max_width_container && getMaxWidthClass(max_width_container)
+  ]}
+>
   <div
     class:list={[
       'prose my-8 max-w-none prose-a:text-inherit prose-strong:text-inherit',
       textClassNames,
-      getAlignmentClass(alignments, alignment),
-      getMaxWidthClass(maxWidth)
+      getAlignmentClass(alignments, alignment)
     ]}
     set:html={renderedMarkdown}
   />

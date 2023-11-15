@@ -1,6 +1,5 @@
 ---
 import type { fetchBlockHero } from '@/loaders/BlockHeroLoader.astro';
-import type { GetImageResult } from 'astro';
 import { getImage } from 'astro:assets';
 import BlockCTA from './BlockCTA.astro';
 
@@ -8,17 +7,15 @@ type Props = Awaited<ReturnType<typeof fetchBlockHero>>;
 
 const { image, imageStyles = [], title, subtitle, ctas } = Astro.props;
 
-let optimizedBackground: GetImageResult;
-
-if (image) {
-  optimizedBackground = await getImage({
-    src: image.src,
-    format: 'jpg',
-    width: image.width,
-    height: image.height,
-    quality: 80
-  });
-}
+let optimizedBackground = image
+  ? await getImage({
+      src: image.src,
+      format: 'jpg',
+      width: image.width,
+      height: image.height,
+      quality: 80
+    })
+  : undefined;
 
 const stylesMapping = {
   rounded_tl: 'rounded-tl-[70px]',

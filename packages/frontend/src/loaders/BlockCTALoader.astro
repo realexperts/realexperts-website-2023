@@ -17,7 +17,7 @@ export const getBlockCta = async (itemId: number) => {
 const response = await getBlockCta(itemId);
 
 const typedCtaArray = await getTypedCtaArray(
-  response.ctas.map((cta) => ({
+  response.ctas?.map((cta) => ({
     collection: cta.collection,
     item: cta.item as number
   }))
