@@ -3,7 +3,6 @@ import Block from '@/components/Block.astro';
 import BlockSideBySide from '@/components/BlockSideBySide.astro';
 import { client } from '@/lib/directus';
 import { readItem } from '@directus/sdk';
-import { block } from 'marked';
 import BlockMediaLoader from './BlockMediaLoader.astro';
 import BlockTextLoader from './BlockTextLoader.astro';
 
@@ -54,12 +53,12 @@ const properties = {
           {typeof item === 'string' && (
             <>
               {collection === 'block_text' && (
-                <Block block={block}>
+                <Block>
                   <BlockTextLoader itemId={item} />
                 </Block>
               )}
               {collection === 'block_media' && (
-                <Block block={block}>
+                <Block>
                   <BlockMediaLoader itemId={item} />
                 </Block>
               )}
@@ -76,12 +75,12 @@ const properties = {
           {typeof item === 'string' && (
             <>
               {collection === 'block_text' && (
-                <Block block={block}>
+                <Block>
                   <BlockTextLoader itemId={item} />
                 </Block>
               )}
               {collection === 'block_media' && (
-                <Block block={block}>
+                <Block>
                   <BlockMediaLoader itemId={item} />
                 </Block>
               )}
