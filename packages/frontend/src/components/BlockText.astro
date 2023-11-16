@@ -10,6 +10,7 @@ import { twMerge } from 'tailwind-merge';
 
 type Props = {
   alignment?: Awaited<ReturnType<typeof loadBlockText>>['alignment'];
+  margin?: Awaited<ReturnType<typeof loadBlockText>>['margin'];
   colorHeadline?: Awaited<ReturnType<typeof loadBlockText>>['color_headline'];
   colorText?: Awaited<ReturnType<typeof loadBlockText>>['color_text'];
   maxWidthContainer?: Awaited<
@@ -18,12 +19,10 @@ type Props = {
   text?: Awaited<ReturnType<typeof loadBlockText>>['text'];
 };
 
-const { alignment, colorHeadline, colorText, maxWidthContainer, text } =
+const { alignment, colorHeadline, colorText, margin, maxWidthContainer, text } =
   Astro.props;
 
 const renderer = new marked.Renderer();
-
-const textClassNames = twMerge('font-sans', getTextColorClass(colorText));
 
 renderer.heading = (content, level) => {
   const headingClassNames = twMerge(
@@ -46,7 +45,7 @@ renderer.heading = (content, level) => {
     }
     case 3: {
       return `<h3 class="${twMerge(
-        'text-3xl mb-8',
+        'text-3xl mb-6',
         headingClassNames
       )}">${content}</h3>`;
     }
@@ -77,16 +76,20 @@ renderer.heading = (content, level) => {
   }
 };
 
-// Use the custom renderer in the marked options
+renderer.paragraph = (content) => {
+  return `<p class="mb-8 font-bold">${content}</p>`;
+};
+
 marked.setOptions({ renderer });
 ---
 
 <div class:list={['mx-auto', getMaxWidthClass(maxWidthContainer)]}>
   <div
     class:list={[
-      'prose prose-xl my-8 max-w-none prose-a:text-inherit prose-strong:text-inherit',
-      textClassNames,
-      getAlignmentClass(alignment)
+      'prose max-w-none prose-a:text-inherit prose-strong:text-inherit',
+      twMerge('font-sans', getTextColorClass(colorText)),
+      getAlignmentClass(alignment),
+      margin && 'my-8'
     ]}
     set:html={marked(text ?? '')}
   />

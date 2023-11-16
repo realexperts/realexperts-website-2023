@@ -17,6 +17,7 @@ export const loadBlockText = async (itemId: number) => {
   return await client.request(
     readItem('block_side_by_side', itemId, {
       fields: [
+        'order',
         {
           left_column: ['collection', 'item']
         },
@@ -29,6 +30,7 @@ export const loadBlockText = async (itemId: number) => {
 const response = await loadBlockText(itemId);
 
 const properties = {
+  order: response.order,
   left_column: response.left_column?.map((left) => {
     return {
       collection: left.collection,
@@ -44,7 +46,7 @@ const properties = {
 };
 ---
 
-<BlockSideBySide>
+<BlockSideBySide order={properties.order}>
   <Fragment slot='left'>
     {
       properties.left_column?.map(({ item, collection }) => (

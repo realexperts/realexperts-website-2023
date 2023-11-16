@@ -494,6 +494,14 @@ export interface BlockMedia {
   /**
    * No description.
    *
+   * Type in directus: uuid
+   * Type in database: uuid
+   */
+  image: DirectusFile | DirectusFile['id'] | null;
+
+  /**
+   * No description.
+   *
    * Type in directus: string
    * Type in database: character varying
    */
@@ -920,6 +928,14 @@ export interface BlockText {
    * Type in database: integer
    */
   id: number;
+
+  /**
+   * No description.
+   *
+   * Type in directus: boolean
+   * Type in database: boolean
+   */
+  margin: boolean | null;
 
   /**
    * No description.

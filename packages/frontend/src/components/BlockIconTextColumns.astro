@@ -6,6 +6,7 @@ import {
 } from '@/lib/util';
 import { Image } from 'astro:assets';
 import { marked } from 'marked';
+import BlockText from './BlockText.astro';
 
 type Column = {
   alignment?: 'left' | 'center' | 'right';
@@ -42,7 +43,7 @@ const { columns = [], max_width_container } = Astro.props;
       >
         <article
           class:list={[
-            'prose my-8 max-w-none prose-a:text-inherit prose-strong:text-inherit',
+            'prose my-8 max-w-none prose-p:font-light prose-a:text-inherit prose-strong:text-inherit',
             getTextColorClass(column.color)
           ]}
         >
@@ -71,7 +72,7 @@ const { columns = [], max_width_container } = Astro.props;
               )}
             </>
           )}
-          <div set:html={marked(column.text ?? '')} class='leading-relaxed' />
+          <BlockText text={marked(column.text ?? '')} />
         </article>
       </div>
     ))

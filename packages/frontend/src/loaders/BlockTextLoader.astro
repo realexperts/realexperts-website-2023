@@ -14,6 +14,7 @@ export const loadBlockText = async (itemId: number) => {
     readItem('block_text', itemId, {
       fields: [
         'alignment',
+        'margin',
         'color_headline',
         'color_text',
         'max_width_container',
@@ -27,6 +28,7 @@ const response = await loadBlockText(itemId);
 
 const properties = {
   alignment: response.alignment,
+  margin: response.margin,
   colorHeadline: response.color_headline,
   colorText: response.color_text,
   maxWidthContainer: response.max_width_container,

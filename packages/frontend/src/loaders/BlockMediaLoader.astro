@@ -12,7 +12,7 @@ const { itemId } = Astro.props;
 export const loadBlockVideo = async (itemId: number) => {
   return await client.request(
     readItem('block_media', itemId, {
-      fields: ['type', 'yt_id']
+      fields: ['type', 'yt_id', { image: ['id', 'height', 'width'] }]
     })
   );
 };
@@ -21,7 +21,14 @@ const response = await loadBlockVideo(itemId);
 
 const properties = {
   type: response.type,
-  ytId: response.yt_id
+  ytId: response.yt_id,
+  image: {
+    src:
+      response.image &&
+      `${import.meta.env.DIRECTUS_URL}/assets/${response.image.id}`,
+    width: response.image?.width,
+    height: response.image?.height
+  }
 };
 ---
 

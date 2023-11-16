@@ -1,5 +1,7 @@
 ---
+type Props = { order: 'left_column_first' | 'right_column_first' | null };
 
+const { order } = Astro.props;
 ---
 
 <div
@@ -7,7 +9,9 @@
     'relative mx-auto mb-12 grid max-w-4xl grid-cols-1 gap-32 lg:grid-cols-2'
   ]}
 >
-  <div>
+  <div
+    class:list={[order === 'right_column_first' && 'order-last lg:order-first']}
+  >
     <slot name='left' />
   </div>
   <div>

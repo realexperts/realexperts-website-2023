@@ -4,24 +4,18 @@ import { getMaxWidthClass } from '@/lib/util';
 import { Image } from 'astro:assets';
 
 type Props = {
-  type: 'youtube_video' | 'image' | 'video';
-  ytId?: string | null;
-  maxWidth?: string | null;
-  videoUrl?: string | null;
-  captionUrl?: string | null;
-  imageUrl?: string | null;
-  imageAlt?: string | null;
+  type: 'image' | 'youtube_video';
+  ytId: string | null;
+  image: {
+    src: string | null;
+    width: number | null | undefined;
+    height: number | null | undefined;
+  };
 };
 
-let {
-  type,
-  ytId,
-  videoUrl,
-  captionUrl,
-  imageUrl,
-  imageAlt = '',
-  maxWidth = 'max-w-4xl'
-} = Astro.props;
+let { type, ytId, image } = Astro.props;
+
+const maxWidth = 'max-w-4xl';
 ---
 
 <div
@@ -53,7 +47,7 @@ let {
     )
   }
 
-  {
+  <!-- {
     type === 'video' && (
       <>
         {imageUrl && (
@@ -93,40 +87,20 @@ let {
         )}
       </>
     )
-  }
+  } -->
 
   {
     type === 'image' && (
       <>
-        {imageUrl && (
-          <div class='video-thumbnail-wrapper absolute bottom-0 left-0 right-0 top-0 z-10 cursor-pointer'>
-            <Image
-              src={imageUrl}
-              width={1280}
-              height={720}
-              alt='YouTube Video'
-              quality={75}
-              widths={[240, 480, 720, 1280]}
-            />
-          </div>
-        )}
-
-        {!videoUrl && imageUrl && (
-          <img class='w-full' src={imageUrl} alt={imageAlt} />
-        )}
-
-        {videoUrl && (
-          // eslint-disable-next-line jsx-a11y/media-has-caption
-          <video class='video-player w-full' controls src={videoUrl}>
-            {captionUrl && (
-              <track
-                kind='captions'
-                src={captionUrl}
-                srclang='de'
-                label='German'
-              />
-            )}
-          </video>
+        {image.src && image.height && image.width && (
+          <Image
+            src={image.src}
+            width={image.width}
+            height={image.height}
+            alt='YouTube Video'
+            quality={75}
+            widths={[240, 480, 720, 1280]}
+          />
         )}
       </>
     )
