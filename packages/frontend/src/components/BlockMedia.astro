@@ -38,47 +38,38 @@ const getMaxWidthClass = (width: string, defaultValue = NO_MAX_WIDTH) =>
   maxWidths.has(width) ? width : defaultValue;
 ---
 
-<>
+<div
+  class:list={[
+    'media-component group relative mx-auto',
+    maxWidth && getMaxWidthClass(maxWidth)
+  ]}
+>
   {
     type === 'youtube_video' && ytId && (
-      <div
-        class:list={[
-          'media-component group relative mx-auto',
-          maxWidth && getMaxWidthClass(maxWidth)
-        ]}
-      >
-        <BlockVideoComponent youtubeId={ytId} client:load>
-          <div class='video-thumbnail-wrapper relative bottom-0 left-0 right-0 top-0 z-10 cursor-pointer'>
-            <Image
-              class='h-full w-full object-cover'
-              src={`https://img.youtube.com/vi/${ytId}/maxresdefault.jpg`}
-              width={1280}
-              height={720}
-              alt='YouTube Video'
-              quality={75}
-              widths={[240, 480, 720, 1280]}
-            />
-            <div class='absolute left-1/2 top-1/2 z-10 -translate-x-1/2 -translate-y-1/2 transform'>
-              <div class='play-icon text-8xl text-white'>
-                <i class='fa-solid fa-play duration-110 drop-shadow-md transition ease-in-out group-hover:scale-110' />
-              </div>
+      <BlockVideoComponent youtubeId={ytId} client:load>
+        <div class='video-thumbnail-wrapper relative bottom-0 left-0 right-0 top-0 z-10 cursor-pointer'>
+          <Image
+            class='h-full w-full object-cover'
+            src={`https://img.youtube.com/vi/${ytId}/maxresdefault.jpg`}
+            width={1280}
+            height={720}
+            alt='YouTube Video'
+            quality={75}
+            widths={[240, 480, 720, 1280]}
+          />
+          <div class='absolute left-1/2 top-1/2 z-10 -translate-x-1/2 -translate-y-1/2 transform'>
+            <div class='play-icon text-8xl text-white'>
+              <i class='fa-solid fa-play duration-110 drop-shadow-md transition ease-in-out group-hover:scale-110' />
             </div>
           </div>
-        </BlockVideoComponent>
-      </div>
+        </div>
+      </BlockVideoComponent>
     )
   }
-</>
 
-<>
   {
     type === 'video' && (
-      <div
-        class:list={[
-          'media-component group relative mx-auto',
-          maxWidth && getMaxWidthClass(maxWidth)
-        ]}
-      >
+      <>
         {imageUrl && (
           <div class='video-thumbnail-wrapper absolute bottom-0 left-0 right-0 top-0 z-10 cursor-pointer'>
             <Image
@@ -114,20 +105,13 @@ const getMaxWidthClass = (width: string, defaultValue = NO_MAX_WIDTH) =>
             )}
           </video>
         )}
-      </div>
+      </>
     )
   }
-</>
 
-<>
   {
     type === 'image' && (
-      <div
-        class:list={[
-          'media-component group relative mx-auto',
-          maxWidth && getMaxWidthClass(maxWidth)
-        ]}
-      >
+      <>
         {imageUrl && (
           <div class='video-thumbnail-wrapper absolute bottom-0 left-0 right-0 top-0 z-10 cursor-pointer'>
             <Image
@@ -158,12 +142,13 @@ const getMaxWidthClass = (width: string, defaultValue = NO_MAX_WIDTH) =>
             )}
           </video>
         )}
-      </div>
+      </>
     )
   }
-</>
+</div>
 
 <script>
+  // @ts-nocheck
   (function () {
     const videoComponents = document.querySelectorAll('.media-component');
 

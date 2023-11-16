@@ -2,11 +2,15 @@
 
 ---
 
-<div class:list={['mx-auto mb-12 flex max-w-4xl items-start gap-32']}>
-  <div class:list={['w-1/2']}>
+<div
+  class:list={[
+    'relative mx-auto mb-12 grid max-w-4xl grid-cols-1 gap-32 lg:grid-cols-2'
+  ]}
+>
+  <div>
     <slot name='left' />
   </div>
-  <div class:list={['w-1/2']}>
+  <div>
     <slot name='right' />
   </div>
 </div>
