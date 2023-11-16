@@ -24,9 +24,9 @@ make -s exec database "psql $LOCAL_DB_CONNECTION_STRING -c 'DROP SCHEMA public C
 echo "(4) Importing dump $DUMP ..."
 make -s exec database "pg_restore --no-acl --no-owner -d $LOCAL_DB_CONNECTION_STRING /dumps/production/$DUMP"
 echo "(5) Export types ..."
-bun run --cwd packages/backend directus models snapshot ../frontend/src/lib/types.ts
+pnpm --filter @realexperts/backend directus models snapshot ../frontend/src/lib/types.ts
 echo "(6) Run lint:fix ..."
-bun run lint:fix
+pnpm lint:fix
 
 echo ""
 echo "##########################################"
