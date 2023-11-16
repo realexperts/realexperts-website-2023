@@ -4,6 +4,7 @@ import BlockHero from '@/components/BlockHero.astro';
 import BlockIconTextColumns from '@/components/BlockIconTextColumns.astro';
 import BlockMedia from '@/components/BlockMedia.astro';
 import BlockQNAList from '@/components/BlockQNAList.astro';
+import BlockSideBySide from '@/components/BlockSideBySide.astro';
 import BlockText from '@/components/BlockText.astro';
 import ContactForm from '@/components/ContactForm.astro';
 import Heading from '@/components/Heading.astro';
@@ -213,6 +214,24 @@ const jetzt = 'Jetzt Erstgespräch buchen';
       color_headline='turquoise'
       color_text='re_blue'
     />
+
+    <BlockSideBySide>
+      <BlockText
+        alignment='left'
+        text='## Bestandsaufnahme\n\nWir analysieren den Status quo, entwickeln ein Leitbild und definieren konkrete Ziele für unser gemeinsames Prohjekt.'
+        max_width_container='max-w-2xl'
+        color_headline='turquoise'
+        color_text='re_blue'
+      />
+      <BlockMedia
+        type='video'
+        videoUrl='/videos/video1.mp4'
+        captionUrl='/videos/captions/video1.vtt'
+        imageUrl='/images/previews/video1.png'
+        maxWidth='max-w-4xl'
+      />
+    </BlockSideBySide>
+
     <BlockIconTextColumns
       max_width_container='max-w-2xl'
       columns={[

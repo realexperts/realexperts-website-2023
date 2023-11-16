@@ -12,6 +12,7 @@ import BlockIconTextColumnsLoader from '@/loaders/BlockIconTextColumnsLoader.ast
 import BlockLogoSliderLoader from '@/loaders/BlockLogoSliderLoader.astro';
 import BlockMediaLoader from '@/loaders/BlockMediaLoader.astro';
 import BlockQNALoader from '@/loaders/BlockQNALoader.astro';
+import BlockSideBySideLoader from '@/loaders/BlockSideBySideLoader.astro';
 import BlockTextLoader from '@/loaders/BlockTextLoader.astro';
 
 type Props = {
@@ -74,11 +75,6 @@ if (
                       <BlockHeroLoader itemId={block.item} />
                     </Block>
                   )}
-                  {block.collection === 'block_text' && (
-                    <Block block={block}>
-                      <BlockTextLoader itemId={block.item} />
-                    </Block>
-                  )}
                   {block.collection === 'block_cta' && (
                     <Block block={block}>
                       <BlockCTALoader itemId={block.item} />
@@ -99,9 +95,19 @@ if (
                       <BlockIconTextColumnsLoader itemId={block.item} />
                     </Block>
                   )}
+                  {block.collection === 'block_text' && (
+                    <Block block={block}>
+                      <BlockTextLoader itemId={block.item} />
+                    </Block>
+                  )}
                   {block.collection === 'block_media' && (
                     <Block block={block}>
                       <BlockMediaLoader itemId={block.item} />
+                    </Block>
+                  )}
+                  {block.collection === 'block_side_by_side' && (
+                    <Block block={block}>
+                      <BlockSideBySideLoader itemId={block.item} />
                     </Block>
                   )}
                 </>

@@ -64,14 +64,15 @@ const getMaxWidthClass = (width: string, defaultValue = NO_MAX_WIDTH) =>
         class:list={[
           'px-12',
           'pb-12',
-          alignments[column.alignment] || alignments[alignmentDefault]
+          (column.alignment && alignments[column.alignment]) ||
+            alignments[alignmentDefault]
         ]}
         style={`width: ${column.columnWidthPercent}%;`}
       >
         <article
           class:list={[
             'prose my-8 max-w-none prose-a:text-inherit prose-strong:text-inherit',
-            `${textColors[column.color] || 'text-re-blue'}`
+            `${(column.color && textColors[column.color]) || 'text-re-blue'}`
           ]}
         >
           {column.imageUrl && (

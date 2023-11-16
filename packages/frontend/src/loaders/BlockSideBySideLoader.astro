@@ -1,0 +1,92 @@
+---
+import Block from '@/components/Block.astro';
+import BlockSideBySide from '@/components/BlockSideBySide.astro';
+import { client } from '@/lib/directus';
+import { readItem } from '@directus/sdk';
+import { block } from 'marked';
+import BlockMediaLoader from './BlockMediaLoader.astro';
+import BlockTextLoader from './BlockTextLoader.astro';
+
+type Props = {
+  itemId: number;
+};
+
+const { itemId } = Astro.props;
+
+export const loadBlockText = async (itemId: number) => {
+  return await client.request(
+    readItem('block_side_by_side', itemId, {
+      fields: [
+        {
+          left_column: ['collection', 'item']
+        },
+        { right_column: ['collection', 'item'] }
+      ]
+    })
+  );
+};
+
+const response = await loadBlockText(itemId);
+
+const properties = {
+  left_column: response.left_column?.map((left) => {
+    return {
+      collection: left.collection,
+      item: left.item
+    };
+  }),
+  right_column: response.right_column?.map((right) => {
+    return {
+      collection: right.collection,
+      item: right.item
+    };
+  })
+};
+---
+
+<BlockSideBySide>
+  <Fragment slot='left'>
+    {
+      properties.left_column?.map(({ item, collection }) => (
+        <>
+          {typeof item === 'string' && (
+            <>
+              {collection === 'block_text' && (
+                <Block block={block}>
+                  <BlockTextLoader itemId={item} />
+                </Block>
+              )}
+              {collection === 'block_media' && (
+                <Block block={block}>
+                  <BlockMediaLoader itemId={item} />
+                </Block>
+              )}
+            </>
+          )}
+        </>
+      ))
+    }
+  </Fragment>
+  <Fragment slot='right'>
+    {
+      properties.right_column?.map(({ item, collection }) => (
+        <>
+          {typeof item === 'string' && (
+            <>
+              {collection === 'block_text' && (
+                <Block block={block}>
+                  <BlockTextLoader itemId={item} />
+                </Block>
+              )}
+              {collection === 'block_media' && (
+                <Block block={block}>
+                  <BlockMediaLoader itemId={item} />
+                </Block>
+              )}
+            </>
+          )}
+        </>
+      ))
+    }
+  </Fragment>
+</BlockSideBySide>

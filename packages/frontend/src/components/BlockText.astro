@@ -61,7 +61,7 @@ const getColor = (color: string | null) => {
   }
 };
 
-const textClassNames = twMerge('font-sans text-[24px]', getColor(color_text));
+const textClassNames = twMerge('font-sans', getColor(color_text));
 
 // Override function for rendering 'h1' elements
 renderer.heading = (content, level) => {
@@ -130,7 +130,7 @@ const renderedMarkdown = marked(text ?? '');
 >
   <div
     class:list={[
-      'prose my-8 max-w-none prose-a:text-inherit prose-strong:text-inherit',
+      'prose prose-xl my-8 max-w-none prose-a:text-inherit prose-strong:text-inherit',
       textClassNames,
       getAlignmentClass(alignments, alignment)
     ]}

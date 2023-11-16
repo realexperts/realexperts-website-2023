@@ -1,6 +1,6 @@
 ---
+import BlockMedia from '@/components/BlockMedia.astro';
 import BlockText from './BlockText.astro';
-import Media from './Media.astro';
 
 let {
   videoUrl,
@@ -26,12 +26,17 @@ const maxWidths = new Set([
   'max-w-3xl',
   'max-w-4xl'
 ]);
-const getMaxWidthClass = (width, defaultValue = NO_MAX_WIDTH) =>
+const getMaxWidthClass = (width: string, defaultValue = NO_MAX_WIDTH) =>
   maxWidths.has(width) ? width : defaultValue;
 
-const mediaPositonClasses = {
-  left: '',
-  right: 'order-last'
+const getMediaPositionClasses = (position: string) => {
+  if (position === 'left') {
+    return '';
+  } else if (position === 'right') {
+    return 'order-last';
+  } else {
+    return '';
+  }
 };
 ---
 
@@ -41,13 +46,14 @@ const mediaPositonClasses = {
     getMaxWidthClass(max_width_container)
   ]}
 >
-  <div class:list={['w-1/2', mediaPositonClasses[mediaPositon] || '']}>
+  <div class:list={['w-1/2', getMediaPositionClasses(mediaPositon)]}>
     {
       (videoUrl || imageUrl) && (
-        <Media
+        <BlockMedia
           videoUrl={videoUrl}
           captionUrl={captionUrl}
           imageUrl={imageUrl}
+          type='video'
         />
       )
     }
@@ -55,7 +61,12 @@ const mediaPositonClasses = {
   <div class='w-1/2'>
     {
       text && (
-        <BlockText alignment={textAlignment} text={text} design={textDesign} />
+        <BlockText
+          alignment={textAlignment}
+          text={text}
+          color_headline={'white'}
+          color_text={'white'}
+        />
       )
     }
   </div>
