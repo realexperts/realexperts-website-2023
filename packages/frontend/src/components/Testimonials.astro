@@ -1,7 +1,17 @@
 ---
 import { getMaxWidthClass } from '@/lib/util';
 
-let { max_width_container, testimonals } = Astro.props;
+type Props = {
+  maxWidthContainer: string;
+  testimonals: {
+    name: string;
+    company: string;
+    text: string;
+    image: string;
+  }[];
+};
+
+let { maxWidthContainer, testimonals } = Astro.props;
 ---
 
 {
@@ -9,7 +19,7 @@ let { max_width_container, testimonals } = Astro.props;
     <div
       class:list={[
         'mx-auto my-14 flex items-center justify-center',
-        getMaxWidthClass(max_width_container)
+        getMaxWidthClass(maxWidthContainer)
       ]}
     >
       <div

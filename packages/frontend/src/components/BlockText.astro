@@ -1,5 +1,9 @@
 ---
-import { getAlignmentClass, getColorClass, getMaxWidthClass } from '@/lib/util';
+import {
+  getAlignmentClass,
+  getMaxWidthClass,
+  getTextColorClass
+} from '@/lib/util';
 import { loadBlockText } from '@/loaders/BlockTextLoader.astro';
 import { marked } from 'marked';
 import { twMerge } from 'tailwind-merge';
@@ -19,12 +23,12 @@ const { alignment, colorHeadline, colorText, maxWidthContainer, text } =
 
 const renderer = new marked.Renderer();
 
-const textClassNames = twMerge('font-sans', getColorClass(colorText));
+const textClassNames = twMerge('font-sans', getTextColorClass(colorText));
 
 renderer.heading = (content, level) => {
   const headingClassNames = twMerge(
     'font-serif font-semibold',
-    getColorClass(colorHeadline)
+    getTextColorClass(colorHeadline)
   );
 
   switch (level) {

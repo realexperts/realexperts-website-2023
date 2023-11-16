@@ -28,7 +28,27 @@ export const getMaxWidthClass = (width: string | null | undefined) => {
   }
 };
 
-export const getColorClass = (color: string | null | undefined) => {
+export const getBackgroundColorClass = (
+  color: string | null | undefined,
+  variant: string | null | undefined
+) => {
+  switch (color) {
+    case 'turquoise': {
+      return 'bg-re-turquoise-light';
+    }
+    case 'white': {
+      return 'bg-white';
+    }
+    case 'blue': {
+      return 'bg-re-blue';
+    }
+    default: {
+      return variant === 'outlined' ? 'bg-transparent' : 'bg-re-blue';
+    }
+  }
+};
+
+export const getTextColorClass = (color: string | null | undefined) => {
   switch (color) {
     case 'turquoise': {
       return 'text-re-turquoise';
@@ -55,6 +75,29 @@ export const getAlignmentClass = (alignment: string | null | undefined) => {
     }
     default: {
       return 'text-left';
+    }
+  }
+};
+
+export const getRoundedCornerClass = (
+  roundedCorner: string | null | undefined
+) => {
+  switch (roundedCorner) {
+    case 'rounded_tl': {
+      return 'rounded-tl';
+    }
+    case 'rounded_tr': {
+      return 'rounded-tr';
+    }
+    case 'rounded_bl': {
+      return 'rounded-bl';
+    }
+    case 'rounded_br': {
+      return 'rounded-br';
+    }
+
+    default: {
+      return '';
     }
   }
 };

@@ -1,5 +1,5 @@
 ---
-import { getAlignmentClass, getColorClass, getMaxWidthClass } from '@/lib/util';
+import { getAlignmentClass, getTextColorClass, getMaxWidthClass } from '@/lib/util';
 import { Image } from 'astro:assets';
 import { marked } from 'marked';
 
@@ -39,7 +39,7 @@ const { columns = [], max_width_container } = Astro.props;
         <article
           class:list={[
             'prose my-8 max-w-none prose-a:text-inherit prose-strong:text-inherit',
-            getColorClass(column.color)
+            getTextColorClass(column.color)
           ]}
         >
           {column.imageUrl && (

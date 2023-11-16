@@ -1,4 +1,10 @@
 ---
+import {
+  getBackgroundColorClass,
+  getRoundedCornerClass,
+  getTextColorClass
+} from '@/lib/util';
+
 const topicBoxes = [
   {
     topic: 'Podcast',
@@ -8,7 +14,7 @@ const topicBoxes = [
     linkText: 'Podcast entdecken',
     link: '#',
     colorScheme: 'turquoise',
-    roundedCorner: 'bottom-left'
+    roundedCorner: 'rounded_br'
   },
   {
     topic: 'Blog',
@@ -27,36 +33,9 @@ const topicBoxes = [
     linkText: 'Alle Videos',
     link: '#',
     colorScheme: 'blue',
-    roundedCorner: 'bottom-right'
+    roundedCorner: 'rounded_br'
   }
 ];
-
-const colorSchemes = {
-  blue: {
-    bg: 'bg-re-blue',
-    accentedText: 'text-re-turquoise'
-  },
-  turquoise: {
-    bg: 'bg-re-turquoise',
-    accentedText: 'text-re-blue'
-  }
-};
-
-const roundedCornerClasses = {
-  'top-left': 'rounded-tl-[50px]',
-  'top-right': 'rounded-tr-[50px]',
-  'bottom-left': 'rounded-bl-[50px]',
-  'bottom-right': 'rounded-br-[50px]'
-};
-
-const getSchemeClass = (colorScheme, key) => {
-  const safeColorScheme = colorSchemes[colorScheme] ? colorScheme : 'blue';
-  return colorSchemes[safeColorScheme][key] || '';
-};
-
-const getRoundedCornerClass = (roundedCorner) => {
-  return roundedCornerClasses[roundedCorner] || '';
-};
 ---
 
 <div class='grid grid-cols-3 gap-8'>
@@ -65,7 +44,7 @@ const getRoundedCornerClass = (roundedCorner) => {
       <div
         class:list={[
           'flex flex-col overflow-hidden',
-          getSchemeClass(topicBox.colorScheme, 'bg'),
+          getBackgroundColorClass(topicBox.colorScheme, 'bg'),
           getRoundedCornerClass(topicBox.roundedCorner)
         ]}
       >
@@ -94,7 +73,7 @@ const getRoundedCornerClass = (roundedCorner) => {
             <div
               class:list={[
                 'mb-3 text-sm font-bold',
-                getSchemeClass(topicBox.colorScheme, 'accentedText')
+                getTextColorClass(topicBox.colorScheme)
               ]}
             >
               {topicBox.topic}
@@ -106,7 +85,7 @@ const getRoundedCornerClass = (roundedCorner) => {
           <div
             class:list={[
               'mx-8 mb-14 mt-auto text-[16px]',
-              getSchemeClass(topicBox.colorScheme, 'accentedText')
+              getTextColorClass(topicBox.colorScheme)
             ]}
           >
             <a href={topicBox.link}>
