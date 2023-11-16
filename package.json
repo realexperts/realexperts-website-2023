@@ -20,7 +20,7 @@
     "lint": "pnpm --filter @realexperts/frontend lint",
     "lint:fix": "pnpm --filter @realexperts/frontendd lint:fix",
     "check-types": "pnpm --filter @realexperts/frontend check-types",
-    "check-updates": "ncu --interactive --format group"
+    "check-updates": "pnpm update --interactive --latest"
   },
   "workspaces": [
     "packages/*"
