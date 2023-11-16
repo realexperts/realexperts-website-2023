@@ -216,20 +216,24 @@ const jetzt = 'Jetzt Erstgespräch buchen';
     />
 
     <BlockSideBySide>
-      <BlockText
-        alignment='left'
-        text='## Bestandsaufnahme\n\nWir analysieren den Status quo, entwickeln ein Leitbild und definieren konkrete Ziele für unser gemeinsames Prohjekt.'
-        maxWidthContainer='max-w-2xl'
-        colorHeadline='turquoise'
-        colorText='re_blue'
-      />
-      <BlockMedia
-        type='video'
-        videoUrl='/videos/video1.mp4'
-        captionUrl='/videos/captions/video1.vtt'
-        imageUrl='/images/previews/video1.png'
-        maxWidth='max-w-4xl'
-      />
+      <Fragment slot='left'>
+        <BlockText
+          alignment='left'
+          text='## Bestandsaufnahme\n\nWir analysieren den Status quo, entwickeln ein Leitbild und definieren konkrete Ziele für unser gemeinsames Prohjekt.'
+          maxWidthContainer='max-w-2xl'
+          colorHeadline='turquoise'
+          colorText='re_blue'
+        />
+      </Fragment>
+      <Fragment slot='right'>
+        <BlockMedia
+          type='video'
+          videoUrl='/videos/video1.mp4'
+          captionUrl='/videos/captions/video1.vtt'
+          imageUrl='/images/previews/video1.png'
+          maxWidth='max-w-4xl'
+        />
+      </Fragment>
     </BlockSideBySide>
 
     <BlockIconTextColumns
