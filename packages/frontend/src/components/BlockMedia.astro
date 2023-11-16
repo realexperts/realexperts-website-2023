@@ -1,5 +1,6 @@
 ---
 import BlockVideoComponent from '@/components/react/BlockMedia';
+import { getMaxWidthClass } from '@/lib/util';
 import { Image } from 'astro:assets';
 
 type Props = {
@@ -21,27 +22,12 @@ let {
   imageAlt = '',
   maxWidth = 'max-w-4xl'
 } = Astro.props;
-
-const NO_MAX_WIDTH = 'max-w-none';
-const maxWidths = new Set([
-  NO_MAX_WIDTH,
-  'max-w-xs',
-  'max-w-sm',
-  'max-w-md',
-  'max-w-lg',
-  'max-w-xl',
-  'max-w-2xl',
-  'max-w-3xl',
-  'max-w-4xl'
-]);
-const getMaxWidthClass = (width: string, defaultValue = NO_MAX_WIDTH) =>
-  maxWidths.has(width) ? width : defaultValue;
 ---
 
 <div
   class:list={[
     'media-component group relative mx-auto',
-    maxWidth && getMaxWidthClass(maxWidth)
+    getMaxWidthClass(maxWidth)
   ]}
 >
   {

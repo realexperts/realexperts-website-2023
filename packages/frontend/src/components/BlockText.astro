@@ -1,73 +1,30 @@
 ---
-import type { loadBlockText } from '@/loaders/BlockTextLoader.astro';
+import { getAlignmentClass, getColorClass, getMaxWidthClass } from '@/lib/util';
+import { loadBlockText } from '@/loaders/BlockTextLoader.astro';
 import { marked } from 'marked';
 import { twMerge } from 'tailwind-merge';
 
-type Props = Awaited<ReturnType<typeof loadBlockText>>;
-
-const {
-  alignment,
-  color_headline,
-  color_text,
-  max_width_container = 'max-w-4xl',
-  text
-} = Astro.props;
-
-// Define constants for reused class names
-const NO_MAX_WIDTH = 'max-w-none';
-
-const alignments = {
-  left: 'text-left',
-  center: 'text-center mx-auto',
-  right: 'text-right'
+type Props = {
+  alignment?: Awaited<ReturnType<typeof loadBlockText>>['alignment'];
+  colorHeadline?: Awaited<ReturnType<typeof loadBlockText>>['color_headline'];
+  colorText?: Awaited<ReturnType<typeof loadBlockText>>['color_text'];
+  maxWidthContainer?: Awaited<
+    ReturnType<typeof loadBlockText>
+  >['max_width_container'];
+  text?: Awaited<ReturnType<typeof loadBlockText>>['text'];
 };
 
-// Add NO_MAX_WIDTH to Set
-const maxWidths = new Set([
-  NO_MAX_WIDTH,
-  'max-w-xs',
-  'max-w-sm',
-  'max-w-md',
-  'max-w-lg',
-  'max-w-xl',
-  'max-w-2xl',
-  'max-w-3xl',
-  'max-w-4xl'
-]);
+const { alignment, colorHeadline, colorText, maxWidthContainer, text } =
+  Astro.props;
 
-// Find class name by key or return default
-const getAlignmentClass = (key: typeof alignments, defaultValue = '') =>
-  key.hasOwnProperty(alignment) ? key[alignment] : defaultValue;
-
-// Find max width class name or return default
-const getMaxWidthClass = (width: string, defaultValue = NO_MAX_WIDTH) =>
-  maxWidths.has(width) ? width : defaultValue;
-
-// Configure custom renderer
 const renderer = new marked.Renderer();
 
-// Color
-const getColor = (color: string | null) => {
-  switch (color) {
-    case 'turquoise': {
-      return 'text-re-turquoise';
-    }
-    case 'white': {
-      return 'text-white';
-    }
-    default: {
-      return 'text-re-blue';
-    }
-  }
-};
+const textClassNames = twMerge('font-sans', getColorClass(colorText));
 
-const textClassNames = twMerge('font-sans', getColor(color_text));
-
-// Override function for rendering 'h1' elements
 renderer.heading = (content, level) => {
   const headingClassNames = twMerge(
     'font-serif font-semibold',
-    getColor(color_headline)
+    getColorClass(colorHeadline)
   );
 
   switch (level) {
@@ -118,22 +75,15 @@ renderer.heading = (content, level) => {
 
 // Use the custom renderer in the marked options
 marked.setOptions({ renderer });
-
-const renderedMarkdown = marked(text ?? '');
 ---
 
-<div
-  class:list={[
-    'mx-auto',
-    max_width_container && getMaxWidthClass(max_width_container)
-  ]}
->
+<div class:list={['mx-auto', getMaxWidthClass(maxWidthContainer)]}>
   <div
     class:list={[
       'prose prose-xl my-8 max-w-none prose-a:text-inherit prose-strong:text-inherit',
       textClassNames,
-      getAlignmentClass(alignments, alignment)
+      getAlignmentClass(alignment)
     ]}
-    set:html={renderedMarkdown}
+    set:html={marked(text ?? '')}
   />
 </div>

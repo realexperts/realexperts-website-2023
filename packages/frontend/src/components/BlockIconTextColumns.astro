@@ -1,8 +1,7 @@
 ---
+import { getAlignmentClass, getColorClass, getMaxWidthClass } from '@/lib/util';
 import { Image } from 'astro:assets';
 import { marked } from 'marked';
-
-const alignmentDefault = 'center';
 
 type Column = {
   alignment?: 'left' | 'center' | 'right';
@@ -23,56 +22,24 @@ type Props = {
 };
 
 const { columns = [], max_width_container } = Astro.props;
-
-const alignments = {
-  left: 'text-left',
-  center: 'text-center',
-  right: 'text-right'
-};
-
-const textColors = {
-  blue: 'text-re-blue',
-  turquoise: 'text-re-turquoise',
-  white: 'text-white'
-};
-
-const NO_MAX_WIDTH = 'max-w-none';
-const maxWidths = new Set([
-  NO_MAX_WIDTH,
-  'max-w-xs',
-  'max-w-sm',
-  'max-w-md',
-  'max-w-lg',
-  'max-w-xl',
-  'max-w-2xl',
-  'max-w-3xl',
-  'max-w-4xl'
-]);
-const getMaxWidthClass = (width: string, defaultValue = NO_MAX_WIDTH) =>
-  maxWidths.has(width) ? width : defaultValue;
 ---
 
 <div
   class:list={[
     'prose mx-auto my-8 flex max-w-none flex-wrap justify-center',
-    max_width_container && getMaxWidthClass(max_width_container)
+    getMaxWidthClass(max_width_container)
   ]}
 >
   {
     columns.map((column) => (
       <div
-        class:list={[
-          'px-12',
-          'pb-12',
-          (column.alignment && alignments[column.alignment]) ||
-            alignments[alignmentDefault]
-        ]}
+        class:list={['px-12', 'pb-12', getAlignmentClass(column.alignment)]}
         style={`width: ${column.columnWidthPercent}%;`}
       >
         <article
           class:list={[
             'prose my-8 max-w-none prose-a:text-inherit prose-strong:text-inherit',
-            `${(column.color && textColors[column.color]) || 'text-re-blue'}`
+            getColorClass(column.color)
           ]}
         >
           {column.imageUrl && (
@@ -100,10 +67,7 @@ const getMaxWidthClass = (width: string, defaultValue = NO_MAX_WIDTH) =>
               )}
             </>
           )}
-          <div
-            set:html={column.text ? marked(column.text) : ''}
-            class='leading-relaxed'
-          />
+          <div set:html={marked(column.text ?? '')} class='leading-relaxed' />
         </article>
       </div>
     ))

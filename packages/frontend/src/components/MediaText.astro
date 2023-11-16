@@ -6,10 +6,8 @@ let {
   videoUrl,
   captionUrl,
   imageUrl,
-  imageAlt = '',
   text,
   textAlignment = 'left',
-  textDesign,
   max_width_container,
   mediaPositon = 'left'
 } = Astro.props;
@@ -64,8 +62,8 @@ const getMediaPositionClasses = (position: string) => {
         <BlockText
           alignment={textAlignment}
           text={text}
-          color_headline={'white'}
-          color_text={'white'}
+          colorHeadline={'white'}
+          colorText={'white'}
         />
       )
     }

@@ -1,20 +1,7 @@
 ---
-let { max_width_container, testimonals } = Astro.props;
+import { getMaxWidthClass } from '@/lib/util';
 
-const NO_MAX_WIDTH = 'max-w-none';
-const maxWidths = new Set([
-  NO_MAX_WIDTH,
-  'max-w-xs',
-  'max-w-sm',
-  'max-w-md',
-  'max-w-lg',
-  'max-w-xl',
-  'max-w-2xl',
-  'max-w-3xl',
-  'max-w-4xl'
-]);
-const getMaxWidthClass = (width, defaultValue = NO_MAX_WIDTH) =>
-  maxWidths.has(width) ? width : defaultValue;
+let { max_width_container, testimonals } = Astro.props;
 ---
 
 {
@@ -87,6 +74,7 @@ const getMaxWidthClass = (width, defaultValue = NO_MAX_WIDTH) =>
 }
 
 <script>
+  // @ts-nocheck
   import Swiper from 'swiper';
   import { Navigation } from 'swiper/modules';
   import 'swiper/css';

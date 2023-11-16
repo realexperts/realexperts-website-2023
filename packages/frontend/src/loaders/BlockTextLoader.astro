@@ -22,6 +22,16 @@ export const loadBlockText = async (itemId: number) => {
     })
   );
 };
+
+const response = await loadBlockText(itemId);
+
+const properties = {
+  alignment: response.alignment,
+  colorHeadline: response.color_headline,
+  colorText: response.color_text,
+  maxWidthContainer: response.max_width_container,
+  text: response.text
+};
 ---
 
-<BlockText {...await loadBlockText(itemId)} />
+<BlockText {...properties} />
