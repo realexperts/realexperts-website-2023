@@ -1,12 +1,11 @@
 export interface BlockCta {
-
   /**
    * No description.
    *
    * Type in directus: string
    * Type in database: character varying
    */
-   alignment: 'left' | 'center' | 'right' | null;
+  alignment: 'left' | 'center' | 'right' | null;
 
   /**
    * No description.
@@ -14,7 +13,7 @@ export interface BlockCta {
    * Type in directus: alias
    * Type in database: no column
    */
-   ctas: BlockCtaCta[] | null;
+  ctas: BlockCtaCta[] | null;
 
   /**
    * No description.
@@ -22,7 +21,7 @@ export interface BlockCta {
    * Type in directus: timestamp
    * Type in database: timestamp with time zone
    */
-   date_created: string | null;
+  date_created: string | null;
 
   /**
    * No description.
@@ -30,7 +29,7 @@ export interface BlockCta {
    * Type in directus: timestamp
    * Type in database: timestamp with time zone
    */
-   date_updated: string | null;
+  date_updated: string | null;
 
   /**
    * No description.
@@ -38,7 +37,7 @@ export interface BlockCta {
    * Type in directus: integer
    * Type in database: integer
    */
-   id: number;
+  id: number;
 
   /**
    * No description.
@@ -46,7 +45,7 @@ export interface BlockCta {
    * Type in directus: uuid
    * Type in database: uuid
    */
-   user_created: DirectusUser | DirectusUser["id"] | null;
+  user_created: DirectusUser | DirectusUser['id'] | null;
 
   /**
    * No description.
@@ -54,18 +53,17 @@ export interface BlockCta {
    * Type in directus: uuid
    * Type in database: uuid
    */
-   user_updated: DirectusUser | DirectusUser["id"] | null;
+  user_updated: DirectusUser | DirectusUser['id'] | null;
 }
 
 export interface BlockCtaCta {
-
   /**
    * No description.
    *
    * Type in directus: integer
    * Type in database: integer
    */
-   block_cta_id: BlockCta | BlockCta["id"] | null;
+  block_cta_id: BlockCta | BlockCta['id'] | null;
 
   /**
    * No description.
@@ -73,7 +71,7 @@ export interface BlockCtaCta {
    * Type in directus: string
    * Type in database: character varying
    */
-   collection: string | null;
+  collection: string | null;
 
   /**
    * No description.
@@ -81,7 +79,7 @@ export interface BlockCtaCta {
    * Type in directus: integer
    * Type in database: integer
    */
-   id: number;
+  id: number;
 
   /**
    * No description.
@@ -89,7 +87,12 @@ export interface BlockCtaCta {
    * Type in directus: string
    * Type in database: character varying
    */
-   item: ElementCtaExternal | ElementCtaExternal["id"] | ElementCtaInternal | ElementCtaInternal["id"] | null;
+  item:
+    | ElementCtaExternal
+    | ElementCtaExternal['id']
+    | ElementCtaInternal
+    | ElementCtaInternal['id']
+    | null;
 
   /**
    * No description.
@@ -97,18 +100,17 @@ export interface BlockCtaCta {
    * Type in directus: integer
    * Type in database: integer
    */
-   sort: number | null;
+  sort: number | null;
 }
 
 export interface BlockHero {
-
   /**
    * No description.
    *
    * Type in directus: alias
    * Type in database: no column
    */
-   ctas: BlockHeroCta[] | null;
+  ctas: BlockHeroCta[] | null;
 
   /**
    * No description.
@@ -116,7 +118,7 @@ export interface BlockHero {
    * Type in directus: timestamp
    * Type in database: timestamp with time zone
    */
-   date_created: string | null;
+  date_created: string | null;
 
   /**
    * No description.
@@ -124,7 +126,7 @@ export interface BlockHero {
    * Type in directus: timestamp
    * Type in database: timestamp with time zone
    */
-   date_updated: string | null;
+  date_updated: string | null;
 
   /**
    * No description.
@@ -132,7 +134,7 @@ export interface BlockHero {
    * Type in directus: integer
    * Type in database: integer
    */
-   id: number;
+  id: number;
 
   /**
    * No description.
@@ -140,7 +142,7 @@ export interface BlockHero {
    * Type in directus: uuid
    * Type in database: uuid
    */
-   image: DirectusFile | DirectusFile["id"] | null;
+  image: DirectusFile | DirectusFile['id'] | null;
 
   /**
    * No description.
@@ -148,7 +150,9 @@ export interface BlockHero {
    * Type in directus: json
    * Type in database: json
    */
-   image_styles: ('rounded_tl' | 'rounded_tr' | 'rounded_bl' | 'rounded_br')[] | null;
+  image_styles:
+    | ('rounded_tl' | 'rounded_tr' | 'rounded_bl' | 'rounded_br')[]
+    | null;
 
   /**
    * No description.
@@ -156,7 +160,7 @@ export interface BlockHero {
    * Type in directus: string
    * Type in database: character varying
    */
-   status: 'published' | 'draft' | 'archived' | null;
+  status: 'published' | 'draft' | 'archived' | null;
 
   /**
    * No description.
@@ -164,7 +168,7 @@ export interface BlockHero {
    * Type in directus: text
    * Type in database: text
    */
-   subtitle: string | null;
+  subtitle: string | null;
 
   /**
    * No description.
@@ -172,7 +176,7 @@ export interface BlockHero {
    * Type in directus: string
    * Type in database: character varying
    */
-   title: string | null;
+  title: string | null;
 
   /**
    * No description.
@@ -180,7 +184,7 @@ export interface BlockHero {
    * Type in directus: uuid
    * Type in database: uuid
    */
-   user_created: DirectusUser | DirectusUser["id"] | null;
+  user_created: DirectusUser | DirectusUser['id'] | null;
 
   /**
    * No description.
@@ -188,18 +192,17 @@ export interface BlockHero {
    * Type in directus: uuid
    * Type in database: uuid
    */
-   user_updated: DirectusUser | DirectusUser["id"] | null;
+  user_updated: DirectusUser | DirectusUser['id'] | null;
 }
 
 export interface BlockHeroCta {
-
   /**
    * No description.
    *
    * Type in directus: integer
    * Type in database: integer
    */
-   block_hero_id: BlockHero | BlockHero["id"] | null;
+  block_hero_id: BlockHero | BlockHero['id'] | null;
 
   /**
    * No description.
@@ -207,7 +210,7 @@ export interface BlockHeroCta {
    * Type in directus: string
    * Type in database: character varying
    */
-   collection: string | null;
+  collection: string | null;
 
   /**
    * No description.
@@ -215,7 +218,7 @@ export interface BlockHeroCta {
    * Type in directus: integer
    * Type in database: integer
    */
-   id: number;
+  id: number;
 
   /**
    * No description.
@@ -223,10 +226,22 @@ export interface BlockHeroCta {
    * Type in directus: string
    * Type in database: character varying
    */
-   item: ElementCtaExternal | ElementCtaExternal["id"] | ElementCtaInternal | ElementCtaInternal["id"] | null;
+  item:
+    | ElementCtaExternal
+    | ElementCtaExternal['id']
+    | ElementCtaInternal
+    | ElementCtaInternal['id']
+    | null;
 }
 
 export interface BlockIconTextColumn {
+  /**
+   * No description.
+   *
+   * Type in directus: string
+   * Type in database: character varying
+   */
+  alignment: 'left' | 'center' | 'right';
 
   /**
    * No description.
@@ -234,15 +249,7 @@ export interface BlockIconTextColumn {
    * Type in directus: string
    * Type in database: character varying
    */
-   alignment: 'left' | 'center' | 'right';
-
-  /**
-   * No description.
-   *
-   * Type in directus: string
-   * Type in database: character varying
-   */
-   column_width: '33' | '50';
+  column_width: '33' | '50';
 
   /**
    * No description.
@@ -250,7 +257,7 @@ export interface BlockIconTextColumn {
    * Type in directus: alias
    * Type in database: no column
    */
-   columns: BlockIconTextColumnsBlockIconTextColumnsColumn[] | null;
+  columns: BlockIconTextColumnsBlockIconTextColumnsColumn[] | null;
 
   /**
    * No description.
@@ -258,7 +265,7 @@ export interface BlockIconTextColumn {
    * Type in directus: timestamp
    * Type in database: timestamp with time zone
    */
-   date_created: string | null;
+  date_created: string | null;
 
   /**
    * No description.
@@ -266,7 +273,7 @@ export interface BlockIconTextColumn {
    * Type in directus: timestamp
    * Type in database: timestamp with time zone
    */
-   date_updated: string | null;
+  date_updated: string | null;
 
   /**
    * No description.
@@ -274,7 +281,7 @@ export interface BlockIconTextColumn {
    * Type in directus: integer
    * Type in database: integer
    */
-   id: number;
+  id: number;
 
   /**
    * No description.
@@ -282,7 +289,7 @@ export interface BlockIconTextColumn {
    * Type in directus: uuid
    * Type in database: uuid
    */
-   user_created: DirectusUser | DirectusUser["id"] | null;
+  user_created: DirectusUser | DirectusUser['id'] | null;
 
   /**
    * No description.
@@ -290,10 +297,20 @@ export interface BlockIconTextColumn {
    * Type in directus: uuid
    * Type in database: uuid
    */
-   user_updated: DirectusUser | DirectusUser["id"] | null;
+  user_updated: DirectusUser | DirectusUser['id'] | null;
 }
 
 export interface BlockIconTextColumnsBlockIconTextColumnsColumn {
+  /**
+   * No description.
+   *
+   * Type in directus: integer
+   * Type in database: integer
+   */
+  block_icon_text_columns_column_id:
+    | BlockIconTextColumnsColumn
+    | BlockIconTextColumnsColumn['id']
+    | null;
 
   /**
    * No description.
@@ -301,7 +318,10 @@ export interface BlockIconTextColumnsBlockIconTextColumnsColumn {
    * Type in directus: integer
    * Type in database: integer
    */
-   block_icon_text_columns_column_id: BlockIconTextColumnsColumn | BlockIconTextColumnsColumn["id"] | null;
+  block_icon_text_columns_id:
+    | BlockIconTextColumn
+    | BlockIconTextColumn['id']
+    | null;
 
   /**
    * No description.
@@ -309,7 +329,7 @@ export interface BlockIconTextColumnsBlockIconTextColumnsColumn {
    * Type in directus: integer
    * Type in database: integer
    */
-   block_icon_text_columns_id: BlockIconTextColumn | BlockIconTextColumn["id"] | null;
+  id: number;
 
   /**
    * No description.
@@ -317,26 +337,19 @@ export interface BlockIconTextColumnsBlockIconTextColumnsColumn {
    * Type in directus: integer
    * Type in database: integer
    */
-   id: number;
-
-  /**
-   * No description.
-   *
-   * Type in directus: integer
-   * Type in database: integer
-   */
-   sort: number | null;
+  sort: number | null;
 }
 
 export interface BlockIconTextColumnsColumn {
-
   /**
    * No description.
    *
    * Type in directus: alias
    * Type in database: no column
    */
-   block_icon_text_columns: BlockIconTextColumnsBlockIconTextColumnsColumn[] | null;
+  block_icon_text_columns:
+    | BlockIconTextColumnsBlockIconTextColumnsColumn[]
+    | null;
 
   /**
    * No description.
@@ -344,7 +357,7 @@ export interface BlockIconTextColumnsColumn {
    * Type in directus: timestamp
    * Type in database: timestamp with time zone
    */
-   date_created: string | null;
+  date_created: string | null;
 
   /**
    * No description.
@@ -352,7 +365,7 @@ export interface BlockIconTextColumnsColumn {
    * Type in directus: timestamp
    * Type in database: timestamp with time zone
    */
-   date_updated: string | null;
+  date_updated: string | null;
 
   /**
    * No description.
@@ -360,7 +373,7 @@ export interface BlockIconTextColumnsColumn {
    * Type in directus: integer
    * Type in database: integer
    */
-   id: number;
+  id: number;
 
   /**
    * No description.
@@ -368,7 +381,7 @@ export interface BlockIconTextColumnsColumn {
    * Type in directus: uuid
    * Type in database: uuid
    */
-   image: DirectusFile | DirectusFile["id"] | null;
+  image: DirectusFile | DirectusFile['id'] | null;
 
   /**
    * No description.
@@ -376,7 +389,7 @@ export interface BlockIconTextColumnsColumn {
    * Type in directus: string
    * Type in database: character varying
    */
-   image_alt: string | null;
+  image_alt: string | null;
 
   /**
    * No description.
@@ -384,7 +397,7 @@ export interface BlockIconTextColumnsColumn {
    * Type in directus: text
    * Type in database: text
    */
-   text: string | null;
+  text: string | null;
 
   /**
    * No description.
@@ -392,7 +405,7 @@ export interface BlockIconTextColumnsColumn {
    * Type in directus: uuid
    * Type in database: uuid
    */
-   user_created: DirectusUser | DirectusUser["id"] | null;
+  user_created: DirectusUser | DirectusUser['id'] | null;
 
   /**
    * No description.
@@ -400,10 +413,17 @@ export interface BlockIconTextColumnsColumn {
    * Type in directus: uuid
    * Type in database: uuid
    */
-   user_updated: DirectusUser | DirectusUser["id"] | null;
+  user_updated: DirectusUser | DirectusUser['id'] | null;
 }
 
 export interface BlockLogoSlider {
+  /**
+   * No description.
+   *
+   * Type in directus: timestamp
+   * Type in database: timestamp with time zone
+   */
+  date_created: string | null;
 
   /**
    * No description.
@@ -411,15 +431,7 @@ export interface BlockLogoSlider {
    * Type in directus: timestamp
    * Type in database: timestamp with time zone
    */
-   date_created: string | null;
-
-  /**
-   * No description.
-   *
-   * Type in directus: timestamp
-   * Type in database: timestamp with time zone
-   */
-   date_updated: string | null;
+  date_updated: string | null;
 
   /**
    * No description.
@@ -427,7 +439,7 @@ export interface BlockLogoSlider {
    * Type in directus: integer
    * Type in database: integer
    */
-   id: number;
+  id: number;
 
   /**
    * No description.
@@ -435,7 +447,7 @@ export interface BlockLogoSlider {
    * Type in directus: alias
    * Type in database: no column
    */
-   slides: LogoSliderSlide[] | null;
+  slides: LogoSliderSlide[] | null;
 
   /**
    * No description.
@@ -443,7 +455,7 @@ export interface BlockLogoSlider {
    * Type in directus: uuid
    * Type in database: uuid
    */
-   user_created: DirectusUser | DirectusUser["id"] | null;
+  user_created: DirectusUser | DirectusUser['id'] | null;
 
   /**
    * No description.
@@ -451,10 +463,17 @@ export interface BlockLogoSlider {
    * Type in directus: uuid
    * Type in database: uuid
    */
-   user_updated: DirectusUser | DirectusUser["id"] | null;
+  user_updated: DirectusUser | DirectusUser['id'] | null;
 }
 
 export interface BlockMedia {
+  /**
+   * No description.
+   *
+   * Type in directus: timestamp
+   * Type in database: timestamp with time zone
+   */
+  date_created: string | null;
 
   /**
    * No description.
@@ -462,15 +481,7 @@ export interface BlockMedia {
    * Type in directus: timestamp
    * Type in database: timestamp with time zone
    */
-   date_created: string | null;
-
-  /**
-   * No description.
-   *
-   * Type in directus: timestamp
-   * Type in database: timestamp with time zone
-   */
-   date_updated: string | null;
+  date_updated: string | null;
 
   /**
    * No description.
@@ -478,7 +489,7 @@ export interface BlockMedia {
    * Type in directus: integer
    * Type in database: integer
    */
-   id: number;
+  id: number;
 
   /**
    * No description.
@@ -486,7 +497,7 @@ export interface BlockMedia {
    * Type in directus: string
    * Type in database: character varying
    */
-   type: 'image' | 'youtube_video';
+  type: 'image' | 'youtube_video';
 
   /**
    * No description.
@@ -494,7 +505,7 @@ export interface BlockMedia {
    * Type in directus: uuid
    * Type in database: uuid
    */
-   user_created: DirectusUser | DirectusUser["id"] | null;
+  user_created: DirectusUser | DirectusUser['id'] | null;
 
   /**
    * No description.
@@ -502,7 +513,7 @@ export interface BlockMedia {
    * Type in directus: uuid
    * Type in database: uuid
    */
-   user_updated: DirectusUser | DirectusUser["id"] | null;
+  user_updated: DirectusUser | DirectusUser['id'] | null;
 
   /**
    * No description.
@@ -510,18 +521,17 @@ export interface BlockMedia {
    * Type in directus: string
    * Type in database: character varying
    */
-   yt_id: string | null;
+  yt_id: string | null;
 }
 
 export interface BlockQnaList {
-
   /**
    * No description.
    *
    * Type in directus: string
    * Type in database: character varying
    */
-   answer_heading: string | null;
+  answer_heading: string | null;
 
   /**
    * No description.
@@ -529,7 +539,7 @@ export interface BlockQnaList {
    * Type in directus: timestamp
    * Type in database: timestamp with time zone
    */
-   date_created: string | null;
+  date_created: string | null;
 
   /**
    * No description.
@@ -537,7 +547,7 @@ export interface BlockQnaList {
    * Type in directus: timestamp
    * Type in database: timestamp with time zone
    */
-   date_updated: string | null;
+  date_updated: string | null;
 
   /**
    * No description.
@@ -545,7 +555,7 @@ export interface BlockQnaList {
    * Type in directus: integer
    * Type in database: integer
    */
-   id: number;
+  id: number;
 
   /**
    * No description.
@@ -553,7 +563,7 @@ export interface BlockQnaList {
    * Type in directus: json
    * Type in database: json
    */
-   qna_list: any | null;
+  qna_list: any | null;
 
   /**
    * No description.
@@ -561,7 +571,7 @@ export interface BlockQnaList {
    * Type in directus: string
    * Type in database: character varying
    */
-   question_heading: string | null;
+  question_heading: string | null;
 
   /**
    * No description.
@@ -569,7 +579,7 @@ export interface BlockQnaList {
    * Type in directus: uuid
    * Type in database: uuid
    */
-   user_created: DirectusUser | DirectusUser["id"] | null;
+  user_created: DirectusUser | DirectusUser['id'] | null;
 
   /**
    * No description.
@@ -577,10 +587,17 @@ export interface BlockQnaList {
    * Type in directus: uuid
    * Type in database: uuid
    */
-   user_updated: DirectusUser | DirectusUser["id"] | null;
+  user_updated: DirectusUser | DirectusUser['id'] | null;
 }
 
 export interface BlockSideBySide {
+  /**
+   * No description.
+   *
+   * Type in directus: timestamp
+   * Type in database: timestamp with time zone
+   */
+  date_created: string | null;
 
   /**
    * No description.
@@ -588,15 +605,7 @@ export interface BlockSideBySide {
    * Type in directus: timestamp
    * Type in database: timestamp with time zone
    */
-   date_created: string | null;
-
-  /**
-   * No description.
-   *
-   * Type in directus: timestamp
-   * Type in database: timestamp with time zone
-   */
-   date_updated: string | null;
+  date_updated: string | null;
 
   /**
    * No description.
@@ -604,7 +613,7 @@ export interface BlockSideBySide {
    * Type in directus: integer
    * Type in database: integer
    */
-   id: number;
+  id: number;
 
   /**
    * No description.
@@ -612,7 +621,7 @@ export interface BlockSideBySide {
    * Type in directus: alias
    * Type in database: no column
    */
-   left_column: BlockSideBySideLeftColumn[] | null;
+  left_column: BlockSideBySideLeftColumn[] | null;
 
   /**
    * No description.
@@ -620,7 +629,7 @@ export interface BlockSideBySide {
    * Type in directus: string
    * Type in database: character varying
    */
-   order: 'left_column_first' | 'right_column_first' | null;
+  order: 'left_column_first' | 'right_column_first' | null;
 
   /**
    * No description.
@@ -628,7 +637,7 @@ export interface BlockSideBySide {
    * Type in directus: alias
    * Type in database: no column
    */
-   right_column: BlockSideBySideRightColumn[] | null;
+  right_column: BlockSideBySideRightColumn[] | null;
 
   /**
    * No description.
@@ -636,7 +645,7 @@ export interface BlockSideBySide {
    * Type in directus: uuid
    * Type in database: uuid
    */
-   user_created: DirectusUser | DirectusUser["id"] | null;
+  user_created: DirectusUser | DirectusUser['id'] | null;
 
   /**
    * No description.
@@ -644,18 +653,17 @@ export interface BlockSideBySide {
    * Type in directus: uuid
    * Type in database: uuid
    */
-   user_updated: DirectusUser | DirectusUser["id"] | null;
+  user_updated: DirectusUser | DirectusUser['id'] | null;
 }
 
 export interface BlockSideBySideLeftColumn {
-
   /**
    * No description.
    *
    * Type in directus: integer
    * Type in database: integer
    */
-   block_side_by_side_id: BlockSideBySide | BlockSideBySide["id"] | null;
+  block_side_by_side_id: BlockSideBySide | BlockSideBySide['id'] | null;
 
   /**
    * No description.
@@ -663,7 +671,7 @@ export interface BlockSideBySideLeftColumn {
    * Type in directus: string
    * Type in database: character varying
    */
-   collection: string | null;
+  collection: string | null;
 
   /**
    * No description.
@@ -671,7 +679,7 @@ export interface BlockSideBySideLeftColumn {
    * Type in directus: integer
    * Type in database: integer
    */
-   id: number;
+  id: number;
 
   /**
    * No description.
@@ -679,18 +687,17 @@ export interface BlockSideBySideLeftColumn {
    * Type in directus: string
    * Type in database: character varying
    */
-   item: BlockMedia | BlockMedia["id"] | BlockText | BlockText["id"] | null;
+  item: BlockMedia | BlockMedia['id'] | BlockText | BlockText['id'] | null;
 }
 
 export interface BlockSideBySideRightColumn {
-
   /**
    * No description.
    *
    * Type in directus: integer
    * Type in database: integer
    */
-   block_side_by_side_id: BlockSideBySide | BlockSideBySide["id"] | null;
+  block_side_by_side_id: BlockSideBySide | BlockSideBySide['id'] | null;
 
   /**
    * No description.
@@ -698,7 +705,7 @@ export interface BlockSideBySideRightColumn {
    * Type in directus: string
    * Type in database: character varying
    */
-   collection: string | null;
+  collection: string | null;
 
   /**
    * No description.
@@ -706,7 +713,7 @@ export interface BlockSideBySideRightColumn {
    * Type in directus: integer
    * Type in database: integer
    */
-   id: number;
+  id: number;
 
   /**
    * No description.
@@ -714,10 +721,157 @@ export interface BlockSideBySideRightColumn {
    * Type in directus: string
    * Type in database: character varying
    */
-   item: BlockMedia | BlockMedia["id"] | BlockText | BlockText["id"] | null;
+  item: BlockMedia | BlockMedia['id'] | BlockText | BlockText['id'] | null;
+}
+
+export interface BlockTestimonial {
+  /**
+   * No description.
+   *
+   * Type in directus: timestamp
+   * Type in database: timestamp with time zone
+   */
+  date_created: string | null;
+
+  /**
+   * No description.
+   *
+   * Type in directus: timestamp
+   * Type in database: timestamp with time zone
+   */
+  date_updated: string | null;
+
+  /**
+   * No description.
+   *
+   * Type in directus: integer
+   * Type in database: integer
+   */
+  id: number;
+
+  /**
+   * No description.
+   *
+   * Type in directus: alias
+   * Type in database: no column
+   */
+  testimonials: BlockTestimonialsTestimonial[] | null;
+
+  /**
+   * No description.
+   *
+   * Type in directus: uuid
+   * Type in database: uuid
+   */
+  user_created: DirectusUser | DirectusUser['id'] | null;
+
+  /**
+   * No description.
+   *
+   * Type in directus: uuid
+   * Type in database: uuid
+   */
+  user_updated: DirectusUser | DirectusUser['id'] | null;
+}
+
+export interface BlockTestimonialsTestimonial {
+  /**
+   * No description.
+   *
+   * Type in directus: string
+   * Type in database: character varying
+   */
+  company: string | null;
+
+  /**
+   * No description.
+   *
+   * Type in directus: timestamp
+   * Type in database: timestamp with time zone
+   */
+  date_created: string | null;
+
+  /**
+   * No description.
+   *
+   * Type in directus: timestamp
+   * Type in database: timestamp with time zone
+   */
+  date_updated: string | null;
+
+  /**
+   * No description.
+   *
+   * Type in directus: integer
+   * Type in database: integer
+   */
+  id: number;
+
+  /**
+   * No description.
+   *
+   * Type in directus: uuid
+   * Type in database: uuid
+   */
+  image: DirectusFile | DirectusFile['id'] | null;
+
+  /**
+   * No description.
+   *
+   * Type in directus: string
+   * Type in database: character varying
+   */
+  name: string | null;
+
+  /**
+   * No description.
+   *
+   * Type in directus: integer
+   * Type in database: integer
+   */
+  parent: BlockTestimonial | BlockTestimonial['id'] | null;
+
+  /**
+   * No description.
+   *
+   * Type in directus: integer
+   * Type in database: integer
+   */
+  sort: number | null;
+
+  /**
+   * No description.
+   *
+   * Type in directus: text
+   * Type in database: text
+   */
+  text: string | null;
+
+  /**
+   * No description.
+   *
+   * Type in directus: uuid
+   * Type in database: uuid
+   */
+  user_created: DirectusUser | DirectusUser['id'] | null;
+
+  /**
+   * No description.
+   *
+   * Type in directus: uuid
+   * Type in database: uuid
+   */
+  user_updated: DirectusUser | DirectusUser['id'] | null;
 }
 
 export interface BlockText {
+  /**
+   * No description.
+   *
+   * Type in directus: string
+   * Type in database: character varying
+   */
+  alignment: 'left' | 'center' | 'right' | null;
 
   /**
    * No description.
@@ -725,7 +879,7 @@ export interface BlockText {
    * Type in directus: string
    * Type in database: character varying
    */
-   alignment: 'left' | 'center' | 'right' | null;
+  color_headline: 're_blue' | 'turquoise' | 'white' | null;
 
   /**
    * No description.
@@ -733,15 +887,7 @@ export interface BlockText {
    * Type in directus: string
    * Type in database: character varying
    */
-   color_headline: 're_blue' | 'turquoise' | 'white' | null;
-
-  /**
-   * No description.
-   *
-   * Type in directus: string
-   * Type in database: character varying
-   */
-   color_text: 're_blue' | 'turquoise' | 'white' | null;
+  color_text: 're_blue' | 'turquoise' | 'white' | null;
 
   /**
    * No description.
@@ -749,7 +895,7 @@ export interface BlockText {
    * Type in directus: timestamp
    * Type in database: timestamp with time zone
    */
-   date_created: string | null;
+  date_created: string | null;
 
   /**
    * No description.
@@ -757,7 +903,7 @@ export interface BlockText {
    * Type in directus: timestamp
    * Type in database: timestamp with time zone
    */
-   date_updated: string | null;
+  date_updated: string | null;
 
   /**
    * No description.
@@ -765,7 +911,7 @@ export interface BlockText {
    * Type in directus: string
    * Type in database: character varying
    */
-   design: 'style_1' | 'style_2' | 'style_3' | 'style_4' | 'style_5' | null;
+  design: 'style_1' | 'style_2' | 'style_3' | 'style_4' | 'style_5' | null;
 
   /**
    * No description.
@@ -773,7 +919,7 @@ export interface BlockText {
    * Type in directus: integer
    * Type in database: integer
    */
-   id: number;
+  id: number;
 
   /**
    * No description.
@@ -781,7 +927,15 @@ export interface BlockText {
    * Type in directus: string
    * Type in database: character varying
    */
-   max_width: 'max-w-none' | 'max-w-xs' | 'max-w-sm' | 'max-w-md' | 'max-w-lg' | 'max-w-xl' | 'max-w-2xl' | null;
+  max_width:
+    | 'max-w-none'
+    | 'max-w-xs'
+    | 'max-w-sm'
+    | 'max-w-md'
+    | 'max-w-lg'
+    | 'max-w-xl'
+    | 'max-w-2xl'
+    | null;
 
   /**
    * No description.
@@ -789,7 +943,15 @@ export interface BlockText {
    * Type in directus: string
    * Type in database: character varying
    */
-   max_width_container: 'max-w-none' | 'max-w-xs' | 'max-w-sm' | 'max-w-md' | 'max-w-lg' | 'max-w-xl' | 'max-w-2xl' | null;
+  max_width_container:
+    | 'max-w-none'
+    | 'max-w-xs'
+    | 'max-w-sm'
+    | 'max-w-md'
+    | 'max-w-lg'
+    | 'max-w-xl'
+    | 'max-w-2xl'
+    | null;
 
   /**
    * No description.
@@ -797,7 +959,7 @@ export interface BlockText {
    * Type in directus: string
    * Type in database: character varying
    */
-   status: 'published' | 'draft' | 'archived' | null;
+  status: 'published' | 'draft' | 'archived' | null;
 
   /**
    * No description.
@@ -805,7 +967,7 @@ export interface BlockText {
    * Type in directus: text
    * Type in database: text
    */
-   text: string | null;
+  text: string | null;
 
   /**
    * No description.
@@ -813,7 +975,7 @@ export interface BlockText {
    * Type in directus: uuid
    * Type in database: uuid
    */
-   user_created: DirectusUser | DirectusUser["id"] | null;
+  user_created: DirectusUser | DirectusUser['id'] | null;
 
   /**
    * No description.
@@ -821,10 +983,17 @@ export interface BlockText {
    * Type in directus: uuid
    * Type in database: uuid
    */
-   user_updated: DirectusUser | DirectusUser["id"] | null;
+  user_updated: DirectusUser | DirectusUser['id'] | null;
 }
 
 export interface DirectusActivity {
+  /**
+   * No description.
+   *
+   * Type in directus: string
+   * Type in database: character varying
+   */
+  action: string;
 
   /**
    * No description.
@@ -832,15 +1001,7 @@ export interface DirectusActivity {
    * Type in directus: string
    * Type in database: character varying
    */
-   action: string;
-
-  /**
-   * No description.
-   *
-   * Type in directus: string
-   * Type in database: character varying
-   */
-   collection: string;
+  collection: string;
 
   /**
    * No description.
@@ -848,7 +1009,7 @@ export interface DirectusActivity {
    * Type in directus: text
    * Type in database: text
    */
-   comment: string | null;
+  comment: string | null;
 
   /**
    * No description.
@@ -856,7 +1017,7 @@ export interface DirectusActivity {
    * Type in directus: integer
    * Type in database: integer
    */
-   id: number;
+  id: number;
 
   /**
    * No description.
@@ -864,7 +1025,7 @@ export interface DirectusActivity {
    * Type in directus: string
    * Type in database: character varying
    */
-   ip: string | null;
+  ip: string | null;
 
   /**
    * No description.
@@ -872,7 +1033,7 @@ export interface DirectusActivity {
    * Type in directus: string
    * Type in database: character varying
    */
-   item: string;
+  item: string;
 
   /**
    * No description.
@@ -880,7 +1041,7 @@ export interface DirectusActivity {
    * Type in directus: string
    * Type in database: character varying
    */
-   origin: string | null;
+  origin: string | null;
 
   /**
    * No description.
@@ -888,7 +1049,7 @@ export interface DirectusActivity {
    * Type in directus: alias
    * Type in database: no column
    */
-   revisions: DirectusRevision[] | null;
+  revisions: DirectusRevision[] | null;
 
   /**
    * No description.
@@ -896,7 +1057,7 @@ export interface DirectusActivity {
    * Type in directus: timestamp
    * Type in database: timestamp with time zone
    */
-   timestamp: string;
+  timestamp: string;
 
   /**
    * No description.
@@ -904,7 +1065,7 @@ export interface DirectusActivity {
    * Type in directus: uuid
    * Type in database: uuid
    */
-   user: DirectusUser | string | null;
+  user: DirectusUser | string | null;
 
   /**
    * No description.
@@ -912,18 +1073,17 @@ export interface DirectusActivity {
    * Type in directus: string
    * Type in database: character varying
    */
-   user_agent: string | null;
+  user_agent: string | null;
 }
 
 export interface DirectusCollection {
-
   /**
    * No description.
    *
    * Type in directus: string
    * Type in database: character varying
    */
-   accountability: string | null;
+  accountability: string | null;
 
   /**
    * No description.
@@ -931,7 +1091,7 @@ export interface DirectusCollection {
    * Type in directus: boolean
    * Type in database: boolean
    */
-   archive_app_filter: boolean;
+  archive_app_filter: boolean;
 
   /**
    * No description.
@@ -939,7 +1099,7 @@ export interface DirectusCollection {
    * Type in directus: string
    * Type in database: character varying
    */
-   archive_field: string | null;
+  archive_field: string | null;
 
   /**
    * No description.
@@ -947,7 +1107,7 @@ export interface DirectusCollection {
    * Type in directus: string
    * Type in database: character varying
    */
-   archive_value: string | null;
+  archive_value: string | null;
 
   /**
    * No description.
@@ -955,7 +1115,7 @@ export interface DirectusCollection {
    * Type in directus: string
    * Type in database: character varying
    */
-   collapse: string;
+  collapse: string;
 
   /**
    * No description.
@@ -963,7 +1123,7 @@ export interface DirectusCollection {
    * Type in directus: string
    * Type in database: character varying
    */
-   collection: string;
+  collection: string;
 
   /**
    * No description.
@@ -971,7 +1131,7 @@ export interface DirectusCollection {
    * Type in directus: string
    * Type in database: character varying
    */
-   color: string | null;
+  color: string | null;
 
   /**
    * No description.
@@ -979,7 +1139,7 @@ export interface DirectusCollection {
    * Type in directus: string
    * Type in database: character varying
    */
-   display_template: string | null;
+  display_template: string | null;
 
   /**
    * No description.
@@ -987,7 +1147,7 @@ export interface DirectusCollection {
    * Type in directus: string
    * Type in database: character varying
    */
-   group: DirectusCollection | DirectusCollection["collection"] | null;
+  group: DirectusCollection | DirectusCollection['collection'] | null;
 
   /**
    * No description.
@@ -995,7 +1155,7 @@ export interface DirectusCollection {
    * Type in directus: boolean
    * Type in database: boolean
    */
-   hidden: boolean;
+  hidden: boolean;
 
   /**
    * No description.
@@ -1003,7 +1163,7 @@ export interface DirectusCollection {
    * Type in directus: string
    * Type in database: character varying
    */
-   icon: string | null;
+  icon: string | null;
 
   /**
    * No description.
@@ -1011,7 +1171,7 @@ export interface DirectusCollection {
    * Type in directus: json
    * Type in database: json
    */
-   item_duplication_fields: any | null;
+  item_duplication_fields: any | null;
 
   /**
    * No description.
@@ -1019,7 +1179,7 @@ export interface DirectusCollection {
    * Type in directus: text
    * Type in database: text
    */
-   note: string | null;
+  note: string | null;
 
   /**
    * No description.
@@ -1027,7 +1187,7 @@ export interface DirectusCollection {
    * Type in directus: string
    * Type in database: character varying
    */
-   preview_url: string | null;
+  preview_url: string | null;
 
   /**
    * No description.
@@ -1035,7 +1195,7 @@ export interface DirectusCollection {
    * Type in directus: boolean
    * Type in database: boolean
    */
-   singleton: boolean;
+  singleton: boolean;
 
   /**
    * No description.
@@ -1043,7 +1203,7 @@ export interface DirectusCollection {
    * Type in directus: integer
    * Type in database: integer
    */
-   sort: number | null;
+  sort: number | null;
 
   /**
    * No description.
@@ -1051,7 +1211,7 @@ export interface DirectusCollection {
    * Type in directus: string
    * Type in database: character varying
    */
-   sort_field: string | null;
+  sort_field: string | null;
 
   /**
    * No description.
@@ -1059,7 +1219,7 @@ export interface DirectusCollection {
    * Type in directus: json
    * Type in database: json
    */
-   translations: any | null;
+  translations: any | null;
 
   /**
    * No description.
@@ -1067,7 +1227,7 @@ export interface DirectusCollection {
    * Type in directus: string
    * Type in database: character varying
    */
-   unarchive_value: string | null;
+  unarchive_value: string | null;
 
   /**
    * No description.
@@ -1075,18 +1235,17 @@ export interface DirectusCollection {
    * Type in directus: boolean
    * Type in database: boolean
    */
-   versioning: boolean;
+  versioning: boolean;
 }
 
 export interface DirectusDashboard {
-
   /**
    * No description.
    *
    * Type in directus: string
    * Type in database: character varying
    */
-   color: string | null;
+  color: string | null;
 
   /**
    * No description.
@@ -1094,7 +1253,7 @@ export interface DirectusDashboard {
    * Type in directus: timestamp
    * Type in database: timestamp with time zone
    */
-   date_created: string | null;
+  date_created: string | null;
 
   /**
    * No description.
@@ -1102,7 +1261,7 @@ export interface DirectusDashboard {
    * Type in directus: string
    * Type in database: character varying
    */
-   icon: string;
+  icon: string;
 
   /**
    * No description.
@@ -1110,7 +1269,7 @@ export interface DirectusDashboard {
    * Type in directus: uuid
    * Type in database: uuid
    */
-   id: string;
+  id: string;
 
   /**
    * No description.
@@ -1118,7 +1277,7 @@ export interface DirectusDashboard {
    * Type in directus: string
    * Type in database: character varying
    */
-   name: string;
+  name: string;
 
   /**
    * No description.
@@ -1126,7 +1285,7 @@ export interface DirectusDashboard {
    * Type in directus: text
    * Type in database: text
    */
-   note: string | null;
+  note: string | null;
 
   /**
    * No description.
@@ -1134,7 +1293,7 @@ export interface DirectusDashboard {
    * Type in directus: alias
    * Type in database: no column
    */
-   panels: DirectusPanel[] | null;
+  panels: DirectusPanel[] | null;
 
   /**
    * No description.
@@ -1142,18 +1301,17 @@ export interface DirectusDashboard {
    * Type in directus: uuid
    * Type in database: uuid
    */
-   user_created: DirectusUser | DirectusUser["id"] | null;
+  user_created: DirectusUser | DirectusUser['id'] | null;
 }
 
 export interface DirectusExtension {
-
   /**
    * No description.
    *
    * Type in directus: boolean
    * Type in database: boolean
    */
-   enabled: boolean;
+  enabled: boolean;
 
   /**
    * No description.
@@ -1161,18 +1319,17 @@ export interface DirectusExtension {
    * Type in directus: string
    * Type in database: character varying
    */
-   name: string;
+  name: string;
 }
 
 export interface DirectusField {
-
   /**
    * No description.
    *
    * Type in directus: string
    * Type in database: character varying
    */
-   collection: DirectusCollection | string;
+  collection: DirectusCollection | string;
 
   /**
    * No description.
@@ -1180,7 +1337,7 @@ export interface DirectusField {
    * Type in directus: json
    * Type in database: json
    */
-   conditions: any | null;
+  conditions: any | null;
 
   /**
    * No description.
@@ -1188,7 +1345,7 @@ export interface DirectusField {
    * Type in directus: string
    * Type in database: character varying
    */
-   display: string | null;
+  display: string | null;
 
   /**
    * No description.
@@ -1196,7 +1353,7 @@ export interface DirectusField {
    * Type in directus: json
    * Type in database: json
    */
-   display_options: any | null;
+  display_options: any | null;
 
   /**
    * No description.
@@ -1204,7 +1361,7 @@ export interface DirectusField {
    * Type in directus: string
    * Type in database: character varying
    */
-   field: string;
+  field: string;
 
   /**
    * No description.
@@ -1212,7 +1369,7 @@ export interface DirectusField {
    * Type in directus: string
    * Type in database: character varying
    */
-   group: DirectusField | string | null;
+  group: DirectusField | string | null;
 
   /**
    * No description.
@@ -1220,7 +1377,7 @@ export interface DirectusField {
    * Type in directus: boolean
    * Type in database: boolean
    */
-   hidden: boolean;
+  hidden: boolean;
 
   /**
    * No description.
@@ -1228,7 +1385,7 @@ export interface DirectusField {
    * Type in directus: integer
    * Type in database: integer
    */
-   id: number;
+  id: number;
 
   /**
    * No description.
@@ -1236,7 +1393,7 @@ export interface DirectusField {
    * Type in directus: string
    * Type in database: character varying
    */
-   interface: string | null;
+  interface: string | null;
 
   /**
    * No description.
@@ -1244,7 +1401,7 @@ export interface DirectusField {
    * Type in directus: text
    * Type in database: text
    */
-   note: string | null;
+  note: string | null;
 
   /**
    * No description.
@@ -1252,7 +1409,7 @@ export interface DirectusField {
    * Type in directus: json
    * Type in database: json
    */
-   options: any | null;
+  options: any | null;
 
   /**
    * No description.
@@ -1260,7 +1417,7 @@ export interface DirectusField {
    * Type in directus: boolean
    * Type in database: boolean
    */
-   readonly: boolean;
+  readonly: boolean;
 
   /**
    * No description.
@@ -1268,7 +1425,7 @@ export interface DirectusField {
    * Type in directus: boolean
    * Type in database: boolean
    */
-   required: boolean | null;
+  required: boolean | null;
 
   /**
    * No description.
@@ -1276,7 +1433,7 @@ export interface DirectusField {
    * Type in directus: integer
    * Type in database: integer
    */
-   sort: number | null;
+  sort: number | null;
 
   /**
    * No description.
@@ -1284,7 +1441,7 @@ export interface DirectusField {
    * Type in directus: csv
    * Type in database: character varying
    */
-   special: string[] | null;
+  special: string[] | null;
 
   /**
    * No description.
@@ -1292,7 +1449,7 @@ export interface DirectusField {
    * Type in directus: json
    * Type in database: json
    */
-   translations: any | null;
+  translations: any | null;
 
   /**
    * No description.
@@ -1300,7 +1457,7 @@ export interface DirectusField {
    * Type in directus: json
    * Type in database: json
    */
-   validation: any | null;
+  validation: any | null;
 
   /**
    * No description.
@@ -1308,7 +1465,7 @@ export interface DirectusField {
    * Type in directus: text
    * Type in database: text
    */
-   validation_message: string | null;
+  validation_message: string | null;
 
   /**
    * No description.
@@ -1316,18 +1473,17 @@ export interface DirectusField {
    * Type in directus: string
    * Type in database: character varying
    */
-   width: string | null;
+  width: string | null;
 }
 
 export interface DirectusFile {
-
   /**
    * No description.
    *
    * Type in directus: string
    * Type in database: character varying
    */
-   charset: string | null;
+  charset: string | null;
 
   /**
    * No description.
@@ -1335,7 +1491,7 @@ export interface DirectusFile {
    * Type in directus: text
    * Type in database: text
    */
-   description: string | null;
+  description: string | null;
 
   /**
    * No description.
@@ -1343,7 +1499,7 @@ export interface DirectusFile {
    * Type in directus: integer
    * Type in database: integer
    */
-   duration: number | null;
+  duration: number | null;
 
   /**
    * No description.
@@ -1351,7 +1507,7 @@ export interface DirectusFile {
    * Type in directus: string
    * Type in database: character varying
    */
-   embed: string | null;
+  embed: string | null;
 
   /**
    * No description.
@@ -1359,7 +1515,7 @@ export interface DirectusFile {
    * Type in directus: string
    * Type in database: character varying
    */
-   filename_disk: string | null;
+  filename_disk: string | null;
 
   /**
    * No description.
@@ -1367,7 +1523,7 @@ export interface DirectusFile {
    * Type in directus: string
    * Type in database: character varying
    */
-   filename_download: string;
+  filename_download: string;
 
   /**
    * No description.
@@ -1375,7 +1531,7 @@ export interface DirectusFile {
    * Type in directus: bigInteger
    * Type in database: bigint
    */
-   filesize: number | null;
+  filesize: number | null;
 
   /**
    * No description.
@@ -1383,7 +1539,7 @@ export interface DirectusFile {
    * Type in directus: uuid
    * Type in database: uuid
    */
-   folder: DirectusFolder | DirectusFolder["id"] | null;
+  folder: DirectusFolder | DirectusFolder['id'] | null;
 
   /**
    * No description.
@@ -1391,7 +1547,7 @@ export interface DirectusFile {
    * Type in directus: integer
    * Type in database: integer
    */
-   height: number | null;
+  height: number | null;
 
   /**
    * No description.
@@ -1399,7 +1555,7 @@ export interface DirectusFile {
    * Type in directus: uuid
    * Type in database: uuid
    */
-   id: string;
+  id: string;
 
   /**
    * No description.
@@ -1407,7 +1563,7 @@ export interface DirectusFile {
    * Type in directus: text
    * Type in database: text
    */
-   location: string | null;
+  location: string | null;
 
   /**
    * No description.
@@ -1415,7 +1571,7 @@ export interface DirectusFile {
    * Type in directus: json
    * Type in database: json
    */
-   metadata: any | null;
+  metadata: any | null;
 
   /**
    * No description.
@@ -1423,7 +1579,7 @@ export interface DirectusFile {
    * Type in directus: uuid
    * Type in database: uuid
    */
-   modified_by: DirectusUser | DirectusUser["id"] | null;
+  modified_by: DirectusUser | DirectusUser['id'] | null;
 
   /**
    * No description.
@@ -1431,7 +1587,7 @@ export interface DirectusFile {
    * Type in directus: timestamp
    * Type in database: timestamp with time zone
    */
-   modified_on: string;
+  modified_on: string;
 
   /**
    * No description.
@@ -1439,7 +1595,7 @@ export interface DirectusFile {
    * Type in directus: alias
    * Type in database: no column
    */
-   pages_translations_meta_image: PagesTranslation[] | null;
+  pages_translations_meta_image: PagesTranslation[] | null;
 
   /**
    * No description.
@@ -1447,7 +1603,7 @@ export interface DirectusFile {
    * Type in directus: string
    * Type in database: character varying
    */
-   storage: string;
+  storage: string;
 
   /**
    * No description.
@@ -1455,7 +1611,7 @@ export interface DirectusFile {
    * Type in directus: json
    * Type in database: text
    */
-   tags: any | null;
+  tags: any | null;
 
   /**
    * No description.
@@ -1463,7 +1619,7 @@ export interface DirectusFile {
    * Type in directus: string
    * Type in database: character varying
    */
-   title: string | null;
+  title: string | null;
 
   /**
    * No description.
@@ -1471,7 +1627,7 @@ export interface DirectusFile {
    * Type in directus: string
    * Type in database: character varying
    */
-   type: string | null;
+  type: string | null;
 
   /**
    * No description.
@@ -1479,7 +1635,7 @@ export interface DirectusFile {
    * Type in directus: uuid
    * Type in database: uuid
    */
-   uploaded_by: DirectusUser | DirectusUser["id"] | null;
+  uploaded_by: DirectusUser | DirectusUser['id'] | null;
 
   /**
    * No description.
@@ -1487,7 +1643,7 @@ export interface DirectusFile {
    * Type in directus: timestamp
    * Type in database: timestamp with time zone
    */
-   uploaded_on: string;
+  uploaded_on: string;
 
   /**
    * No description.
@@ -1495,10 +1651,17 @@ export interface DirectusFile {
    * Type in directus: integer
    * Type in database: integer
    */
-   width: number | null;
+  width: number | null;
 }
 
 export interface DirectusFlow {
+  /**
+   * No description.
+   *
+   * Type in directus: string
+   * Type in database: character varying
+   */
+  accountability: string | null;
 
   /**
    * No description.
@@ -1506,15 +1669,7 @@ export interface DirectusFlow {
    * Type in directus: string
    * Type in database: character varying
    */
-   accountability: string | null;
-
-  /**
-   * No description.
-   *
-   * Type in directus: string
-   * Type in database: character varying
-   */
-   color: string | null;
+  color: string | null;
 
   /**
    * No description.
@@ -1522,7 +1677,7 @@ export interface DirectusFlow {
    * Type in directus: timestamp
    * Type in database: timestamp with time zone
    */
-   date_created: string | null;
+  date_created: string | null;
 
   /**
    * No description.
@@ -1530,7 +1685,7 @@ export interface DirectusFlow {
    * Type in directus: text
    * Type in database: text
    */
-   description: string | null;
+  description: string | null;
 
   /**
    * No description.
@@ -1538,7 +1693,7 @@ export interface DirectusFlow {
    * Type in directus: string
    * Type in database: character varying
    */
-   icon: string | null;
+  icon: string | null;
 
   /**
    * No description.
@@ -1546,7 +1701,7 @@ export interface DirectusFlow {
    * Type in directus: uuid
    * Type in database: uuid
    */
-   id: string;
+  id: string;
 
   /**
    * No description.
@@ -1554,7 +1709,7 @@ export interface DirectusFlow {
    * Type in directus: string
    * Type in database: character varying
    */
-   name: string;
+  name: string;
 
   /**
    * No description.
@@ -1562,7 +1717,7 @@ export interface DirectusFlow {
    * Type in directus: uuid
    * Type in database: uuid
    */
-   operation: DirectusOperation | string | null;
+  operation: DirectusOperation | string | null;
 
   /**
    * No description.
@@ -1570,7 +1725,7 @@ export interface DirectusFlow {
    * Type in directus: alias
    * Type in database: no column
    */
-   operations: DirectusOperation[] | null;
+  operations: DirectusOperation[] | null;
 
   /**
    * No description.
@@ -1578,7 +1733,7 @@ export interface DirectusFlow {
    * Type in directus: json
    * Type in database: json
    */
-   options: any | null;
+  options: any | null;
 
   /**
    * No description.
@@ -1586,7 +1741,7 @@ export interface DirectusFlow {
    * Type in directus: string
    * Type in database: character varying
    */
-   status: string;
+  status: string;
 
   /**
    * No description.
@@ -1594,7 +1749,7 @@ export interface DirectusFlow {
    * Type in directus: string
    * Type in database: character varying
    */
-   trigger: string | null;
+  trigger: string | null;
 
   /**
    * No description.
@@ -1602,18 +1757,17 @@ export interface DirectusFlow {
    * Type in directus: uuid
    * Type in database: uuid
    */
-   user_created: DirectusUser | DirectusUser["id"] | null;
+  user_created: DirectusUser | DirectusUser['id'] | null;
 }
 
 export interface DirectusFolder {
-
   /**
    * No description.
    *
    * Type in directus: uuid
    * Type in database: uuid
    */
-   id: string;
+  id: string;
 
   /**
    * No description.
@@ -1621,7 +1775,7 @@ export interface DirectusFolder {
    * Type in directus: string
    * Type in database: character varying
    */
-   name: string;
+  name: string;
 
   /**
    * No description.
@@ -1629,18 +1783,17 @@ export interface DirectusFolder {
    * Type in directus: uuid
    * Type in database: uuid
    */
-   parent: DirectusFolder | DirectusFolder["id"] | null;
+  parent: DirectusFolder | DirectusFolder['id'] | null;
 }
 
 export interface DirectusMigration {
-
   /**
    * No description.
    *
    * Type in directus: string
    * Type in database: character varying
    */
-   name: string;
+  name: string;
 
   /**
    * No description.
@@ -1648,7 +1801,7 @@ export interface DirectusMigration {
    * Type in directus: timestamp
    * Type in database: timestamp with time zone
    */
-   timestamp: string | null;
+  timestamp: string | null;
 
   /**
    * No description.
@@ -1656,18 +1809,17 @@ export interface DirectusMigration {
    * Type in directus: string
    * Type in database: character varying
    */
-   version: string;
+  version: string;
 }
 
 export interface DirectusNotification {
-
   /**
    * No description.
    *
    * Type in directus: string
    * Type in database: character varying
    */
-   collection: string | null;
+  collection: string | null;
 
   /**
    * No description.
@@ -1675,7 +1827,7 @@ export interface DirectusNotification {
    * Type in directus: integer
    * Type in database: integer
    */
-   id: number;
+  id: number;
 
   /**
    * No description.
@@ -1683,7 +1835,7 @@ export interface DirectusNotification {
    * Type in directus: string
    * Type in database: character varying
    */
-   item: string | null;
+  item: string | null;
 
   /**
    * No description.
@@ -1691,7 +1843,7 @@ export interface DirectusNotification {
    * Type in directus: text
    * Type in database: text
    */
-   message: string | null;
+  message: string | null;
 
   /**
    * No description.
@@ -1699,7 +1851,7 @@ export interface DirectusNotification {
    * Type in directus: uuid
    * Type in database: uuid
    */
-   recipient: DirectusUser | DirectusUser["id"];
+  recipient: DirectusUser | DirectusUser['id'];
 
   /**
    * No description.
@@ -1707,7 +1859,7 @@ export interface DirectusNotification {
    * Type in directus: uuid
    * Type in database: uuid
    */
-   sender: DirectusUser | DirectusUser["id"] | null;
+  sender: DirectusUser | DirectusUser['id'] | null;
 
   /**
    * No description.
@@ -1715,7 +1867,7 @@ export interface DirectusNotification {
    * Type in directus: string
    * Type in database: character varying
    */
-   status: string | null;
+  status: string | null;
 
   /**
    * No description.
@@ -1723,7 +1875,7 @@ export interface DirectusNotification {
    * Type in directus: string
    * Type in database: character varying
    */
-   subject: string;
+  subject: string;
 
   /**
    * No description.
@@ -1731,18 +1883,17 @@ export interface DirectusNotification {
    * Type in directus: timestamp
    * Type in database: timestamp with time zone
    */
-   timestamp: string | null;
+  timestamp: string | null;
 }
 
 export interface DirectusOperation {
-
   /**
    * No description.
    *
    * Type in directus: timestamp
    * Type in database: timestamp with time zone
    */
-   date_created: string | null;
+  date_created: string | null;
 
   /**
    * No description.
@@ -1750,7 +1901,7 @@ export interface DirectusOperation {
    * Type in directus: uuid
    * Type in database: uuid
    */
-   flow: DirectusFlow | DirectusFlow["id"];
+  flow: DirectusFlow | DirectusFlow['id'];
 
   /**
    * No description.
@@ -1758,7 +1909,7 @@ export interface DirectusOperation {
    * Type in directus: uuid
    * Type in database: uuid
    */
-   id: string;
+  id: string;
 
   /**
    * No description.
@@ -1766,7 +1917,7 @@ export interface DirectusOperation {
    * Type in directus: string
    * Type in database: character varying
    */
-   key: string;
+  key: string;
 
   /**
    * No description.
@@ -1774,7 +1925,7 @@ export interface DirectusOperation {
    * Type in directus: string
    * Type in database: character varying
    */
-   name: string | null;
+  name: string | null;
 
   /**
    * No description.
@@ -1782,7 +1933,7 @@ export interface DirectusOperation {
    * Type in directus: json
    * Type in database: json
    */
-   options: any | null;
+  options: any | null;
 
   /**
    * No description.
@@ -1790,7 +1941,7 @@ export interface DirectusOperation {
    * Type in directus: integer
    * Type in database: integer
    */
-   position_x: number;
+  position_x: number;
 
   /**
    * No description.
@@ -1798,7 +1949,7 @@ export interface DirectusOperation {
    * Type in directus: integer
    * Type in database: integer
    */
-   position_y: number;
+  position_y: number;
 
   /**
    * No description.
@@ -1806,7 +1957,7 @@ export interface DirectusOperation {
    * Type in directus: uuid
    * Type in database: uuid
    */
-   reject: DirectusOperation | DirectusOperation["id"] | null;
+  reject: DirectusOperation | DirectusOperation['id'] | null;
 
   /**
    * No description.
@@ -1814,7 +1965,7 @@ export interface DirectusOperation {
    * Type in directus: uuid
    * Type in database: uuid
    */
-   resolve: DirectusOperation | DirectusOperation["id"] | null;
+  resolve: DirectusOperation | DirectusOperation['id'] | null;
 
   /**
    * No description.
@@ -1822,7 +1973,7 @@ export interface DirectusOperation {
    * Type in directus: string
    * Type in database: character varying
    */
-   type: string;
+  type: string;
 
   /**
    * No description.
@@ -1830,18 +1981,17 @@ export interface DirectusOperation {
    * Type in directus: uuid
    * Type in database: uuid
    */
-   user_created: DirectusUser | DirectusUser["id"] | null;
+  user_created: DirectusUser | DirectusUser['id'] | null;
 }
 
 export interface DirectusPanel {
-
   /**
    * No description.
    *
    * Type in directus: string
    * Type in database: character varying
    */
-   color: string | null;
+  color: string | null;
 
   /**
    * No description.
@@ -1849,7 +1999,7 @@ export interface DirectusPanel {
    * Type in directus: uuid
    * Type in database: uuid
    */
-   dashboard: DirectusDashboard | DirectusDashboard["id"];
+  dashboard: DirectusDashboard | DirectusDashboard['id'];
 
   /**
    * No description.
@@ -1857,7 +2007,7 @@ export interface DirectusPanel {
    * Type in directus: timestamp
    * Type in database: timestamp with time zone
    */
-   date_created: string | null;
+  date_created: string | null;
 
   /**
    * No description.
@@ -1865,7 +2015,7 @@ export interface DirectusPanel {
    * Type in directus: integer
    * Type in database: integer
    */
-   height: number;
+  height: number;
 
   /**
    * No description.
@@ -1873,7 +2023,7 @@ export interface DirectusPanel {
    * Type in directus: string
    * Type in database: character varying
    */
-   icon: string | null;
+  icon: string | null;
 
   /**
    * No description.
@@ -1881,7 +2031,7 @@ export interface DirectusPanel {
    * Type in directus: uuid
    * Type in database: uuid
    */
-   id: string;
+  id: string;
 
   /**
    * No description.
@@ -1889,7 +2039,7 @@ export interface DirectusPanel {
    * Type in directus: string
    * Type in database: character varying
    */
-   name: string | null;
+  name: string | null;
 
   /**
    * No description.
@@ -1897,7 +2047,7 @@ export interface DirectusPanel {
    * Type in directus: text
    * Type in database: text
    */
-   note: string | null;
+  note: string | null;
 
   /**
    * No description.
@@ -1905,7 +2055,7 @@ export interface DirectusPanel {
    * Type in directus: json
    * Type in database: json
    */
-   options: any | null;
+  options: any | null;
 
   /**
    * No description.
@@ -1913,7 +2063,7 @@ export interface DirectusPanel {
    * Type in directus: integer
    * Type in database: integer
    */
-   position_x: number;
+  position_x: number;
 
   /**
    * No description.
@@ -1921,7 +2071,7 @@ export interface DirectusPanel {
    * Type in directus: integer
    * Type in database: integer
    */
-   position_y: number;
+  position_y: number;
 
   /**
    * No description.
@@ -1929,7 +2079,7 @@ export interface DirectusPanel {
    * Type in directus: boolean
    * Type in database: boolean
    */
-   show_header: boolean;
+  show_header: boolean;
 
   /**
    * No description.
@@ -1937,7 +2087,7 @@ export interface DirectusPanel {
    * Type in directus: string
    * Type in database: character varying
    */
-   type: string;
+  type: string;
 
   /**
    * No description.
@@ -1945,7 +2095,7 @@ export interface DirectusPanel {
    * Type in directus: uuid
    * Type in database: uuid
    */
-   user_created: DirectusUser | DirectusUser["id"] | null;
+  user_created: DirectusUser | DirectusUser['id'] | null;
 
   /**
    * No description.
@@ -1953,10 +2103,17 @@ export interface DirectusPanel {
    * Type in directus: integer
    * Type in database: integer
    */
-   width: number;
+  width: number;
 }
 
 export interface DirectusPermission {
+  /**
+   * No description.
+   *
+   * Type in directus: string
+   * Type in database: character varying
+   */
+  action: string;
 
   /**
    * No description.
@@ -1964,15 +2121,7 @@ export interface DirectusPermission {
    * Type in directus: string
    * Type in database: character varying
    */
-   action: string;
-
-  /**
-   * No description.
-   *
-   * Type in directus: string
-   * Type in database: character varying
-   */
-   collection: string;
+  collection: string;
 
   /**
    * No description.
@@ -1980,7 +2129,7 @@ export interface DirectusPermission {
    * Type in directus: csv
    * Type in database: text
    */
-   fields: string[] | null;
+  fields: string[] | null;
 
   /**
    * No description.
@@ -1988,7 +2137,7 @@ export interface DirectusPermission {
    * Type in directus: integer
    * Type in database: integer
    */
-   id: number;
+  id: number;
 
   /**
    * No description.
@@ -1996,7 +2145,7 @@ export interface DirectusPermission {
    * Type in directus: json
    * Type in database: json
    */
-   permissions: any | null;
+  permissions: any | null;
 
   /**
    * No description.
@@ -2004,7 +2153,7 @@ export interface DirectusPermission {
    * Type in directus: json
    * Type in database: json
    */
-   presets: any | null;
+  presets: any | null;
 
   /**
    * No description.
@@ -2012,7 +2161,7 @@ export interface DirectusPermission {
    * Type in directus: uuid
    * Type in database: uuid
    */
-   role: DirectusRole | DirectusRole["id"] | null;
+  role: DirectusRole | DirectusRole['id'] | null;
 
   /**
    * No description.
@@ -2020,10 +2169,17 @@ export interface DirectusPermission {
    * Type in directus: json
    * Type in database: json
    */
-   validation: any | null;
+  validation: any | null;
 }
 
 export interface DirectusPreset {
+  /**
+   * No description.
+   *
+   * Type in directus: string
+   * Type in database: character varying
+   */
+  bookmark: string | null;
 
   /**
    * No description.
@@ -2031,7 +2187,7 @@ export interface DirectusPreset {
    * Type in directus: string
    * Type in database: character varying
    */
-   bookmark: string | null;
+  collection: string | null;
 
   /**
    * No description.
@@ -2039,15 +2195,7 @@ export interface DirectusPreset {
    * Type in directus: string
    * Type in database: character varying
    */
-   collection: string | null;
-
-  /**
-   * No description.
-   *
-   * Type in directus: string
-   * Type in database: character varying
-   */
-   color: string | null;
+  color: string | null;
 
   /**
    * No description.
@@ -2055,7 +2203,7 @@ export interface DirectusPreset {
    * Type in directus: json
    * Type in database: json
    */
-   filter: any | null;
+  filter: any | null;
 
   /**
    * No description.
@@ -2063,7 +2211,7 @@ export interface DirectusPreset {
    * Type in directus: string
    * Type in database: character varying
    */
-   icon: string | null;
+  icon: string | null;
 
   /**
    * No description.
@@ -2071,7 +2219,7 @@ export interface DirectusPreset {
    * Type in directus: integer
    * Type in database: integer
    */
-   id: number;
+  id: number;
 
   /**
    * No description.
@@ -2079,7 +2227,7 @@ export interface DirectusPreset {
    * Type in directus: string
    * Type in database: character varying
    */
-   layout: string | null;
+  layout: string | null;
 
   /**
    * No description.
@@ -2087,7 +2235,7 @@ export interface DirectusPreset {
    * Type in directus: json
    * Type in database: json
    */
-   layout_options: any | null;
+  layout_options: any | null;
 
   /**
    * No description.
@@ -2095,7 +2243,7 @@ export interface DirectusPreset {
    * Type in directus: json
    * Type in database: json
    */
-   layout_query: any | null;
+  layout_query: any | null;
 
   /**
    * No description.
@@ -2103,7 +2251,7 @@ export interface DirectusPreset {
    * Type in directus: integer
    * Type in database: integer
    */
-   refresh_interval: number | null;
+  refresh_interval: number | null;
 
   /**
    * No description.
@@ -2111,7 +2259,7 @@ export interface DirectusPreset {
    * Type in directus: uuid
    * Type in database: uuid
    */
-   role: DirectusRole | DirectusRole["id"] | null;
+  role: DirectusRole | DirectusRole['id'] | null;
 
   /**
    * No description.
@@ -2119,7 +2267,7 @@ export interface DirectusPreset {
    * Type in directus: string
    * Type in database: character varying
    */
-   search: string | null;
+  search: string | null;
 
   /**
    * No description.
@@ -2127,18 +2275,17 @@ export interface DirectusPreset {
    * Type in directus: uuid
    * Type in database: uuid
    */
-   user: DirectusUser | DirectusUser["id"] | null;
+  user: DirectusUser | DirectusUser['id'] | null;
 }
 
 export interface DirectusRelation {
-
   /**
    * No description.
    *
    * Type in directus: integer
    * Type in database: integer
    */
-   id: number;
+  id: number;
 
   /**
    * No description.
@@ -2146,7 +2293,7 @@ export interface DirectusRelation {
    * Type in directus: string
    * Type in database: character varying
    */
-   junction_field: string | null;
+  junction_field: string | null;
 
   /**
    * No description.
@@ -2154,7 +2301,7 @@ export interface DirectusRelation {
    * Type in directus: string
    * Type in database: character varying
    */
-   many_collection: string;
+  many_collection: string;
 
   /**
    * No description.
@@ -2162,7 +2309,7 @@ export interface DirectusRelation {
    * Type in directus: string
    * Type in database: character varying
    */
-   many_field: string;
+  many_field: string;
 
   /**
    * No description.
@@ -2170,7 +2317,7 @@ export interface DirectusRelation {
    * Type in directus: csv
    * Type in database: text
    */
-   one_allowed_collections: string[] | null;
+  one_allowed_collections: string[] | null;
 
   /**
    * No description.
@@ -2178,7 +2325,7 @@ export interface DirectusRelation {
    * Type in directus: string
    * Type in database: character varying
    */
-   one_collection: string | null;
+  one_collection: string | null;
 
   /**
    * No description.
@@ -2186,7 +2333,7 @@ export interface DirectusRelation {
    * Type in directus: string
    * Type in database: character varying
    */
-   one_collection_field: string | null;
+  one_collection_field: string | null;
 
   /**
    * No description.
@@ -2194,7 +2341,7 @@ export interface DirectusRelation {
    * Type in directus: string
    * Type in database: character varying
    */
-   one_deselect_action: string;
+  one_deselect_action: string;
 
   /**
    * No description.
@@ -2202,7 +2349,7 @@ export interface DirectusRelation {
    * Type in directus: string
    * Type in database: character varying
    */
-   one_field: string | null;
+  one_field: string | null;
 
   /**
    * No description.
@@ -2210,18 +2357,17 @@ export interface DirectusRelation {
    * Type in directus: string
    * Type in database: character varying
    */
-   sort_field: string | null;
+  sort_field: string | null;
 }
 
 export interface DirectusRevision {
-
   /**
    * No description.
    *
    * Type in directus: integer
    * Type in database: integer
    */
-   activity: DirectusActivity | DirectusActivity["id"];
+  activity: DirectusActivity | DirectusActivity['id'];
 
   /**
    * No description.
@@ -2229,7 +2375,7 @@ export interface DirectusRevision {
    * Type in directus: string
    * Type in database: character varying
    */
-   collection: string;
+  collection: string;
 
   /**
    * No description.
@@ -2237,7 +2383,7 @@ export interface DirectusRevision {
    * Type in directus: json
    * Type in database: json
    */
-   data: any | null;
+  data: any | null;
 
   /**
    * No description.
@@ -2245,7 +2391,7 @@ export interface DirectusRevision {
    * Type in directus: json
    * Type in database: json
    */
-   delta: any | null;
+  delta: any | null;
 
   /**
    * No description.
@@ -2253,7 +2399,7 @@ export interface DirectusRevision {
    * Type in directus: integer
    * Type in database: integer
    */
-   id: number;
+  id: number;
 
   /**
    * No description.
@@ -2261,7 +2407,7 @@ export interface DirectusRevision {
    * Type in directus: string
    * Type in database: character varying
    */
-   item: string;
+  item: string;
 
   /**
    * No description.
@@ -2269,7 +2415,7 @@ export interface DirectusRevision {
    * Type in directus: integer
    * Type in database: integer
    */
-   parent: DirectusRevision | DirectusRevision["id"] | null;
+  parent: DirectusRevision | DirectusRevision['id'] | null;
 
   /**
    * No description.
@@ -2277,10 +2423,17 @@ export interface DirectusRevision {
    * Type in directus: uuid
    * Type in database: uuid
    */
-   version: DirectusVersion | DirectusVersion["id"] | null;
+  version: DirectusVersion | DirectusVersion['id'] | null;
 }
 
 export interface DirectusRole {
+  /**
+   * No description.
+   *
+   * Type in directus: boolean
+   * Type in database: boolean
+   */
+  admin_access: boolean;
 
   /**
    * No description.
@@ -2288,15 +2441,7 @@ export interface DirectusRole {
    * Type in directus: boolean
    * Type in database: boolean
    */
-   admin_access: boolean;
-
-  /**
-   * No description.
-   *
-   * Type in directus: boolean
-   * Type in database: boolean
-   */
-   app_access: boolean;
+  app_access: boolean;
 
   /**
    * No description.
@@ -2304,7 +2449,7 @@ export interface DirectusRole {
    * Type in directus: text
    * Type in database: text
    */
-   description: string | null;
+  description: string | null;
 
   /**
    * No description.
@@ -2312,7 +2457,7 @@ export interface DirectusRole {
    * Type in directus: boolean
    * Type in database: boolean
    */
-   enforce_tfa: boolean;
+  enforce_tfa: boolean;
 
   /**
    * No description.
@@ -2320,7 +2465,7 @@ export interface DirectusRole {
    * Type in directus: string
    * Type in database: character varying
    */
-   icon: string;
+  icon: string;
 
   /**
    * No description.
@@ -2328,7 +2473,7 @@ export interface DirectusRole {
    * Type in directus: uuid
    * Type in database: uuid
    */
-   id: string;
+  id: string;
 
   /**
    * No description.
@@ -2336,7 +2481,7 @@ export interface DirectusRole {
    * Type in directus: csv
    * Type in database: text
    */
-   ip_access: string[] | null;
+  ip_access: string[] | null;
 
   /**
    * No description.
@@ -2344,7 +2489,7 @@ export interface DirectusRole {
    * Type in directus: string
    * Type in database: character varying
    */
-   name: string;
+  name: string;
 
   /**
    * No description.
@@ -2352,18 +2497,17 @@ export interface DirectusRole {
    * Type in directus: alias
    * Type in database: no column
    */
-   users: DirectusUser[] | null;
+  users: DirectusUser[] | null;
 }
 
 export interface DirectusSession {
-
   /**
    * No description.
    *
    * Type in directus: timestamp
    * Type in database: timestamp with time zone
    */
-   expires: string;
+  expires: string;
 
   /**
    * No description.
@@ -2371,7 +2515,7 @@ export interface DirectusSession {
    * Type in directus: string
    * Type in database: character varying
    */
-   ip: string | null;
+  ip: string | null;
 
   /**
    * No description.
@@ -2379,7 +2523,7 @@ export interface DirectusSession {
    * Type in directus: string
    * Type in database: character varying
    */
-   origin: string | null;
+  origin: string | null;
 
   /**
    * No description.
@@ -2387,7 +2531,7 @@ export interface DirectusSession {
    * Type in directus: uuid
    * Type in database: uuid
    */
-   share: DirectusShare | DirectusShare["id"] | null;
+  share: DirectusShare | DirectusShare['id'] | null;
 
   /**
    * No description.
@@ -2395,7 +2539,7 @@ export interface DirectusSession {
    * Type in directus: string
    * Type in database: character varying
    */
-   token: string;
+  token: string;
 
   /**
    * No description.
@@ -2403,7 +2547,7 @@ export interface DirectusSession {
    * Type in directus: uuid
    * Type in database: uuid
    */
-   user: DirectusUser | DirectusUser["id"] | null;
+  user: DirectusUser | DirectusUser['id'] | null;
 
   /**
    * No description.
@@ -2411,18 +2555,17 @@ export interface DirectusSession {
    * Type in directus: string
    * Type in database: character varying
    */
-   user_agent: string | null;
+  user_agent: string | null;
 }
 
 export interface DirectusSetting {
-
   /**
    * No description.
    *
    * Type in directus: integer
    * Type in database: integer
    */
-   auth_login_attempts: number | null;
+  auth_login_attempts: number | null;
 
   /**
    * No description.
@@ -2430,7 +2573,7 @@ export interface DirectusSetting {
    * Type in directus: string
    * Type in database: character varying
    */
-   auth_password_policy: string | null;
+  auth_password_policy: string | null;
 
   /**
    * No description.
@@ -2438,7 +2581,7 @@ export interface DirectusSetting {
    * Type in directus: json
    * Type in database: json
    */
-   basemaps: any | null;
+  basemaps: any | null;
 
   /**
    * No description.
@@ -2446,7 +2589,7 @@ export interface DirectusSetting {
    * Type in directus: json
    * Type in database: json
    */
-   custom_aspect_ratios: any | null;
+  custom_aspect_ratios: any | null;
 
   /**
    * No description.
@@ -2454,7 +2597,7 @@ export interface DirectusSetting {
    * Type in directus: text
    * Type in database: text
    */
-   custom_css: string | null;
+  custom_css: string | null;
 
   /**
    * No description.
@@ -2462,7 +2605,7 @@ export interface DirectusSetting {
    * Type in directus: string
    * Type in database: character varying
    */
-   default_appearance: string;
+  default_appearance: string;
 
   /**
    * No description.
@@ -2470,7 +2613,7 @@ export interface DirectusSetting {
    * Type in directus: string
    * Type in database: character varying
    */
-   default_language: string;
+  default_language: string;
 
   /**
    * No description.
@@ -2478,7 +2621,7 @@ export interface DirectusSetting {
    * Type in directus: string
    * Type in database: character varying
    */
-   default_theme_dark: string | null;
+  default_theme_dark: string | null;
 
   /**
    * No description.
@@ -2486,7 +2629,7 @@ export interface DirectusSetting {
    * Type in directus: string
    * Type in database: character varying
    */
-   default_theme_light: string | null;
+  default_theme_light: string | null;
 
   /**
    * No description.
@@ -2494,7 +2637,7 @@ export interface DirectusSetting {
    * Type in directus: integer
    * Type in database: integer
    */
-   id: number;
+  id: number;
 
   /**
    * No description.
@@ -2502,7 +2645,7 @@ export interface DirectusSetting {
    * Type in directus: string
    * Type in database: character varying
    */
-   mapbox_key: string | null;
+  mapbox_key: string | null;
 
   /**
    * No description.
@@ -2510,7 +2653,7 @@ export interface DirectusSetting {
    * Type in directus: json
    * Type in database: json
    */
-   module_bar: any | null;
+  module_bar: any | null;
 
   /**
    * $t:field_options.directus_settings.project_color_note
@@ -2518,7 +2661,7 @@ export interface DirectusSetting {
    * Type in directus: string
    * Type in database: character varying
    */
-   project_color: string;
+  project_color: string;
 
   /**
    * No description.
@@ -2526,7 +2669,7 @@ export interface DirectusSetting {
    * Type in directus: string
    * Type in database: character varying
    */
-   project_descriptor: string | null;
+  project_descriptor: string | null;
 
   /**
    * $t:field_options.directus_settings.project_logo_note
@@ -2534,7 +2677,7 @@ export interface DirectusSetting {
    * Type in directus: uuid
    * Type in database: uuid
    */
-   project_logo: DirectusFile | DirectusFile["id"] | null;
+  project_logo: DirectusFile | DirectusFile['id'] | null;
 
   /**
    * No description.
@@ -2542,7 +2685,7 @@ export interface DirectusSetting {
    * Type in directus: string
    * Type in database: character varying
    */
-   project_name: string;
+  project_name: string;
 
   /**
    * No description.
@@ -2550,7 +2693,7 @@ export interface DirectusSetting {
    * Type in directus: string
    * Type in database: character varying
    */
-   project_url: string | null;
+  project_url: string | null;
 
   /**
    * No description.
@@ -2558,7 +2701,7 @@ export interface DirectusSetting {
    * Type in directus: uuid
    * Type in database: uuid
    */
-   public_background: DirectusFile | DirectusFile["id"] | null;
+  public_background: DirectusFile | DirectusFile['id'] | null;
 
   /**
    * $t:field_options.directus_settings.project_favicon_note
@@ -2566,7 +2709,7 @@ export interface DirectusSetting {
    * Type in directus: uuid
    * Type in database: uuid
    */
-   public_favicon: DirectusFile | DirectusFile["id"] | null;
+  public_favicon: DirectusFile | DirectusFile['id'] | null;
 
   /**
    * No description.
@@ -2574,7 +2717,7 @@ export interface DirectusSetting {
    * Type in directus: uuid
    * Type in database: uuid
    */
-   public_foreground: DirectusFile | DirectusFile["id"] | null;
+  public_foreground: DirectusFile | DirectusFile['id'] | null;
 
   /**
    * No description.
@@ -2582,7 +2725,7 @@ export interface DirectusSetting {
    * Type in directus: text
    * Type in database: text
    */
-   public_note: string | null;
+  public_note: string | null;
 
   /**
    * No description.
@@ -2590,7 +2733,7 @@ export interface DirectusSetting {
    * Type in directus: json
    * Type in database: json
    */
-   storage_asset_presets: any | null;
+  storage_asset_presets: any | null;
 
   /**
    * No description.
@@ -2598,7 +2741,7 @@ export interface DirectusSetting {
    * Type in directus: string
    * Type in database: character varying
    */
-   storage_asset_transform: string | null;
+  storage_asset_transform: string | null;
 
   /**
    * $t:interfaces.system-folder.field_hint
@@ -2606,7 +2749,7 @@ export interface DirectusSetting {
    * Type in directus: uuid
    * Type in database: uuid
    */
-   storage_default_folder: DirectusFolder | DirectusFolder["id"] | null;
+  storage_default_folder: DirectusFolder | DirectusFolder['id'] | null;
 
   /**
    * No description.
@@ -2614,7 +2757,7 @@ export interface DirectusSetting {
    * Type in directus: json
    * Type in database: json
    */
-   theme_dark_overrides: any | null;
+  theme_dark_overrides: any | null;
 
   /**
    * No description.
@@ -2622,18 +2765,17 @@ export interface DirectusSetting {
    * Type in directus: json
    * Type in database: json
    */
-   theme_light_overrides: any | null;
+  theme_light_overrides: any | null;
 }
 
 export interface DirectusShare {
-
   /**
    * No description.
    *
    * Type in directus: string
    * Type in database: character varying
    */
-   collection: DirectusCollection | DirectusCollection["collection"];
+  collection: DirectusCollection | DirectusCollection['collection'];
 
   /**
    * No description.
@@ -2641,7 +2783,7 @@ export interface DirectusShare {
    * Type in directus: timestamp
    * Type in database: timestamp with time zone
    */
-   date_created: string | null;
+  date_created: string | null;
 
   /**
    * $t:shared_leave_blank_for_unlimited
@@ -2649,7 +2791,7 @@ export interface DirectusShare {
    * Type in directus: timestamp
    * Type in database: timestamp with time zone
    */
-   date_end: string | null;
+  date_end: string | null;
 
   /**
    * $t:shared_leave_blank_for_unlimited
@@ -2657,7 +2799,7 @@ export interface DirectusShare {
    * Type in directus: timestamp
    * Type in database: timestamp with time zone
    */
-   date_start: string | null;
+  date_start: string | null;
 
   /**
    * No description.
@@ -2665,7 +2807,7 @@ export interface DirectusShare {
    * Type in directus: uuid
    * Type in database: uuid
    */
-   id: string;
+  id: string;
 
   /**
    * No description.
@@ -2673,7 +2815,7 @@ export interface DirectusShare {
    * Type in directus: string
    * Type in database: character varying
    */
-   item: string;
+  item: string;
 
   /**
    * $t:shared_leave_blank_for_unlimited
@@ -2681,7 +2823,7 @@ export interface DirectusShare {
    * Type in directus: integer
    * Type in database: integer
    */
-   max_uses: number | null;
+  max_uses: number | null;
 
   /**
    * No description.
@@ -2689,7 +2831,7 @@ export interface DirectusShare {
    * Type in directus: string
    * Type in database: character varying
    */
-   name: string | null;
+  name: string | null;
 
   /**
    * $t:shared_leave_blank_for_passwordless_access
@@ -2697,7 +2839,7 @@ export interface DirectusShare {
    * Type in directus: hash
    * Type in database: character varying
    */
-   password: string | null;
+  password: string | null;
 
   /**
    * No description.
@@ -2705,7 +2847,7 @@ export interface DirectusShare {
    * Type in directus: uuid
    * Type in database: uuid
    */
-   role: DirectusRole | DirectusRole["id"] | null;
+  role: DirectusRole | DirectusRole['id'] | null;
 
   /**
    * No description.
@@ -2713,7 +2855,7 @@ export interface DirectusShare {
    * Type in directus: integer
    * Type in database: integer
    */
-   times_used: number | null;
+  times_used: number | null;
 
   /**
    * No description.
@@ -2721,18 +2863,17 @@ export interface DirectusShare {
    * Type in directus: uuid
    * Type in database: uuid
    */
-   user_created: DirectusUser | DirectusUser["id"] | null;
+  user_created: DirectusUser | DirectusUser['id'] | null;
 }
 
 export interface DirectusTranslation {
-
   /**
    * No description.
    *
    * Type in directus: uuid
    * Type in database: uuid
    */
-   id: string;
+  id: string;
 
   /**
    * No description.
@@ -2740,7 +2881,7 @@ export interface DirectusTranslation {
    * Type in directus: string
    * Type in database: character varying
    */
-   key: string;
+  key: string;
 
   /**
    * No description.
@@ -2748,7 +2889,7 @@ export interface DirectusTranslation {
    * Type in directus: string
    * Type in database: character varying
    */
-   language: string;
+  language: string;
 
   /**
    * No description.
@@ -2756,18 +2897,17 @@ export interface DirectusTranslation {
    * Type in directus: text
    * Type in database: text
    */
-   value: string;
+  value: string;
 }
 
 export interface DirectusUser {
-
   /**
    * No description.
    *
    * Type in directus: string
    * Type in database: character varying
    */
-   appearance: string | null;
+  appearance: string | null;
 
   /**
    * No description.
@@ -2775,7 +2915,7 @@ export interface DirectusUser {
    * Type in directus: json
    * Type in database: json
    */
-   auth_data: any | null;
+  auth_data: any | null;
 
   /**
    * No description.
@@ -2783,7 +2923,7 @@ export interface DirectusUser {
    * Type in directus: uuid
    * Type in database: uuid
    */
-   avatar: DirectusFile | string | null;
+  avatar: DirectusFile | string | null;
 
   /**
    * No description.
@@ -2791,7 +2931,7 @@ export interface DirectusUser {
    * Type in directus: text
    * Type in database: text
    */
-   description: string | null;
+  description: string | null;
 
   /**
    * No description.
@@ -2799,7 +2939,7 @@ export interface DirectusUser {
    * Type in directus: string
    * Type in database: character varying
    */
-   email: string | null;
+  email: string | null;
 
   /**
    * No description.
@@ -2807,7 +2947,7 @@ export interface DirectusUser {
    * Type in directus: boolean
    * Type in database: boolean
    */
-   email_notifications: boolean | null;
+  email_notifications: boolean | null;
 
   /**
    * No description.
@@ -2815,7 +2955,7 @@ export interface DirectusUser {
    * Type in directus: string
    * Type in database: character varying
    */
-   external_identifier: string | null;
+  external_identifier: string | null;
 
   /**
    * No description.
@@ -2823,7 +2963,7 @@ export interface DirectusUser {
    * Type in directus: string
    * Type in database: character varying
    */
-   first_name: string | null;
+  first_name: string | null;
 
   /**
    * No description.
@@ -2831,7 +2971,7 @@ export interface DirectusUser {
    * Type in directus: uuid
    * Type in database: uuid
    */
-   id: string;
+  id: string;
 
   /**
    * No description.
@@ -2839,7 +2979,7 @@ export interface DirectusUser {
    * Type in directus: string
    * Type in database: character varying
    */
-   language: string | null;
+  language: string | null;
 
   /**
    * No description.
@@ -2847,7 +2987,7 @@ export interface DirectusUser {
    * Type in directus: timestamp
    * Type in database: timestamp with time zone
    */
-   last_access: string | null;
+  last_access: string | null;
 
   /**
    * No description.
@@ -2855,7 +2995,7 @@ export interface DirectusUser {
    * Type in directus: string
    * Type in database: character varying
    */
-   last_name: string | null;
+  last_name: string | null;
 
   /**
    * No description.
@@ -2863,7 +3003,7 @@ export interface DirectusUser {
    * Type in directus: string
    * Type in database: character varying
    */
-   last_page: string | null;
+  last_page: string | null;
 
   /**
    * No description.
@@ -2871,7 +3011,7 @@ export interface DirectusUser {
    * Type in directus: string
    * Type in database: character varying
    */
-   location: string | null;
+  location: string | null;
 
   /**
    * No description.
@@ -2879,7 +3019,7 @@ export interface DirectusUser {
    * Type in directus: hash
    * Type in database: character varying
    */
-   password: string | null;
+  password: string | null;
 
   /**
    * No description.
@@ -2887,7 +3027,7 @@ export interface DirectusUser {
    * Type in directus: string
    * Type in database: character varying
    */
-   provider: string;
+  provider: string;
 
   /**
    * No description.
@@ -2895,7 +3035,7 @@ export interface DirectusUser {
    * Type in directus: uuid
    * Type in database: uuid
    */
-   role: DirectusRole | DirectusRole["id"] | null;
+  role: DirectusRole | DirectusRole['id'] | null;
 
   /**
    * No description.
@@ -2903,7 +3043,7 @@ export interface DirectusUser {
    * Type in directus: string
    * Type in database: character varying
    */
-   status: string;
+  status: string;
 
   /**
    * No description.
@@ -2911,7 +3051,7 @@ export interface DirectusUser {
    * Type in directus: json
    * Type in database: json
    */
-   tags: any | null;
+  tags: any | null;
 
   /**
    * No description.
@@ -2919,7 +3059,7 @@ export interface DirectusUser {
    * Type in directus: string
    * Type in database: character varying
    */
-   tfa_secret: string | null;
+  tfa_secret: string | null;
 
   /**
    * No description.
@@ -2927,7 +3067,7 @@ export interface DirectusUser {
    * Type in directus: string
    * Type in database: character varying
    */
-   theme_dark: string | null;
+  theme_dark: string | null;
 
   /**
    * No description.
@@ -2935,7 +3075,7 @@ export interface DirectusUser {
    * Type in directus: json
    * Type in database: json
    */
-   theme_dark_overrides: any | null;
+  theme_dark_overrides: any | null;
 
   /**
    * No description.
@@ -2943,7 +3083,7 @@ export interface DirectusUser {
    * Type in directus: string
    * Type in database: character varying
    */
-   theme_light: string | null;
+  theme_light: string | null;
 
   /**
    * No description.
@@ -2951,7 +3091,7 @@ export interface DirectusUser {
    * Type in directus: json
    * Type in database: json
    */
-   theme_light_overrides: any | null;
+  theme_light_overrides: any | null;
 
   /**
    * No description.
@@ -2959,7 +3099,7 @@ export interface DirectusUser {
    * Type in directus: string
    * Type in database: character varying
    */
-   title: string | null;
+  title: string | null;
 
   /**
    * No description.
@@ -2967,18 +3107,17 @@ export interface DirectusUser {
    * Type in directus: string
    * Type in database: character varying
    */
-   token: string | null;
+  token: string | null;
 }
 
 export interface DirectusVersion {
-
   /**
    * No description.
    *
    * Type in directus: string
    * Type in database: character varying
    */
-   collection: DirectusCollection | DirectusCollection["collection"];
+  collection: DirectusCollection | DirectusCollection['collection'];
 
   /**
    * No description.
@@ -2986,7 +3125,7 @@ export interface DirectusVersion {
    * Type in directus: timestamp
    * Type in database: timestamp with time zone
    */
-   date_created: string | null;
+  date_created: string | null;
 
   /**
    * No description.
@@ -2994,7 +3133,7 @@ export interface DirectusVersion {
    * Type in directus: timestamp
    * Type in database: timestamp with time zone
    */
-   date_updated: string | null;
+  date_updated: string | null;
 
   /**
    * No description.
@@ -3002,7 +3141,7 @@ export interface DirectusVersion {
    * Type in directus: string
    * Type in database: character varying
    */
-   hash: string | null;
+  hash: string | null;
 
   /**
    * No description.
@@ -3010,7 +3149,7 @@ export interface DirectusVersion {
    * Type in directus: uuid
    * Type in database: uuid
    */
-   id: string;
+  id: string;
 
   /**
    * No description.
@@ -3018,7 +3157,7 @@ export interface DirectusVersion {
    * Type in directus: string
    * Type in database: character varying
    */
-   item: string;
+  item: string;
 
   /**
    * No description.
@@ -3026,7 +3165,7 @@ export interface DirectusVersion {
    * Type in directus: string
    * Type in database: character varying
    */
-   key: string;
+  key: string;
 
   /**
    * No description.
@@ -3034,7 +3173,7 @@ export interface DirectusVersion {
    * Type in directus: string
    * Type in database: character varying
    */
-   name: string | null;
+  name: string | null;
 
   /**
    * No description.
@@ -3042,7 +3181,7 @@ export interface DirectusVersion {
    * Type in directus: uuid
    * Type in database: uuid
    */
-   user_created: DirectusUser | DirectusUser["id"] | null;
+  user_created: DirectusUser | DirectusUser['id'] | null;
 
   /**
    * No description.
@@ -3050,10 +3189,17 @@ export interface DirectusVersion {
    * Type in directus: uuid
    * Type in database: uuid
    */
-   user_updated: DirectusUser | DirectusUser["id"] | null;
+  user_updated: DirectusUser | DirectusUser['id'] | null;
 }
 
 export interface DirectusWebhook {
+  /**
+   * No description.
+   *
+   * Type in directus: csv
+   * Type in database: character varying
+   */
+  actions: string[];
 
   /**
    * No description.
@@ -3061,15 +3207,7 @@ export interface DirectusWebhook {
    * Type in directus: csv
    * Type in database: character varying
    */
-   actions: string[];
-
-  /**
-   * No description.
-   *
-   * Type in directus: csv
-   * Type in database: character varying
-   */
-   collections: string[];
+  collections: string[];
 
   /**
    * No description.
@@ -3077,7 +3215,7 @@ export interface DirectusWebhook {
    * Type in directus: boolean
    * Type in database: boolean
    */
-   data: boolean;
+  data: boolean;
 
   /**
    * No description.
@@ -3085,7 +3223,7 @@ export interface DirectusWebhook {
    * Type in directus: json
    * Type in database: json
    */
-   headers: any | null;
+  headers: any | null;
 
   /**
    * No description.
@@ -3093,7 +3231,7 @@ export interface DirectusWebhook {
    * Type in directus: integer
    * Type in database: integer
    */
-   id: number;
+  id: number;
 
   /**
    * No description.
@@ -3101,7 +3239,7 @@ export interface DirectusWebhook {
    * Type in directus: string
    * Type in database: character varying
    */
-   method: string;
+  method: string;
 
   /**
    * No description.
@@ -3109,7 +3247,7 @@ export interface DirectusWebhook {
    * Type in directus: string
    * Type in database: character varying
    */
-   name: string;
+  name: string;
 
   /**
    * No description.
@@ -3117,7 +3255,7 @@ export interface DirectusWebhook {
    * Type in directus: string
    * Type in database: character varying
    */
-   status: string;
+  status: string;
 
   /**
    * No description.
@@ -3125,10 +3263,17 @@ export interface DirectusWebhook {
    * Type in directus: string
    * Type in database: character varying
    */
-   url: string;
+  url: string;
 }
 
 export interface ElementCtaExternal {
+  /**
+   * No description.
+   *
+   * Type in directus: timestamp
+   * Type in database: timestamp with time zone
+   */
+  date_created: string | null;
 
   /**
    * No description.
@@ -3136,15 +3281,7 @@ export interface ElementCtaExternal {
    * Type in directus: timestamp
    * Type in database: timestamp with time zone
    */
-   date_created: string | null;
-
-  /**
-   * No description.
-   *
-   * Type in directus: timestamp
-   * Type in database: timestamp with time zone
-   */
-   date_updated: string | null;
+  date_updated: string | null;
 
   /**
    * No description.
@@ -3152,7 +3289,7 @@ export interface ElementCtaExternal {
    * Type in directus: integer
    * Type in database: integer
    */
-   id: number;
+  id: number;
 
   /**
    * No description.
@@ -3160,7 +3297,7 @@ export interface ElementCtaExternal {
    * Type in directus: string
    * Type in database: character varying
    */
-   title: string | null;
+  title: string | null;
 
   /**
    * No description.
@@ -3168,7 +3305,7 @@ export interface ElementCtaExternal {
    * Type in directus: string
    * Type in database: character varying
    */
-   url: string | null;
+  url: string | null;
 
   /**
    * No description.
@@ -3176,7 +3313,7 @@ export interface ElementCtaExternal {
    * Type in directus: uuid
    * Type in database: uuid
    */
-   user_created: DirectusUser | DirectusUser["id"] | null;
+  user_created: DirectusUser | DirectusUser['id'] | null;
 
   /**
    * No description.
@@ -3184,18 +3321,17 @@ export interface ElementCtaExternal {
    * Type in directus: uuid
    * Type in database: uuid
    */
-   user_updated: DirectusUser | DirectusUser["id"] | null;
+  user_updated: DirectusUser | DirectusUser['id'] | null;
 }
 
 export interface ElementCtaInternal {
-
   /**
    * No description.
    *
    * Type in directus: integer
    * Type in database: integer
    */
-   anchor: Section | Section["id"] | null;
+  anchor: Section | Section['id'] | null;
 
   /**
    * No description.
@@ -3203,7 +3339,7 @@ export interface ElementCtaInternal {
    * Type in directus: timestamp
    * Type in database: timestamp with time zone
    */
-   date_created: string | null;
+  date_created: string | null;
 
   /**
    * No description.
@@ -3211,7 +3347,7 @@ export interface ElementCtaInternal {
    * Type in directus: timestamp
    * Type in database: timestamp with time zone
    */
-   date_updated: string | null;
+  date_updated: string | null;
 
   /**
    * No description.
@@ -3219,7 +3355,7 @@ export interface ElementCtaInternal {
    * Type in directus: integer
    * Type in database: integer
    */
-   id: number;
+  id: number;
 
   /**
    * No description.
@@ -3227,7 +3363,7 @@ export interface ElementCtaInternal {
    * Type in directus: integer
    * Type in database: integer
    */
-   linked_page: PagesTranslation | PagesTranslation["id"] | null;
+  linked_page: PagesTranslation | PagesTranslation['id'] | null;
 
   /**
    * No description.
@@ -3235,7 +3371,7 @@ export interface ElementCtaInternal {
    * Type in directus: string
    * Type in database: character varying
    */
-   title: string | null;
+  title: string | null;
 
   /**
    * No description.
@@ -3243,7 +3379,7 @@ export interface ElementCtaInternal {
    * Type in directus: uuid
    * Type in database: uuid
    */
-   user_created: DirectusUser | DirectusUser["id"] | null;
+  user_created: DirectusUser | DirectusUser['id'] | null;
 
   /**
    * No description.
@@ -3251,10 +3387,17 @@ export interface ElementCtaInternal {
    * Type in directus: uuid
    * Type in database: uuid
    */
-   user_updated: DirectusUser | DirectusUser["id"] | null;
+  user_updated: DirectusUser | DirectusUser['id'] | null;
 }
 
 export interface Language {
+  /**
+   * No description.
+   *
+   * Type in directus: string
+   * Type in database: character varying
+   */
+  code: string;
 
   /**
    * No description.
@@ -3262,7 +3405,7 @@ export interface Language {
    * Type in directus: string
    * Type in database: character varying
    */
-   code: string;
+  direction: 'ltr' | 'rtl' | null;
 
   /**
    * No description.
@@ -3270,18 +3413,17 @@ export interface Language {
    * Type in directus: string
    * Type in database: character varying
    */
-   direction: 'ltr' | 'rtl' | null;
-
-  /**
-   * No description.
-   *
-   * Type in directus: string
-   * Type in database: character varying
-   */
-   name: string | null;
+  name: string | null;
 }
 
 export interface LogoSliderSlide {
+  /**
+   * No description.
+   *
+   * Type in directus: timestamp
+   * Type in database: timestamp with time zone
+   */
+  date_created: string | null;
 
   /**
    * No description.
@@ -3289,15 +3431,7 @@ export interface LogoSliderSlide {
    * Type in directus: timestamp
    * Type in database: timestamp with time zone
    */
-   date_created: string | null;
-
-  /**
-   * No description.
-   *
-   * Type in directus: timestamp
-   * Type in database: timestamp with time zone
-   */
-   date_updated: string | null;
+  date_updated: string | null;
 
   /**
    * No description.
@@ -3305,7 +3439,7 @@ export interface LogoSliderSlide {
    * Type in directus: integer
    * Type in database: integer
    */
-   id: number;
+  id: number;
 
   /**
    * No description.
@@ -3313,7 +3447,7 @@ export interface LogoSliderSlide {
    * Type in directus: uuid
    * Type in database: uuid
    */
-   image: DirectusFile | DirectusFile["id"] | null;
+  image: DirectusFile | DirectusFile['id'] | null;
 
   /**
    * No description.
@@ -3321,7 +3455,7 @@ export interface LogoSliderSlide {
    * Type in directus: integer
    * Type in database: integer
    */
-   parent_logo_slider: BlockLogoSlider | BlockLogoSlider["id"] | null;
+  parent_logo_slider: BlockLogoSlider | BlockLogoSlider['id'] | null;
 
   /**
    * No description.
@@ -3329,7 +3463,7 @@ export interface LogoSliderSlide {
    * Type in directus: integer
    * Type in database: integer
    */
-   sort: number | null;
+  sort: number | null;
 
   /**
    * No description.
@@ -3337,7 +3471,7 @@ export interface LogoSliderSlide {
    * Type in directus: string
    * Type in database: character varying
    */
-   title: string | null;
+  title: string | null;
 
   /**
    * No description.
@@ -3345,7 +3479,7 @@ export interface LogoSliderSlide {
    * Type in directus: uuid
    * Type in database: uuid
    */
-   user_created: DirectusUser | DirectusUser["id"] | null;
+  user_created: DirectusUser | DirectusUser['id'] | null;
 
   /**
    * No description.
@@ -3353,10 +3487,17 @@ export interface LogoSliderSlide {
    * Type in directus: uuid
    * Type in database: uuid
    */
-   user_updated: DirectusUser | DirectusUser["id"] | null;
+  user_updated: DirectusUser | DirectusUser['id'] | null;
 }
 
 export interface MainMenu {
+  /**
+   * No description.
+   *
+   * Type in directus: timestamp
+   * Type in database: timestamp with time zone
+   */
+  date_created: string | null;
 
   /**
    * No description.
@@ -3364,15 +3505,7 @@ export interface MainMenu {
    * Type in directus: timestamp
    * Type in database: timestamp with time zone
    */
-   date_created: string | null;
-
-  /**
-   * No description.
-   *
-   * Type in directus: timestamp
-   * Type in database: timestamp with time zone
-   */
-   date_updated: string | null;
+  date_updated: string | null;
 
   /**
    * No description.
@@ -3380,7 +3513,7 @@ export interface MainMenu {
    * Type in directus: integer
    * Type in database: integer
    */
-   id: number;
+  id: number;
 
   /**
    * No description.
@@ -3388,7 +3521,7 @@ export interface MainMenu {
    * Type in directus: alias
    * Type in database: no column
    */
-   translations: MainMenuTranslation[] | null;
+  translations: MainMenuTranslation[] | null;
 
   /**
    * No description.
@@ -3396,7 +3529,7 @@ export interface MainMenu {
    * Type in directus: uuid
    * Type in database: uuid
    */
-   user_created: DirectusUser | DirectusUser["id"] | null;
+  user_created: DirectusUser | DirectusUser['id'] | null;
 
   /**
    * No description.
@@ -3404,18 +3537,17 @@ export interface MainMenu {
    * Type in directus: uuid
    * Type in database: uuid
    */
-   user_updated: DirectusUser | DirectusUser["id"] | null;
+  user_updated: DirectusUser | DirectusUser['id'] | null;
 }
 
 export interface MainMenuNode {
-
   /**
    * No description.
    *
    * Type in directus: integer
    * Type in database: integer
    */
-   anchor: Section | Section["id"] | null;
+  anchor: Section | Section['id'] | null;
 
   /**
    * No description.
@@ -3423,7 +3555,7 @@ export interface MainMenuNode {
    * Type in directus: timestamp
    * Type in database: timestamp with time zone
    */
-   date_created: string | null;
+  date_created: string | null;
 
   /**
    * No description.
@@ -3431,7 +3563,7 @@ export interface MainMenuNode {
    * Type in directus: timestamp
    * Type in database: timestamp with time zone
    */
-   date_updated: string | null;
+  date_updated: string | null;
 
   /**
    * No description.
@@ -3439,7 +3571,7 @@ export interface MainMenuNode {
    * Type in directus: integer
    * Type in database: integer
    */
-   id: number;
+  id: number;
 
   /**
    * No description.
@@ -3447,7 +3579,7 @@ export interface MainMenuNode {
    * Type in directus: integer
    * Type in database: integer
    */
-   linked_page: PagesTranslation | PagesTranslation["id"] | null;
+  linked_page: PagesTranslation | PagesTranslation['id'] | null;
 
   /**
    * No description.
@@ -3455,7 +3587,7 @@ export interface MainMenuNode {
    * Type in directus: integer
    * Type in database: integer
    */
-   parent_menu: MainMenuTranslation | MainMenuTranslation["id"] | null;
+  parent_menu: MainMenuTranslation | MainMenuTranslation['id'] | null;
 
   /**
    * No description.
@@ -3463,7 +3595,7 @@ export interface MainMenuNode {
    * Type in directus: integer
    * Type in database: integer
    */
-   sort: number | null;
+  sort: number | null;
 
   /**
    * No description.
@@ -3471,7 +3603,7 @@ export interface MainMenuNode {
    * Type in directus: string
    * Type in database: character varying
    */
-   title: string | null;
+  title: string | null;
 
   /**
    * No description.
@@ -3479,7 +3611,7 @@ export interface MainMenuNode {
    * Type in directus: string
    * Type in database: character varying
    */
-   type: 'intern' | 'extern' | null;
+  type: 'intern' | 'extern' | null;
 
   /**
    * No description.
@@ -3487,7 +3619,7 @@ export interface MainMenuNode {
    * Type in directus: string
    * Type in database: character varying
    */
-   url: string | null;
+  url: string | null;
 
   /**
    * No description.
@@ -3495,7 +3627,7 @@ export interface MainMenuNode {
    * Type in directus: uuid
    * Type in database: uuid
    */
-   user_created: DirectusUser | DirectusUser["id"] | null;
+  user_created: DirectusUser | DirectusUser['id'] | null;
 
   /**
    * No description.
@@ -3503,18 +3635,17 @@ export interface MainMenuNode {
    * Type in directus: uuid
    * Type in database: uuid
    */
-   user_updated: DirectusUser | DirectusUser["id"] | null;
+  user_updated: DirectusUser | DirectusUser['id'] | null;
 }
 
 export interface MainMenuTranslation {
-
   /**
    * No description.
    *
    * Type in directus: integer
    * Type in database: integer
    */
-   id: number;
+  id: number;
 
   /**
    * No description.
@@ -3522,7 +3653,7 @@ export interface MainMenuTranslation {
    * Type in directus: string
    * Type in database: character varying
    */
-   languages_code: Language | Language["code"] | null;
+  languages_code: Language | Language['code'] | null;
 
   /**
    * No description.
@@ -3530,7 +3661,7 @@ export interface MainMenuTranslation {
    * Type in directus: integer
    * Type in database: integer
    */
-   main_menu_id: MainMenu | MainMenu["id"] | null;
+  main_menu_id: MainMenu | MainMenu['id'] | null;
 
   /**
    * No description.
@@ -3538,7 +3669,7 @@ export interface MainMenuTranslation {
    * Type in directus: alias
    * Type in database: no column
    */
-   nodes: MainMenuNode[] | null;
+  nodes: MainMenuNode[] | null;
 
   /**
    * No description.
@@ -3546,10 +3677,17 @@ export interface MainMenuTranslation {
    * Type in directus: string
    * Type in database: character varying
    */
-   title: string | null;
+  title: string | null;
 }
 
 export interface Page {
+  /**
+   * No description.
+   *
+   * Type in directus: timestamp
+   * Type in database: timestamp with time zone
+   */
+  date_created: string | null;
 
   /**
    * No description.
@@ -3557,15 +3695,7 @@ export interface Page {
    * Type in directus: timestamp
    * Type in database: timestamp with time zone
    */
-   date_created: string | null;
-
-  /**
-   * No description.
-   *
-   * Type in directus: timestamp
-   * Type in database: timestamp with time zone
-   */
-   date_updated: string | null;
+  date_updated: string | null;
 
   /**
    * No description.
@@ -3573,7 +3703,7 @@ export interface Page {
    * Type in directus: integer
    * Type in database: integer
    */
-   id: number;
+  id: number;
 
   /**
    * No description.
@@ -3581,7 +3711,7 @@ export interface Page {
    * Type in directus: alias
    * Type in database: no column
    */
-   translations: PagesTranslation[] | null;
+  translations: PagesTranslation[] | null;
 
   /**
    * No description.
@@ -3589,7 +3719,7 @@ export interface Page {
    * Type in directus: uuid
    * Type in database: uuid
    */
-   user_created: DirectusUser | DirectusUser["id"] | null;
+  user_created: DirectusUser | DirectusUser['id'] | null;
 
   /**
    * No description.
@@ -3597,18 +3727,17 @@ export interface Page {
    * Type in directus: uuid
    * Type in database: uuid
    */
-   user_updated: DirectusUser | DirectusUser["id"] | null;
+  user_updated: DirectusUser | DirectusUser['id'] | null;
 }
 
 export interface PagesTranslation {
-
   /**
    * No description.
    *
    * Type in directus: integer
    * Type in database: integer
    */
-   id: number;
+  id: number;
 
   /**
    * No description.
@@ -3616,7 +3745,7 @@ export interface PagesTranslation {
    * Type in directus: string
    * Type in database: character varying
    */
-   languages_id: Language | Language["code"] | null;
+  languages_id: Language | Language['code'] | null;
 
   /**
    * No description.
@@ -3624,7 +3753,7 @@ export interface PagesTranslation {
    * Type in directus: text
    * Type in database: text
    */
-   meta_description: string | null;
+  meta_description: string | null;
 
   /**
    * 1,200 x 630 px
@@ -3632,7 +3761,7 @@ export interface PagesTranslation {
    * Type in directus: uuid
    * Type in database: uuid
    */
-   meta_image: DirectusFile | DirectusFile["id"] | null;
+  meta_image: DirectusFile | DirectusFile['id'] | null;
 
   /**
    * No description.
@@ -3640,7 +3769,7 @@ export interface PagesTranslation {
    * Type in directus: string
    * Type in database: character varying
    */
-   meta_title: string | null;
+  meta_title: string | null;
 
   /**
    * No description.
@@ -3648,7 +3777,7 @@ export interface PagesTranslation {
    * Type in directus: integer
    * Type in database: integer
    */
-   pages_id: Page | Page["id"] | null;
+  pages_id: Page | Page['id'] | null;
 
   /**
    * No description.
@@ -3656,7 +3785,7 @@ export interface PagesTranslation {
    * Type in directus: alias
    * Type in database: no column
    */
-   sections: PagesTranslationsSection[] | null;
+  sections: PagesTranslationsSection[] | null;
 
   /**
    * No description.
@@ -3664,7 +3793,7 @@ export interface PagesTranslation {
    * Type in directus: boolean
    * Type in database: boolean
    */
-   show_title: boolean | null;
+  show_title: boolean | null;
 
   /**
    * No description.
@@ -3672,7 +3801,7 @@ export interface PagesTranslation {
    * Type in directus: string
    * Type in database: character varying
    */
-   status: 'published' | 'draft' | null;
+  status: 'published' | 'draft' | null;
 
   /**
    * No description.
@@ -3680,7 +3809,7 @@ export interface PagesTranslation {
    * Type in directus: string
    * Type in database: character varying
    */
-   title: string | null;
+  title: string | null;
 
   /**
    * No description.
@@ -3688,10 +3817,17 @@ export interface PagesTranslation {
    * Type in directus: string
    * Type in database: character varying
    */
-   url: string | null;
+  url: string | null;
 }
 
 export interface PagesTranslationsSection {
+  /**
+   * No description.
+   *
+   * Type in directus: integer
+   * Type in database: integer
+   */
+  id: number;
 
   /**
    * No description.
@@ -3699,7 +3835,7 @@ export interface PagesTranslationsSection {
    * Type in directus: integer
    * Type in database: integer
    */
-   id: number;
+  pages_translations_id: PagesTranslation | PagesTranslation['id'] | null;
 
   /**
    * No description.
@@ -3707,7 +3843,7 @@ export interface PagesTranslationsSection {
    * Type in directus: integer
    * Type in database: integer
    */
-   pages_translations_id: PagesTranslation | PagesTranslation["id"] | null;
+  sections_id: Section | Section['id'] | null;
 
   /**
    * No description.
@@ -3715,26 +3851,17 @@ export interface PagesTranslationsSection {
    * Type in directus: integer
    * Type in database: integer
    */
-   sections_id: Section | Section["id"] | null;
-
-  /**
-   * No description.
-   *
-   * Type in directus: integer
-   * Type in database: integer
-   */
-   sort: number | null;
+  sort: number | null;
 }
 
 export interface Section {
-
   /**
    * No description.
    *
    * Type in directus: alias
    * Type in database: no column
    */
-   blocks: SectionsBlock[] | null;
+  blocks: SectionsBlock[] | null;
 
   /**
    * No description.
@@ -3742,7 +3869,7 @@ export interface Section {
    * Type in directus: string
    * Type in database: character varying
    */
-   color: string | null;
+  color: string | null;
 
   /**
    * No description.
@@ -3750,7 +3877,7 @@ export interface Section {
    * Type in directus: timestamp
    * Type in database: timestamp with time zone
    */
-   date_created: string | null;
+  date_created: string | null;
 
   /**
    * No description.
@@ -3758,7 +3885,7 @@ export interface Section {
    * Type in directus: timestamp
    * Type in database: timestamp with time zone
    */
-   date_updated: string | null;
+  date_updated: string | null;
 
   /**
    * No description.
@@ -3766,7 +3893,7 @@ export interface Section {
    * Type in directus: integer
    * Type in database: integer
    */
-   id: number;
+  id: number;
 
   /**
    * No description.
@@ -3774,7 +3901,7 @@ export interface Section {
    * Type in directus: boolean
    * Type in database: boolean
    */
-   padding: boolean | null;
+  padding: boolean | null;
 
   /**
    * No description.
@@ -3782,7 +3909,15 @@ export interface Section {
    * Type in directus: json
    * Type in database: json
    */
-   section_styles: ('full_width' | 'rounded_tl' | 'rounded_tr' | 'rounded_bl' | 'rounded_br')[] | null;
+  section_styles:
+    | (
+        | 'full_width'
+        | 'rounded_tl'
+        | 'rounded_tr'
+        | 'rounded_bl'
+        | 'rounded_br'
+      )[]
+    | null;
 
   /**
    * Die Sektion kann mithilfe des Slugs seitenintern angesteuert werden (Verlinkung mittels Anker).
@@ -3790,7 +3925,7 @@ export interface Section {
    * Type in directus: string
    * Type in database: character varying
    */
-   slug: string | null;
+  slug: string | null;
 
   /**
    * No description.
@@ -3798,7 +3933,7 @@ export interface Section {
    * Type in directus: string
    * Type in database: character varying
    */
-   status: 'published' | 'draft' | 'archived' | null;
+  status: 'published' | 'draft' | 'archived' | null;
 
   /**
    * No description.
@@ -3806,7 +3941,7 @@ export interface Section {
    * Type in directus: uuid
    * Type in database: uuid
    */
-   user_created: DirectusUser | DirectusUser["id"] | null;
+  user_created: DirectusUser | DirectusUser['id'] | null;
 
   /**
    * No description.
@@ -3814,10 +3949,25 @@ export interface Section {
    * Type in directus: uuid
    * Type in database: uuid
    */
-   user_updated: DirectusUser | DirectusUser["id"] | null;
+  user_updated: DirectusUser | DirectusUser['id'] | null;
 }
 
 export interface SectionsBlock {
+  /**
+   * No description.
+   *
+   * Type in directus: string
+   * Type in database: character varying
+   */
+  collection: string | null;
+
+  /**
+   * No description.
+   *
+   * Type in directus: integer
+   * Type in database: integer
+   */
+  id: number;
 
   /**
    * No description.
@@ -3825,7 +3975,26 @@ export interface SectionsBlock {
    * Type in directus: string
    * Type in database: character varying
    */
-   collection: string | null;
+  item:
+    | BlockText
+    | BlockText['id']
+    | BlockHero
+    | BlockHero['id']
+    | BlockCta
+    | BlockCta['id']
+    | BlockLogoSlider
+    | BlockLogoSlider['id']
+    | BlockQnaList
+    | BlockQnaList['id']
+    | BlockIconTextColumn
+    | BlockIconTextColumn['id']
+    | BlockMedia
+    | BlockMedia['id']
+    | BlockSideBySide
+    | BlockSideBySide['id']
+    | BlockTestimonial
+    | BlockTestimonial['id']
+    | null;
 
   /**
    * No description.
@@ -3833,15 +4002,7 @@ export interface SectionsBlock {
    * Type in directus: integer
    * Type in database: integer
    */
-   id: number;
-
-  /**
-   * No description.
-   *
-   * Type in directus: string
-   * Type in database: character varying
-   */
-   item: BlockText | BlockText["id"] | BlockHero | BlockHero["id"] | BlockCta | BlockCta["id"] | BlockLogoSlider | BlockLogoSlider["id"] | BlockQnaList | BlockQnaList["id"] | BlockIconTextColumn | BlockIconTextColumn["id"] | BlockMedia | BlockMedia["id"] | BlockSideBySide | BlockSideBySide["id"] | null;
+  sections_id: Section | Section['id'] | null;
 
   /**
    * No description.
@@ -3849,26 +4010,17 @@ export interface SectionsBlock {
    * Type in directus: integer
    * Type in database: integer
    */
-   sections_id: Section | Section["id"] | null;
-
-  /**
-   * No description.
-   *
-   * Type in directus: integer
-   * Type in database: integer
-   */
-   sort: number | null;
+  sort: number | null;
 }
 
 export interface Setting {
-
   /**
    * No description.
    *
    * Type in directus: uuid
    * Type in database: uuid
    */
-   favicon: DirectusFile | DirectusFile["id"] | null;
+  favicon: DirectusFile | DirectusFile['id'] | null;
 
   /**
    * No description.
@@ -3876,7 +4028,7 @@ export interface Setting {
    * Type in directus: integer
    * Type in database: integer
    */
-   id: number;
+  id: number;
 
   /**
    * No description.
@@ -3884,7 +4036,7 @@ export interface Setting {
    * Type in directus: text
    * Type in database: text
    */
-   meta_description: string | null;
+  meta_description: string | null;
 
   /**
    * No description.
@@ -3892,7 +4044,7 @@ export interface Setting {
    * Type in directus: uuid
    * Type in database: uuid
    */
-   meta_image: DirectusFile | DirectusFile["id"] | null;
+  meta_image: DirectusFile | DirectusFile['id'] | null;
 
   /**
    * No description.
@@ -3900,7 +4052,7 @@ export interface Setting {
    * Type in directus: string
    * Type in database: character varying
    */
-   meta_title: string | null;
+  meta_title: string | null;
 
   /**
    * No description.
@@ -3908,7 +4060,7 @@ export interface Setting {
    * Type in directus: string
    * Type in database: character varying
    */
-   project_name: string | null;
+  project_name: string | null;
 
   /**
    * No description.
@@ -3916,9 +4068,8 @@ export interface Setting {
    * Type in directus: boolean
    * Type in database: boolean
    */
-   robots_index: boolean | null;
+  robots_index: boolean | null;
 }
-
 
 export type Collections = {
   block_cta: BlockCta[];
@@ -3934,6 +4085,8 @@ export type Collections = {
   block_side_by_side: BlockSideBySide[];
   block_side_by_side_left_column: BlockSideBySideLeftColumn[];
   block_side_by_side_right_column: BlockSideBySideRightColumn[];
+  block_testimonials: BlockTestimonial[];
+  block_testimonials_testimonial: BlockTestimonialsTestimonial[];
   block_text: BlockText[];
   directus_activity: DirectusActivity[];
   directus_collections: DirectusCollection[];
@@ -3972,13 +4125,11 @@ export type Collections = {
   sections: Section[];
   sections_blocks: SectionsBlock[];
   settings: Setting;
-}
-
+};
 
 export type CollectionName = keyof Collections;
 
 export type ItemIn<CollectionKey extends CollectionName> =
-    Collections[CollectionKey] extends (infer Item extends Record<string, any>)[]
-        ? Item
-        : Collections[CollectionKey]
-
+  Collections[CollectionKey] extends (infer Item extends Record<string, any>)[]
+    ? Item
+    : Collections[CollectionKey];

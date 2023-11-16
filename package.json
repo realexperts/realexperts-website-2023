@@ -18,9 +18,10 @@
     "dev:backend": "pnpm --filter @realexperts/backend dev",
     "dev:frontend": "pnpm --filter @realexperts/frontend dev",
     "lint": "pnpm --filter @realexperts/frontend lint",
-    "lint:fix": "pnpm --filter @realexperts/frontendd lint:fix",
+    "lint:fix": "pnpm --filter @realexperts/frontend lint:fix",
     "check-types": "pnpm --filter @realexperts/frontend check-types",
-    "check-updates": "pnpm update --interactive --latest"
+    "check-updates": "pnpm update --interactive --latest",
+    "export:models": "pnpm -C packages/backend exec directus models snapshot ../frontend/src/lib/types.ts"
   },
   "workspaces": [
     "packages/*"

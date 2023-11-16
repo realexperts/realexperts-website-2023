@@ -23,8 +23,8 @@ echo "(3) Emptying local database ..."
 make -s exec database "psql $LOCAL_DB_CONNECTION_STRING -c 'DROP SCHEMA public CASCADE; CREATE SCHEMA public;'"
 echo "(4) Importing dump $DUMP ..."
 make -s exec database "pg_restore --no-acl --no-owner -d $LOCAL_DB_CONNECTION_STRING /dumps/production/$DUMP"
-echo "(5) Export types ..."
-pnpm --filter @realexperts/backend directus models snapshot ../frontend/src/lib/types.ts
+echo "(5) Export models ..."
+pnpm export:models
 echo "(6) Run lint:fix ..."
 pnpm lint:fix
 

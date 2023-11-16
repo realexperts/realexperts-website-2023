@@ -41,7 +41,13 @@ Follow these steps to set up the project locally:
 
 - Run the following command to export TypeScript models for the frontend:
   ```bash
-  pnpm --filter @realexperts/backend directus models snapshot ../frontend/src/lib/types.ts
+  pnpm -C packages/backend exec directus models snapshot ../frontend/src/lib/types.ts
+  ```
+
+  or
+  
+  ```bash
+  pnpm export:models
   ```
 
 ## Start Development

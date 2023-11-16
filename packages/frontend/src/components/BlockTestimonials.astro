@@ -1,17 +1,22 @@
 ---
 import { getMaxWidthClass } from '@/lib/util';
+import { Image } from 'astro:assets';
 
 type Props = {
-  maxWidthContainer: string;
-  testimonals: {
-    name: string;
-    company: string;
-    text: string;
-    image: string;
+  maxWidthContainer?: string | null;
+  testimonials: {
+    image: {
+      src: string | undefined;
+      width?: number | null | undefined;
+      height?: number | null | undefined;
+    };
+    text?: string | null;
+    name?: string | null;
+    company?: string | null;
   }[];
 };
 
-let { maxWidthContainer, testimonals } = Astro.props;
+let { maxWidthContainer, testimonials } = Astro.props;
 ---
 
 <div
@@ -28,18 +33,19 @@ let { maxWidthContainer, testimonals } = Astro.props;
   <div class='swiper testimonials-slider'>
     <div class='swiper-wrapper'>
       {
-        testimonals.map((testimonal, index) => () => (
+        testimonials.map((testimonal, index) => () => (
           <div class='swiper-slide w-1/4 overflow-hidden'>
             <div class='flex items-center justify-between'>
               <div class='flex min-w-[425px] items-center justify-center'>
-                <img
-                  src={
-                    'https://i.pravatar.cc/300?img=' +
-                    Math.floor(Math.random() * 50 + 1)
-                  }
-                  alt={`Person ${index + 1}`}
-                  class='h-[290px] w-[290px] rounded-full object-contain'
-                />
+                {testimonal.image.src && (
+                  <Image
+                    src={testimonal.image.src}
+                    alt={`Person ${index + 1}`}
+                    class='h-[290px] w-[290px] rounded-full object-contain'
+                    height={290}
+                    width={290}
+                  />
+                )}
               </div>
               <div class='w-full'>
                 <h1 class='mb-8 font-serif text-4xl font-bold'>

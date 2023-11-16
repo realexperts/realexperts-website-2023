@@ -1,0 +1,45 @@
+---
+import BlockTestimonials from '@/components/BlockTestimonials.astro';
+import { client } from '@/lib/directus';
+import { readItem } from '@directus/sdk';
+
+type Props = {
+  itemId: number;
+};
+
+const { itemId } = Astro.props;
+
+export const loadBlockTestimonials = async (itemId: number) => {
+  return await client.request(
+    readItem('block_testimonials', itemId, {
+      fields: [
+        {
+          testimonials: [
+            { image: ['width', 'height', 'id'] },
+            'name',
+            'company',
+            'text'
+          ]
+        }
+      ]
+    })
+  );
+};
+
+const response = await loadBlockTestimonials(itemId);
+
+const properties = {
+  testimonials:
+    response.testimonials?.map((testimonial) => ({
+      ...testimonial,
+      image: {
+        ...testimonial.image,
+        src:
+          testimonial.image?.id &&
+          `${import.meta.env.DIRECTUS_URL}/assets/${testimonial.image.id}`
+      }
+    })) || []
+};
+---
+
+<BlockTestimonials {...properties} />

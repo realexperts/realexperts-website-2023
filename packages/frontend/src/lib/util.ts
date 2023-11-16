@@ -23,7 +23,7 @@ export const getMaxWidthClass = (width: string | null | undefined) => {
     }
 
     default: {
-      return 'max-w-2xl';
+      return 'max-w-4xl';
     }
   }
 };

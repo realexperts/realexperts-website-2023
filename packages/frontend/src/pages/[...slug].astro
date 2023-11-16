@@ -13,6 +13,7 @@ import BlockLogoSliderLoader from '@/loaders/BlockLogoSliderLoader.astro';
 import BlockMediaLoader from '@/loaders/BlockMediaLoader.astro';
 import BlockQNALoader from '@/loaders/BlockQNALoader.astro';
 import BlockSideBySideLoader from '@/loaders/BlockSideBySideLoader.astro';
+import BlockTestimonialLoader from '@/loaders/BlockTestimonialLoader.astro';
 import BlockTextLoader from '@/loaders/BlockTextLoader.astro';
 
 type Props = {
@@ -108,6 +109,11 @@ if (
                   {block.collection === 'block_side_by_side' && (
                     <Block block={block}>
                       <BlockSideBySideLoader itemId={block.item} />
+                    </Block>
+                  )}
+                  {block.collection === 'block_testimonials' && (
+                    <Block block={block}>
+                      <BlockTestimonialLoader itemId={block.item} />
                     </Block>
                   )}
                 </>
