@@ -6,7 +6,7 @@ import { Image } from 'astro:assets';
 type Props = {
   type: 'image' | 'youtube_video' | 'video';
   ytId: string | null;
-  image: {
+  image?: {
     src: string | null;
     width: number | null | undefined;
     height: number | null | undefined;
@@ -92,7 +92,7 @@ const maxWidth = 'max-w-4xl';
   {
     type === 'image' && (
       <>
-        {image.src && image.height && image.width && (
+        {image?.src && image?.height && image?.width && (
           <Image
             src={image.src}
             width={image.width}

@@ -74,7 +74,7 @@ export const getAlignmentClass = (alignment: string | null | undefined) => {
       return 'text-right';
     }
     default: {
-      return 'text-left';
+      return 'text-center';
     }
   }
 };

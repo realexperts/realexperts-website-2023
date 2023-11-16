@@ -10,7 +10,6 @@ import BlockText from '@/components/BlockText.astro';
 import ContactForm from '@/components/ContactForm.astro';
 import Heading from '@/components/Heading.astro';
 import LogoSlider from '@/components/LogoSlider.astro';
-import MediaText from '@/components/MediaText.astro';
 import Section from '@/components/Section.astro';
 import SocialTextLinkBox from '@/components/SocialTextLinkBox.astro';
 import Spacer from '@/components/Spacer.astro';
@@ -155,45 +154,65 @@ const jetzt = 'Jetzt Erstgespräch buchen';
       colorText='turquoise'
       maxWidthContainer='max-w-2xl'
     />
-    <MediaText
-      videoUrl='/videos/video1.mp4'
-      imageUrl='/images/previews/video1.png'
-      imageAlt='Testbild 1'
-      text='## Bau\n\nUnserErfolgsrezept lorm ipsum Aenean commodo ligula eget dolor. Aenean massa. Cum sociis oque. Ipsum dolor sit amet, consectetuer adipiscing elit. '
-      textAlignment='left'
-      textDesign='style_2'
-      maxWidthContainer='max-w-4xl'
-    />
-    <MediaText
-      videoUrl='/videos/video1.mp4'
-      imageUrl='/images/previews/video1.png'
-      imageAlt='Testbild 1'
-      text='## Industrie\n\nUnserErfolgsrezept lorm ipsum Aenean commodo ligula eget dolor. Aenean massa. Cum sociis oque. Ipsum dolor sit amet, consectetuer adipiscing elit. '
-      textAlignment='left'
-      textDesign='style_2'
-      maxWidthContainer='max-w-4xl'
-      mediaPositon='right'
-    />
-    <MediaText
-      videoUrl='/videos/video1.mp4'
-      imageUrl='/images/previews/video1.png'
-      imageAlt='Testbild 1'
-      text='## Bau- und Ingenieurwesen\n\nUnserErfolgsrezept lorm ipsum Aenean commodo ligula eget dolor. Aenean massa. Cum sociis oque. Ipsum dolor sit amet, consectetuer adipiscing elit. '
-      textAlignment='left'
-      textDesign='style_2'
-      maxWidthContainer='max-w-4xl'
-      mediaPositon='left'
-    />
-    <MediaText
-      videoUrl='/videos/video1.mp4'
-      imageUrl='/images/previews/video1.png'
-      imageAlt='Testbild 1'
-      text='## Gemeinnützige Organisationen\n\nUnserErfolgsrezept lorm ipsum Aenean commodo ligula eget dolor. Aenean massa. Cum sociis oque. Ipsum dolor sit amet, consectetuer adipiscing elit. '
-      textAlignment='left'
-      textDesign='style_2'
-      maxWidthContainer='max-w-4xl'
-      mediaPositon='right'
-    />
+    <BlockSideBySide>
+      <Fragment slot='left'>
+        <BlockMedia type='youtube_video' ytId='YysKSI8-kvA' />
+      </Fragment>
+      <Fragment slot='right'>
+        <BlockText
+          alignment='left'
+          text='## Bau\n\nUnserErfolgsrezept lorm ipsum Aenean commodo ligula eget dolor. Aenean massa. Cum sociis oque. Ipsum dolor sit amet, consectetuer adipiscing elit. '
+          maxWidthContainer='max-w-2xl'
+          colorHeadline='white'
+          colorText='white'
+        />
+      </Fragment>
+    </BlockSideBySide>
+    <BlockSideBySide order={'right_column_first'}>
+      <Fragment slot='left'>
+        <BlockMedia type='youtube_video' ytId='YysKSI8-kvA' />
+      </Fragment>
+      <Fragment slot='right'>
+        <BlockText
+          alignment='left'
+          text='## Industrie\n\nUnserErfolgsrezept lorm ipsum Aenean commodo ligula eget dolor. Aenean massa. Cum sociis oque. Ipsum dolor sit amet, consectetuer adipiscing elit. '
+          maxWidthContainer='max-w-2xl'
+          colorHeadline='white'
+          colorText='white'
+        />
+      </Fragment>
+    </BlockSideBySide>
+
+    <BlockSideBySide>
+      <Fragment slot='left'>
+        <BlockText
+          alignment='left'
+          text='## Bau- und Ingenieurwesen\n\nUnserErfolgsrezept lorm ipsum Aenean commodo ligula eget dolor. Aenean massa. Cum sociis oque. Ipsum dolor sit amet, consectetuer adipiscing elit. '
+          maxWidthContainer='max-w-2xl'
+          colorHeadline='white'
+          colorText='white'
+        />
+      </Fragment>
+      <Fragment slot='right'>
+        <BlockMedia type='youtube_video' ytId='YysKSI8-kvA' />
+      </Fragment>
+    </BlockSideBySide>
+
+    <BlockSideBySide>
+      <Fragment slot='left'>
+        <BlockMedia type='youtube_video' ytId='YysKSI8-kvA' />
+      </Fragment>
+      <Fragment slot='right'>
+        <BlockText
+          alignment='left'
+          text='## Gemeinnützige Organisationen\n\nUnserErfolgsrezept lorm ipsum Aenean commodo ligula eget dolor. Aenean massa. Cum sociis oque. Ipsum dolor sit amet, consectetuer adipiscing elit. '
+          maxWidthContainer='max-w-2xl'
+          colorHeadline='white'
+          colorText='white'
+        />
+      </Fragment>
+    </BlockSideBySide>
+
     <BlockCTA
       alignment='center'
       ctas={[
@@ -226,13 +245,7 @@ const jetzt = 'Jetzt Erstgespräch buchen';
         />
       </Fragment>
       <Fragment slot='right'>
-        <BlockMedia
-          type='video'
-          videoUrl='/videos/video1.mp4'
-          captionUrl='/videos/captions/video1.vtt'
-          imageUrl='/images/previews/video1.png'
-          maxWidth='max-w-4xl'
-        />
+        <BlockMedia type='youtube_video' ytId='YysKSI8-kvA' />
       </Fragment>
     </BlockSideBySide>
 
@@ -420,13 +433,7 @@ const jetzt = 'Jetzt Erstgespräch buchen';
     />
   </Section>
   <Section>
-    <BlockMedia
-      type='video'
-      videoUrl='/videos/video1.mp4'
-      captionUrl='/videos/captions/video1.vtt'
-      imageUrl='/images/previews/video1.png'
-      maxWidth='max-w-4xl'
-    />
+    <BlockMedia type='youtube_video' ytId='YysKSI8-kvA' />
   </Section>
   <Section color='blue' padding={false}>
     <BlockHero
