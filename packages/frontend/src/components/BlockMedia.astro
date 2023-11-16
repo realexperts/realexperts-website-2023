@@ -1,0 +1,110 @@
+---
+import BlockVideoComponent from '@/components/react/BlockMedia';
+import { Image } from 'astro:assets';
+
+type Props = {
+  type: 'youtube_video' | 'image' | 'video';
+  ytId?: string | null;
+  maxWidth?: string | null;
+  videoUrl?: string | null;
+  captionUrl?: string | null;
+  imageUrl?: string | null;
+  imageAlt?: string | null;
+};
+
+let {
+  type,
+  ytId,
+  videoUrl,
+  captionUrl,
+  imageUrl,
+  imageAlt = '',
+  maxWidth = 'max-w-4xl'
+} = Astro.props;
+
+const NO_MAX_WIDTH = 'max-w-none';
+const maxWidths = new Set([
+  NO_MAX_WIDTH,
+  'max-w-xs',
+  'max-w-sm',
+  'max-w-md',
+  'max-w-lg',
+  'max-w-xl',
+  'max-w-2xl',
+  'max-w-3xl',
+  'max-w-4xl'
+]);
+const getMaxWidthClass = (width: string, defaultValue = NO_MAX_WIDTH) =>
+  maxWidths.has(width) ? width : defaultValue;
+---
+
+<>
+  {
+    type === 'youtube_video' && ytId && (
+      <div
+        class:list={[
+          'media-component group relative mx-auto',
+          maxWidth && getMaxWidthClass(maxWidth)
+        ]}
+      >
+        <BlockVideoComponent youtubeId={ytId} client:load>
+          <div class='video-thumbnail-wrapper relative bottom-0 left-0 right-0 top-0 z-10 cursor-pointer'>
+            <Image
+              class='h-full w-full object-cover'
+              src={`https://img.youtube.com/vi/${ytId}/maxresdefault.jpg`}
+              width={1280}
+              height={720}
+              alt='YouTube Video'
+              quality={75}
+              widths={[240, 480, 720, 1280]}
+            />
+          </div>
+        </BlockVideoComponent>
+      </div>
+    )
+  }
+</>
+
+<>
+  {
+    type === 'image' && (
+      <div
+        class:list={[
+          'media-component group relative mx-auto',
+          maxWidth && getMaxWidthClass(maxWidth)
+        ]}
+      >
+        {imageUrl && (
+          <div class='video-thumbnail-wrapper absolute bottom-0 left-0 right-0 top-0 z-10 cursor-pointer'>
+            <Image
+              src={imageUrl}
+              width={1280}
+              height={720}
+              alt='YouTube Video'
+              quality={75}
+              widths={[240, 480, 720, 1280]}
+            />
+          </div>
+        )}
+
+        {!videoUrl && imageUrl && (
+          <img class='w-full' src={imageUrl} alt={imageAlt} />
+        )}
+
+        {videoUrl && (
+          // eslint-disable-next-line jsx-a11y/media-has-caption
+          <video class='video-player w-full' controls src={videoUrl}>
+            {captionUrl && (
+              <track
+                kind='captions'
+                src={captionUrl}
+                srclang='de'
+                label='German'
+              />
+            )}
+          </video>
+        )}
+      </div>
+    )
+  }
+</>

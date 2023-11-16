@@ -8,7 +8,9 @@ import { fetchPages } from '@/lib/directus';
 import type { ArrayElement } from '@/lib/typescript';
 import BlockCTALoader from '@/loaders/BlockCTALoader.astro';
 import BlockHeroLoader from '@/loaders/BlockHeroLoader.astro';
+import BlockIconTextColumnsLoader from '@/loaders/BlockIconTextColumnsLoader.astro';
 import BlockLogoSliderLoader from '@/loaders/BlockLogoSliderLoader.astro';
+import BlockMediaLoader from '@/loaders/BlockMediaLoader.astro';
 import BlockQNALoader from '@/loaders/BlockQNALoader.astro';
 import BlockTextLoader from '@/loaders/BlockTextLoader.astro';
 
@@ -90,6 +92,16 @@ if (
                   {block.collection === 'block_qna_list' && (
                     <Block block={block}>
                       <BlockQNALoader itemId={block.item} />
+                    </Block>
+                  )}
+                  {block.collection === 'block_icon_text_columns' && (
+                    <Block block={block}>
+                      <BlockIconTextColumnsLoader itemId={block.item} />
+                    </Block>
+                  )}
+                  {block.collection === 'block_media' && (
+                    <Block block={block}>
+                      <BlockMediaLoader itemId={block.item} />
                     </Block>
                   )}
                 </>

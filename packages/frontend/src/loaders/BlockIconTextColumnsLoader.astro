@@ -1,0 +1,71 @@
+---
+import BlockIconTextColumns from '@/components/BlockIconTextColumns.astro';
+import { client } from '@/lib/directus';
+import { readItem } from '@directus/sdk';
+
+type Props = {
+  itemId: number;
+};
+
+const { itemId } = Astro.props;
+
+export const loadBlockText = async (itemId: number) => {
+  return await client.request(
+    readItem('block_icon_text_columns', itemId, {
+      fields: [
+        'alignment',
+        'column_width',
+        {
+          columns: [
+            {
+              block_icon_text_columns_column_id: [
+                { image: ['width', 'height', 'id', 'type'] },
+                'image_alt',
+                'text'
+              ]
+            }
+          ]
+        }
+      ]
+    })
+  );
+};
+
+const response = await loadBlockText(itemId);
+
+const getColumnWidth = (width: string | null | undefined) => {
+  switch (width) {
+    case '33': {
+      return 33;
+    }
+    case '47': {
+      return 47;
+    }
+    default: {
+      return 50;
+    }
+  }
+};
+
+const getImageOptimize = (imageType: string | null | undefined) => {
+  return imageType === 'image/svg+xml' ? false : true;
+};
+---
+
+<BlockIconTextColumns
+  columns={response.columns?.map((column) => ({
+    columnWidthPercent: getColumnWidth(response.column_width),
+    alignment: response.alignment,
+    imageUrl:
+      column.block_icon_text_columns_column_id?.image?.id &&
+      `${import.meta.env.DIRECTUS_URL}/assets/${
+        column.block_icon_text_columns_column_id?.image?.id
+      }`,
+    imageAlt: column.block_icon_text_columns_column_id?.image_alt,
+    imageWidth: '200px',
+    imageOptimize: getImageOptimize(
+      column.block_icon_text_columns_column_id?.image?.type
+    ),
+    text: column.block_icon_text_columns_column_id?.text
+  })) || []}
+/>

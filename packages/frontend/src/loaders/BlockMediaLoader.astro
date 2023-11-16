@@ -1,0 +1,28 @@
+---
+import BlockMedia from '@/components/BlockMedia.astro';
+import { client } from '@/lib/directus';
+import { readItem } from '@directus/sdk';
+
+type Props = {
+  itemId: number;
+};
+
+const { itemId } = Astro.props;
+
+export const loadBlockVideo = async (itemId: number) => {
+  return await client.request(
+    readItem('block_media', itemId, {
+      fields: ['type', 'yt_id']
+    })
+  );
+};
+
+const response = await loadBlockVideo(itemId);
+
+const properties = {
+  type: response.type,
+  ytId: response.yt_id
+};
+---
+
+<BlockMedia {...properties} />

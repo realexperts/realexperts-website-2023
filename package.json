@@ -7,18 +7,20 @@
   "license": "ISC",
   "private": true,
   "devDependencies": {
-    "concurrently": "^8.2.2"
+    "concurrently": "^8.2.2",
+    "npm-check-updates": "16.14.6"
   },
   "peerDependencies": {
     "typescript": "^5.0.0"
   },
   "scripts": {
-    "dev": "concurrently --kill-others \"bun dev:backend\" \"bun dev:frontend\"",
-    "dev:backend": "bun run --cwd packages/backend dev",
-    "dev:frontend": "bun run --cwd packages/frontend dev",
-    "lint": "bun run --cwd packages/frontend lint",
-    "lint:fix": "bun run --cwd packages/frontend lint:fix",
-    "check-types": "bun run --cwd packages/frontend check-types"
+    "dev": "concurrently --kill-others \"pnpm dev:backend\" \"pnpm dev:frontend\"",
+    "dev:backend": "pnpm --filter @realexperts/backend dev",
+    "dev:frontend": "pnpm --filter @realexperts/frontend dev",
+    "lint": "pnpm --filter @realexperts/frontend lint",
+    "lint:fix": "pnpm --filter @realexperts/frontendd lint:fix",
+    "check-types": "pnpm --filter @realexperts/frontend check-types",
+    "check-updates": "ncu --interactive --format group"
   },
   "workspaces": [
     "packages/*"

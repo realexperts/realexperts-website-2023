@@ -12,7 +12,7 @@ const { padding = true, section_styles, color = 'white', slug } = Astro.props;
 
 // Define a type for the keys of colorMapping
 type ColorKey =
-  | 'blue'
+  | '#0F3F93'
   | 'gray'
   | 'transparent'
   | '#EAF4F5'
@@ -20,7 +20,7 @@ type ColorKey =
   | 'white';
 
 const colorMapping: Record<ColorKey, string> = {
-  blue: 'bg-re-blue text-white',
+  '#0F3F93': 'bg-re-blue text-white',
   gray: 'bg-re-gray text-black',
   transparent: 'bg-transparent text-black',
   '#EAF4F5': 'bg-re-turquoise-light text-re-blue',

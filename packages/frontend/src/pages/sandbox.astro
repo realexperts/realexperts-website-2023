@@ -1,13 +1,13 @@
 ---
 import BlockCTA from '@/components/BlockCTA.astro';
 import BlockHero from '@/components/BlockHero.astro';
+import BlockIconTextColumns from '@/components/BlockIconTextColumns.astro';
+import BlockMedia from '@/components/BlockMedia.astro';
 import BlockQNAList from '@/components/BlockQNAList.astro';
 import BlockText from '@/components/BlockText.astro';
 import ContactForm from '@/components/ContactForm.astro';
 import Heading from '@/components/Heading.astro';
-import IconTextColumns from '@/components/IconTextColumns.astro';
 import LogoSlider from '@/components/LogoSlider.astro';
-import Media from '@/components/Media.astro';
 import MediaText from '@/components/MediaText.astro';
 import Section from '@/components/Section.astro';
 import SocialTextLinkBox from '@/components/SocialTextLinkBox.astro';
@@ -92,7 +92,7 @@ const jetzt = 'Jetzt Erstgespräch buchen';
       color_text='turquoise'
       max_width_container={'max-w-2xl'}
     />
-    <IconTextColumns
+    <BlockIconTextColumns
       columns={[
         {
           imageUrl: '/images/icons/zukunftssicher.svg',
@@ -137,7 +137,7 @@ const jetzt = 'Jetzt Erstgespräch buchen';
       ]}
     />
   </Section>
-  <Section color='blue' padding={false}>
+  <Section color='#0F3F93' padding={false}>
     <BlockHero
       image={{
         src: `${import.meta.env.DIRECTUS_URL}/assets/${image1Id}`,
@@ -213,7 +213,7 @@ const jetzt = 'Jetzt Erstgespräch buchen';
       color_headline='turquoise'
       color_text='re_blue'
     />
-    <IconTextColumns
+    <BlockIconTextColumns
       max_width_container='max-w-2xl'
       columns={[
         {
@@ -296,7 +296,7 @@ const jetzt = 'Jetzt Erstgespräch buchen';
       color_headline='turquoise'
       color_text='re_blue'
     />
-    <IconTextColumns
+    <BlockIconTextColumns
       columns={[
         {
           alignment: 'left',
@@ -385,11 +385,12 @@ const jetzt = 'Jetzt Erstgespräch buchen';
     />
   </Section>
   <Section>
-    <Media
+    <BlockMedia
+      type='video'
       videoUrl='/videos/video1.mp4'
       captionUrl='/videos/captions/video1.vtt'
       imageUrl='/images/previews/video1.png'
-      max_width_container='max-w-4xl'
+      maxWidth='max-w-4xl'
     />
   </Section>
   <Section color='blue' padding={false}>

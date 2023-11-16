@@ -234,6 +234,188 @@ export interface BlockHeroCta {
     | null;
 }
 
+export interface BlockIconTextColumn {
+  /**
+   * No description.
+   *
+   * Type in directus: string
+   * Type in database: character varying
+   */
+  alignment: 'left' | 'center' | 'right';
+
+  /**
+   * No description.
+   *
+   * Type in directus: string
+   * Type in database: character varying
+   */
+  column_width: '33' | '50';
+
+  /**
+   * No description.
+   *
+   * Type in directus: alias
+   * Type in database: no column
+   */
+  columns: BlockIconTextColumnsBlockIconTextColumnsColumn[] | null;
+
+  /**
+   * No description.
+   *
+   * Type in directus: timestamp
+   * Type in database: timestamp with time zone
+   */
+  date_created: string | null;
+
+  /**
+   * No description.
+   *
+   * Type in directus: timestamp
+   * Type in database: timestamp with time zone
+   */
+  date_updated: string | null;
+
+  /**
+   * No description.
+   *
+   * Type in directus: integer
+   * Type in database: integer
+   */
+  id: number;
+
+  /**
+   * No description.
+   *
+   * Type in directus: uuid
+   * Type in database: uuid
+   */
+  user_created: DirectusUser | DirectusUser['id'] | null;
+
+  /**
+   * No description.
+   *
+   * Type in directus: uuid
+   * Type in database: uuid
+   */
+  user_updated: DirectusUser | DirectusUser['id'] | null;
+}
+
+export interface BlockIconTextColumnsBlockIconTextColumnsColumn {
+  /**
+   * No description.
+   *
+   * Type in directus: integer
+   * Type in database: integer
+   */
+  block_icon_text_columns_column_id:
+    | BlockIconTextColumnsColumn
+    | BlockIconTextColumnsColumn['id']
+    | null;
+
+  /**
+   * No description.
+   *
+   * Type in directus: integer
+   * Type in database: integer
+   */
+  block_icon_text_columns_id:
+    | BlockIconTextColumn
+    | BlockIconTextColumn['id']
+    | null;
+
+  /**
+   * No description.
+   *
+   * Type in directus: integer
+   * Type in database: integer
+   */
+  id: number;
+
+  /**
+   * No description.
+   *
+   * Type in directus: integer
+   * Type in database: integer
+   */
+  sort: number | null;
+}
+
+export interface BlockIconTextColumnsColumn {
+  /**
+   * No description.
+   *
+   * Type in directus: alias
+   * Type in database: no column
+   */
+  block_icon_text_columns:
+    | BlockIconTextColumnsBlockIconTextColumnsColumn[]
+    | null;
+
+  /**
+   * No description.
+   *
+   * Type in directus: timestamp
+   * Type in database: timestamp with time zone
+   */
+  date_created: string | null;
+
+  /**
+   * No description.
+   *
+   * Type in directus: timestamp
+   * Type in database: timestamp with time zone
+   */
+  date_updated: string | null;
+
+  /**
+   * No description.
+   *
+   * Type in directus: integer
+   * Type in database: integer
+   */
+  id: number;
+
+  /**
+   * No description.
+   *
+   * Type in directus: uuid
+   * Type in database: uuid
+   */
+  image: DirectusFile | DirectusFile['id'] | null;
+
+  /**
+   * No description.
+   *
+   * Type in directus: string
+   * Type in database: character varying
+   */
+  image_alt: string | null;
+
+  /**
+   * No description.
+   *
+   * Type in directus: text
+   * Type in database: text
+   */
+  text: string | null;
+
+  /**
+   * No description.
+   *
+   * Type in directus: uuid
+   * Type in database: uuid
+   */
+  user_created: DirectusUser | DirectusUser['id'] | null;
+
+  /**
+   * No description.
+   *
+   * Type in directus: uuid
+   * Type in database: uuid
+   */
+  user_updated: DirectusUser | DirectusUser['id'] | null;
+}
+
 export interface BlockLogoSlider {
   /**
    * No description.
@@ -282,6 +464,64 @@ export interface BlockLogoSlider {
    * Type in database: uuid
    */
   user_updated: DirectusUser | DirectusUser['id'] | null;
+}
+
+export interface BlockMedia {
+  /**
+   * No description.
+   *
+   * Type in directus: timestamp
+   * Type in database: timestamp with time zone
+   */
+  date_created: string | null;
+
+  /**
+   * No description.
+   *
+   * Type in directus: timestamp
+   * Type in database: timestamp with time zone
+   */
+  date_updated: string | null;
+
+  /**
+   * No description.
+   *
+   * Type in directus: integer
+   * Type in database: integer
+   */
+  id: number;
+
+  /**
+   * No description.
+   *
+   * Type in directus: string
+   * Type in database: character varying
+   */
+  type: 'image' | 'youtube_video';
+
+  /**
+   * No description.
+   *
+   * Type in directus: uuid
+   * Type in database: uuid
+   */
+  user_created: DirectusUser | DirectusUser['id'] | null;
+
+  /**
+   * No description.
+   *
+   * Type in directus: uuid
+   * Type in database: uuid
+   */
+  user_updated: DirectusUser | DirectusUser['id'] | null;
+
+  /**
+   * No description.
+   *
+   * Type in directus: string
+   * Type in database: character varying
+   */
+  yt_id: string | null;
 }
 
 export interface BlockQnaList {
@@ -3472,6 +3712,10 @@ export interface SectionsBlock {
     | BlockLogoSlider['id']
     | BlockQnaList
     | BlockQnaList['id']
+    | BlockIconTextColumn
+    | BlockIconTextColumn['id']
+    | BlockMedia
+    | BlockMedia['id']
     | null;
 
   /**
@@ -3554,7 +3798,11 @@ export type Collections = {
   block_cta_ctas: BlockCtaCta[];
   block_hero: BlockHero[];
   block_hero_ctas: BlockHeroCta[];
+  block_icon_text_columns: BlockIconTextColumn[];
+  block_icon_text_columns_block_icon_text_columns_column: BlockIconTextColumnsBlockIconTextColumnsColumn[];
+  block_icon_text_columns_column: BlockIconTextColumnsColumn[];
   block_logo_slider: BlockLogoSlider[];
+  block_media: BlockMedia[];
   block_qna_list: BlockQnaList[];
   block_text: BlockText[];
   directus_activity: DirectusActivity[];

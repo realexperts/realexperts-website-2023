@@ -1,0 +1,110 @@
+---
+import { Image } from 'astro:assets';
+import { marked } from 'marked';
+
+const alignmentDefault = 'center';
+
+type Column = {
+  alignment?: 'left' | 'center' | 'right';
+  color?: 'blue' | 'turquoise' | 'white';
+  columnWidthPercent: 33 | 47 | 50;
+  imageUrl?: string | undefined | null;
+  imageAlt?: string | undefined | null;
+  imageWidth?: string | undefined | null;
+  imageHeight?: string | undefined | null;
+  imageObjectFit?: 'contain' | 'cover' | 'fill' | 'none' | 'scale-down';
+  imageOptimize?: boolean;
+  text?: string | undefined | null;
+};
+
+type Props = {
+  columns: Column[];
+  max_width_container?: string;
+};
+
+const { columns = [], max_width_container } = Astro.props;
+
+const alignments = {
+  left: 'text-left',
+  center: 'text-center',
+  right: 'text-right'
+};
+
+const textColors = {
+  blue: 'text-re-blue',
+  turquoise: 'text-re-turquoise',
+  white: 'text-white'
+};
+
+const NO_MAX_WIDTH = 'max-w-none';
+const maxWidths = new Set([
+  NO_MAX_WIDTH,
+  'max-w-xs',
+  'max-w-sm',
+  'max-w-md',
+  'max-w-lg',
+  'max-w-xl',
+  'max-w-2xl',
+  'max-w-3xl',
+  'max-w-4xl'
+]);
+const getMaxWidthClass = (width: string, defaultValue = NO_MAX_WIDTH) =>
+  maxWidths.has(width) ? width : defaultValue;
+---
+
+<div
+  class:list={[
+    'prose mx-auto my-8 flex max-w-none flex-wrap justify-center',
+    max_width_container && getMaxWidthClass(max_width_container)
+  ]}
+>
+  {
+    columns.map((column) => (
+      <div
+        class:list={[
+          'px-12',
+          'pb-12',
+          alignments[column.alignment] || alignments[alignmentDefault]
+        ]}
+        style={`width: ${column.columnWidthPercent}%;`}
+      >
+        <article
+          class:list={[
+            'prose my-8 max-w-none prose-a:text-inherit prose-strong:text-inherit',
+            `${textColors[column.color] || 'text-re-blue'}`
+          ]}
+        >
+          {column.imageUrl && (
+            <>
+              {column.imageOptimize ? (
+                <Image
+                  src={column.imageUrl}
+                  alt={column.imageAlt || ''}
+                  class='mb-0 inline-block'
+                  style={`width: ${column.imageWidth || '100%'}; height: ${
+                    column.imageHeight || '100%'
+                  }; bject-fit: ${column.imageObjectFit || 'contain'};`}
+                  width={200}
+                  height={200}
+                />
+              ) : (
+                <img
+                  src={column.imageUrl}
+                  alt={column.imageAlt || ''}
+                  class='mb-0 inline-block'
+                  style={`width: ${column.imageWidth || '100%'}; height: ${
+                    column.imageHeight || '100%'
+                  }; bject-fit: ${column.imageObjectFit || 'contain'};`}
+                />
+              )}
+            </>
+          )}
+          <div
+            set:html={column.text ? marked(column.text) : ''}
+            class='leading-relaxed'
+          />
+        </article>
+      </div>
+    ))
+  }
+</div>
