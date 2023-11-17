@@ -19,8 +19,14 @@ type Props = {
   text?: Awaited<ReturnType<typeof loadBlockText>>['text'];
 };
 
-const { alignment, colorHeadline, colorText, margin, maxWidthContainer, text } =
-  Astro.props;
+const {
+  alignment,
+  colorHeadline,
+  colorText,
+  margin = true,
+  maxWidthContainer,
+  text
+} = Astro.props;
 
 const renderer = new marked.Renderer();
 

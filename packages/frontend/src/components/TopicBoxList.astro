@@ -1,11 +1,18 @@
 ---
-import {
-  getBackgroundColorClass,
-  getRoundedCornerClass,
-  getTextColorClass
-} from '@/lib/util';
+import { getRoundedCornerClasses } from '@/lib/util';
 
-const topicBoxes = [
+type TopicBox = {
+  topic: string;
+  text: string;
+  imageSrc?: string;
+  showPlayIcon?: boolean;
+  linkText?: string;
+  link?: string;
+  colorScheme: 'turquoise' | 'blue';
+  roundedCorner?: 'rounded_bl' | 'rounded_br';
+};
+
+const topicBoxes: TopicBox[] = [
   {
     topic: 'Podcast',
     text: 'Dies ist die Titelbezeichnung der aktuellen Podcast Folge',
@@ -14,7 +21,7 @@ const topicBoxes = [
     linkText: 'Podcast entdecken',
     link: '#',
     colorScheme: 'turquoise',
-    roundedCorner: 'rounded_br'
+    roundedCorner: 'rounded_bl'
   },
   {
     topic: 'Blog',
@@ -36,6 +43,29 @@ const topicBoxes = [
     roundedCorner: 'rounded_br'
   }
 ];
+
+const getColorScheme = (
+  colorScheme: 'turquoise' | 'blue',
+  variant: 'bg' | 'headline' | 'text' | 'link'
+) => {
+  const white = 'text-white';
+  const colorSchemes = {
+    turquoise: {
+      bg: 'bg-re-turquoise',
+      headline: 'text-re-blue',
+      text: white,
+      link: 'text-turquoise-500'
+    },
+    blue: {
+      bg: 'bg-re-blue',
+      headline: 'text-re-turquoise',
+      text: white,
+      link: white
+    }
+  };
+
+  return colorSchemes[colorScheme][variant];
+};
 ---
 
 <div class='grid grid-cols-3 gap-8'>
@@ -44,8 +74,8 @@ const topicBoxes = [
       <div
         class:list={[
           'flex flex-col overflow-hidden',
-          getBackgroundColorClass(topicBox.colorScheme, 'bg'),
-          getRoundedCornerClass(topicBox.roundedCorner)
+          getColorScheme(topicBox.colorScheme, 'bg'),
+          getRoundedCornerClasses([topicBox.roundedCorner], '3xl')
         ]}
       >
         {topicBox.imageSrc && (
@@ -73,7 +103,7 @@ const topicBoxes = [
             <div
               class:list={[
                 'mb-3 text-sm font-bold',
-                getTextColorClass(topicBox.colorScheme)
+                getColorScheme(topicBox.colorScheme, 'headline')
               ]}
             >
               {topicBox.topic}
@@ -85,7 +115,7 @@ const topicBoxes = [
           <div
             class:list={[
               'mx-8 mb-14 mt-auto text-[16px]',
-              getTextColorClass(topicBox.colorScheme)
+              getColorScheme(topicBox.colorScheme, 'text')
             ]}
           >
             <a href={topicBox.link}>

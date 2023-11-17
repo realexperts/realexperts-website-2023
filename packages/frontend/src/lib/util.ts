@@ -28,12 +28,12 @@ export const getMaxWidthClass = (width: string | null | undefined) => {
   }
 };
 
-export const getBackgroundColorClass = (
-  color: string | null | undefined,
-  variant: string | null | undefined
-) => {
+export const getBackgroundColorClass = (color: string | null | undefined) => {
   switch (color) {
     case 'turquoise': {
+      return 'bg-re-turquoise';
+    }
+    case 'turquoise-light': {
       return 'bg-re-turquoise-light';
     }
     case 'white': {
@@ -43,7 +43,7 @@ export const getBackgroundColorClass = (
       return 'bg-re-blue';
     }
     default: {
-      return variant === 'outlined' ? 'bg-transparent' : 'bg-re-blue';
+      return 'bg-white';
     }
   }
 };
@@ -79,25 +79,37 @@ export const getAlignmentClass = (alignment: string | null | undefined) => {
   }
 };
 
-export const getRoundedCornerClass = (
-  roundedCorner: string | null | undefined
+export const getRoundedCornerClasses = (
+  roundedCorners: Array<
+    'rounded_tl' | 'rounded_tr' | 'rounded_bl' | 'rounded_br' | null | undefined
+  >,
+  size: '3xl' | '2xl' | 'xl' | 'lg' | 'md' | 'sm' | null | undefined
 ) => {
-  switch (roundedCorner) {
-    case 'rounded_tl': {
-      return 'rounded-tl';
-    }
-    case 'rounded_tr': {
-      return 'rounded-tr';
-    }
-    case 'rounded_bl': {
-      return 'rounded-bl';
-    }
-    case 'rounded_br': {
-      return 'rounded-br';
-    }
-
-    default: {
-      return '';
-    }
+  if (!roundedCorners || roundedCorners.length === 0) {
+    return '';
   }
+
+  const sizeSuffix = size ? `-${size}` : '';
+
+  return roundedCorners
+    .map((corner) => {
+      switch (corner) {
+        case 'rounded_tl': {
+          return `rounded-tl${sizeSuffix}`;
+        }
+        case 'rounded_tr': {
+          return `rounded-tr${sizeSuffix}`;
+        }
+        case 'rounded_bl': {
+          return `rounded-bl${sizeSuffix}`;
+        }
+        case 'rounded_br': {
+          return `rounded-br${sizeSuffix}`;
+        }
+        default: {
+          return '';
+        }
+      }
+    })
+    .join(' ');
 };
