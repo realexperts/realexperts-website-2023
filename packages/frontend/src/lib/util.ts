@@ -157,3 +157,53 @@ export const getMarginBottomClass = (
     }
   }
 };
+
+export const getPaddingTopClass = (
+  paddingTop: 'pt-0' | 'pt-4' | 'pt-8' | 'pt-16' | 'pt-24' | null | undefined
+) => {
+  switch (paddingTop) {
+    case 'pt-0': {
+      return 'pt-0';
+    }
+    case 'pt-4': {
+      return 'pt-4';
+    }
+    case 'pt-8': {
+      return 'pt-8';
+    }
+    case 'pt-16': {
+      return 'pt-16';
+    }
+    case 'pt-24': {
+      return 'pt-24';
+    }
+    default: {
+      return 'pt-0';
+    }
+  }
+};
+
+export const getPaddingBottomClass = (
+  paddingBottom: 'pb-0' | 'pb-4' | 'pb-8' | 'pb-16' | 'pb-24' | null | undefined
+) => {
+  switch (paddingBottom) {
+    case 'pb-0': {
+      return 'pb-0';
+    }
+    case 'pb-4': {
+      return 'pb-4';
+    }
+    case 'pb-8': {
+      return 'pb-8';
+    }
+    case 'pb-16': {
+      return 'pb-16';
+    }
+    case 'pb-24': {
+      return 'pb-24';
+    }
+    default: {
+      return 'pb-0';
+    }
+  }
+};

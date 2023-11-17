@@ -1,14 +1,31 @@
 ---
+import {
+  getMarginBottomClass,
+  getMarginTopClass,
+  getPaddingBottomClass,
+  getPaddingTopClass
+} from '@/lib/util';
 import { twMerge } from 'tailwind-merge';
 
 type Props = {
-  padding?: boolean | null;
+  marginTop?: Parameters<typeof getMarginTopClass>[0];
+  marginBottom?: Parameters<typeof getMarginBottomClass>[0];
+  paddingTop?: Parameters<typeof getPaddingTopClass>[0];
+  paddingBottom?: Parameters<typeof getPaddingBottomClass>[0];
   section_styles?: string[] | null;
   color?: string | null;
   slug?: string | null;
 };
 
-const { padding = true, section_styles, color = 'white', slug } = Astro.props;
+const {
+  marginTop = 'mt-16',
+  marginBottom = 'mb-16',
+  paddingTop = 'pt-16',
+  paddingBottom = 'pb-16',
+  section_styles,
+  color = 'white',
+  slug
+} = Astro.props;
 
 // Define a type for the keys of colorMapping
 type ColorKey =
@@ -60,10 +77,13 @@ const classes = twMerge(
   colorMapping[color as ColorKey],
   sectionWidth,
   sectionStyles,
-  padding && 'py-16'
+  getMarginTopClass(marginTop),
+  getMarginBottomClass(marginBottom),
+  getPaddingTopClass(paddingTop),
+  getPaddingBottomClass(paddingBottom)
 );
 ---
 
-<section class:list={[classes]} id={slug}>
+<section class={classes} id={slug}>
   <slot />
 </section>

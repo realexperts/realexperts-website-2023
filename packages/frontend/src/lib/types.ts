@@ -3914,10 +3914,34 @@ export interface Section {
   /**
    * No description.
    *
-   * Type in directus: boolean
-   * Type in database: boolean
+   * Type in directus: string
+   * Type in database: character varying
    */
-  padding: boolean | null;
+  margin_bottom: 'mb-0' | 'mb-4' | 'mb-8' | 'mb-16' | null;
+
+  /**
+   * No description.
+   *
+   * Type in directus: string
+   * Type in database: character varying
+   */
+  margin_top: 'mt-0' | 'mt-4' | 'mt-8' | 'mt-16' | null;
+
+  /**
+   * No description.
+   *
+   * Type in directus: string
+   * Type in database: character varying
+   */
+  padding_bottom: 'pb-0' | 'pb-4' | 'pb-8' | 'pb-16' | 'pb-24' | null;
+
+  /**
+   * No description.
+   *
+   * Type in directus: string
+   * Type in database: character varying
+   */
+  padding_top: 'pt-0' | 'pt-4' | 'pt-8' | 'pt-16' | 'pt-24' | null;
 
   /**
    * No description.

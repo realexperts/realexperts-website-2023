@@ -19,18 +19,18 @@ const classNames =
       : 'justify-start';
 ---
 
-<div class:list={['flex gap-6 py-4', classNames]}>
+<div class:list={['flex gap-6', classNames]}>
   {
     ctas?.map((cta) => {
       return (
-        <div class='mb-4'>
+        <>
           {cta.type === 'internal' && cta.title && (
             <CTAInternal type='internal' title={cta.title} url={cta.url} />
           )}
           {cta.type === 'external' && cta.title && cta.url && (
             <CTAExternal type='external' title={cta.title} url={cta.url} />
           )}
-        </div>
+        </>
       );
     })
   }

@@ -86,10 +86,13 @@ export const fetchPages = async () => {
               sections: [
                 {
                   sections_id: [
-                    'padding',
                     'section_styles',
                     'color',
                     'slug',
+                    'margin_bottom',
+                    'margin_top',
+                    'padding_bottom',
+                    'padding_top',
                     {
                       blocks: [
                         'id',

@@ -56,7 +56,12 @@ if (
 <Layout page={page}>
   {
     page?.show_title && (
-      <Section>
+      <Section
+        marginTop={'mt-0'}
+        marginBottom={'mb-0'}
+        paddingTop={'pt-0'}
+        paddingBottom={'pb-0'}
+      >
         <Container>
           <Heading>{page?.title}</Heading>
         </Container>
@@ -65,7 +70,17 @@ if (
   }
   {
     page?.sections?.map((section) => (
-      <Section {...section.sections_id}>
+      <Section
+        {...{
+          marginTop: section.sections_id?.margin_top,
+          marginBottom: section.sections_id?.margin_bottom,
+          paddingTop: section.sections_id?.padding_top,
+          paddingBottom: section.sections_id?.padding_bottom,
+          color: section.sections_id?.color,
+          section_styles: section.sections_id?.section_styles,
+          slug: section.sections_id?.slug
+        }}
+      >
         <Container>
           {section.sections_id?.blocks?.map(
             (block) =>
