@@ -4015,6 +4015,22 @@ export interface SectionsBlock {
   /**
    * No description.
    *
+   * Type in directus: string
+   * Type in database: character varying
+   */
+  margin_bottom: 'mb-0' | 'mb-4' | 'mb-8' | 'mb-16' | null;
+
+  /**
+   * No description.
+   *
+   * Type in directus: string
+   * Type in database: character varying
+   */
+  margin_top: 'mt-0' | 'mt-4' | 'mt-8' | 'mt-16' | null;
+
+  /**
+   * No description.
+   *
    * Type in directus: integer
    * Type in database: integer
    */

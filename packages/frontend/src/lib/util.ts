@@ -113,3 +113,47 @@ export const getRoundedCornerClasses = (
     })
     .join(' ');
 };
+
+export const getMarginTopClass = (
+  marginTop: 'mt-0' | 'mt-4' | 'mt-8' | 'mt-16' | null | undefined
+) => {
+  switch (marginTop) {
+    case 'mt-0': {
+      return 'mt-0';
+    }
+    case 'mt-4': {
+      return 'mt-4';
+    }
+    case 'mt-8': {
+      return 'mt-8';
+    }
+    case 'mt-16': {
+      return 'mt-16';
+    }
+    default: {
+      return 'mt-0';
+    }
+  }
+};
+
+export const getMarginBottomClass = (
+  marginBottom: 'mb-0' | 'mb-4' | 'mb-8' | 'mb-16' | null | undefined
+) => {
+  switch (marginBottom) {
+    case 'mb-0': {
+      return 'mb-0';
+    }
+    case 'mb-4': {
+      return 'mb-4';
+    }
+    case 'mb-8': {
+      return 'mb-8';
+    }
+    case 'mb-16': {
+      return 'mb-16';
+    }
+    default: {
+      return 'mb-0';
+    }
+  }
+};

@@ -91,7 +91,13 @@ export const fetchPages = async () => {
                     'color',
                     'slug',
                     {
-                      blocks: ['id', 'collection', 'item']
+                      blocks: [
+                        'id',
+                        'collection',
+                        'item',
+                        'margin_top',
+                        'margin_bottom'
+                      ]
                     }
                   ]
                 }

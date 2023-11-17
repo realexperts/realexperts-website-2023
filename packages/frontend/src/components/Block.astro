@@ -1,7 +1,20 @@
 ---
+import { getMarginBottomClass, getMarginTopClass } from '@/lib/util';
 
+type Props = {
+  marginTop?: Parameters<typeof getMarginTopClass>[0];
+  marginBottom?: Parameters<typeof getMarginBottomClass>[0];
+};
+
+const { marginTop = 'mt-8', marginBottom = 'mb-8' } = Astro.props;
 ---
 
-<div class='block'>
+<div
+  class:list={[
+    'block',
+    getMarginTopClass(marginTop),
+    getMarginBottomClass(marginBottom)
+  ]}
+>
   <slot />
 </div>

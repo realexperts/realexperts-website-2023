@@ -72,47 +72,74 @@ if (
               typeof block.item === 'string' && (
                 <>
                   {block.collection === 'block_hero' && (
-                    <Block block={block}>
+                    <Block
+                      marginTop={block.margin_top}
+                      marginBottom={block.margin_bottom}
+                    >
                       <BlockHeroLoader itemId={block.item} />
                     </Block>
                   )}
                   {block.collection === 'block_cta' && (
-                    <Block block={block}>
+                    <Block
+                      marginTop={block.margin_top}
+                      marginBottom={block.margin_bottom}
+                    >
                       <BlockCTALoader itemId={block.item} />
                     </Block>
                   )}
                   {block.collection === 'block_logo_slider' && (
-                    <Block block={block}>
+                    <Block
+                      marginTop={block.margin_top}
+                      marginBottom={block.margin_bottom}
+                    >
                       <BlockLogoSliderLoader itemId={block.item} />
                     </Block>
                   )}
                   {block.collection === 'block_qna_list' && (
-                    <Block block={block}>
+                    <Block
+                      marginTop={block.margin_top}
+                      marginBottom={block.margin_bottom}
+                    >
                       <BlockQNALoader itemId={block.item} />
                     </Block>
                   )}
                   {block.collection === 'block_icon_text_columns' && (
-                    <Block block={block}>
+                    <Block
+                      marginTop={block.margin_top}
+                      marginBottom={block.margin_bottom}
+                    >
                       <BlockIconTextColumnsLoader itemId={block.item} />
                     </Block>
                   )}
                   {block.collection === 'block_text' && (
-                    <Block block={block}>
+                    <Block
+                      marginTop={block.margin_top}
+                      marginBottom={block.margin_bottom}
+                    >
                       <BlockTextLoader itemId={block.item} />
                     </Block>
                   )}
                   {block.collection === 'block_media' && (
-                    <Block block={block}>
+                    <Block
+                      marginTop={block.margin_top}
+                      marginBottom={block.margin_bottom}
+                    >
                       <BlockMediaLoader itemId={block.item} />
                     </Block>
                   )}
                   {block.collection === 'block_side_by_side' && (
-                    <Block block={block}>
+                    <Block
+                      marginTop={block.margin_top}
+                      marginBottom={block.margin_bottom}
+                    >
                       <BlockSideBySideLoader itemId={block.item} />
                     </Block>
                   )}
                   {block.collection === 'block_testimonials' && (
-                    <Block block={block}>
+                    <Block
+                      marginTop={block.margin_top}
+                      marginBottom={block.margin_bottom}
+                    >
                       <BlockTestimonialLoader itemId={block.item} />
                     </Block>
                   )}
