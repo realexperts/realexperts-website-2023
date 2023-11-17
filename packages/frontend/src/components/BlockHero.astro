@@ -1,6 +1,7 @@
 ---
 import type { fetchBlockHero } from '@/loaders/BlockHeroLoader.astro';
 import { getImage } from 'astro:assets';
+import { marked } from 'marked';
 import BlockCTA from './BlockCTA.astro';
 
 type Props = Awaited<ReturnType<typeof fetchBlockHero>>;
@@ -40,7 +41,7 @@ const imageStyleClasses = imageStyles
 >
   <div class='mx-24 mb-2 w-[620px] text-white'>
     <div class='mb-4 font-serif text-5xl font-semibold' set:text={title} />
-    <div class='mb-16 text-lg font-medium' set:html={subtitle} />
+    <div class='mb-16 text-lg font-medium' set:html={marked(subtitle ?? '')} />
     {ctas && <BlockCTA alignment='left' ctas={ctas} />}
   </div>
 </div>
