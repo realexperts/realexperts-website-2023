@@ -3,6 +3,7 @@ const defaultTheme = require('tailwindcss/defaultTheme');
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ['./src/**/*.{astro,html,js,jsx,ts,tsx}'],
+  safelist: ['my-8', 'my-16'],
   theme: {
     fontSize: {
       xs: '0.75rem',
