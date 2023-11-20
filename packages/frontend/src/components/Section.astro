@@ -6,8 +6,10 @@ import {
   getPaddingTopClass
 } from '@/lib/util';
 import { twMerge } from 'tailwind-merge';
+import SectionEdit from './react/SectionEdit';
 
 type Props = {
+  id?: number;
   marginTop?: Parameters<typeof getMarginTopClass>[0];
   marginBottom?: Parameters<typeof getMarginBottomClass>[0];
   paddingTop?: Parameters<typeof getPaddingTopClass>[0];
@@ -18,6 +20,7 @@ type Props = {
 };
 
 const {
+  id,
   marginTop = 'mt-16',
   marginBottom = 'mb-16',
   paddingTop = 'pt-16',
@@ -84,6 +87,25 @@ const classes = twMerge(
 );
 ---
 
-<section class={classes} id={slug}>
-  <slot />
-</section>
+<>
+  {
+    import.meta.env.BUILD_MODE === 'production' ? (
+      <section class={classes} id={slug}>
+        <slot />
+      </section>
+    ) : (
+      <SectionEdit
+        id={id}
+        marginTop={marginTop}
+        marginBottom={marginBottom}
+        paddingTop={paddingTop}
+        paddingBottom={paddingBottom}
+        client:load
+      >
+        <section class={classes} id={slug}>
+          <slot />
+        </section>
+      </SectionEdit>
+    )
+  }
+</>

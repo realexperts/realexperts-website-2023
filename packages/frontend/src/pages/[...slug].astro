@@ -2,6 +2,7 @@
 import Block from '@/components/Block.astro';
 import Container from '@/components/Container.astro';
 import Heading from '@/components/Heading.astro';
+import EditorMode from '@/components/react/EditorMode';
 import Section from '@/components/Section.astro';
 import Layout from '@/layouts/Layout.astro';
 import { fetchPages } from '@/lib/directus';
@@ -54,6 +55,7 @@ if (
 ---
 
 <Layout page={page}>
+  {import.meta.env.BUILD_MODE !== 'production' && <EditorMode client:load />}
   {
     page?.show_title && (
       <Section
@@ -72,6 +74,7 @@ if (
     page?.sections?.map((section) => (
       <Section
         {...{
+          id: section.sections_id?.id,
           marginTop: section.sections_id?.margin_top,
           marginBottom: section.sections_id?.margin_bottom,
           paddingTop: section.sections_id?.padding_top,
@@ -88,6 +91,7 @@ if (
                 <>
                   {block.collection === 'block_hero' && (
                     <Block
+                      id={block.id}
                       marginTop={block.margin_top}
                       marginBottom={block.margin_bottom}
                     >
