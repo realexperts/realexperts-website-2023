@@ -40,7 +40,9 @@ const imageStyleClasses = imageStyles
   style={`background-image: url(${optimizedBackground?.src});`}
 >
   <div class='mx-24 mb-2 w-[620px] text-white'>
-    <div class='mb-4 font-serif text-5xl font-semibold' set:text={title} />
+    <h2 class='mb-4 font-serif text-5xl font-semibold leading-tight'>
+      {title}
+    </h2>
     <div class='mb-16 text-lg font-medium' set:html={marked(subtitle ?? '')} />
     {ctas && <BlockCTA alignment='left' ctas={ctas} />}
   </div>
