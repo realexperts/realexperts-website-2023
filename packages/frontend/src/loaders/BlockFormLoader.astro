@@ -1,0 +1,27 @@
+---
+import BlockForm from '@/components/BlockForm.astro';
+import { client } from '@/lib/directus';
+import { readItem } from '@directus/sdk';
+
+type Props = {
+  itemId: number;
+};
+
+const { itemId } = Astro.props;
+
+export const loadBlockText = async (itemId: number) => {
+  return await client.request(
+    readItem('block_form', itemId, {
+      fields: ['id']
+    })
+  );
+};
+
+const response = await loadBlockText(itemId);
+
+const properties = {
+  formId: response.id
+};
+---
+
+<BlockForm {...properties} />

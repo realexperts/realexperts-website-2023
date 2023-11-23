@@ -103,6 +103,56 @@ export interface BlockCtaCta {
   sort: number | null;
 }
 
+export interface BlockForm {
+  /**
+   * No description.
+   *
+   * Type in directus: timestamp
+   * Type in database: timestamp with time zone
+   */
+  date_created: string | null;
+
+  /**
+   * No description.
+   *
+   * Type in directus: timestamp
+   * Type in database: timestamp with time zone
+   */
+  date_updated: string | null;
+
+  /**
+   * No description.
+   *
+   * Type in directus: integer
+   * Type in database: integer
+   */
+  id: number;
+
+  /**
+   * Auch als kommaseparierte Liste konfigurierbar.
+   *
+   * Type in directus: string
+   * Type in database: character varying
+   */
+  receiver_email: string | null;
+
+  /**
+   * No description.
+   *
+   * Type in directus: uuid
+   * Type in database: uuid
+   */
+  user_created: DirectusUser | DirectusUser['id'] | null;
+
+  /**
+   * No description.
+   *
+   * Type in directus: uuid
+   * Type in database: uuid
+   */
+  user_updated: DirectusUser | DirectusUser['id'] | null;
+}
+
 export interface BlockHero {
   /**
    * No description.
@@ -4034,6 +4084,8 @@ export interface SectionsBlock {
     | BlockSideBySide['id']
     | BlockTestimonial
     | BlockTestimonial['id']
+    | BlockForm
+    | BlockForm['id']
     | null;
 
   /**
@@ -4130,6 +4182,7 @@ export interface Setting {
 export type Collections = {
   block_cta: BlockCta[];
   block_cta_ctas: BlockCtaCta[];
+  block_form: BlockForm[];
   block_hero: BlockHero[];
   block_hero_ctas: BlockHeroCta[];
   block_icon_text_columns: BlockIconTextColumn[];
