@@ -14,7 +14,7 @@ const mainMenu = await fetchMainMenu();
   </div>
   <ul
     id='main-menu'
-    class='absolute left-0 top-0 mt-[89px] w-full items-center bg-white font-medium lg:relative lg:mt-0 lg:flex'
+    class='items-centerfont-medium absolute left-0 top-0 mt-[85px] w-full lg:relative lg:mt-0 lg:flex'
   >
     {
       mainMenu?.translations
@@ -57,7 +57,7 @@ const mainMenu = await fetchMainMenu();
 
 <style>
   #hamburger {
-    @apply flex h-8 w-12 flex-col justify-between lg:hidden;
+    @apply flex h-6 w-10 flex-col justify-between lg:hidden;
   }
   #hamburger div {
     @apply h-[3px] bg-black transition-all duration-200 ease-in-out;
@@ -69,17 +69,17 @@ const mainMenu = await fetchMainMenu();
     @apply origin-center rotate-45;
   }
   #navbar.main-menu-open #hamburger div:nth-child(3) {
-    @apply origin-center -translate-y-[0.95rem] -rotate-45;
+    @apply origin-center -translate-y-[0.65rem] -rotate-45;
   }
 
   #main-menu {
-    @apply opacity-0 transition-all duration-200 ease-in-out lg:opacity-100;
+    @apply px-8 opacity-0 lg:opacity-100;
   }
   #main-menu li {
     @apply text-[0px] transition-all duration-200 ease-in-out lg:text-base;
   }
   #navbar.main-menu-open #main-menu {
-    @apply block max-h-fit pt-0 opacity-100;
+    @apply block max-h-fit bg-white/[95%] pt-0 opacity-100 shadow;
   }
   #navbar.main-menu-open #main-menu li {
     @apply my-4 text-base;

@@ -151,4 +151,40 @@ const favicon = settings?.favicon
   body {
     font-size: 18px;
   }
+
+  #site-header {
+    @apply py-[30px] transition-all duration-500 ease-in-out;
+  }
+
+  .scrolled-down #site-header {
+    @apply py-3 shadow;
+  }
+
+  #site-logo {
+    @apply h-16 transition-all duration-500 ease-in-out lg:h-[89px];
+  }
+
+  .scrolled-down #site-logo {
+    @apply h-16;
+  }
+
+  .site-scroll-top-button {
+    clip-path: circle(0% at 50% 50%);
+    opacity: 0;
+    transition: all 0.5s ease-out;
+  }
+
+  .scrolled-down .site-scroll-top-button {
+    opacity: 100;
+    clip-path: circle(50% at 50% 50%);
+  }
 </style>
+<script>
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 0) {
+      document.body.classList.add('scrolled-down');
+    } else {
+      document.body.classList.remove('scrolled-down');
+    }
+  });
+</script>
