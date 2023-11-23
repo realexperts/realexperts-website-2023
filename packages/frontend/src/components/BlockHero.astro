@@ -36,11 +36,11 @@ const imageStyleClasses = imageStyles
 ---
 
 <div
-  class={`text-left flex h-[488px] items-center bg-re-gray bg-cover bg-center ${imageStyleClasses}`}
+  class={`-mx-8 text-left flex h-[488px] items-center bg-re-gray bg-cover bg-center ${imageStyleClasses}`}
   style={`background-image: url(${optimizedBackground?.src});`}
 >
-  <div class='mx-24 mb-2 w-[620px] text-white'>
-    <h2 class='mb-4 font-serif text-5xl font-semibold leading-tight'>
+  <div class='mx-8 lg:mx-24 mb-2 w-[620px] text-white'>
+    <h2 class='mb-4 font-serif text-4xl lg:text-5xl hyphens-auto lg:hyphens-none font-semibold leading-tight'>
       {title}
     </h2>
     <div class='mb-16 text-lg font-medium' set:html={marked(subtitle ?? '')} />

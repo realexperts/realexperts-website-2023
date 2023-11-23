@@ -24,15 +24,15 @@ const { questionHeading, answerHeading, qnaList = [] } = Astro.props;
     const isFirst = index === 0;
     const isLast = index === qnaList.length - 1;
     return (
-      <div class='relative md:flex items-stretch text-xl text-re-blue'>
+      <div class='relative -mx-8 md:mx-0 md:flex items-stretch text-xl text-re-blue'>
         <div
           class:list={[
-            'md:flex md:w-1/2 items-center justify-start md:justify-end md:px-10 py-5 text- md:text-right',
+            'md:flex md:w-1/2 items-center justify-start md:justify-end md:px-10 py-5 text-left md:text-right',
             isFirst && 'md:pt-10',
             isLast && 'md:pb-10'
           ]}
         >
-          <div class="w-fit max-w-[75%] md:max-w-none bg-re-gray md:bg-transparent p-5 md:p-0 rounded-3xl">
+          <div class="hyphens-auto w-fit max-w-[75%] md:max-w-none bg-re-gray md:bg-transparent p-5 md:p-0 rounded-r-3xl">
             {item.question}
           </span>
         </div>
@@ -52,7 +52,7 @@ const { questionHeading, answerHeading, qnaList = [] } = Astro.props;
             isLast && 'md:rounded-br-[70px] md:pb-10'
           ]}
         >
-          <div class="w-fit max-w-[75%] md:max-w-none ml-auto md:ml-0 bg-re-turquoise-light md:bg-transparent p-5 md:p-0 rounded-3xl">
+          <div class="hyphens-auto w-fit max-w-[75%] md:max-w-none ml-auto md:ml-0 bg-re-turquoise-light md:bg-transparent p-5 md:p-0 rounded-l-3xl">
             {item.answer}
           </span>
         </div>
