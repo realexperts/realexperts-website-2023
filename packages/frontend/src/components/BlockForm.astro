@@ -1,0 +1,21 @@
+---
+import ReactBlockForm from '@/components/react/BlockForm';
+
+type Props = {
+  formId: number;
+};
+
+const { formId } = Astro.props;
+---
+
+<div class='mx-auto my-6 grid max-w-4xl grid-cols-3'>
+  <div>
+    <p class='font-serif text-3xl font-bold leading-relaxed'>
+      Erzählen Sie uns von Ihrem Vorhaben! Wo wünschen Sie sich Unterstützung?
+    </p>
+    <p class='mt-1 text-2xl'>#gernperdu</p>
+  </div>
+  <div class='col-span-2 pl-12'>
+    <ReactBlockForm formId={formId} client:load />
+  </div>
+</div>

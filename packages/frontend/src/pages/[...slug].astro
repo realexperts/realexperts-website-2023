@@ -8,6 +8,7 @@ import Layout from '@/layouts/Layout.astro';
 import { fetchPages } from '@/lib/directus';
 import type { ArrayElement } from '@/lib/typescript';
 import BlockCTALoader from '@/loaders/BlockCTALoader.astro';
+import BlockFormLoader from '@/loaders/BlockFormLoader.astro';
 import BlockHeroLoader from '@/loaders/BlockHeroLoader.astro';
 import BlockIconTextColumnsLoader from '@/loaders/BlockIconTextColumnsLoader.astro';
 import BlockLogoSliderLoader from '@/loaders/BlockLogoSliderLoader.astro';
@@ -160,6 +161,14 @@ if (
                       marginBottom={block.margin_bottom}
                     >
                       <BlockTestimonialLoader itemId={block.item} />
+                    </Block>
+                  )}
+                  {block.collection === 'block_form' && (
+                    <Block
+                      marginTop={block.margin_top}
+                      marginBottom={block.margin_bottom}
+                    >
+                      <BlockFormLoader itemId={block.item} />
                     </Block>
                   )}
                 </>

@@ -33,14 +33,16 @@ const {
 // Define a type for the keys of colorMapping
 type ColorKey =
   | '#0F3F93'
+  | '#EAF4F5'
+  | '#2DB7BC'
   | 'gray'
   | 'transparent'
-  | '#EAF4F5'
   | 'turquoise-dark'
   | 'white';
 
 const colorMapping: Record<ColorKey, string> = {
   '#0F3F93': 'bg-re-blue text-white',
+  '#2DB7BC': 'bg-re-turquoise text-white',
   gray: 'bg-re-gray text-black',
   transparent: 'bg-transparent text-black',
   '#EAF4F5': 'bg-re-turquoise-light text-re-blue',
