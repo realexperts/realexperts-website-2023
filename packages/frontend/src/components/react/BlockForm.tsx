@@ -13,7 +13,7 @@ const FormValuesSchema = z.object({
   name: z.string().min(2, { message: 'Bitte geben Sie einen Namen an' }),
   message: z.string().min(2, { message: 'Bitte geben Sie eine Nachricht an' }),
   checkbox: z.boolean().refine((val) => val === true, {
-    message: 'Checkbox muss angehakt werden'
+    message: 'Bitte akzeptieren Sie die Datenschutzerklärung'
   })
 });
 
@@ -77,7 +77,9 @@ const BlockForm = ({ formId }: Props) => {
           {...register('name')}
         />
         {errors.name && (
-          <div className='text-left text-re-red'>{errors.name.message}</div>
+          <div className='mt-2 text-left text-sm text-re-red'>
+            {errors.name.message}
+          </div>
         )}
       </div>
       <div className='col-span-1'>
@@ -88,7 +90,9 @@ const BlockForm = ({ formId }: Props) => {
           {...register('email')}
         />
         {errors.email && (
-          <div className='text-left text-re-red'>{errors.email.message}</div>
+          <div className='mt-2 text-left text-sm text-re-red'>
+            {errors.email.message}
+          </div>
         )}
       </div>
       <div className='col-span-2'>
@@ -98,7 +102,12 @@ const BlockForm = ({ formId }: Props) => {
           rows={6}
           className='w-full p-2.5 text-re-blue placeholder:text-re-blue'
           {...register('message')}
-        ></textarea>
+        />
+        {errors.message && (
+          <div className='mt-2 text-left text-sm text-re-red'>
+            {errors.message.message}
+          </div>
+        )}
       </div>
       <div className='col-span-2 text-sm text-re-blue'>
         <label className='flex cursor-pointer items-center'>
@@ -123,6 +132,11 @@ const BlockForm = ({ formId }: Props) => {
           </span>
           Ja, ich habe die Datenschutzerklärung zur Kenntnis genommen.
         </label>
+        {errors.checkbox && (
+          <div className='mt-2 text-left text-sm text-re-red'>
+            {errors.checkbox.message}
+          </div>
+        )}
       </div>
       <div className='col-span-2 mt-12 flex justify-end'>
         <button

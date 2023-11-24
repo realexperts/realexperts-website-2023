@@ -139,6 +139,54 @@ export interface BlockForm {
   /**
    * No description.
    *
+   * Type in directus: json
+   * Type in database: json
+   */
+  receiver_email_list: any | null;
+
+  /**
+   * No description.
+   *
+   * Type in directus: boolean
+   * Type in database: boolean
+   */
+  send_confirmation_to_receiver: boolean | null;
+
+  /**
+   * No description.
+   *
+   * Type in directus: boolean
+   * Type in database: boolean
+   */
+  send_confirmation_to_sender: boolean | null;
+
+  /**
+   * No description.
+   *
+   * Type in directus: string
+   * Type in database: character varying
+   */
+  sender_email_subject: string | null;
+
+  /**
+   * No description.
+   *
+   * Type in directus: text
+   * Type in database: text
+   */
+  sender_email_text: string | null;
+
+  /**
+   * No description.
+   *
+   * Type in directus: text
+   * Type in database: text
+   */
+  text: string | null;
+
+  /**
+   * No description.
+   *
    * Type in directus: uuid
    * Type in database: uuid
    */
@@ -3456,6 +3504,32 @@ export interface ElementCtaInternal {
   user_updated: DirectusUser | DirectusUser['id'] | null;
 }
 
+export interface FormMessage {
+  /**
+   * No description.
+   *
+   * Type in directus: dateTime
+   * Type in database: timestamp without time zone
+   */
+  date_created: string | null;
+
+  /**
+   * No description.
+   *
+   * Type in directus: integer
+   * Type in database: integer
+   */
+  id: number;
+
+  /**
+   * No description.
+   *
+   * Type in directus: text
+   * Type in database: text
+   */
+  message: string | null;
+}
+
 export interface Language {
   /**
    * No description.
@@ -4223,6 +4297,7 @@ export type Collections = {
   directus_webhooks: DirectusWebhook[];
   element_cta_external: ElementCtaExternal[];
   element_cta_internal: ElementCtaInternal[];
+  form_messages: FormMessage[];
   languages: Language[];
   logo_slider_slides: LogoSliderSlide[];
   main_menu: MainMenu;
