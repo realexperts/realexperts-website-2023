@@ -12,7 +12,7 @@ const { itemId } = Astro.props;
 export const loadBlockText = async (itemId: number) => {
   return await client.request(
     readItem('block_form', itemId, {
-      fields: ['id']
+      fields: ['id', 'text']
     })
   );
 };
@@ -20,7 +20,8 @@ export const loadBlockText = async (itemId: number) => {
 const response = await loadBlockText(itemId);
 
 const properties = {
-  formId: response.id
+  formId: response.id,
+  text: response.text
 };
 ---
 
