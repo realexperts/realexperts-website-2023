@@ -31,14 +31,14 @@ const { columns = [], max_width_container } = Astro.props;
 
 <div
   class:list={[
-    'prose mx-auto my-8 flex max-w-none flex-wrap justify-center',
+    'prose mx-auto my-8 lg:flex max-w-none flex-wrap justify-center',
     getMaxWidthClass(max_width_container)
   ]}
 >
   {
     columns.map((column) => (
       <div
-        class:list={['px-12', 'pb-12', getAlignmentClass(column.alignment)]}
+        class:list={['block-icon-text', 'px-12', 'pb-12', getAlignmentClass(column.alignment)]}
         style={`width: ${column.columnWidthPercent}%;`}
       >
         <article
@@ -78,3 +78,13 @@ const { columns = [], max_width_container } = Astro.props;
     ))
   }
 </div>
+
+<style>
+  @media screen and (max-width: 1024px) {
+    .block-icon-text {
+      width: 100% !important;
+    }
+    
+  }
+</style>
+
