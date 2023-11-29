@@ -1,0 +1,151 @@
+---
+import Block from '@/components/Block.astro';
+import Container from '@/components/Container.astro';
+import Heading from '@/components/Heading.astro';
+import EditorMode from '@/components/react/EditorMode';
+import Section from '@/components/Section.astro';
+import Layout from '@/layouts/Layout.astro';
+import { fetchNotFoundPage } from '@/lib/directus';
+import BlockCTALoader from '@/loaders/BlockCTALoader.astro';
+import BlockFormLoader from '@/loaders/BlockFormLoader.astro';
+import BlockHeroLoader from '@/loaders/BlockHeroLoader.astro';
+import BlockIconTextColumnsLoader from '@/loaders/BlockIconTextColumnsLoader.astro';
+import BlockLogoSliderLoader from '@/loaders/BlockLogoSliderLoader.astro';
+import BlockMediaLoader from '@/loaders/BlockMediaLoader.astro';
+import BlockQNALoader from '@/loaders/BlockQNALoader.astro';
+import BlockSideBySideLoader from '@/loaders/BlockSideBySideLoader.astro';
+import BlockTestimonialLoader from '@/loaders/BlockTestimonialLoader.astro';
+import BlockTextLoader from '@/loaders/BlockTextLoader.astro';
+
+type Props = {
+  page: Awaited<ReturnType<typeof fetchNotFoundPage>>;
+};
+
+const pageWrapper = await fetchNotFoundPage();
+const page = pageWrapper?.translations?.[0];
+---
+
+<Layout page={page}>
+  {import.meta.env.BUILD_MODE !== 'production' && <EditorMode client:load />}
+  {
+    page?.show_title && (
+      <Section
+        marginTop={'mt-0'}
+        marginBottom={'mb-0'}
+        paddingTop={'pt-0'}
+        paddingBottom={'pb-0'}
+      >
+        <Container>
+          <Heading>{page?.title}</Heading>
+        </Container>
+      </Section>
+    )
+  }
+  {
+    page?.sections?.map((section) => (
+      <Section
+        {...{
+          id: section.sections_id?.id,
+          marginTop: section.sections_id?.margin_top,
+          marginBottom: section.sections_id?.margin_bottom,
+          paddingTop: section.sections_id?.padding_top,
+          paddingBottom: section.sections_id?.padding_bottom,
+          color: section.sections_id?.color,
+          section_styles: section.sections_id?.section_styles,
+          slug: section.sections_id?.slug
+        }}
+      >
+        <Container>
+          {section.sections_id?.blocks?.map(
+            (block) =>
+              typeof block.item === 'string' && (
+                <>
+                  {block.collection === 'block_hero' && (
+                    <Block
+                      id={block.id}
+                      marginTop={block.margin_top}
+                      marginBottom={block.margin_bottom}
+                    >
+                      <BlockHeroLoader itemId={block.item} />
+                    </Block>
+                  )}
+                  {block.collection === 'block_cta' && (
+                    <Block
+                      marginTop={block.margin_top}
+                      marginBottom={block.margin_bottom}
+                    >
+                      <BlockCTALoader itemId={block.item} />
+                    </Block>
+                  )}
+                  {block.collection === 'block_logo_slider' && (
+                    <Block
+                      marginTop={block.margin_top}
+                      marginBottom={block.margin_bottom}
+                    >
+                      <BlockLogoSliderLoader itemId={block.item} />
+                    </Block>
+                  )}
+                  {block.collection === 'block_qna_list' && (
+                    <Block
+                      marginTop={block.margin_top}
+                      marginBottom={block.margin_bottom}
+                    >
+                      <BlockQNALoader itemId={block.item} />
+                    </Block>
+                  )}
+                  {block.collection === 'block_icon_text_columns' && (
+                    <Block
+                      marginTop={block.margin_top}
+                      marginBottom={block.margin_bottom}
+                    >
+                      <BlockIconTextColumnsLoader itemId={block.item} />
+                    </Block>
+                  )}
+                  {block.collection === 'block_text' && (
+                    <Block
+                      marginTop={block.margin_top}
+                      marginBottom={block.margin_bottom}
+                    >
+                      <BlockTextLoader itemId={block.item} />
+                    </Block>
+                  )}
+                  {block.collection === 'block_media' && (
+                    <Block
+                      marginTop={block.margin_top}
+                      marginBottom={block.margin_bottom}
+                    >
+                      <BlockMediaLoader itemId={block.item} />
+                    </Block>
+                  )}
+                  {block.collection === 'block_side_by_side' && (
+                    <Block
+                      marginTop={block.margin_top}
+                      marginBottom={block.margin_bottom}
+                    >
+                      <BlockSideBySideLoader itemId={block.item} />
+                    </Block>
+                  )}
+                  {block.collection === 'block_testimonials' && (
+                    <Block
+                      marginTop={block.margin_top}
+                      marginBottom={block.margin_bottom}
+                    >
+                      <BlockTestimonialLoader itemId={block.item} />
+                    </Block>
+                  )}
+                  {block.collection === 'block_form' && (
+                    <Block
+                      marginTop={block.margin_top}
+                      marginBottom={block.margin_bottom}
+                    >
+                      <BlockFormLoader itemId={block.item} />
+                    </Block>
+                  )}
+                </>
+              )
+          )}
+        </Container>
+      </Section>
+    ))
+  }
+</Layout>

@@ -4247,6 +4247,14 @@ export interface Setting {
   /**
    * No description.
    *
+   * Type in directus: integer
+   * Type in database: integer
+   */
+  page_404: Page | Page['id'] | null;
+
+  /**
+   * No description.
+   *
    * Type in directus: string
    * Type in database: character varying
    */

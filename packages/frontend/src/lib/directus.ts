@@ -19,6 +19,7 @@ export const fetchSettings = async () => {
         'robots_index',
         'meta_title',
         'meta_description',
+        'page_404',
         {
           favicon: ['id', 'width', 'height'],
           meta_image: ['id', 'width', 'height']
@@ -72,9 +73,64 @@ export const fetchMainMenu = async () => {
   );
 };
 
+export const fetchNotFoundPage = async () => {
+  const settings = await fetchSettings();
+
+  if (typeof settings.page_404 !== 'number') return;
+
+  return await client.request(
+    readItem('pages', settings.page_404, {
+      fields: [
+        {
+          translations: [
+            'id',
+            'url',
+            'title',
+            'show_title',
+            {
+              sections: [
+                {
+                  sections_id: [
+                    'id',
+                    'section_styles',
+                    'color',
+                    'slug',
+                    'margin_bottom',
+                    'margin_top',
+                    'padding_bottom',
+                    'padding_top',
+                    {
+                      blocks: [
+                        'id',
+                        'collection',
+                        'item',
+                        'margin_top',
+                        'margin_bottom'
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    })
+  );
+};
+
 export const fetchPages = async () => {
+  const settings = await fetchSettings();
+
+  if (typeof settings.page_404 !== 'number') return;
+
   const response = await client.request(
     readItems('pages', {
+      filter: {
+        id: {
+          _neq: settings.page_404
+        }
+      },
       fields: [
         {
           translations: [
