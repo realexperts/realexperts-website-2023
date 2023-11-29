@@ -129,14 +129,6 @@ export interface BlockForm {
   id: number;
 
   /**
-   * Auch als kommaseparierte Liste konfigurierbar.
-   *
-   * Type in directus: string
-   * Type in database: character varying
-   */
-  receiver_email: string | null;
-
-  /**
    * No description.
    *
    * Type in directus: json
@@ -240,7 +232,15 @@ export interface BlockHero {
    * Type in directus: uuid
    * Type in database: uuid
    */
-  image: DirectusFile | DirectusFile['id'] | null;
+  image: DirectusFile | DirectusFile['id'];
+
+  /**
+   * Ist optional.
+   *
+   * Type in directus: uuid
+   * Type in database: uuid
+   */
+  image_mobile: DirectusFile | DirectusFile['id'] | null;
 
   /**
    * No description.
@@ -1591,6 +1591,14 @@ export interface DirectusField {
 }
 
 export interface DirectusFile {
+  /**
+   * No description.
+   *
+   * Type in directus: alias
+   * Type in database: no column
+   */
+  block_hero: BlockHero[] | null;
+
   /**
    * No description.
    *

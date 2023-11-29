@@ -2,21 +2,38 @@
 import type { fetchBlockHero } from '@/loaders/BlockHeroLoader.astro';
 import { getImage } from 'astro:assets';
 import { marked } from 'marked';
+import { twMerge } from 'tailwind-merge';
 import BlockCTA from './BlockCTA.astro';
 
 type Props = Awaited<ReturnType<typeof fetchBlockHero>>;
 
-const { image, imageStyles = [], title, subtitle, ctas } = Astro.props;
+const {
+  image,
+  imageMobile,
+  imageStyles = [],
+  title,
+  subtitle,
+  ctas
+} = Astro.props;
 
-let optimizedBackground = image
-  ? await getImage({
-      src: image.src,
-      format: 'jpg',
-      width: image.width,
-      height: image.height,
-      quality: 80
-    })
-  : undefined;
+let optimizedBackground = await getImage({
+  src: image.src,
+  format: 'webp',
+  width: image.width,
+  height: image.height,
+  quality: 70
+});
+
+let optimizedMobileBackground;
+if (imageMobile) {
+  optimizedMobileBackground = await getImage({
+    src: imageMobile.src,
+    format: 'webp',
+    width: imageMobile.width,
+    height: imageMobile.height,
+    quality: 70
+  });
+}
 
 const stylesMapping = {
   rounded_tl: 'rounded-tl-[70px]',
@@ -36,11 +53,24 @@ const imageStyleClasses = imageStyles
 ---
 
 <div
-  class={`-mx-8 xl:mx-0 text-left flex h-[488px] items-center bg-re-gray bg-cover bg-center ${imageStyleClasses}`}
-  style={`background-image: url(${optimizedBackground?.src});`}
+  style={{
+    '--optimized-mobile-background-url': `url(${optimizedMobileBackground?.src})`,
+    '--optimized-background-url': `url(${optimizedBackground.src})`
+  }}
+  class:list={[
+    twMerge(
+      '-mx-8 flex h-[488px] items-center bg-re-gray bg-cover bg-center bg-no-repeat text-left xl:mx-0',
+      imageStyleClasses,
+      optimizedMobileBackground
+        ? 'bg-[image:var(--optimized-mobile-background-url)] lg:bg-[image:var(--optimized-background-url)]'
+        : 'bg-[image:var(--optimized-background-url)]'
+    )
+  ]}
 >
-  <div class='mx-8 lg:mx-24 mb-2 w-[620px] text-white'>
-    <h2 class='mb-4 font-serif text-4xl lg:text-5xl hyphens-auto lg:hyphens-none font-semibold leading-tight'>
+  <div class='mx-8 mb-2 w-[620px] text-white lg:mx-24'>
+    <h2
+      class='mb-4 hyphens-auto font-serif text-4xl font-semibold leading-tight lg:hyphens-none lg:text-5xl'
+    >
       {title}
     </h2>
     <div class='mb-16 text-lg font-medium' set:html={marked(subtitle ?? '')} />

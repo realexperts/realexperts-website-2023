@@ -50,7 +50,7 @@ const favicon = settings?.favicon
 <html lang='de' class='scroll-smooth focus:scroll-auto'>
   <head>
     <meta charset='utf8' />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name='viewport' content='width=device-width, initial-scale=1' />
     {favicon && <link rel='icon' type='image/svg+xml' href={favicon.src} />}
     {!settings?.robots_index && <meta name='robots' content='noindex' />}
     <link
@@ -83,7 +83,7 @@ const favicon = settings?.favicon
   </head>
   <body class='caret-transparent'>
     <Header />
-    <main class="pt-[149px]">
+    <main class='pt-[149px]'>
       <slot />
     </main>
     <Footer />

@@ -25,7 +25,7 @@ const { slides } = Astro.props;
     <div class='swiper-wrapper'>
       {
         slides?.map((slide) => (
-          <div class='swiper-slide px-1 overflow-hidden'>
+          <div class='swiper-slide overflow-hidden px-1'>
             <div class='flex items-center justify-center'>
               <Image
                 src={slide.image.src}

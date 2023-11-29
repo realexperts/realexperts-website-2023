@@ -19,7 +19,8 @@ export const fetchBlockHero = async (itemId: string) => {
         'title',
         {
           ctas: ['collection', 'item'],
-          image: ['id', 'width', 'height']
+          image: ['id', 'width', 'height'],
+          image_mobile: ['id', 'width', 'height']
         }
       ]
     })
@@ -39,6 +40,11 @@ export const fetchBlockHero = async (itemId: string) => {
       src: `${import.meta.env.DIRECTUS_URL}/assets/${response.image.id}`,
       width: response.image.width,
       height: response.image.height
+    },
+    imageMobile: response.image_mobile && {
+      src: `${import.meta.env.DIRECTUS_URL}/assets/${response.image_mobile.id}`,
+      width: response.image_mobile.width,
+      height: response.image_mobile.height
     },
     ...(response.image_styles ? { imageStyles: response.image_styles } : {}),
     ...(response.ctas ? { ctas } : {}),
