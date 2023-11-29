@@ -16,21 +16,41 @@ const {
   ctas
 } = Astro.props;
 
+let maxWidthDesktop = 1250;
+let maxHeightDesktop;
+if (image.width > maxWidthDesktop) {
+  maxHeightDesktop = (image.height / image.width) * maxWidthDesktop;
+} else {
+  maxWidthDesktop = image.width;
+  maxHeightDesktop = image.height;
+}
+
 let optimizedBackground = await getImage({
   src: image.src,
   format: 'webp',
-  width: image.width,
-  height: image.height,
+  width: maxWidthDesktop,
+  height: maxHeightDesktop,
   quality: 70
 });
+
+let maxWidthMobile = 620;
+let maxHeightMobile;
+if (imageMobile) {
+  if (imageMobile.width > maxWidthMobile) {
+    maxHeightMobile = (imageMobile.height / imageMobile.width) * maxWidthMobile;
+  } else {
+    maxWidthMobile = imageMobile.width;
+    maxHeightMobile = imageMobile.height;
+  }
+}
 
 let optimizedMobileBackground;
 if (imageMobile) {
   optimizedMobileBackground = await getImage({
     src: imageMobile.src,
     format: 'webp',
-    width: imageMobile.width,
-    height: imageMobile.height,
+    width: maxWidthMobile,
+    height: maxHeightMobile,
     quality: 70
   });
 }

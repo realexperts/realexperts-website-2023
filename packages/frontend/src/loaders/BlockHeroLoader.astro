@@ -40,13 +40,13 @@ export const fetchBlockHero = async (itemId: string) => {
       src: `${import.meta.env.DIRECTUS_URL}/assets/${
         response.image.id
       }?w=1920&q=100`,
-      width: response.image.width,
-      height: response.image.height
+      width: response.image.width ?? 0,
+      height: response.image.height ?? 0
     },
     imageMobile: response.image_mobile && {
       src: `${import.meta.env.DIRECTUS_URL}/assets/${response.image_mobile.id}`,
-      width: response.image_mobile.width,
-      height: response.image_mobile.height
+      width: response.image_mobile.width ?? 0,
+      height: response.image_mobile.height ?? 0
     },
     ...(response.image_styles ? { imageStyles: response.image_styles } : {}),
     ...(response.ctas ? { ctas } : {}),
