@@ -53,29 +53,17 @@ const { columns = [], max_width_container } = Astro.props;
           ]}
         >
           {column.imageUrl && (
-            <>
-              {column.imageOptimize ? (
-                <Image
-                  src={column.imageUrl}
-                  alt={column.imageAlt || ''}
-                  class='mb-0 inline-block'
-                  style={`width: ${column.imageWidth || '100%'}; height: ${
-                    column.imageHeight || '100%'
-                  }; bject-fit: ${column.imageObjectFit || 'contain'};`}
-                  width={200}
-                  height={200}
-                />
-              ) : (
-                <img
-                  src={column.imageUrl}
-                  alt={column.imageAlt || ''}
-                  class='mb-0 inline-block'
-                  style={`width: ${column.imageWidth || '100%'}; height: ${
-                    column.imageHeight || '100%'
-                  }; bject-fit: ${column.imageObjectFit || 'contain'};`}
-                />
-              )}
-            </>
+            <Image
+              src={column.imageUrl}
+              alt={column.imageAlt || ''}
+              class='mb-0 inline-block'
+              style={`width: ${column.imageWidth || '100%'}; height: ${
+                column.imageHeight || '100%'
+              }; bject-fit: ${column.imageObjectFit || 'contain'};`}
+              width={200}
+              height={200}
+              loading={'lazy'}
+            />
           )}
           <BlockText text={marked(column.text ?? '')} />
         </article>

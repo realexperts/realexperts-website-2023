@@ -7,9 +7,18 @@ export interface Props {
   color?: ButtonColors;
   label: string;
   size?: ButtonSizes;
+  target?: '_blank' | '_self';
+  title?: string;
 }
 
-const { color = 'turquoise', label, link, size = 'normal' } = Astro.props;
+const {
+  color = 'turquoise',
+  label,
+  link,
+  size = 'normal',
+  target = '_self',
+  title
+} = Astro.props;
 
 const colorSchema = {
   red: 'bg-re-red text-white',
@@ -31,4 +40,6 @@ const sizeSchema = {
     'inline-block font-bold uppercase tracking-wide md:whitespace-nowrap'
   ]}
   set:text={label}
+  target={target}
+  title={title ?? label}
 />

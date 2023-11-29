@@ -37,7 +37,9 @@ export const fetchBlockHero = async (itemId: string) => {
 
   return {
     image: response.image && {
-      src: `${import.meta.env.DIRECTUS_URL}/assets/${response.image.id}`,
+      src: `${import.meta.env.DIRECTUS_URL}/assets/${
+        response.image.id
+      }?w=1920&q=100`,
       width: response.image.width,
       height: response.image.height
     },

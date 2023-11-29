@@ -1,4 +1,5 @@
 ---
+import { Image } from 'astro:assets';
 import Container from '../components/Container.astro';
 import MainNavigation from '../components/MainNavigation.astro';
 import Section from '../components/Section.astro';
@@ -17,11 +18,22 @@ import Section from '../components/Section.astro';
   >
     <Container centered={false}>
       <div class='relative -mx-8 flex items-center justify-between px-8'>
-        <a href='/'>
-          <img
+        <a href='/' title='Zurück zur Startseite'>
+          <Image
             id='site-logo'
             src='/images/logo/logo-dark-re.png'
             alt='Logo Real Experts Network GmbH'
+            width='51'
+            height='72'
+            class='lg:hidden'
+          />
+          <Image
+            id='site-logo'
+            src='/images/logo/logo-dark-re.png'
+            alt='Logo Real Experts Network GmbH'
+            width='63'
+            height='89'
+            class='hidden lg:block'
           />
         </a>
         <MainNavigation />

@@ -10,4 +10,11 @@ type Props = {
 const { title, url } = Astro.props;
 ---
 
-<Button color='red' size='lg' link={url} label={title} />
+<Button
+  color='red'
+  size='lg'
+  link={url}
+  label={title}
+  target='_blank'
+  title={`${title} - öffnet in neuem Fenster`}
+/>
