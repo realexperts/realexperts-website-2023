@@ -4389,6 +4389,14 @@ export interface Setting {
   /**
    * No description.
    *
+   * Type in directus: text
+   * Type in database: text
+   */
+  footer_address: string | null;
+
+  /**
+   * No description.
+   *
    * Type in directus: integer
    * Type in database: integer
    */

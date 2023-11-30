@@ -1,13 +1,14 @@
 ---
-import { fetchFooterMenu } from '@/lib/directus';
+import { fetchFooterMenu, fetchSettings } from '@/lib/directus';
 import { Image } from 'astro:assets';
+import { marked } from 'marked';
 import Container from '../components/Container.astro';
 import FooterMenu from '../components/FooterMenu.astro';
 import Heading from '../components/Heading.astro';
 import Section from '../components/Section.astro';
-import genralData from '../data/general.json';
 
 const menu = await fetchFooterMenu();
+const settings = await fetchSettings();
 ---
 
 <footer>
@@ -28,23 +29,10 @@ const menu = await fetchFooterMenu();
               loading={'lazy'}
             />
           </div>
-          <p class='mb-2'>{genralData.company.addressLine}</p>
-          <p class='mb-2'>
-            <a
-              href={`mailto:${genralData.company.mail}`}
-              title='E-Mail schreiben'>{genralData.company.mail}</a
-            >
-          </p>
-          <p class='mb-2 font-bold'>
-            <a href={`tel:${genralData.company.phone}`} title='Anrufen'
-              >{genralData.company.phone}</a
-            >
-          </p>
-          <p class='mb-2'>
-            <a href={genralData.company.webLink} title='Zur Webseite'
-              >{genralData.company.web}</a
-            >
-          </p>
+          <div
+            class='-mt-1 leading-8'
+            set:html={marked(settings?.footer_address || '')}
+          />
         </div>
         <div>
           <div class='mb-12 flex h-[177px] items-center'>
