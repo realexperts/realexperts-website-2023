@@ -35,9 +35,13 @@ const settings = await fetchSettings();
           />
         </div>
         <div>
-          <div class='mb-12 flex h-[177px] items-center'>
-            <Heading>Gemeinsam entfalten wir Ihr volles Potential.</Heading>
-          </div>
+          {
+            settings.footer_headline && (
+              <div class='mb-12 flex h-[177px] items-center'>
+                <Heading>Gemeinsam entfalten wir Ihr volles Potential.</Heading>
+              </div>
+            )
+          }
           <div class='justify-between lg:flex'>
             {
               menu.translations

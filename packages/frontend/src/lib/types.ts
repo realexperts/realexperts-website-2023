@@ -4397,6 +4397,14 @@ export interface Setting {
   /**
    * No description.
    *
+   * Type in directus: string
+   * Type in database: character varying
+   */
+  footer_headline: string | null;
+
+  /**
+   * No description.
+   *
    * Type in directus: integer
    * Type in database: integer
    */

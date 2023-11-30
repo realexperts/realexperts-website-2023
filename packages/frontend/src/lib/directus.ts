@@ -20,6 +20,7 @@ export const fetchSettings = async () => {
         'meta_title',
         'meta_description',
         'page_404',
+        'footer_headline',
         'footer_address',
         {
           favicon: ['id', 'width', 'height'],
