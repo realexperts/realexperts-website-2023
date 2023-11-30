@@ -3512,6 +3512,196 @@ export interface ElementCtaInternal {
   user_updated: DirectusUser | DirectusUser['id'] | null;
 }
 
+export interface FooterMenu {
+  /**
+   * No description.
+   *
+   * Type in directus: integer
+   * Type in database: integer
+   */
+  id: number;
+
+  /**
+   * No description.
+   *
+   * Type in directus: alias
+   * Type in database: no column
+   */
+  translations: FooterMenuTranslation[] | null;
+}
+
+export interface FooterMenuNode {
+  /**
+   * No description.
+   *
+   * Type in directus: integer
+   * Type in database: integer
+   */
+  anchor: Section | Section['id'] | null;
+
+  /**
+   * No description.
+   *
+   * Type in directus: timestamp
+   * Type in database: timestamp with time zone
+   */
+  date_created: string | null;
+
+  /**
+   * No description.
+   *
+   * Type in directus: timestamp
+   * Type in database: timestamp with time zone
+   */
+  date_updated: string | null;
+
+  /**
+   * No description.
+   *
+   * Type in directus: boolean
+   * Type in database: boolean
+   */
+  has_children: boolean | null;
+
+  /**
+   * No description.
+   *
+   * Type in directus: integer
+   * Type in database: integer
+   */
+  id: number;
+
+  /**
+   * No description.
+   *
+   * Type in directus: boolean
+   * Type in database: boolean
+   */
+  is_linked: boolean | null;
+
+  /**
+   * No description.
+   *
+   * Type in directus: integer
+   * Type in database: integer
+   */
+  linked_page: PagesTranslation | PagesTranslation['id'] | null;
+
+  /**
+   * No description.
+   *
+   * Type in directus: alias
+   * Type in database: no column
+   */
+  nodes: FooterMenuNode[] | null;
+
+  /**
+   * No description.
+   *
+   * Type in directus: integer
+   * Type in database: integer
+   */
+  parent_menu: FooterMenuTranslation | FooterMenuTranslation['id'] | null;
+
+  /**
+   * No description.
+   *
+   * Type in directus: integer
+   * Type in database: integer
+   */
+  parent_node: FooterMenuNode | FooterMenuNode['id'] | null;
+
+  /**
+   * No description.
+   *
+   * Type in directus: integer
+   * Type in database: integer
+   */
+  sort: number | null;
+
+  /**
+   * No description.
+   *
+   * Type in directus: string
+   * Type in database: character varying
+   */
+  title: string | null;
+
+  /**
+   * No description.
+   *
+   * Type in directus: string
+   * Type in database: character varying
+   */
+  type: 'intern' | 'extern' | null;
+
+  /**
+   * No description.
+   *
+   * Type in directus: string
+   * Type in database: character varying
+   */
+  url: string | null;
+
+  /**
+   * No description.
+   *
+   * Type in directus: uuid
+   * Type in database: uuid
+   */
+  user_created: DirectusUser | DirectusUser['id'] | null;
+
+  /**
+   * No description.
+   *
+   * Type in directus: uuid
+   * Type in database: uuid
+   */
+  user_updated: DirectusUser | DirectusUser['id'] | null;
+}
+
+export interface FooterMenuTranslation {
+  /**
+   * No description.
+   *
+   * Type in directus: integer
+   * Type in database: integer
+   */
+  footer_menu_id: FooterMenu | FooterMenu['id'] | null;
+
+  /**
+   * No description.
+   *
+   * Type in directus: integer
+   * Type in database: integer
+   */
+  id: number;
+
+  /**
+   * No description.
+   *
+   * Type in directus: string
+   * Type in database: character varying
+   */
+  languages_code: Language | Language['code'] | null;
+
+  /**
+   * No description.
+   *
+   * Type in directus: alias
+   * Type in database: no column
+   */
+  nodes: FooterMenuNode[] | null;
+
+  /**
+   * No description.
+   *
+   * Type in directus: string
+   * Type in database: character varying
+   */
+  title: string | null;
+}
+
 export interface FormMessage {
   /**
    * No description.
@@ -3642,22 +3832,6 @@ export interface MainMenu {
   /**
    * No description.
    *
-   * Type in directus: timestamp
-   * Type in database: timestamp with time zone
-   */
-  date_created: string | null;
-
-  /**
-   * No description.
-   *
-   * Type in directus: timestamp
-   * Type in database: timestamp with time zone
-   */
-  date_updated: string | null;
-
-  /**
-   * No description.
-   *
    * Type in directus: integer
    * Type in database: integer
    */
@@ -3670,22 +3844,6 @@ export interface MainMenu {
    * Type in database: no column
    */
   translations: MainMenuTranslation[] | null;
-
-  /**
-   * No description.
-   *
-   * Type in directus: uuid
-   * Type in database: uuid
-   */
-  user_created: DirectusUser | DirectusUser['id'] | null;
-
-  /**
-   * No description.
-   *
-   * Type in directus: uuid
-   * Type in database: uuid
-   */
-  user_updated: DirectusUser | DirectusUser['id'] | null;
 }
 
 export interface MainMenuNode {
@@ -3882,6 +4040,14 @@ export interface PagesTranslation {
   /**
    * No description.
    *
+   * Type in directus: alias
+   * Type in database: no column
+   */
+  footer_menu_nodes: FooterMenuNode[] | null;
+
+  /**
+   * No description.
+   *
    * Type in directus: integer
    * Type in database: integer
    */
@@ -4034,6 +4200,14 @@ export interface Section {
    * Type in database: timestamp with time zone
    */
   date_updated: string | null;
+
+  /**
+   * No description.
+   *
+   * Type in directus: alias
+   * Type in database: no column
+   */
+  footer_menu_nodes: FooterMenuNode[] | null;
 
   /**
    * No description.
@@ -4313,6 +4487,9 @@ export type Collections = {
   directus_webhooks: DirectusWebhook[];
   element_cta_external: ElementCtaExternal[];
   element_cta_internal: ElementCtaInternal[];
+  footer_menu: FooterMenu;
+  footer_menu_nodes: FooterMenuNode[];
+  footer_menu_translations: FooterMenuTranslation[];
   form_messages: FormMessage[];
   languages: Language[];
   logo_slider_slides: LogoSliderSlide[];

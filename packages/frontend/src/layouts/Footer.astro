@@ -1,11 +1,13 @@
 ---
+import { fetchFooterMenu } from '@/lib/directus';
 import { Image } from 'astro:assets';
 import Container from '../components/Container.astro';
 import FooterMenu from '../components/FooterMenu.astro';
 import Heading from '../components/Heading.astro';
 import Section from '../components/Section.astro';
-import footerData from '../data/footer.json';
 import genralData from '../data/general.json';
+
+const menu = await fetchFooterMenu();
 ---
 
 <footer>
@@ -49,9 +51,46 @@ import genralData from '../data/general.json';
             <Heading>Gemeinsam entfalten wir Ihr volles Potential.</Heading>
           </div>
           <div class='justify-between lg:flex'>
-            <FooterMenu menu={footerData.menus[0]} />
-            <FooterMenu menu={footerData.menus[1]} />
-            <FooterMenu menu={footerData.menus[2]} />
+            {
+              menu.translations
+                ?.find((item) => item.languages_code === 'de-DE')
+                ?.nodes?.map((item) => {
+                  return (
+                    <FooterMenu
+                      menu={{
+                        headline: item.title || '',
+                        items:
+                          item.nodes?.map((child) => {
+                            return {
+                              title: child.title || '',
+                              link: (() => {
+                                if (
+                                  child.type === 'intern' &&
+                                  child.linked_page?.url
+                                ) {
+                                  return (
+                                    child.linked_page?.url +
+                                    `${
+                                      child.anchor?.slug
+                                        ? '#' + child.anchor?.slug
+                                        : ''
+                                    }`
+                                  );
+                                }
+
+                                if (child.type === 'extern' && child?.url) {
+                                  return child?.url;
+                                }
+
+                                return '#';
+                              })()
+                            };
+                          }) || []
+                      }}
+                    />
+                  );
+                })
+            }
           </div>
         </div>
       </div>

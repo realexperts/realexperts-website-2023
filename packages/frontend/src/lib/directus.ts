@@ -73,6 +73,43 @@ export const fetchMainMenu = async () => {
   );
 };
 
+export const fetchFooterMenu = async () => {
+  return await client.request(
+    readSingleton('footer_menu', {
+      fields: [
+        {
+          translations: [
+            'title',
+            'languages_code',
+            {
+              nodes: [
+                'title',
+                'type',
+                'url',
+                'has_children',
+                'is_linked',
+                {
+                  linked_page: ['url'],
+                  anchor: ['slug'],
+                  nodes: [
+                    'title',
+                    'type',
+                    'url',
+                    {
+                      linked_page: ['url'],
+                      anchor: ['slug']
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    })
+  );
+};
+
 export const fetchNotFoundPage = async () => {
   const settings = await fetchSettings();
 

@@ -15,7 +15,7 @@
   },
   "scripts": {
     "postinstall": "npm rebuild argon2 sharp isolated-vm",
-    "dev": "concurrently --kill-others \"pnpm dev:backend\" \"pnpm dev:frontend\"",
+    "dev": "concurrently --kill-others \"bun dev:backend\" \"bun dev:frontend\"",
     "dev:backend": "bun --cwd packages/backend dev",
     "dev:frontend": "bun --cwd packages/frontend dev",
     "lint": "bun --cwd packages/frontend lint",

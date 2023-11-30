@@ -14,8 +14,12 @@ const { questionHeading, answerHeading, qnaList = [] } = Astro.props;
 {
   questionHeading && answerHeading && (
     <div class='flex font-serif text-2xl font-bold uppercase text-re-blue'>
-      <div class='bold w-1/2 mr-1 md:px-10 md:py-5 text-left md:text-right'>{questionHeading}</div>
-      <div class='bold md:ml-20 w-1/2 ml-1 md:px-10 md:py-5 text-right md:text-left'>{answerHeading}</div>
+      <div class='bold mr-1 w-1/2 text-left md:px-10 md:py-5 md:text-right'>
+        {questionHeading}
+      </div>
+      <div class='bold ml-1 w-1/2 text-right md:ml-20 md:px-10 md:py-5 md:text-left'>
+        {answerHeading}
+      </div>
     </div>
   )
 }
@@ -24,21 +28,21 @@ const { questionHeading, answerHeading, qnaList = [] } = Astro.props;
     const isFirst = index === 0;
     const isLast = index === qnaList.length - 1;
     return (
-      <div class='relative -mx-8 md:mx-0 md:flex items-stretch text-xl text-re-blue'>
+      <div class='relative -mx-8 items-stretch text-xl text-re-blue md:mx-0 md:flex'>
         <div
           class:list={[
-            'md:flex md:w-1/2 items-center justify-start md:justify-end md:px-10 py-5 text-left md:text-right',
+            'items-center justify-start py-5 text-left md:flex md:w-1/2 md:justify-end md:px-10 md:text-right',
             isFirst && 'md:pt-10',
             isLast && 'md:pb-10'
           ]}
         >
-          <div class="hyphens-auto w-fit max-w-[75%] md:max-w-none bg-re-gray md:bg-transparent p-5 md:p-0 rounded-r-3xl">
+          <div class='w-fit max-w-[75%] hyphens-auto rounded-r-3xl bg-re-gray p-5 md:max-w-none md:bg-transparent md:p-0'>
             {item.question}
-          </span>
+          </div>
         </div>
         <div
           class:list={[
-            'hidden md:block absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2',
+            'absolute left-1/2 top-1/2 hidden -translate-x-1/2 -translate-y-1/2 md:block',
             isFirst && 'md:pt-5',
             isLast && 'md:pb-5'
           ]}
@@ -47,14 +51,14 @@ const { questionHeading, answerHeading, qnaList = [] } = Astro.props;
         </div>
         <div
           class:list={[
-            'md:ml-20 md:flex md:w-1/2 items-center justify-end md:justify-start text-right md:text-left md:bg-re-turquoise-light md:px-10 md:py-5',
+            'items-center justify-end text-right md:ml-20 md:flex md:w-1/2 md:justify-start md:bg-re-turquoise-light md:px-10 md:py-5 md:text-left',
             isFirst && 'md:pt-10',
             isLast && 'md:rounded-br-[70px] md:pb-10'
           ]}
         >
-          <div class="hyphens-auto w-fit max-w-[75%] md:max-w-none ml-auto md:ml-0 bg-re-turquoise-light md:bg-transparent p-5 md:p-0 rounded-l-3xl">
+          <div class='ml-auto w-fit max-w-[75%] hyphens-auto rounded-l-3xl bg-re-turquoise-light p-5 md:ml-0 md:max-w-none md:bg-transparent md:p-0'>
             {item.answer}
-          </span>
+          </div>
         </div>
       </div>
     );
