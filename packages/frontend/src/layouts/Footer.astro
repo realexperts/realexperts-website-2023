@@ -38,7 +38,7 @@ const settings = await fetchSettings();
           {
             settings.footer_headline && (
               <div class='mb-12 flex h-[177px] items-center'>
-                <Heading>Gemeinsam entfalten wir Ihr volles Potential.</Heading>
+                <Heading>{settings.footer_headline}</Heading>
               </div>
             )
           }
