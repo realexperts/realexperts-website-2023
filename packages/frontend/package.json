@@ -51,6 +51,8 @@
     "@tailwindcss/typography": "^0.5.10",
     "@typescript-eslint/eslint-plugin": "^6.13.1",
     "@typescript-eslint/parser": "^6.13.1",
+    "@vercel/analytics": "^1.1.1",
+    "@vercel/speed-insights": "^0.0.6",
     "eslint": "^8.54.0",
     "eslint-config-airbnb-typescript": "^17.1.0",
     "eslint-config-prettier": "^9.0.0",
