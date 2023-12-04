@@ -4413,6 +4413,22 @@ export interface Setting {
   /**
    * No description.
    *
+   * Type in directus: uuid
+   * Type in database: uuid
+   */
+  logo_footer: DirectusFile | DirectusFile['id'] | null;
+
+  /**
+   * No description.
+   *
+   * Type in directus: uuid
+   * Type in database: uuid
+   */
+  logo_header: DirectusFile | DirectusFile['id'] | null;
+
+  /**
+   * No description.
+   *
    * Type in directus: text
    * Type in database: text
    */

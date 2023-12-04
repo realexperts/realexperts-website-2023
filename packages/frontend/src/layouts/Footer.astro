@@ -9,6 +9,12 @@ import Section from '../components/Section.astro';
 
 const menu = await fetchFooterMenu();
 const settings = await fetchSettings();
+
+const logoFooterSrc = `${import.meta.env.DIRECTUS_URL}/assets/${
+  settings.logo_footer?.id
+}?access_token=${import.meta.env.DIRECTUS_TOKEN}`;
+
+const isSvg = settings.logo_footer?.filename_disk?.endsWith('.svg');
 ---
 
 <footer>
@@ -22,10 +28,12 @@ const settings = await fetchSettings();
         <div>
           <div class='mb-12 h-[177px]'>
             <Image
-              src='/images/logo/logo_footer.png'
-              alt='Logo Real Experts Network GmbH'
+              src={logoFooterSrc}
+              alt='Logo Real Experts   Network GmbH'
               width='134'
               height='177'
+              densities={[1, 2, 3]}
+              format={isSvg ? 'svg' : 'webp'}
               loading={'lazy'}
             />
           </div>

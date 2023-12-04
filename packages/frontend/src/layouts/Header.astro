@@ -1,8 +1,12 @@
 ---
+import { fetchSettings } from '@/lib/directus';
 import { Image } from 'astro:assets';
 import Container from '../components/Container.astro';
 import MainNavigation from '../components/MainNavigation.astro';
 import Section from '../components/Section.astro';
+
+const settings = await fetchSettings();
+const isSvg = settings.logo_header?.filename_disk?.endsWith('.svg');
 ---
 
 <header
@@ -19,22 +23,36 @@ import Section from '../components/Section.astro';
     <Container centered={false}>
       <div class='relative -mx-8 flex items-center justify-between px-8'>
         <a href='/' title='Zurück zur Startseite'>
-          <Image
-            id='site-logo'
-            src='/images/logo/logo-dark-re.png'
-            alt='Logo Real Experts Network GmbH'
-            width='51'
-            height='72'
-            class='h-auto w-auto lg:hidden'
-          />
-          <Image
-            id='site-logo'
-            src='/images/logo/logo-dark-re.png'
-            alt='Logo Real Experts Network GmbH'
-            width='63'
-            height='89'
-            class='hidden h-auto w-auto lg:block'
-          />
+          {
+            settings.logo_header && (
+              <>
+                <Image
+                  id='site-logo'
+                  src={`${import.meta.env.DIRECTUS_URL}/assets/${
+                    settings.logo_header.id
+                  }?access_token=${import.meta.env.DIRECTUS_TOKEN}`}
+                  alt='Logo Real Experts Network GmbH'
+                  width='51'
+                  height='72'
+                  densities={[1, 2, 3]}
+                  format={isSvg ? 'svg' : 'webp'}
+                  class='h-auto w-auto lg:hidden'
+                />
+                <Image
+                  id='site-logo'
+                  src={`${import.meta.env.DIRECTUS_URL}/assets/${
+                    settings.logo_header.id
+                  }?access_token=${import.meta.env.DIRECTUS_TOKEN}`}
+                  alt='Logo Real Experts Network GmbH'
+                  width='63'
+                  height='89'
+                  densities={[1, 2, 3]}
+                  format={isSvg ? 'svg' : 'webp'}
+                  class='hidden h-auto w-auto lg:block'
+                />
+              </>
+            )
+          }
         </a>
         <MainNavigation />
       </div>
