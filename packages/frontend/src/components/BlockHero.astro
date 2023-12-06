@@ -28,9 +28,16 @@ if (image.width > maxWidthDesktop) {
 let optimizedBackground = await getImage({
   src: image.src,
   format: 'webp',
-  width: maxWidthDesktop,
-  height: maxHeightDesktop,
-  quality: 70
+  width: maxWidthDesktop * 2,
+  height: maxHeightDesktop * 2,
+  quality: 90,
+  transforms: {
+    resize: {
+      type: 'contain',
+      width: maxWidthDesktop,
+      height: maxHeightDesktop
+    }
+  }
 });
 
 let maxWidthMobile = 620;
