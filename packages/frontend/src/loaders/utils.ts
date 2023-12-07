@@ -6,8 +6,8 @@ export const fetchElementCtaInternal = async (ctaId: number) => {
     readItem('element_cta_internal', ctaId, {
       fields: [
         'title',
-        'anchor',
         {
+          anchor: ['slug'],
           linked_page: ['url']
         }
       ]
@@ -18,7 +18,7 @@ export const fetchElementCtaInternal = async (ctaId: number) => {
     type: 'internal',
     title: response.title,
     url: `${response.linked_page?.url ?? ''}${
-      response.anchor ? `#${response.anchor}` : ''
+      response.anchor ? `#${response.anchor.slug}` : ''
     }`
   };
 };
