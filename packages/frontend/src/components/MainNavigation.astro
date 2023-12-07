@@ -109,4 +109,7 @@ const mainMenu = await fetchMainMenu();
   window.addEventListener('resize', () => {
     document.querySelector('#navbar')?.classList.remove('main-menu-open');
   });
+  document.querySelector('#main-menu')?.addEventListener('click', () => {
+    document.querySelector('#navbar')?.classList.remove('main-menu-open');
+  });
 </script>
