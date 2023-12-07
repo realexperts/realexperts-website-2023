@@ -21,7 +21,7 @@ let { maxWidthContainer, testimonials } = Astro.props;
 
 <div
   class:list={[
-    '-mx-6 lg:mx-auto my-14 flex items-center justify-center',
+    '-mx-6 my-14 flex items-center justify-center lg:mx-auto',
     getMaxWidthClass(maxWidthContainer)
   ]}
 >
@@ -35,8 +35,8 @@ let { maxWidthContainer, testimonials } = Astro.props;
       {
         testimonials.map((testimonal, index) => () => (
           <div class='swiper-slide overflow-hidden'>
-            <div class='lg:flex items-center justify-between'>
-              <div class='flex lg:min-w-[425px] items-center justify-center mb-8 lg:mb-0'>
+            <div class='items-center justify-between lg:flex'>
+              <div class='mb-8 flex items-center justify-center lg:mb-0 lg:min-w-[425px]'>
                 {testimonal.image.src && (
                   <Image
                     src={testimonal.image.src}
@@ -47,7 +47,7 @@ let { maxWidthContainer, testimonials } = Astro.props;
                   />
                 )}
               </div>
-              <div class='w-full lg:text-left lg:pr-8'>
+              <div class='w-full lg:pr-8 lg:text-left'>
                 <p>“{testimonal.text}“</p>
                 <p class='mt-6 text-xl'>
                   <span class='mr-2 font-bold'>{testimonal.name}</span>

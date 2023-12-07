@@ -12,7 +12,7 @@ const { formId, text } = Astro.props;
 
 <div class='mx-auto my-6 grid max-w-4xl md:grid-cols-3'>
   <div
-    class='prose !text-white prose-headings:text-white prose-h3:my-0 prose-h4:my-0 prose-h4:font-sans prose-h4:font-normal mb-8'
+    class='prose mb-8 !text-white prose-headings:text-white prose-h3:my-0 prose-h4:my-0 prose-h4:font-sans prose-h4:font-normal'
     set:html={marked(text ?? '')}
   />
 

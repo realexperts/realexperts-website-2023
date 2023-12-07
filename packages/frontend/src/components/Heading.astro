@@ -13,7 +13,10 @@ const alignments = {
 ---
 
 <h2
-  class:list={['mb-8 font-serif text-3xl lg:text-4xl font-semibold hyphens-auto lg:hyphens-none', alignments[alignment]]}
+  class:list={[
+    'mb-8 hyphens-auto font-serif text-3xl font-semibold lg:hyphens-none lg:text-4xl',
+    alignments[alignment]
+  ]}
 >
   <slot />
 </h2>

@@ -110,7 +110,7 @@ const BlockForm = ({ formId }: Props) => {
         )}
       </div>
       <div className='col-span-2 text-sm text-re-blue'>
-        <label className='flex gap-2 cursor-pointer items-start'>
+        <label className='flex cursor-pointer items-start gap-2'>
           <input
             type='checkbox'
             id='checkbox'
@@ -119,7 +119,7 @@ const BlockForm = ({ formId }: Props) => {
           />
           <span
             className={twMerge(
-              'relative left-0 mr-2 -mt-1 inline-block flex-none h-6 w-6 cursor-pointer bg-white transition-all duration-300 ease-in-out',
+              'relative left-0 -mt-1 mr-2 inline-block h-6 w-6 flex-none cursor-pointer bg-white transition-all duration-300 ease-in-out',
               checked && 'bg-re-blue'
             )}
           >
@@ -130,7 +130,9 @@ const BlockForm = ({ formId }: Props) => {
               )}
             ></div>
           </span>
-          <span class="text-left">Ja, ich habe die Datenschutzerklärung zur Kenntnis genommen.</span>
+          <span class='text-left'>
+            Ja, ich habe die Datenschutzerklärung zur Kenntnis genommen.
+          </span>
         </label>
         {errors.checkbox && (
           <div className='mt-2 text-left text-sm text-re-red'>
