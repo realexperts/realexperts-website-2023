@@ -63,6 +63,7 @@ const { columns = [], max_width_container } = Astro.props;
               width={200}
               height={200}
               loading={'lazy'}
+              densities={[1, 2, 3]}
             />
           )}
           <BlockText text={marked(column.text ?? '')} />
