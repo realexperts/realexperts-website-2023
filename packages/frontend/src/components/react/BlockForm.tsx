@@ -69,7 +69,7 @@ const BlockForm = ({ formId }: Props) => {
   return (
     <form onSubmit={handleSubmit(onSubmit)} className='grid grid-cols-2 gap-8'>
       <input type='hidden' {...register('formId')} />
-      <div className='col-span-1'>
+      <div className='col-span-2 md:col-span-1'>
         <input
           className='block w-full p-2.5 text-re-blue placeholder:text-re-blue'
           type='text'
@@ -82,7 +82,7 @@ const BlockForm = ({ formId }: Props) => {
           </div>
         )}
       </div>
-      <div className='col-span-1'>
+      <div className='col-span-2 md:col-span-1'>
         <input
           className='block w-full p-2.5 text-re-blue placeholder:text-re-blue'
           type='email'
@@ -110,7 +110,7 @@ const BlockForm = ({ formId }: Props) => {
         )}
       </div>
       <div className='col-span-2 text-sm text-re-blue'>
-        <label className='flex cursor-pointer items-center'>
+        <label className='flex gap-2 cursor-pointer items-start'>
           <input
             type='checkbox'
             id='checkbox'
@@ -119,7 +119,7 @@ const BlockForm = ({ formId }: Props) => {
           />
           <span
             className={twMerge(
-              'relative left-0 mr-2 inline-block h-6 w-6 cursor-pointer bg-white transition-all duration-300 ease-in-out',
+              'relative left-0 mr-2 -mt-1 inline-block flex-none h-6 w-6 cursor-pointer bg-white transition-all duration-300 ease-in-out',
               checked && 'bg-re-blue'
             )}
           >
@@ -130,7 +130,7 @@ const BlockForm = ({ formId }: Props) => {
               )}
             ></div>
           </span>
-          Ja, ich habe die Datenschutzerklärung zur Kenntnis genommen.
+          <span class="text-left">Ja, ich habe die Datenschutzerklärung zur Kenntnis genommen.</span>
         </label>
         {errors.checkbox && (
           <div className='mt-2 text-left text-sm text-re-red'>

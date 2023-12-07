@@ -40,6 +40,8 @@ let optimizedBackground = await getImage({
   }
 });
 
+let hasCtas = ctas && ctas.length > 0;
+
 let maxWidthMobile = 620;
 let maxHeightMobile;
 if (imageMobile) {
@@ -79,28 +81,30 @@ const imageStyleClasses = imageStyles
   .join(' ');
 ---
 
-<div
-  style={{
-    '--optimized-mobile-background-url': `url(${optimizedMobileBackground?.src})`,
-    '--optimized-background-url': `url(${optimizedBackground.src})`
-  }}
-  class:list={[
-    twMerge(
-      '-mx-8 flex h-[488px] items-center bg-re-gray bg-cover bg-center bg-no-repeat text-left xl:mx-0',
-      imageStyleClasses,
-      optimizedMobileBackground
-        ? 'bg-[image:var(--optimized-mobile-background-url)] lg:bg-[image:var(--optimized-background-url)]'
-        : 'bg-[image:var(--optimized-background-url)]'
-    )
-  ]}
->
-  <div class='mx-8 mb-2 w-[620px] text-white lg:mx-24'>
-    <h2
-      class='mb-4 hyphens-auto font-serif text-4xl font-semibold leading-tight lg:hyphens-none lg:text-5xl'
-    >
-      {title}
-    </h2>
-    <div class='mb-16 text-lg font-medium' set:html={marked(subtitle ?? '')} />
-    {ctas && <BlockCTA alignment='left' ctas={ctas} />}
-  </div>
+<div class="relative">
+  <div
+    style={{
+      '--optimized-mobile-background-url': `url(${optimizedMobileBackground?.src})`,
+      '--optimized-background-url': `url(${optimizedBackground.src})`
+    }}
+    class:list={[
+      twMerge(
+        '-mx-8 flex h-[488px] items-center bg-re-gray bg-cover bg-center bg-no-repeat text-left xl:mx-0',
+        imageStyleClasses,
+        optimizedMobileBackground
+          ? 'bg-[image:var(--optimized-mobile-background-url)] lg:bg-[image:var(--optimized-background-url)]'
+          : 'bg-[image:var(--optimized-background-url)]'
+      )
+    ]}></div>
+  {(title || subtitle || hasCtas) && 
+    <div class="-mx-8 px-8 py-8 text-white bg-re-blue lg:text-left lg:absolute lg:top-1/2 lg:-translate-y-1/2 lg:bg-transparent lg:max-w-[620px] lg:mx-24">
+      <h2
+        class='mb-4 hyphens-auto font-serif text-4xl font-semibold leading-tight lg:hyphens-none lg:text-5xl'
+      >
+        {title}
+      </h2>
+      <div class="text-lg font-medium" set:html={marked(subtitle ?? '')} />
+      {(ctas && hasCtas) && <BlockCTA alignment='left' ctas={ctas} />}
+    </div>
+  }
 </div>
