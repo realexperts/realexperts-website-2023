@@ -163,13 +163,11 @@ export const fetchNotFoundPage = async () => {
 export const fetchPages = async () => {
   const settings = await fetchSettings();
 
-  if (typeof settings.page_404 !== 'number') return;
-
   const response = await client.request(
     readItems('pages', {
       filter: {
         id: {
-          _neq: settings.page_404
+          _neq: settings.page_404 as number
         }
       },
       fields: [
