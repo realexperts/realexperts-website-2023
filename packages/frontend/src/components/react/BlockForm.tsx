@@ -130,7 +130,7 @@ const BlockForm = ({ formId }: Props) => {
               )}
             ></div>
           </span>
-          <span class='text-left'>
+          <span className='text-left text-white'>
             Ja, ich habe die Datenschutzerklärung zur Kenntnis genommen.
           </span>
         </label>
