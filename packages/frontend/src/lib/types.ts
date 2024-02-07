@@ -1658,6 +1658,22 @@ export interface DirectusFile {
   /**
    * No description.
    *
+   * Type in directus: integer
+   * Type in database: integer
+   */
+  focal_point_x: number | null;
+
+  /**
+   * No description.
+   *
+   * Type in directus: integer
+   * Type in database: integer
+   */
+  focal_point_y: number | null;
+
+  /**
+   * No description.
+   *
    * Type in directus: uuid
    * Type in database: uuid
    */

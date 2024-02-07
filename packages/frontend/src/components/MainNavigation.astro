@@ -103,13 +103,15 @@ const mainMenu = await fetchMainMenu();
   }
 </style>
 <script>
+  const mainMenuOpenClass = 'main-menu-open';
+
   document.querySelector('#hamburger')?.addEventListener('click', () => {
-    document.querySelector('#navbar')?.classList.toggle('main-menu-open');
+    document.querySelector('#navbar')?.classList.toggle(mainMenuOpenClass);
   });
   window.addEventListener('resize', () => {
-    document.querySelector('#navbar')?.classList.remove('main-menu-open');
+    document.querySelector('#navbar')?.classList.remove(mainMenuOpenClass);
   });
   document.querySelector('#main-menu')?.addEventListener('click', () => {
-    document.querySelector('#navbar')?.classList.remove('main-menu-open');
+    document.querySelector('#navbar')?.classList.remove(mainMenuOpenClass);
   });
 </script>
