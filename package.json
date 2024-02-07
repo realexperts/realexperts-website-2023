@@ -14,14 +14,13 @@
     "typescript": "^5.0.0"
   },
   "scripts": {
-    "postinstall": "npm rebuild argon2 sharp isolated-vm",
-    "dev": "concurrently --kill-others \"bun dev:backend\" \"bun dev:frontend\"",
-    "dev:backend": "bun --cwd packages/backend dev",
-    "dev:frontend": "bun --cwd packages/frontend dev",
-    "lint": "bun --cwd packages/frontend lint",
-    "lint:fix": "bun --cwd packages/frontend lint:fix",
-    "check-types": "bun --cwd packages/frontend check-types",
-    "export:models": "bun --cwd packages/backend directus models snapshot ../frontend/src/lib/types.ts"
+    "dev": "concurrently --kill-others \"npm run dev:backend\" \"npm run dev:frontend\"",
+    "dev:backend": "npm run dev -w @realexperts/backend",
+    "dev:frontend": "npm run dev -w @realexperts/frontend",
+    "lint": "npm run lint -w @realexperts/frontend",
+    "lint:fix": "npm run lint:fix -w @realexperts/frontend",
+    "check-types": "npm run check-types -w @realexperts/frontend",
+    "export:models": "npm run export:models -w @realexperts/backend"
   },
   "workspaces": [
     "packages/*"
