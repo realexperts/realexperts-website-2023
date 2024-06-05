@@ -19,38 +19,54 @@ Before you begin, ensure you have the following tools installed:
 
 Follow these steps to set up the project locally:
 
-1. **Install Dependencies:**
+1. **Install Node Packages:**
    ```bash
-   npm install
+   npm ci
    ```
 
 2. **Environment Setup:**
-   Copy the \`.env.example\` file to \`.env\` in the respective directories:
+   Copy environment files and update the values as required.
    ```bash
    cp .env.example .env
    cp packages/backend/.env.example packages/backend/.env
    cp packages/frontend/.env.example packages/frontend/.env
    ```
 
-## Export TypeScript Models for Frontend
+3. **Add Hosts:**
+   Add the following hosts to your `/etc/hosts` file:
+   ```bash
+   127.0.0.1       x.realexperts.localhost realexperts.localhost
+    ```
 
-- Run the following command to export TypeScript models for the frontend:
+## Start the docker containers
+
   ```bash
-  npm export:models
+  make
+  ```
+
+## Sync Database from Server to Local
+
+Make sure, your public key is added to the `~/.ssh/authorized_keys` file on the server.
+
+- To pull the database, use the provided Makefile command:
+  ```bash
+  make pull
   ```
 
 ## Start Development
 
 - To start the development server, use:
   ```bash
-  npm dev
+  npm run dev
   ```
 
-## Database Operations
+# Additional commands
 
-- To pull the database, use the provided Makefile command:
+## Manually Export TypeScript Models for Frontend
+
+- Run the following command to export TypeScript models for the frontend:
   ```bash
-  make pull
+  npm backend:extension:models:export
   ```
 
 ---

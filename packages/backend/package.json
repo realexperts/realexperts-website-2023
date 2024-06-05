@@ -2,15 +2,15 @@
   "name": "@realexperts/backend",
   "version": "1.0.0",
   "dependencies": {
-    "directus": "^10.7.1",
+    "directus": "^10.12.0",
     "directus-extension-models": "^2.5.2"
   },
   "description": "",
   "license": "ISC",
   "scripts": {
-    "start": "directus bootstrap && directus start",
-    "dev": "directus bootstrap && directus start",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "export:models": "directus models snapshot ../frontend/src/lib/types.ts"
+    "bootstrap": "directus bootstrap",
+    "start": "directus start",
+    "start:bootstrap": "directus bootstrap && directus start",
+    "extension:models:export": "directus models snapshot ../frontend/src/lib/types.ts"
   }
 }

@@ -1184,8 +1184,8 @@ export interface DirectusActivity {
   /**
    * No description.
    *
-   * Type in directus: string
-   * Type in database: character varying
+   * Type in directus: text
+   * Type in database: text
    */
   user_agent: string | null;
 }
@@ -1422,6 +1422,14 @@ export interface DirectusExtension {
   /**
    * No description.
    *
+   * Type in directus: uuid
+   * Type in database: uuid
+   */
+  bundle: string | null;
+
+  /**
+   * No description.
+   *
    * Type in directus: boolean
    * Type in database: boolean
    */
@@ -1433,7 +1441,23 @@ export interface DirectusExtension {
    * Type in directus: string
    * Type in database: character varying
    */
-  name: string;
+  folder: string;
+
+  /**
+   * No description.
+   *
+   * Type in directus: uuid
+   * Type in database: uuid
+   */
+  id: string;
+
+  /**
+   * No description.
+   *
+   * Type in directus: string
+   * Type in database: character varying
+   */
+  source: string;
 }
 
 export interface DirectusField {
@@ -2661,6 +2685,14 @@ export interface DirectusSession {
    * Type in directus: string
    * Type in database: character varying
    */
+  next_token: string | null;
+
+  /**
+   * No description.
+   *
+   * Type in directus: string
+   * Type in database: character varying
+   */
   origin: string | null;
 
   /**
@@ -2690,8 +2722,8 @@ export interface DirectusSession {
   /**
    * No description.
    *
-   * Type in directus: string
-   * Type in database: character varying
+   * Type in directus: text
+   * Type in database: text
    */
   user_agent: string | null;
 }
@@ -2864,6 +2896,62 @@ export interface DirectusSetting {
    * Type in database: text
    */
   public_note: string | null;
+
+  /**
+   * $t:fields.directus_settings.public_registration_note
+   *
+   * Type in directus: boolean
+   * Type in database: boolean
+   */
+  public_registration: boolean;
+
+  /**
+   * $t:fields.directus_settings.public_registration_email_filter_note
+   *
+   * Type in directus: json
+   * Type in database: json
+   */
+  public_registration_email_filter: any | null;
+
+  /**
+   * $t:fields.directus_settings.public_registration_role_note
+   *
+   * Type in directus: uuid
+   * Type in database: uuid
+   */
+  public_registration_role: DirectusRole | DirectusRole['id'] | null;
+
+  /**
+   * $t:fields.directus_settings.public_registration_verify_email_note
+   *
+   * Type in directus: boolean
+   * Type in database: boolean
+   */
+  public_registration_verify_email: boolean;
+
+  /**
+   * No description.
+   *
+   * Type in directus: string
+   * Type in database: character varying
+   */
+  report_bug_url: string | null;
+
+  /**
+   * No description.
+   *
+   * Type in directus: string
+   * Type in database: character varying
+   */
+  report_error_url: string | null;
+
+  /**
+   * No description.
+   *
+   * Type in directus: string
+   * Type in database: character varying
+   */
+  report_feature_url: string | null;
 
   /**
    * No description.
@@ -3382,6 +3470,14 @@ export interface DirectusWebhook {
   /**
    * No description.
    *
+   * Type in directus: uuid
+   * Type in database: uuid
+   */
+  migrated_flow: DirectusFlow | DirectusFlow['id'] | null;
+
+  /**
+   * No description.
+   *
    * Type in directus: string
    * Type in database: character varying
    */
@@ -3402,6 +3498,14 @@ export interface DirectusWebhook {
    * Type in database: character varying
    */
   url: string;
+
+  /**
+   * No description.
+   *
+   * Type in directus: boolean
+   * Type in database: boolean
+   */
+  was_active_before_deprecation: boolean;
 }
 
 export interface ElementCtaExternal {

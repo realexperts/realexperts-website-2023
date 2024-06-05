@@ -176,3 +176,6 @@ dist
 
 # dumps folder
 dumps
+
+# .history folder
+.history

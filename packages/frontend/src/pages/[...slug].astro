@@ -17,6 +17,7 @@ import BlockQNALoader from '@/loaders/BlockQNALoader.astro';
 import BlockSideBySideLoader from '@/loaders/BlockSideBySideLoader.astro';
 import BlockTestimonialLoader from '@/loaders/BlockTestimonialLoader.astro';
 import BlockTextLoader from '@/loaders/BlockTextLoader.astro';
+import { Debug } from 'astro:components';
 
 type Props = {
   page: ArrayElement<Awaited<ReturnType<typeof fetchPages>>>;

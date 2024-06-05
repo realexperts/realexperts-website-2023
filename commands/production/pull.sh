@@ -21,12 +21,18 @@ echo "(2) Reading the latest production dump from local file system ..."
 DUMP=$(make -s exec database "ls -t ./dumps/production | head -1")
 echo "(3) Emptying local database ..."
 make -s exec database "psql $LOCAL_DB_CONNECTION_STRING -c 'DROP SCHEMA public CASCADE; CREATE SCHEMA public;'"
+
 echo "(4) Importing dump $DUMP ..."
 make -s exec database "pg_restore --no-acl --no-owner -d $LOCAL_DB_CONNECTION_STRING /dumps/production/$DUMP"
+
+echo "(5) Running migrations ..."
+npm run backend:bootstrap
+
 echo "(5) Export models ..."
-bun export:models
+npm run backend:extension:models:export
+
 echo "(6) Run lint:fix ..."
-bun lint:fix
+npm run lint:fix
 
 echo ""
 echo "##########################################"

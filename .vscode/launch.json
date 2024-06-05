@@ -1,9 +1,16 @@
+// Astro
 {
   "version": "0.2.0",
   "configurations": [
     {
-      "command": "./node_modules/.bin/astro dev",
+      "command": "npm run frontend:dev",
       "name": "Development server",
+      "request": "launch",
+      "type": "node-terminal"
+    },
+    {
+      "command": "npm run frontend:build",
+      "name": "Build",
       "request": "launch",
       "type": "node-terminal"
     }
