@@ -38,12 +38,15 @@ let { maxWidthContainer, testimonials } = Astro.props;
             <div class='items-center justify-between lg:flex'>
               <div class='mb-8 flex items-center justify-center overflow-hidden lg:mb-0 lg:min-w-[425px]'>
                 {testimonal.image.src && (
-                  <Image
-                    src={testimonal.image.src}
-                    alt={`Person ${index + 1}`}
-                    height={290}
-                    width={290}
-                  />
+                  <div class='flex size-[290px] items-center justify-center overflow-hidden rounded-full'>
+                    <Image
+                      src={testimonal.image.src}
+                      alt={`Person ${index + 1}`}
+                      height={290}
+                      width={290}
+                      class={'object-contain'}
+                    />
+                  </div>
                 )}
               </div>
               <div class='w-full lg:pr-8 lg:text-left'>
@@ -60,15 +63,7 @@ let { maxWidthContainer, testimonials } = Astro.props;
     </div>
   </div>
   <div
-    class='swiper-button-next
-        cursor-pointer
-        p-1
-        text-4xl
-        text-re-turquoise
-        transition-colors
-        duration-200
-        ease-in-out
-        hover:text-re-blue'
+    class='swiper-button-next cursor-pointer p-1 text-4xl text-re-turquoise transition-colors duration-200 ease-in-out hover:text-re-blue'
   >
     <i class='fa-solid fa-chevron-right'></i>
   </div>
