@@ -36,12 +36,11 @@ let { maxWidthContainer, testimonials } = Astro.props;
         testimonials.map((testimonal, index) => () => (
           <div class='swiper-slide overflow-hidden'>
             <div class='items-center justify-between lg:flex'>
-              <div class='mb-8 flex items-center justify-center lg:mb-0 lg:min-w-[425px]'>
+              <div class='mb-8 flex items-center justify-center overflow-hidden lg:mb-0 lg:min-w-[425px]'>
                 {testimonal.image.src && (
                   <Image
                     src={testimonal.image.src}
                     alt={`Person ${index + 1}`}
-                    class='rounded-full object-contain'
                     height={290}
                     width={290}
                   />
