@@ -7,21 +7,16 @@ import Section from '@/components/Section.astro';
 import Layout from '@/layouts/Layout.astro';
 import { fetchPages } from '@/lib/directus';
 import type { ArrayElement } from '@/lib/typescript';
-import BlockCTALoader from '@/loaders/BlockCTALoader.astro';
+import BlockCtaLoader from '@/loaders/BlockCtaLoader.astro';
 import BlockFormLoader from '@/loaders/BlockFormLoader.astro';
 import BlockHeroLoader from '@/loaders/BlockHeroLoader.astro';
 import BlockIconTextColumnsLoader from '@/loaders/BlockIconTextColumnsLoader.astro';
 import BlockLogoSliderLoader from '@/loaders/BlockLogoSliderLoader.astro';
 import BlockMediaLoader from '@/loaders/BlockMediaLoader.astro';
-import BlockQNALoader from '@/loaders/BlockQNALoader.astro';
+import BlockQnaLoader from '@/loaders/BlockQnaLoader.astro';
 import BlockSideBySideLoader from '@/loaders/BlockSideBySideLoader.astro';
 import BlockTestimonialLoader from '@/loaders/BlockTestimonialLoader.astro';
 import BlockTextLoader from '@/loaders/BlockTextLoader.astro';
-import { Debug } from 'astro:components';
-
-type Props = {
-  page: ArrayElement<Awaited<ReturnType<typeof fetchPages>>>;
-};
 
 let page: ArrayElement<Awaited<ReturnType<typeof fetchPages>>>;
 
@@ -44,8 +39,8 @@ if (
   import.meta.env.BUILD_MODE === 'production' ||
   import.meta.env.BUILD_MODE === 'development'
 ) {
-  const props = Astro.props;
-  page = props.page;
+  const properties = Astro.props;
+  page = properties.page;
 } else {
   const { slug } = Astro.params;
   const pages = await fetchPages();
@@ -105,7 +100,7 @@ if (
                       marginTop={block.margin_top}
                       marginBottom={block.margin_bottom}
                     >
-                      <BlockCTALoader itemId={block.item} />
+                      <BlockCtaLoader itemId={block.item} />
                     </Block>
                   )}
                   {block.collection === 'block_logo_slider' && (
@@ -121,7 +116,7 @@ if (
                       marginTop={block.margin_top}
                       marginBottom={block.margin_bottom}
                     >
-                      <BlockQNALoader itemId={block.item} />
+                      <BlockQnaLoader itemId={block.item} />
                     </Block>
                   )}
                   {block.collection === 'block_icon_text_columns' && (

@@ -2,22 +2,14 @@
 import type { getBlockLogoSlider } from '@/loaders/BlockLogoSliderLoader.astro';
 import { Image } from 'astro:assets';
 
-type Props = Awaited<ReturnType<typeof getBlockLogoSlider>>;
+type Properties = Awaited<ReturnType<typeof getBlockLogoSlider>>;
 
-const { slides } = Astro.props;
+const { slides } = Astro.props as Properties;
 ---
 
 <div class='flex items-center justify-center'>
   <div
-    class='swiper-button-prev
-      cursor-pointer
-      p-1
-      text-3xl
-      text-zinc-300
-      transition-colors
-      duration-200
-      ease-in-out
-      hover:text-re-blue'
+    class='swiper-button-prev cursor-pointer p-1 text-3xl text-zinc-300 transition-colors duration-200 ease-in-out hover:text-re-blue'
   >
     <i class='fa-solid fa-chevron-left'></i>
   </div>
@@ -42,15 +34,7 @@ const { slides } = Astro.props;
     </div>
   </div>
   <div
-    class='swiper-button-next
-      cursor-pointer
-      p-1
-      text-3xl
-      text-zinc-300
-      transition-colors
-      duration-200
-      ease-in-out
-      hover:text-re-blue'
+    class='swiper-button-next cursor-pointer p-1 text-3xl text-zinc-300 transition-colors duration-200 ease-in-out hover:text-re-blue'
   >
     <i class='fa-solid fa-chevron-right'></i>
   </div>
@@ -66,12 +50,11 @@ const { slides } = Astro.props;
     const nextButton = swiperElement.parentElement?.querySelector(
       '.swiper-button-next'
     );
-    const prevButton = swiperElement.parentElement?.querySelector(
+    const previousButton = swiperElement.parentElement?.querySelector(
       '.swiper-button-prev'
     );
 
-    // @ts-ignore
-    new Swiper(swiperElement, {
+    const _swiper = new Swiper(swiperElement as HTMLElement, {
       slidesPerView: 5,
       loop: true,
       modules: [Navigation],
@@ -95,9 +78,13 @@ const { slides } = Astro.props;
       },
 
       navigation: {
-        nextEl: nextButton,
-        prevEl: prevButton
+        nextEl: nextButton as HTMLElement,
+        prevEl: previousButton as HTMLElement
       }
+    });
+
+    _swiper.on('slideChange', () => {
+      console.log('slideChange');
     });
   }
 </script>

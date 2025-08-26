@@ -1,9 +1,9 @@
 ---
 import BlockVideoComponent from '@/components/react/BlockMedia';
-import { getMaxWidthClass } from '@/lib/util';
+import { getMaxWidthClass } from '@/lib/utilities';
 import { Image } from 'astro:assets';
 
-type Props = {
+type Properties = {
   type: 'image' | 'youtube_video' | 'video';
   ytId: string | null;
   image?: {
@@ -13,7 +13,7 @@ type Props = {
   };
 };
 
-let { type, ytId, image } = Astro.props;
+let { type, ytId, image } = Astro.props as Properties;
 
 const maxWidth = 'max-w-4xl';
 ---
@@ -108,23 +108,28 @@ const maxWidth = 'max-w-4xl';
 </div>
 
 <script>
-  // @ts-nocheck
   (function () {
     const videoComponents = document.querySelectorAll('.media-component');
 
     for (const component of videoComponents) {
       const thumbnailWrapper = component.querySelector(
         '.video-thumbnail-wrapper'
-      );
-      const videoPlayer = component.querySelector('.video-player');
+      ) as HTMLElement;
+      const videoPlayer = component.querySelector(
+        '.video-player'
+      ) as HTMLVideoElement;
 
       if (thumbnailWrapper && videoPlayer) {
-        const playIcon = thumbnailWrapper.querySelector('.play-icon');
+        const playIcon = thumbnailWrapper.querySelector(
+          '.play-icon'
+        ) as HTMLElement;
 
         const thumbnailWrapperWidth = thumbnailWrapper.offsetWidth;
         // Set the font size of the play icon
         // based on the width of the thumbnail wrapper
-        playIcon.style.fontSize = `${thumbnailWrapperWidth / 8}px`;
+        if (playIcon) {
+          playIcon.style.fontSize = `${thumbnailWrapperWidth / 8}px`;
+        }
 
         thumbnailWrapper.addEventListener('click', function () {
           thumbnailWrapper.style.display = 'none';

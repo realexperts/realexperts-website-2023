@@ -3,14 +3,14 @@ import {
   getMarginTopClass,
   getPaddingBottomClass,
   getPaddingTopClass
-} from '@/lib/util';
+} from '@/lib/utilities';
 import { useStore } from '@nanostores/react';
 import { useMemo, useState } from 'react';
 import { twMerge } from 'tailwind-merge';
 import Modal from './Modal';
 import { $isEditMode } from './store';
 
-type Props = {
+type Properties = {
   children: React.ReactNode;
   id?: number;
   marginTop?: Parameters<typeof getMarginTopClass>[0];
@@ -26,7 +26,7 @@ const SectionEdit = ({
   marginBottom,
   paddingTop,
   paddingBottom
-}: Props) => {
+}: Properties) => {
   const [open, setOpen] = useState(false);
 
   // Nano store

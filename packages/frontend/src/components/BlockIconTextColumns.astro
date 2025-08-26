@@ -3,7 +3,7 @@ import {
   getAlignmentClass,
   getMaxWidthClass,
   getTextColorClass
-} from '@/lib/util';
+} from '@/lib/utilities';
 import { Image } from 'astro:assets';
 import { marked } from 'marked';
 import BlockText from './BlockText.astro';
@@ -21,12 +21,12 @@ type Column = {
   text?: string | undefined | null;
 };
 
-type Props = {
+type Properties = {
   columns: Column[];
   max_width_container?: string;
 };
 
-const { columns = [], max_width_container } = Astro.props;
+const { columns = [], max_width_container } = Astro.props as Properties;
 ---
 
 <div

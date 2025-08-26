@@ -1,11 +1,7 @@
 ---
-import BlockQNAList from '@/components/BlockQNAList.astro';
+import BlockQnaList from '@/components/BlockQnaList.astro';
 import { client } from '@/lib/directus';
 import { readItem } from '@directus/sdk';
-
-type Props = {
-  itemId: number;
-};
 
 const { itemId } = Astro.props;
 
@@ -29,4 +25,4 @@ const properties = {
 };
 ---
 
-<BlockQNAList {...properties} />
+<BlockQnaList {...properties} />

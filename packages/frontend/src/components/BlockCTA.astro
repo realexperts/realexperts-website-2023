@@ -1,22 +1,24 @@
 ---
-import type { getBlockCta } from '@/loaders/BlockCTALoader.astro';
-import type { getTypedCtaArray } from '@/loaders/utils';
-import CTAExternal from './CTAExternal.astro';
-import CTAInternal from './CTAInternal.astro';
+import type { getBlockCta } from '@/loaders/BlockCtaLoader.astro';
+import type { getTypedCtaArray } from '@/loaders/cta-helpers';
+import CTAExternal from './CtaExternal.astro';
+import CTAInternal from './CtaInternal.astro';
 
-type Props = {
+type Properties = {
   alignment: Awaited<ReturnType<typeof getBlockCta>>['alignment'];
   ctas: Awaited<ReturnType<typeof getTypedCtaArray>>;
 };
 
-const { alignment, ctas } = Astro.props;
+const { alignment, ctas } = Astro.props as Properties;
 
-const classNames =
-  alignment === 'center'
-    ? 'justify-center'
-    : alignment === 'right'
-      ? 'justify-end'
-      : 'justify-start';
+let classNames;
+if (alignment === 'center') {
+  classNames = 'justify-center';
+} else if (alignment === 'right') {
+  classNames = 'justify-end';
+} else {
+  classNames = 'justify-start';
+}
 ---
 
 <div class:list={['flex gap-6', classNames]}>

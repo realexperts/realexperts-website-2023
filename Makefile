@@ -6,7 +6,7 @@ default: up
 COMPOSE_FILE := $(COMPOSE_FILE)
 
 # Set default compose command
-COMPOSE_COMMAND := $(COMPOSE_COMMAND) -f $(COMPOSE_FILE)
+COMPOSE_COMMAND := docker compose -f $(COMPOSE_FILE)
 
 ## help	:	Print commands help.
 .PHONY: help

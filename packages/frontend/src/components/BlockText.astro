@@ -3,12 +3,12 @@ import {
   getAlignmentClass,
   getMaxWidthClass,
   getTextColorClass
-} from '@/lib/util';
+} from '@/lib/utilities';
 import { loadBlockText } from '@/loaders/BlockTextLoader.astro';
 import { marked } from 'marked';
 import { twMerge } from 'tailwind-merge';
 
-type Props = {
+type Properties = {
   alignment?: Awaited<ReturnType<typeof loadBlockText>>['alignment'];
   margin?: Awaited<ReturnType<typeof loadBlockText>>['margin'];
   colorHeadline?: Awaited<ReturnType<typeof loadBlockText>>['color_headline'];
@@ -26,7 +26,7 @@ const {
   margin = true,
   maxWidthContainer,
   text
-} = Astro.props;
+} = Astro.props as Properties;
 
 const renderer = new marked.Renderer();
 

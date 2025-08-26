@@ -1,7 +1,7 @@
 ---
 import type { BackgroundColors } from '../types/backgrounds-colors.type';
 
-export interface Props {
+export interface Properties {
   centered?: boolean;
   background?: BackgroundColors;
   standardPadding?: boolean;
@@ -27,7 +27,7 @@ const colorSchema = {
 <div
   class:list={[
     'mx-auto w-full max-w-website px-8 xl:px-0',
-    colorSchema[background],
+    colorSchema[background as keyof typeof colorSchema],
     { 'text-center': centered },
     { 'px-24': standardPadding },
     { 'rounded-bl-[70px] pb-12 pt-14': rounded }

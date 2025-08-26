@@ -1,7 +1,7 @@
 ---
-type Props = { order?: 'left_column_first' | 'right_column_first' | null };
+type Properties = { order?: 'left_column_first' | 'right_column_first' | null };
 
-const { order } = Astro.props;
+const { order } = Astro.props as Properties;
 ---
 
 <div

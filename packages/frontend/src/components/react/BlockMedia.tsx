@@ -1,12 +1,12 @@
 import { useState } from 'react';
 import ReactPlayer from 'react-player/youtube';
 
-interface Props {
+interface Properties {
   youtubeId: string;
   children?: React.ReactNode;
 }
 
-const BlockVideo: React.FC<Props> = ({ children, youtubeId }) => {
+const BlockVideo: React.FC<Properties> = ({ children, youtubeId }) => {
   // State.
   const [showVideo, setShowVideo] = useState(false);
 

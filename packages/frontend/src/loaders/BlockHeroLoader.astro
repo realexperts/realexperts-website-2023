@@ -2,11 +2,7 @@
 import BlockHeroComponent from '@/components/BlockHero.astro';
 import { client } from '@/lib/directus';
 import { readItem } from '@directus/sdk';
-import { getTypedCtaArray } from './utils';
-
-type Props = {
-  itemId: string;
-};
+import { getTypedCtaArray } from './cta-helpers';
 
 const { itemId } = Astro.props;
 

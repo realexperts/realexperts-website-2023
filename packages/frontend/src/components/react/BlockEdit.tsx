@@ -1,17 +1,17 @@
-import { getMarginBottomClass, getMarginTopClass } from '@/lib/util';
+import { getMarginBottomClass, getMarginTopClass } from '@/lib/utilities';
 import { useStore } from '@nanostores/react';
 import { useMemo } from 'react';
 import { twMerge } from 'tailwind-merge';
 import { $isEditMode } from './store';
 
-type Props = {
+type Properties = {
   children: React.ReactNode;
   id?: number;
   marginTop?: Parameters<typeof getMarginTopClass>[0];
   marginBottom?: Parameters<typeof getMarginBottomClass>[0];
 };
 
-const Edit = ({ children, marginTop, marginBottom }: Props) => {
+const Edit = ({ children, marginTop, marginBottom }: Properties) => {
   const editMode = useStore($isEditMode);
 
   // Get minus top by margin top

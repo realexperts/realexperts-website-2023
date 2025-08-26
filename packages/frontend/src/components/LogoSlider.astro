@@ -4,15 +4,7 @@ import { Image } from 'astro:assets';
 
 <div class='flex items-center justify-center'>
   <div
-    class='swiper-button-prev
-      cursor-pointer
-      p-1
-      text-3xl
-      text-zinc-300
-      transition-colors
-      duration-200
-      ease-in-out
-      hover:text-re-blue'
+    class='swiper-button-prev cursor-pointer p-1 text-3xl text-zinc-300 transition-colors duration-200 ease-in-out hover:text-re-blue'
   >
     <i class='fa-solid fa-chevron-left'></i>
   </div>
@@ -36,22 +28,13 @@ import { Image } from 'astro:assets';
     </div>
   </div>
   <div
-    class='swiper-button-next
-      cursor-pointer
-      p-1
-      text-3xl
-      text-zinc-300
-      transition-colors
-      duration-200
-      ease-in-out
-      hover:text-re-blue'
+    class='swiper-button-next cursor-pointer p-1 text-3xl text-zinc-300 transition-colors duration-200 ease-in-out hover:text-re-blue'
   >
     <i class='fa-solid fa-chevron-right'></i>
   </div>
 </div>
 
 <script>
-  // @ts-nocheck
   import Swiper from 'swiper';
   import { Navigation } from 'swiper/modules';
   import 'swiper/css';
@@ -59,15 +42,23 @@ import { Image } from 'astro:assets';
   for (const [_index, element] of document
     .querySelectorAll('.logo-slider')
     .entries()) {
-    new Swiper(element, {
+    const _swiper = new Swiper(element as HTMLElement, {
       slidesPerView: 4,
       loop: true,
       modules: [Navigation],
 
       navigation: {
-        nextEl: element.parentElement?.querySelector('.swiper-button-next'),
-        prevEl: element.parentElement?.querySelector('.swiper-button-prev')
+        nextEl: element.parentElement?.querySelector(
+          '.swiper-button-next'
+        ) as HTMLElement,
+        prevEl: element.parentElement?.querySelector(
+          '.swiper-button-prev'
+        ) as HTMLElement
       }
+    });
+
+    _swiper.on('slideChange', () => {
+      console.log('slideChange');
     });
   }
 </script>

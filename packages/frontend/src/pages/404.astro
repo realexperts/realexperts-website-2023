@@ -6,20 +6,16 @@ import EditorMode from '@/components/react/EditorMode';
 import Section from '@/components/Section.astro';
 import Layout from '@/layouts/Layout.astro';
 import { fetchNotFoundPage } from '@/lib/directus';
-import BlockCTALoader from '@/loaders/BlockCTALoader.astro';
+import BlockCTALoader from '@/loaders/BlockCtaLoader.astro';
 import BlockFormLoader from '@/loaders/BlockFormLoader.astro';
 import BlockHeroLoader from '@/loaders/BlockHeroLoader.astro';
 import BlockIconTextColumnsLoader from '@/loaders/BlockIconTextColumnsLoader.astro';
 import BlockLogoSliderLoader from '@/loaders/BlockLogoSliderLoader.astro';
 import BlockMediaLoader from '@/loaders/BlockMediaLoader.astro';
-import BlockQNALoader from '@/loaders/BlockQNALoader.astro';
+import BlockQnaLoader from '@/loaders/BlockQnaLoader.astro';
 import BlockSideBySideLoader from '@/loaders/BlockSideBySideLoader.astro';
 import BlockTestimonialLoader from '@/loaders/BlockTestimonialLoader.astro';
 import BlockTextLoader from '@/loaders/BlockTextLoader.astro';
-
-type Props = {
-  page: Awaited<ReturnType<typeof fetchNotFoundPage>>;
-};
 
 const pageWrapper = await fetchNotFoundPage();
 const page = pageWrapper?.translations?.[0];
@@ -90,7 +86,7 @@ const page = pageWrapper?.translations?.[0];
                       marginTop={block.margin_top}
                       marginBottom={block.margin_bottom}
                     >
-                      <BlockQNALoader itemId={block.item} />
+                      <BlockQnaLoader itemId={block.item} />
                     </Block>
                   )}
                   {block.collection === 'block_icon_text_columns' && (

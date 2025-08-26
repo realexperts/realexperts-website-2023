@@ -3,10 +3,6 @@ import BlockTestimonials from '@/components/BlockTestimonials.astro';
 import { client } from '@/lib/directus';
 import { readItem } from '@directus/sdk';
 
-type Props = {
-  itemId: number;
-};
-
 const { itemId } = Astro.props;
 
 export const loadBlockTestimonials = async (itemId: number) => {

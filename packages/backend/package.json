@@ -2,7 +2,7 @@
   "name": "@realexperts/backend",
   "version": "1.0.0",
   "dependencies": {
-    "directus": "^10.12.0",
+    "directus": "^11.10.2",
     "directus-extension-models": "^2.5.2"
   },
   "description": "",

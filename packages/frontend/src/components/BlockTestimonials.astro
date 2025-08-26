@@ -1,8 +1,8 @@
 ---
-import { getMaxWidthClass } from '@/lib/util';
+import { getMaxWidthClass } from '@/lib/utilities';
 import { Image } from 'astro:assets';
 
-type Props = {
+type Properties = {
   maxWidthContainer?: string | null;
   testimonials: {
     image: {
@@ -16,7 +16,7 @@ type Props = {
   }[];
 };
 
-let { maxWidthContainer, testimonials } = Astro.props;
+let { maxWidthContainer, testimonials } = Astro.props as Properties;
 ---
 
 <div
@@ -70,23 +70,28 @@ let { maxWidthContainer, testimonials } = Astro.props;
 </div>
 
 <script>
-  // @ts-nocheck
   import Swiper from 'swiper';
   import { Navigation } from 'swiper/modules';
   import 'swiper/css';
 
-  for (const [index, element] of document
-    .querySelectorAll('.testimonials-slider')
-    .entries()) {
-    new Swiper(element, {
+  for (const element of document.querySelectorAll('.testimonials-slider')) {
+    const swiper = new Swiper(element as HTMLElement, {
       slidesPerView: 1,
       loop: true,
       modules: [Navigation],
 
       navigation: {
-        nextEl: element.parentElement.querySelector('.swiper-button-next'),
-        prevEl: element.parentElement.querySelector('.swiper-button-prev')
+        nextEl: element.parentElement?.querySelector(
+          '.swiper-button-next'
+        ) as HTMLElement,
+        prevEl: element.parentElement?.querySelector(
+          '.swiper-button-prev'
+        ) as HTMLElement
       }
+    });
+
+    swiper.on('slideChange', () => {
+      console.log('slideChange');
     });
   }
 </script>

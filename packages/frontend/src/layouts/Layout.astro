@@ -9,7 +9,7 @@ import { getImage } from 'astro:assets';
 import Footer from './Footer.astro';
 import Header from './Header.astro';
 
-export interface Props {
+export interface Properties {
   page?: ArrayElement<Awaited<ReturnType<typeof fetchPages>>>;
 }
 
@@ -29,8 +29,8 @@ const optimizedMetaImage = metaInformation?.meta_image
         metaInformation?.meta_image.id
       }`,
       format: 'jpg',
-      width: metaInformation?.meta_image.width,
-      height: metaInformation?.meta_image.height,
+      width: metaInformation?.meta_image.width ?? undefined,
+      height: metaInformation?.meta_image.height ?? undefined,
       quality: 80
     })
   : undefined;
@@ -40,8 +40,8 @@ const favicon = settings?.favicon
   ? await getImage({
       src: `${import.meta.env.DIRECTUS_URL}/assets/${settings?.favicon.id}`,
       format: 'png',
-      width: settings?.favicon.width,
-      height: settings?.favicon.height
+      width: settings?.favicon.width ?? undefined,
+      height: settings?.favicon.height ?? undefined
     })
   : undefined;
 ---

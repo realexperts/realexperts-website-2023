@@ -1,13 +1,13 @@
 import { Dialog, Transition } from '@headlessui/react';
 import { Fragment } from 'react';
 
-type Props = {
+type Properties = {
   setOpen: (open: boolean) => void;
   open: boolean;
   url: string;
 };
 
-export default function Modal({ setOpen, open, url }: Props) {
+export default function Modal({ setOpen, open, url }: Properties) {
   return (
     <Transition.Root show={open} as={Fragment}>
       <Dialog as='div' className='relative z-10' onClose={setOpen}>

@@ -4,11 +4,11 @@ import {
   getMarginTopClass,
   getPaddingBottomClass,
   getPaddingTopClass
-} from '@/lib/util';
+} from '@/lib/utilities';
 import { twMerge } from 'tailwind-merge';
 import SectionEdit from './react/SectionEdit';
 
-type Props = {
+type Properties = {
   id?: number;
   marginTop?: Parameters<typeof getMarginTopClass>[0];
   marginBottom?: Parameters<typeof getMarginBottomClass>[0];
@@ -18,6 +18,8 @@ type Props = {
   color?: string | null;
   slug?: string | null;
 };
+
+Astro.props satisfies Properties;
 
 const {
   id,
@@ -67,7 +69,7 @@ const stylesMapping: Record<StyleKey, string> = {
 };
 
 const sectionStyles = section_styles
-  ?.map((style) => {
+  ?.map((style: string) => {
     if (style in stylesMapping) {
       return stylesMapping[style as StyleKey];
     }

@@ -12,18 +12,18 @@ const FormValuesSchema = z.object({
     .min(6, { message: 'Bitte geben Sie eine E-Mail an' }),
   name: z.string().min(2, { message: 'Bitte geben Sie einen Namen an' }),
   message: z.string().min(2, { message: 'Bitte geben Sie eine Nachricht an' }),
-  checkbox: z.boolean().refine((val) => val === true, {
+  checkbox: z.boolean().refine((value) => value === true, {
     message: 'Bitte akzeptieren Sie die Datenschutzerklärung'
   })
 });
 
 type FormValues = z.infer<typeof FormValuesSchema>;
 
-type Props = {
+type Properties = {
   formId: number;
 };
 
-const BlockForm = ({ formId }: Props) => {
+const BlockForm = ({ formId }: Properties) => {
   // State.
   const [sent, setSent] = useState(false);
 

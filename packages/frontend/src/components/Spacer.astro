@@ -1,9 +1,13 @@
 ---
-const { times = 1 } = Astro.props;
+type Properties = {
+  times?: number;
+};
+
+const { times = 1 } = Astro.props as Properties;
 ---
 
 {
-  Array.from({ length: times }).map((_) => (
+  Array.from({ length: times }).map(() => (
     <div class='h-10 font-[0px]'>&nbsp;</div>
   ))
 }

@@ -1,5 +1,5 @@
 ---
-type Props = {
+type Properties = {
   menu: {
     headline: string;
     items: {
@@ -9,7 +9,7 @@ type Props = {
   };
 };
 
-const { menu } = Astro.props;
+const { menu } = Astro.props as Properties;
 ---
 
 <div>

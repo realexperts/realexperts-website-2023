@@ -1,8 +1,8 @@
 ---
-import BlockCTA from '@/components/BlockCTA.astro';
+import BlockCta from '@/components/BlockCta.astro';
 import { client } from '@/lib/directus';
 import { readItem } from '@directus/sdk';
-import { getTypedCtaArray } from './utils';
+import { getTypedCtaArray } from './cta-helpers';
 
 const { itemId } = Astro.props;
 
@@ -29,4 +29,4 @@ const blockCta = {
 };
 ---
 
-<BlockCTA {...blockCta} />
+<BlockCta {...blockCta} />

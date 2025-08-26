@@ -1,14 +1,18 @@
 ---
 import BlockEdit from '@/components/react/BlockEdit';
-import { getMarginBottomClass, getMarginTopClass } from '@/lib/util';
+import { getMarginBottomClass, getMarginTopClass } from '@/lib/utilities';
 
-type Props = {
+type Properties = {
   id?: number;
   marginTop?: Parameters<typeof getMarginTopClass>[0];
   marginBottom?: Parameters<typeof getMarginBottomClass>[0];
 };
 
-const { id, marginTop = 'mt-8', marginBottom = 'mb-8' } = Astro.props;
+const {
+  id,
+  marginTop = 'mt-8',
+  marginBottom = 'mb-8'
+} = Astro.props as Properties;
 ---
 
 <>

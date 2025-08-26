@@ -2,12 +2,12 @@
 import ReactBlockForm from '@/components/react/BlockForm';
 import { marked } from 'marked';
 
-type Props = {
+type Properties = {
   formId: number;
   text: string | null;
 };
 
-const { formId, text } = Astro.props;
+const { formId, text } = Astro.props as Properties;
 ---
 
 <div class='mx-auto my-6 grid max-w-4xl md:grid-cols-3'>

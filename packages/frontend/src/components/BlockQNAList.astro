@@ -1,5 +1,5 @@
 ---
-type Props = {
+type Properties = {
   questionHeading?: string | null;
   answerHeading?: string | null;
   qnaList: {
@@ -8,7 +8,11 @@ type Props = {
   }[];
 };
 
-const { questionHeading, answerHeading, qnaList = [] } = Astro.props;
+const {
+  questionHeading,
+  answerHeading,
+  qnaList = []
+} = Astro.props as Properties;
 ---
 
 {
