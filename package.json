@@ -11,17 +11,14 @@
   },
   "scripts": {
     "dev": "concurrently --kill-others \"npm run backend:start\" \"npm run frontend:dev\"",
-    "backend:bootstrap": "npm run bootstrap -w @realexperts/backend",
-    "backend:start": "npm run start -w @realexperts/backend",
-    "backend:start:bootstrap": "npm run start:bootstrap -w @realexperts/backend",
-    "backend:extension:models:export": "npm run extension:models:export -w @realexperts/backend",
-    "frontend:dev": "npm run dev -w @realexperts/frontend",
-    "frontend:start": "npm run start -w @realexperts/frontend",
-    "frontend:build": "npm run build -w @realexperts/frontend",
-    "lint": "npm run lint -w @realexperts/frontend",
-    "lint:fix": "npm run lint:fix -w @realexperts/frontend",
-    "check-types": "npm run check-types -w @realexperts/frontend",
-    "update": "npx npm-check-updates -ui && npx npm-check-updates -ui -ws"
+    "backend:bootstrap": "yarn run bootstrap @realexperts/backend",
+    "backend:start": "yarn run start @realexperts/backend",
+    "backend:start:bootstrap": "yarn run start:bootstrap @realexperts/backend",
+    "export": "yarn run schema-sync:export @realexperts/backend && yarn run extension:models:export @realexperts/backend",
+    "import": "yarn run schema-sync:import @realexperts/backend && yarn run extension:models:export @realexperts/backend",
+    "frontend:dev": "yarn run dev -w @realexperts/frontend",
+    "frontend:start": "yarn run start -w @realexperts/frontend",
+    "frontend:build": "yarn run build -w @realexperts/frontend"
   },
   "workspaces": [
     "packages/*"
