@@ -1,0 +1,1122 @@
+{
+  "collection": "footer_menu_nodes",
+  "meta": {
+    "accountability": "all",
+    "archive_app_filter": true,
+    "archive_field": null,
+    "archive_value": null,
+    "collapse": "open",
+    "collection": "footer_menu_nodes",
+    "color": null,
+    "display_template": null,
+    "group": "footer_menu_translations",
+    "hidden": true,
+    "icon": null,
+    "item_duplication_fields": null,
+    "note": null,
+    "preview_url": null,
+    "singleton": false,
+    "sort": 1,
+    "sort_field": null,
+    "translations": null,
+    "unarchive_value": null,
+    "versioning": false
+  },
+  "schema": {
+    "name": "footer_menu_nodes"
+  },
+  "fields": [
+    {
+      "field": "anchor",
+      "type": "integer",
+      "meta": {
+        "collection": "footer_menu_nodes",
+        "conditions": [
+          {
+            "hidden": false,
+            "options": {
+              "enableCreate": true,
+              "enableSelect": true
+            },
+            "required": false,
+            "rule": {
+              "_and": [
+                {
+                  "_or": [
+                    {
+                      "_and": [
+                        {
+                          "type": {
+                            "_eq": "intern"
+                          }
+                        },
+                        {
+                          "has_children": {
+                            "_eq": false
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "_and": [
+                        {
+                          "type": {
+                            "_eq": "intern"
+                          }
+                        },
+                        {
+                          "has_children": {
+                            "_eq": true
+                          }
+                        },
+                        {
+                          "is_linked": {
+                            "_eq": true
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        ],
+        "display": null,
+        "display_options": null,
+        "field": "anchor",
+        "group": null,
+        "hidden": true,
+        "interface": "select-dropdown-m2o",
+        "note": null,
+        "options": {
+          "enableCreate": false,
+          "template": "{{slug}}"
+        },
+        "readonly": false,
+        "required": false,
+        "sort": 13,
+        "special": [
+          "m2o"
+        ],
+        "translations": [
+          {
+            "language": "de-DE",
+            "translation": "Mit Seiteninternem Anker verknüpfen"
+          }
+        ],
+        "validation": null,
+        "validation_message": null,
+        "width": "half"
+      },
+      "schema": {
+        "name": "anchor",
+        "table": "footer_menu_nodes",
+        "data_type": "integer",
+        "default_value": null,
+        "max_length": null,
+        "numeric_precision": 32,
+        "numeric_scale": 0,
+        "is_nullable": true,
+        "is_unique": false,
+        "is_indexed": false,
+        "is_primary_key": false,
+        "is_generated": false,
+        "generation_expression": null,
+        "has_auto_increment": false,
+        "foreign_key_table": "sections",
+        "foreign_key_column": "id"
+      }
+    },
+    {
+      "field": "date_created",
+      "type": "timestamp",
+      "meta": {
+        "collection": "footer_menu_nodes",
+        "conditions": null,
+        "display": "datetime",
+        "display_options": {
+          "relative": true
+        },
+        "field": "date_created",
+        "group": null,
+        "hidden": true,
+        "interface": "datetime",
+        "note": null,
+        "options": null,
+        "readonly": true,
+        "required": false,
+        "sort": 3,
+        "special": [
+          "date-created"
+        ],
+        "translations": null,
+        "validation": null,
+        "validation_message": null,
+        "width": "half"
+      },
+      "schema": {
+        "name": "date_created",
+        "table": "footer_menu_nodes",
+        "data_type": "timestamp with time zone",
+        "default_value": null,
+        "max_length": null,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": true,
+        "is_unique": false,
+        "is_indexed": false,
+        "is_primary_key": false,
+        "is_generated": false,
+        "generation_expression": null,
+        "has_auto_increment": false,
+        "foreign_key_table": null,
+        "foreign_key_column": null
+      }
+    },
+    {
+      "field": "date_updated",
+      "type": "timestamp",
+      "meta": {
+        "collection": "footer_menu_nodes",
+        "conditions": null,
+        "display": "datetime",
+        "display_options": {
+          "relative": true
+        },
+        "field": "date_updated",
+        "group": null,
+        "hidden": true,
+        "interface": "datetime",
+        "note": null,
+        "options": null,
+        "readonly": true,
+        "required": false,
+        "sort": 5,
+        "special": [
+          "date-updated"
+        ],
+        "translations": null,
+        "validation": null,
+        "validation_message": null,
+        "width": "half"
+      },
+      "schema": {
+        "name": "date_updated",
+        "table": "footer_menu_nodes",
+        "data_type": "timestamp with time zone",
+        "default_value": null,
+        "max_length": null,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": true,
+        "is_unique": false,
+        "is_indexed": false,
+        "is_primary_key": false,
+        "is_generated": false,
+        "generation_expression": null,
+        "has_auto_increment": false,
+        "foreign_key_table": null,
+        "foreign_key_column": null
+      }
+    },
+    {
+      "field": "has_children",
+      "type": "boolean",
+      "meta": {
+        "collection": "footer_menu_nodes",
+        "conditions": null,
+        "display": null,
+        "display_options": null,
+        "field": "has_children",
+        "group": null,
+        "hidden": false,
+        "interface": "boolean",
+        "note": null,
+        "options": null,
+        "readonly": false,
+        "required": false,
+        "sort": 7,
+        "special": [
+          "cast-boolean"
+        ],
+        "translations": [
+          {
+            "language": "de-DE",
+            "translation": "Ist übergeordneter Menüpunkt"
+          }
+        ],
+        "validation": null,
+        "validation_message": null,
+        "width": "half"
+      },
+      "schema": {
+        "name": "has_children",
+        "table": "footer_menu_nodes",
+        "data_type": "boolean",
+        "default_value": false,
+        "max_length": null,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": true,
+        "is_unique": false,
+        "is_indexed": false,
+        "is_primary_key": false,
+        "is_generated": false,
+        "generation_expression": null,
+        "has_auto_increment": false,
+        "foreign_key_table": null,
+        "foreign_key_column": null
+      }
+    },
+    {
+      "field": "id",
+      "type": "integer",
+      "meta": {
+        "collection": "footer_menu_nodes",
+        "conditions": null,
+        "display": null,
+        "display_options": null,
+        "field": "id",
+        "group": null,
+        "hidden": true,
+        "interface": "input",
+        "note": null,
+        "options": null,
+        "readonly": true,
+        "required": false,
+        "sort": 1,
+        "special": null,
+        "translations": null,
+        "validation": null,
+        "validation_message": null,
+        "width": "full"
+      },
+      "schema": {
+        "name": "id",
+        "table": "footer_menu_nodes",
+        "data_type": "integer",
+        "default_value": null,
+        "max_length": null,
+        "numeric_precision": 32,
+        "numeric_scale": 0,
+        "is_nullable": false,
+        "is_unique": true,
+        "is_indexed": false,
+        "is_primary_key": true,
+        "is_generated": false,
+        "generation_expression": null,
+        "has_auto_increment": true,
+        "foreign_key_table": null,
+        "foreign_key_column": null
+      }
+    },
+    {
+      "field": "is_linked",
+      "type": "boolean",
+      "meta": {
+        "collection": "footer_menu_nodes",
+        "conditions": [
+          {
+            "hidden": false,
+            "options": {
+              "iconOff": "check_box_outline_blank",
+              "iconOn": "check_box",
+              "label": "Aktiviert"
+            },
+            "required": true,
+            "rule": {
+              "_and": [
+                {
+                  "has_children": {
+                    "_eq": true
+                  }
+                }
+              ]
+            }
+          }
+        ],
+        "display": null,
+        "display_options": null,
+        "field": "is_linked",
+        "group": null,
+        "hidden": true,
+        "interface": "boolean",
+        "note": null,
+        "options": null,
+        "readonly": false,
+        "required": false,
+        "sort": 8,
+        "special": [
+          "cast-boolean"
+        ],
+        "translations": [
+          {
+            "language": "de-DE",
+            "translation": "Übergeordneter Menüpunkt kann verlinkt werden"
+          }
+        ],
+        "validation": null,
+        "validation_message": null,
+        "width": "half"
+      },
+      "schema": {
+        "name": "is_linked",
+        "table": "footer_menu_nodes",
+        "data_type": "boolean",
+        "default_value": false,
+        "max_length": null,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": true,
+        "is_unique": false,
+        "is_indexed": false,
+        "is_primary_key": false,
+        "is_generated": false,
+        "generation_expression": null,
+        "has_auto_increment": false,
+        "foreign_key_table": null,
+        "foreign_key_column": null
+      }
+    },
+    {
+      "field": "linked_page",
+      "type": "integer",
+      "meta": {
+        "collection": "footer_menu_nodes",
+        "conditions": [
+          {
+            "hidden": false,
+            "options": {
+              "enableCreate": true,
+              "enableSelect": true
+            },
+            "required": true,
+            "rule": {
+              "_and": [
+                {
+                  "_or": [
+                    {
+                      "_and": [
+                        {
+                          "type": {
+                            "_eq": "intern"
+                          }
+                        },
+                        {
+                          "has_children": {
+                            "_eq": false
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "_and": [
+                        {
+                          "type": {
+                            "_eq": "intern"
+                          }
+                        },
+                        {
+                          "has_children": {
+                            "_eq": true
+                          }
+                        },
+                        {
+                          "is_linked": {
+                            "_eq": true
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        ],
+        "display": null,
+        "display_options": null,
+        "field": "linked_page",
+        "group": null,
+        "hidden": true,
+        "interface": "select-dropdown-m2o",
+        "note": null,
+        "options": {
+          "enableCreate": false
+        },
+        "readonly": false,
+        "required": false,
+        "sort": 12,
+        "special": [
+          "m2o"
+        ],
+        "translations": [
+          {
+            "language": "de-DE",
+            "translation": "Verknüpfte Seite"
+          }
+        ],
+        "validation": null,
+        "validation_message": null,
+        "width": "half"
+      },
+      "schema": {
+        "name": "linked_page",
+        "table": "footer_menu_nodes",
+        "data_type": "integer",
+        "default_value": null,
+        "max_length": null,
+        "numeric_precision": 32,
+        "numeric_scale": 0,
+        "is_nullable": true,
+        "is_unique": false,
+        "is_indexed": false,
+        "is_primary_key": false,
+        "is_generated": false,
+        "generation_expression": null,
+        "has_auto_increment": false,
+        "foreign_key_table": "pages_translations",
+        "foreign_key_column": "id"
+      }
+    },
+    {
+      "field": "nodes",
+      "type": "alias",
+      "meta": {
+        "collection": "footer_menu_nodes",
+        "conditions": [
+          {
+            "hidden": false,
+            "options": {
+              "enableCreate": true,
+              "enableLink": false,
+              "enableSearchFilter": false,
+              "enableSelect": true,
+              "layout": "list",
+              "limit": 15
+            },
+            "required": false,
+            "rule": {
+              "_and": [
+                {
+                  "has_children": {
+                    "_eq": true
+                  }
+                }
+              ]
+            }
+          }
+        ],
+        "display": null,
+        "display_options": null,
+        "field": "nodes",
+        "group": null,
+        "hidden": true,
+        "interface": "list-o2m",
+        "note": null,
+        "options": {
+          "enableSelect": false,
+          "template": "{{title}}"
+        },
+        "readonly": false,
+        "required": false,
+        "sort": 15,
+        "special": [
+          "o2m"
+        ],
+        "translations": [
+          {
+            "language": "de-DE",
+            "translation": "Untergeordnete Menüpunkte"
+          }
+        ],
+        "validation": null,
+        "validation_message": null,
+        "width": "full"
+      }
+    },
+    {
+      "field": "parent_menu",
+      "type": "integer",
+      "meta": {
+        "collection": "footer_menu_nodes",
+        "conditions": null,
+        "display": null,
+        "display_options": null,
+        "field": "parent_menu",
+        "group": null,
+        "hidden": true,
+        "interface": "select-dropdown-m2o",
+        "note": null,
+        "options": null,
+        "readonly": false,
+        "required": false,
+        "sort": 6,
+        "special": null,
+        "translations": null,
+        "validation": null,
+        "validation_message": null,
+        "width": "full"
+      },
+      "schema": {
+        "name": "parent_menu",
+        "table": "footer_menu_nodes",
+        "data_type": "integer",
+        "default_value": null,
+        "max_length": null,
+        "numeric_precision": 32,
+        "numeric_scale": 0,
+        "is_nullable": true,
+        "is_unique": false,
+        "is_indexed": false,
+        "is_primary_key": false,
+        "is_generated": false,
+        "generation_expression": null,
+        "has_auto_increment": false,
+        "foreign_key_table": "footer_menu_translations",
+        "foreign_key_column": "id"
+      }
+    },
+    {
+      "field": "parent_node",
+      "type": "integer",
+      "meta": {
+        "collection": "footer_menu_nodes",
+        "conditions": null,
+        "display": null,
+        "display_options": null,
+        "field": "parent_node",
+        "group": null,
+        "hidden": true,
+        "interface": "select-dropdown-m2o",
+        "note": null,
+        "options": null,
+        "readonly": false,
+        "required": false,
+        "sort": 16,
+        "special": null,
+        "translations": null,
+        "validation": null,
+        "validation_message": null,
+        "width": "full"
+      },
+      "schema": {
+        "name": "parent_node",
+        "table": "footer_menu_nodes",
+        "data_type": "integer",
+        "default_value": null,
+        "max_length": null,
+        "numeric_precision": 32,
+        "numeric_scale": 0,
+        "is_nullable": true,
+        "is_unique": false,
+        "is_indexed": false,
+        "is_primary_key": false,
+        "is_generated": false,
+        "generation_expression": null,
+        "has_auto_increment": false,
+        "foreign_key_table": "footer_menu_nodes",
+        "foreign_key_column": "id"
+      }
+    },
+    {
+      "field": "sort",
+      "type": "integer",
+      "meta": {
+        "collection": "footer_menu_nodes",
+        "conditions": null,
+        "display": null,
+        "display_options": null,
+        "field": "sort",
+        "group": null,
+        "hidden": true,
+        "interface": null,
+        "note": null,
+        "options": null,
+        "readonly": false,
+        "required": false,
+        "sort": 14,
+        "special": null,
+        "translations": null,
+        "validation": null,
+        "validation_message": null,
+        "width": "full"
+      },
+      "schema": {
+        "name": "sort",
+        "table": "footer_menu_nodes",
+        "data_type": "integer",
+        "default_value": null,
+        "max_length": null,
+        "numeric_precision": 32,
+        "numeric_scale": 0,
+        "is_nullable": true,
+        "is_unique": false,
+        "is_indexed": false,
+        "is_primary_key": false,
+        "is_generated": false,
+        "generation_expression": null,
+        "has_auto_increment": false,
+        "foreign_key_table": null,
+        "foreign_key_column": null
+      }
+    },
+    {
+      "field": "title",
+      "type": "string",
+      "meta": {
+        "collection": "footer_menu_nodes",
+        "conditions": null,
+        "display": null,
+        "display_options": null,
+        "field": "title",
+        "group": null,
+        "hidden": false,
+        "interface": "input",
+        "note": null,
+        "options": null,
+        "readonly": false,
+        "required": true,
+        "sort": 10,
+        "special": null,
+        "translations": null,
+        "validation": null,
+        "validation_message": null,
+        "width": "full"
+      },
+      "schema": {
+        "name": "title",
+        "table": "footer_menu_nodes",
+        "data_type": "character varying",
+        "default_value": null,
+        "max_length": 255,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": true,
+        "is_unique": false,
+        "is_indexed": false,
+        "is_primary_key": false,
+        "is_generated": false,
+        "generation_expression": null,
+        "has_auto_increment": false,
+        "foreign_key_table": null,
+        "foreign_key_column": null
+      }
+    },
+    {
+      "field": "type",
+      "type": "string",
+      "meta": {
+        "collection": "footer_menu_nodes",
+        "conditions": [
+          {
+            "options": {
+              "allowOther": false,
+              "iconOff": "radio_button_unchecked",
+              "iconOn": "radio_button_checked"
+            },
+            "readonly": true,
+            "rule": {
+              "_and": [
+                {
+                  "has_children": {
+                    "_eq": true
+                  }
+                },
+                {
+                  "is_linked": {
+                    "_eq": false
+                  }
+                }
+              ]
+            }
+          }
+        ],
+        "display": null,
+        "display_options": null,
+        "field": "type",
+        "group": null,
+        "hidden": false,
+        "interface": "select-radio",
+        "note": null,
+        "options": {
+          "choices": [
+            {
+              "text": "Interne Verlinkung",
+              "value": "intern"
+            },
+            {
+              "text": "Externe Verlinkung",
+              "value": "extern"
+            }
+          ]
+        },
+        "readonly": false,
+        "required": false,
+        "sort": 9,
+        "special": null,
+        "translations": [
+          {
+            "language": "de-DE",
+            "translation": "Typ"
+          }
+        ],
+        "validation": null,
+        "validation_message": null,
+        "width": "full"
+      },
+      "schema": {
+        "name": "type",
+        "table": "footer_menu_nodes",
+        "data_type": "character varying",
+        "default_value": "intern",
+        "max_length": 255,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": true,
+        "is_unique": false,
+        "is_indexed": false,
+        "is_primary_key": false,
+        "is_generated": false,
+        "generation_expression": null,
+        "has_auto_increment": false,
+        "foreign_key_table": null,
+        "foreign_key_column": null
+      }
+    },
+    {
+      "field": "url",
+      "type": "string",
+      "meta": {
+        "collection": "footer_menu_nodes",
+        "conditions": [
+          {
+            "hidden": false,
+            "options": {
+              "clear": false,
+              "font": "sans-serif",
+              "masked": false,
+              "slug": false,
+              "trim": false
+            },
+            "required": true,
+            "rule": {
+              "_and": [
+                {
+                  "_or": [
+                    {
+                      "_and": [
+                        {
+                          "type": {
+                            "_eq": "extern"
+                          }
+                        },
+                        {
+                          "has_children": {
+                            "_eq": false
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "_and": [
+                        {
+                          "type": {
+                            "_eq": "extern"
+                          }
+                        },
+                        {
+                          "has_children": {
+                            "_eq": true
+                          }
+                        },
+                        {
+                          "is_linked": {
+                            "_eq": true
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        ],
+        "display": null,
+        "display_options": null,
+        "field": "url",
+        "group": null,
+        "hidden": true,
+        "interface": "input",
+        "note": null,
+        "options": null,
+        "readonly": false,
+        "required": false,
+        "sort": 11,
+        "special": null,
+        "translations": null,
+        "validation": null,
+        "validation_message": null,
+        "width": "full"
+      },
+      "schema": {
+        "name": "url",
+        "table": "footer_menu_nodes",
+        "data_type": "character varying",
+        "default_value": null,
+        "max_length": 255,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": true,
+        "is_unique": false,
+        "is_indexed": false,
+        "is_primary_key": false,
+        "is_generated": false,
+        "generation_expression": null,
+        "has_auto_increment": false,
+        "foreign_key_table": null,
+        "foreign_key_column": null
+      }
+    },
+    {
+      "field": "user_created",
+      "type": "uuid",
+      "meta": {
+        "collection": "footer_menu_nodes",
+        "conditions": null,
+        "display": "user",
+        "display_options": null,
+        "field": "user_created",
+        "group": null,
+        "hidden": true,
+        "interface": "select-dropdown-m2o",
+        "note": null,
+        "options": {
+          "template": "{{avatar.$thumbnail}} {{first_name}} {{last_name}}"
+        },
+        "readonly": true,
+        "required": false,
+        "sort": 2,
+        "special": [
+          "user-created"
+        ],
+        "translations": null,
+        "validation": null,
+        "validation_message": null,
+        "width": "half"
+      },
+      "schema": {
+        "name": "user_created",
+        "table": "footer_menu_nodes",
+        "data_type": "uuid",
+        "default_value": null,
+        "max_length": null,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": true,
+        "is_unique": false,
+        "is_indexed": false,
+        "is_primary_key": false,
+        "is_generated": false,
+        "generation_expression": null,
+        "has_auto_increment": false,
+        "foreign_key_table": "directus_users",
+        "foreign_key_column": "id"
+      }
+    },
+    {
+      "field": "user_updated",
+      "type": "uuid",
+      "meta": {
+        "collection": "footer_menu_nodes",
+        "conditions": null,
+        "display": "user",
+        "display_options": null,
+        "field": "user_updated",
+        "group": null,
+        "hidden": true,
+        "interface": "select-dropdown-m2o",
+        "note": null,
+        "options": {
+          "template": "{{avatar.$thumbnail}} {{first_name}} {{last_name}}"
+        },
+        "readonly": true,
+        "required": false,
+        "sort": 4,
+        "special": [
+          "user-updated"
+        ],
+        "translations": null,
+        "validation": null,
+        "validation_message": null,
+        "width": "half"
+      },
+      "schema": {
+        "name": "user_updated",
+        "table": "footer_menu_nodes",
+        "data_type": "uuid",
+        "default_value": null,
+        "max_length": null,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": true,
+        "is_unique": false,
+        "is_indexed": false,
+        "is_primary_key": false,
+        "is_generated": false,
+        "generation_expression": null,
+        "has_auto_increment": false,
+        "foreign_key_table": "directus_users",
+        "foreign_key_column": "id"
+      }
+    }
+  ],
+  "relations": [
+    {
+      "field": "user_created",
+      "related_collection": "directus_users",
+      "meta": {
+        "junction_field": null,
+        "many_collection": "footer_menu_nodes",
+        "many_field": "user_created",
+        "one_allowed_collections": null,
+        "one_collection": "directus_users",
+        "one_collection_field": null,
+        "one_deselect_action": "nullify",
+        "one_field": null,
+        "sort_field": null
+      },
+      "schema": {
+        "table": "footer_menu_nodes",
+        "column": "user_created",
+        "foreign_key_table": "directus_users",
+        "foreign_key_column": "id",
+        "constraint_name": "footer_menu_nodes_user_created_foreign",
+        "on_update": "NO ACTION",
+        "on_delete": "NO ACTION"
+      }
+    },
+    {
+      "field": "user_updated",
+      "related_collection": "directus_users",
+      "meta": {
+        "junction_field": null,
+        "many_collection": "footer_menu_nodes",
+        "many_field": "user_updated",
+        "one_allowed_collections": null,
+        "one_collection": "directus_users",
+        "one_collection_field": null,
+        "one_deselect_action": "nullify",
+        "one_field": null,
+        "sort_field": null
+      },
+      "schema": {
+        "table": "footer_menu_nodes",
+        "column": "user_updated",
+        "foreign_key_table": "directus_users",
+        "foreign_key_column": "id",
+        "constraint_name": "footer_menu_nodes_user_updated_foreign",
+        "on_update": "NO ACTION",
+        "on_delete": "NO ACTION"
+      }
+    },
+    {
+      "field": "parent_node",
+      "related_collection": "footer_menu_nodes",
+      "meta": {
+        "junction_field": null,
+        "many_collection": "footer_menu_nodes",
+        "many_field": "parent_node",
+        "one_allowed_collections": null,
+        "one_collection": "footer_menu_nodes",
+        "one_collection_field": null,
+        "one_deselect_action": "delete",
+        "one_field": "nodes",
+        "sort_field": "sort"
+      },
+      "schema": {
+        "table": "footer_menu_nodes",
+        "column": "parent_node",
+        "foreign_key_table": "footer_menu_nodes",
+        "foreign_key_column": "id",
+        "constraint_name": "footer_menu_nodes_parent_node_foreign",
+        "on_update": "NO ACTION",
+        "on_delete": "NO ACTION"
+      }
+    },
+    {
+      "field": "anchor",
+      "related_collection": "sections",
+      "meta": {
+        "junction_field": null,
+        "many_collection": "footer_menu_nodes",
+        "many_field": "anchor",
+        "one_allowed_collections": null,
+        "one_collection": "sections",
+        "one_collection_field": null,
+        "one_deselect_action": "nullify",
+        "one_field": "footer_menu_nodes",
+        "sort_field": null
+      },
+      "schema": {
+        "table": "footer_menu_nodes",
+        "column": "anchor",
+        "foreign_key_table": "sections",
+        "foreign_key_column": "id",
+        "constraint_name": "footer_menu_nodes_anchor_foreign",
+        "on_update": "NO ACTION",
+        "on_delete": "CASCADE"
+      }
+    },
+    {
+      "field": "parent_menu",
+      "related_collection": "footer_menu_translations",
+      "meta": {
+        "junction_field": null,
+        "many_collection": "footer_menu_nodes",
+        "many_field": "parent_menu",
+        "one_allowed_collections": null,
+        "one_collection": "footer_menu_translations",
+        "one_collection_field": null,
+        "one_deselect_action": "delete",
+        "one_field": "nodes",
+        "sort_field": "sort"
+      },
+      "schema": {
+        "table": "footer_menu_nodes",
+        "column": "parent_menu",
+        "foreign_key_table": "footer_menu_translations",
+        "foreign_key_column": "id",
+        "constraint_name": "footer_menu_nodes_parent_menu_foreign",
+        "on_update": "NO ACTION",
+        "on_delete": "CASCADE"
+      }
+    },
+    {
+      "field": "linked_page",
+      "related_collection": "pages_translations",
+      "meta": {
+        "junction_field": null,
+        "many_collection": "footer_menu_nodes",
+        "many_field": "linked_page",
+        "one_allowed_collections": null,
+        "one_collection": "pages_translations",
+        "one_collection_field": null,
+        "one_deselect_action": "nullify",
+        "one_field": "footer_menu_nodes",
+        "sort_field": null
+      },
+      "schema": {
+        "table": "footer_menu_nodes",
+        "column": "linked_page",
+        "foreign_key_table": "pages_translations",
+        "foreign_key_column": "id",
+        "constraint_name": "footer_menu_nodes_linked_page_foreign",
+        "on_update": "NO ACTION",
+        "on_delete": "CASCADE"
+      }
+    }
+  ]
+}

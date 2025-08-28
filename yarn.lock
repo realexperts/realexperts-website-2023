@@ -4193,6 +4193,7 @@ __metadata:
   dependencies:
     directus: "npm:^11.10.2"
     directus-extension-models: "npm:^2.5.2"
+    directus-extension-schema-sync: "npm:^3.0.9"
   languageName: unknown
   linkType: soft
 
@@ -9055,6 +9056,15 @@ __metadata:
   version: 2.5.2
   resolution: "directus-extension-models@npm:2.5.2"
   checksum: 10c0/e62c77a33233e41a4c8ed7faaa1fad27677074eb9e8707ad636bece0b4d6f682646722c10766e52d3d62ddacba2ebf75964f4cd7324ea86233ab80b266b59767
+  languageName: node
+  linkType: hard
+
+"directus-extension-schema-sync@npm:^3.0.9":
+  version: 3.0.9
+  resolution: "directus-extension-schema-sync@npm:3.0.9"
+  dependencies:
+    glob: "npm:^10.4.5"
+  checksum: 10c0/a435b86ad483a0ab1d5c2b6c02654aa5a38aee6f25372d1caa93c120d507b87793a4f7aef26ba76addc55d506a05a6819d0178f5afb06d878250f6005914b0c1
   languageName: node
   linkType: hard
 

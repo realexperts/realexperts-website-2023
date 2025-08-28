@@ -1,0 +1,58 @@
+{
+  "collection": "directus_files",
+  "fields": [
+    {
+      "field": "block_hero",
+      "type": "alias",
+      "meta": {
+        "collection": "directus_files",
+        "conditions": null,
+        "display": null,
+        "display_options": null,
+        "field": "block_hero",
+        "group": null,
+        "hidden": false,
+        "interface": "list-o2m",
+        "note": null,
+        "options": null,
+        "readonly": false,
+        "required": false,
+        "sort": 2,
+        "special": [
+          "o2m"
+        ],
+        "translations": null,
+        "validation": null,
+        "validation_message": null,
+        "width": "full"
+      }
+    },
+    {
+      "field": "pages_translations_meta_image",
+      "type": "alias",
+      "meta": {
+        "collection": "directus_files",
+        "conditions": null,
+        "display": null,
+        "display_options": null,
+        "field": "pages_translations_meta_image",
+        "group": null,
+        "hidden": false,
+        "interface": "list-o2m",
+        "note": null,
+        "options": null,
+        "readonly": false,
+        "required": false,
+        "sort": 1,
+        "special": [
+          "o2m"
+        ],
+        "translations": null,
+        "validation": null,
+        "validation_message": null,
+        "width": "full"
+      }
+    }
+  ],
+  "relations": []
+}

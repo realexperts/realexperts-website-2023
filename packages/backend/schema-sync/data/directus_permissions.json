@@ -1,0 +1,387 @@
+[
+  {
+    "action": "read",
+    "collection": "block_cta",
+    "fields": [
+      "*"
+    ],
+    "permissions": {},
+    "policy": "905563fb-f5e8-4f97-8f87-3948dfd2dd85",
+    "presets": null,
+    "validation": {}
+  },
+  {
+    "action": "read",
+    "collection": "block_cta_ctas",
+    "fields": [
+      "*"
+    ],
+    "permissions": {},
+    "policy": "905563fb-f5e8-4f97-8f87-3948dfd2dd85",
+    "presets": null,
+    "validation": {}
+  },
+  {
+    "action": "read",
+    "collection": "block_form",
+    "fields": [
+      "*"
+    ],
+    "permissions": {},
+    "policy": "905563fb-f5e8-4f97-8f87-3948dfd2dd85",
+    "presets": null,
+    "validation": {}
+  },
+  {
+    "action": "read",
+    "collection": "block_hero",
+    "fields": [
+      "*"
+    ],
+    "permissions": {},
+    "policy": "905563fb-f5e8-4f97-8f87-3948dfd2dd85",
+    "presets": null,
+    "validation": {}
+  },
+  {
+    "action": "read",
+    "collection": "block_hero_ctas",
+    "fields": [
+      "*"
+    ],
+    "permissions": {},
+    "policy": "905563fb-f5e8-4f97-8f87-3948dfd2dd85",
+    "presets": null,
+    "validation": {}
+  },
+  {
+    "action": "read",
+    "collection": "block_icon_text_columns",
+    "fields": [
+      "*"
+    ],
+    "permissions": {},
+    "policy": "905563fb-f5e8-4f97-8f87-3948dfd2dd85",
+    "presets": null,
+    "validation": {}
+  },
+  {
+    "action": "read",
+    "collection": "block_icon_text_columns_block_icon_text_columns_column",
+    "fields": [
+      "*"
+    ],
+    "permissions": {},
+    "policy": "905563fb-f5e8-4f97-8f87-3948dfd2dd85",
+    "presets": null,
+    "validation": {}
+  },
+  {
+    "action": "read",
+    "collection": "block_icon_text_columns_column",
+    "fields": [
+      "*"
+    ],
+    "permissions": {},
+    "policy": "905563fb-f5e8-4f97-8f87-3948dfd2dd85",
+    "presets": null,
+    "validation": {}
+  },
+  {
+    "action": "read",
+    "collection": "block_logo_slider",
+    "fields": [
+      "*"
+    ],
+    "permissions": {},
+    "policy": "905563fb-f5e8-4f97-8f87-3948dfd2dd85",
+    "presets": null,
+    "validation": {}
+  },
+  {
+    "action": "read",
+    "collection": "block_media",
+    "fields": [
+      "*"
+    ],
+    "permissions": {},
+    "policy": "905563fb-f5e8-4f97-8f87-3948dfd2dd85",
+    "presets": null,
+    "validation": {}
+  },
+  {
+    "action": "read",
+    "collection": "block_qna_list",
+    "fields": [
+      "*"
+    ],
+    "permissions": {},
+    "policy": "905563fb-f5e8-4f97-8f87-3948dfd2dd85",
+    "presets": null,
+    "validation": {}
+  },
+  {
+    "action": "read",
+    "collection": "block_side_by_side",
+    "fields": [
+      "*"
+    ],
+    "permissions": {},
+    "policy": "905563fb-f5e8-4f97-8f87-3948dfd2dd85",
+    "presets": null,
+    "validation": {}
+  },
+  {
+    "action": "read",
+    "collection": "block_side_by_side_left_column",
+    "fields": [
+      "*"
+    ],
+    "permissions": {},
+    "policy": "905563fb-f5e8-4f97-8f87-3948dfd2dd85",
+    "presets": null,
+    "validation": {}
+  },
+  {
+    "action": "read",
+    "collection": "block_side_by_side_right_column",
+    "fields": [
+      "*"
+    ],
+    "permissions": {},
+    "policy": "905563fb-f5e8-4f97-8f87-3948dfd2dd85",
+    "presets": null,
+    "validation": {}
+  },
+  {
+    "action": "read",
+    "collection": "block_testimonials",
+    "fields": [
+      "*"
+    ],
+    "permissions": {},
+    "policy": "905563fb-f5e8-4f97-8f87-3948dfd2dd85",
+    "presets": null,
+    "validation": {}
+  },
+  {
+    "action": "read",
+    "collection": "block_testimonials_testimonial",
+    "fields": [
+      "*"
+    ],
+    "permissions": {},
+    "policy": "905563fb-f5e8-4f97-8f87-3948dfd2dd85",
+    "presets": null,
+    "validation": {}
+  },
+  {
+    "action": "read",
+    "collection": "block_text",
+    "fields": [
+      "*"
+    ],
+    "permissions": {},
+    "policy": "905563fb-f5e8-4f97-8f87-3948dfd2dd85",
+    "presets": null,
+    "validation": {}
+  },
+  {
+    "action": "read",
+    "collection": "directus_files",
+    "fields": [
+      "*"
+    ],
+    "permissions": {},
+    "policy": "905563fb-f5e8-4f97-8f87-3948dfd2dd85",
+    "presets": null,
+    "validation": {}
+  },
+  {
+    "action": "read",
+    "collection": "element_cta_external",
+    "fields": [
+      "*"
+    ],
+    "permissions": {},
+    "policy": "905563fb-f5e8-4f97-8f87-3948dfd2dd85",
+    "presets": null,
+    "validation": {}
+  },
+  {
+    "action": "read",
+    "collection": "element_cta_internal",
+    "fields": [
+      "*"
+    ],
+    "permissions": {},
+    "policy": "905563fb-f5e8-4f97-8f87-3948dfd2dd85",
+    "presets": null,
+    "validation": {}
+  },
+  {
+    "action": "read",
+    "collection": "footer_menu",
+    "fields": [
+      "*"
+    ],
+    "permissions": {},
+    "policy": "905563fb-f5e8-4f97-8f87-3948dfd2dd85",
+    "presets": null,
+    "validation": {}
+  },
+  {
+    "action": "read",
+    "collection": "footer_menu_nodes",
+    "fields": [
+      "*"
+    ],
+    "permissions": {},
+    "policy": "905563fb-f5e8-4f97-8f87-3948dfd2dd85",
+    "presets": null,
+    "validation": {}
+  },
+  {
+    "action": "read",
+    "collection": "footer_menu_translations",
+    "fields": [
+      "*"
+    ],
+    "permissions": {},
+    "policy": "905563fb-f5e8-4f97-8f87-3948dfd2dd85",
+    "presets": null,
+    "validation": {}
+  },
+  {
+    "action": "read",
+    "collection": "languages",
+    "fields": [
+      "*"
+    ],
+    "permissions": {},
+    "policy": "905563fb-f5e8-4f97-8f87-3948dfd2dd85",
+    "presets": null,
+    "validation": {}
+  },
+  {
+    "action": "read",
+    "collection": "logo_slider_slides",
+    "fields": [
+      "*"
+    ],
+    "permissions": {},
+    "policy": "905563fb-f5e8-4f97-8f87-3948dfd2dd85",
+    "presets": null,
+    "validation": {}
+  },
+  {
+    "action": "read",
+    "collection": "main_menu",
+    "fields": [
+      "*"
+    ],
+    "permissions": {},
+    "policy": "905563fb-f5e8-4f97-8f87-3948dfd2dd85",
+    "presets": null,
+    "validation": {}
+  },
+  {
+    "action": "read",
+    "collection": "main_menu_nodes",
+    "fields": [
+      "*"
+    ],
+    "permissions": {},
+    "policy": "905563fb-f5e8-4f97-8f87-3948dfd2dd85",
+    "presets": null,
+    "validation": {}
+  },
+  {
+    "action": "read",
+    "collection": "main_menu_translations",
+    "fields": [
+      "*"
+    ],
+    "permissions": {},
+    "policy": "905563fb-f5e8-4f97-8f87-3948dfd2dd85",
+    "presets": null,
+    "validation": {}
+  },
+  {
+    "action": "read",
+    "collection": "pages",
+    "fields": [
+      "*"
+    ],
+    "permissions": {},
+    "policy": "905563fb-f5e8-4f97-8f87-3948dfd2dd85",
+    "presets": null,
+    "validation": {}
+  },
+  {
+    "action": "read",
+    "collection": "pages_translations",
+    "fields": [
+      "*"
+    ],
+    "permissions": {},
+    "policy": "905563fb-f5e8-4f97-8f87-3948dfd2dd85",
+    "presets": null,
+    "validation": {}
+  },
+  {
+    "action": "read",
+    "collection": "pages_translations_sections",
+    "fields": [
+      "*"
+    ],
+    "permissions": {},
+    "policy": "905563fb-f5e8-4f97-8f87-3948dfd2dd85",
+    "presets": null,
+    "validation": {}
+  },
+  {
+    "action": "read",
+    "collection": "sections",
+    "fields": [
+      "*"
+    ],
+    "permissions": {},
+    "policy": "905563fb-f5e8-4f97-8f87-3948dfd2dd85",
+    "presets": null,
+    "validation": {}
+  },
+  {
+    "action": "read",
+    "collection": "sections_blocks",
+    "fields": [
+      "*"
+    ],
+    "permissions": {},
+    "policy": "905563fb-f5e8-4f97-8f87-3948dfd2dd85",
+    "presets": null,
+    "validation": {}
+  },
+  {
+    "action": "read",
+    "collection": "settings",
+    "fields": [
+      "*"
+    ],
+    "permissions": {},
+    "policy": "905563fb-f5e8-4f97-8f87-3948dfd2dd85",
+    "presets": null,
+    "validation": {}
+  },
+  {
+    "action": "read",
+    "collection": "directus_files",
+    "fields": [
+      "*"
+    ],
+    "permissions": {},
+    "policy": "abf8a154-5b1c-4a46-ac9c-7300570f4f17",
+    "presets": null,
+    "validation": {}
+  }
+]

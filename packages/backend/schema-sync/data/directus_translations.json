@@ -1,0 +1,92 @@
+[
+  {
+    "key": "center",
+    "language": "de-DE",
+    "value": "Zentriert"
+  },
+  {
+    "key": "color_headline",
+    "language": "de-DE",
+    "value": "Farbe Überschrift"
+  },
+  {
+    "key": "draft",
+    "language": "de-DE",
+    "value": "Vorschau"
+  },
+  {
+    "key": "full_width",
+    "language": "de-DE",
+    "value": "Volle Breite"
+  },
+  {
+    "key": "image",
+    "language": "de-DE",
+    "value": "Bild"
+  },
+  {
+    "key": "left",
+    "language": "de-DE",
+    "value": "Links"
+  },
+  {
+    "key": "left_column_first",
+    "language": "de-DE",
+    "value": "Linke Spalte zuerst"
+  },
+  {
+    "key": "published",
+    "language": "de-DE",
+    "value": "Veröffentlicht"
+  },
+  {
+    "key": "re_blue",
+    "language": "de-DE",
+    "value": "RE-Blau"
+  },
+  {
+    "key": "right",
+    "language": "de-DE",
+    "value": "Rechts"
+  },
+  {
+    "key": "right_column_first",
+    "language": "de-DE",
+    "value": "Rechte Spalte zuerst"
+  },
+  {
+    "key": "rounded_bl",
+    "language": "de-DE",
+    "value": "Abgerundet unten links"
+  },
+  {
+    "key": "rounded_br",
+    "language": "de-DE",
+    "value": "Abgerundet unten rechts"
+  },
+  {
+    "key": "rounded_tl",
+    "language": "de-DE",
+    "value": "Abgerundet oben links"
+  },
+  {
+    "key": "rounded_tr",
+    "language": "de-DE",
+    "value": "Abgerundet oben rechts"
+  },
+  {
+    "key": "turquoise",
+    "language": "de-DE",
+    "value": "Türkis"
+  },
+  {
+    "key": "white",
+    "language": "de-DE",
+    "value": "Weiß"
+  },
+  {
+    "key": "youtube_video",
+    "language": "de-DE",
+    "value": "YouTube-Video"
+  }
+]

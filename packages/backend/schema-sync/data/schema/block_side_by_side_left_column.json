@@ -1,0 +1,242 @@
+{
+  "collection": "block_side_by_side_left_column",
+  "meta": {
+    "accountability": "all",
+    "archive_app_filter": true,
+    "archive_field": null,
+    "archive_value": null,
+    "collapse": "open",
+    "collection": "block_side_by_side_left_column",
+    "color": null,
+    "display_template": null,
+    "group": "block_side_by_side",
+    "hidden": true,
+    "icon": "import_export",
+    "item_duplication_fields": null,
+    "note": null,
+    "preview_url": null,
+    "singleton": false,
+    "sort": 1,
+    "sort_field": null,
+    "translations": null,
+    "unarchive_value": null,
+    "versioning": false
+  },
+  "schema": {
+    "name": "block_side_by_side_left_column"
+  },
+  "fields": [
+    {
+      "field": "block_side_by_side_id",
+      "type": "integer",
+      "meta": {
+        "collection": "block_side_by_side_left_column",
+        "conditions": null,
+        "display": null,
+        "display_options": null,
+        "field": "block_side_by_side_id",
+        "group": null,
+        "hidden": true,
+        "interface": null,
+        "note": null,
+        "options": null,
+        "readonly": false,
+        "required": false,
+        "sort": 3,
+        "special": null,
+        "translations": null,
+        "validation": null,
+        "validation_message": null,
+        "width": "full"
+      },
+      "schema": {
+        "name": "block_side_by_side_id",
+        "table": "block_side_by_side_left_column",
+        "data_type": "integer",
+        "default_value": null,
+        "max_length": null,
+        "numeric_precision": 32,
+        "numeric_scale": 0,
+        "is_nullable": true,
+        "is_unique": false,
+        "is_indexed": false,
+        "is_primary_key": false,
+        "is_generated": false,
+        "generation_expression": null,
+        "has_auto_increment": false,
+        "foreign_key_table": "block_side_by_side",
+        "foreign_key_column": "id"
+      }
+    },
+    {
+      "field": "collection",
+      "type": "string",
+      "meta": {
+        "collection": "block_side_by_side_left_column",
+        "conditions": null,
+        "display": null,
+        "display_options": null,
+        "field": "collection",
+        "group": null,
+        "hidden": true,
+        "interface": null,
+        "note": null,
+        "options": null,
+        "readonly": false,
+        "required": false,
+        "sort": 5,
+        "special": null,
+        "translations": null,
+        "validation": null,
+        "validation_message": null,
+        "width": "full"
+      },
+      "schema": {
+        "name": "collection",
+        "table": "block_side_by_side_left_column",
+        "data_type": "character varying",
+        "default_value": null,
+        "max_length": 255,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": true,
+        "is_unique": false,
+        "is_indexed": false,
+        "is_primary_key": false,
+        "is_generated": false,
+        "generation_expression": null,
+        "has_auto_increment": false,
+        "foreign_key_table": null,
+        "foreign_key_column": null
+      }
+    },
+    {
+      "field": "id",
+      "type": "integer",
+      "meta": {
+        "collection": "block_side_by_side_left_column",
+        "conditions": null,
+        "display": null,
+        "display_options": null,
+        "field": "id",
+        "group": null,
+        "hidden": true,
+        "interface": null,
+        "note": null,
+        "options": null,
+        "readonly": false,
+        "required": false,
+        "sort": 1,
+        "special": null,
+        "translations": null,
+        "validation": null,
+        "validation_message": null,
+        "width": "full"
+      },
+      "schema": {
+        "name": "id",
+        "table": "block_side_by_side_left_column",
+        "data_type": "integer",
+        "default_value": null,
+        "max_length": null,
+        "numeric_precision": 32,
+        "numeric_scale": 0,
+        "is_nullable": false,
+        "is_unique": true,
+        "is_indexed": false,
+        "is_primary_key": true,
+        "is_generated": false,
+        "generation_expression": null,
+        "has_auto_increment": true,
+        "foreign_key_table": null,
+        "foreign_key_column": null
+      }
+    },
+    {
+      "field": "item",
+      "type": "string",
+      "meta": {
+        "collection": "block_side_by_side_left_column",
+        "conditions": null,
+        "display": null,
+        "display_options": null,
+        "field": "item",
+        "group": null,
+        "hidden": true,
+        "interface": null,
+        "note": null,
+        "options": null,
+        "readonly": false,
+        "required": false,
+        "sort": 4,
+        "special": null,
+        "translations": null,
+        "validation": null,
+        "validation_message": null,
+        "width": "full"
+      },
+      "schema": {
+        "name": "item",
+        "table": "block_side_by_side_left_column",
+        "data_type": "character varying",
+        "default_value": null,
+        "max_length": 255,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": true,
+        "is_unique": false,
+        "is_indexed": false,
+        "is_primary_key": false,
+        "is_generated": false,
+        "generation_expression": null,
+        "has_auto_increment": false,
+        "foreign_key_table": null,
+        "foreign_key_column": null
+      }
+    }
+  ],
+  "relations": [
+    {
+      "field": "block_side_by_side_id",
+      "related_collection": "block_side_by_side",
+      "meta": {
+        "junction_field": "item",
+        "many_collection": "block_side_by_side_left_column",
+        "many_field": "block_side_by_side_id",
+        "one_allowed_collections": null,
+        "one_collection": "block_side_by_side",
+        "one_collection_field": null,
+        "one_deselect_action": "delete",
+        "one_field": "left_column",
+        "sort_field": null
+      },
+      "schema": {
+        "table": "block_side_by_side_left_column",
+        "column": "block_side_by_side_id",
+        "foreign_key_table": "block_side_by_side",
+        "foreign_key_column": "id",
+        "constraint_name": "block_side_by_side_left_column_block_side_by_side_id_foreign",
+        "on_update": "NO ACTION",
+        "on_delete": "CASCADE"
+      }
+    },
+    {
+      "field": "item",
+      "related_collection": null,
+      "meta": {
+        "junction_field": "block_side_by_side_id",
+        "many_collection": "block_side_by_side_left_column",
+        "many_field": "item",
+        "one_allowed_collections": [
+          "block_media",
+          "block_text"
+        ],
+        "one_collection": null,
+        "one_collection_field": "collection",
+        "one_deselect_action": "nullify",
+        "one_field": null,
+        "sort_field": null
+      }
+    }
+  ]
+}

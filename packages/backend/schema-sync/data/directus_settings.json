@@ -1,0 +1,87 @@
+[
+  {
+    "accepted_terms": true,
+    "auth_login_attempts": 25,
+    "auth_password_policy": null,
+    "basemaps": null,
+    "custom_aspect_ratios": null,
+    "custom_css": "#app, #main-content, body {\n  --primary-alt: #edeff1 !important;\n  --primary-10: #edeff1 !important;\n  --primary-25: #d3d6dd !important;\n  --primary-50: #a7adbb !important;\n  --primary-75: #7b8498 !important;\n  --primary-90: #616b84 !important;\n\n  --primary: #4f5b76 !important;\n\n  --primary-110: #47526a !important;\n  --primary-125: #3b4459 !important;\n  --primary-150: #282e3b !important;\n  --primary-175: #14171e !important;\n  --primary-190: #08090c !important;\n\n  --v-button-background-color: #4f5b76 !important;\n  --v-button-background-color-hover: #47526a !important;\n  --sidebar-detail-color-active: #47526a !important;\n}",
+    "default_appearance": "auto",
+    "default_language": "de-DE",
+    "default_theme_dark": null,
+    "default_theme_light": null,
+    "id": 1,
+    "mapbox_key": null,
+    "module_bar": [
+      {
+        "enabled": true,
+        "id": "content",
+        "type": "module"
+      },
+      {
+        "enabled": false,
+        "id": "visual",
+        "type": "module"
+      },
+      {
+        "enabled": false,
+        "id": "users",
+        "type": "module"
+      },
+      {
+        "enabled": true,
+        "id": "files",
+        "type": "module"
+      },
+      {
+        "enabled": false,
+        "id": "insights",
+        "type": "module"
+      },
+      {
+        "enabled": true,
+        "id": "settings",
+        "locked": true,
+        "type": "module"
+      },
+      {
+        "enabled": true,
+        "icon": "publish",
+        "id": "p1H6zI6ogN6nZn0qKPTwh",
+        "name": "Publish",
+        "type": "link",
+        "url": "https://api.vercel.com/v1/integrations/deploy/prj_84io5I0f6j0EGOOK86RJTiTSh4dn/9Z7IaxyuO1"
+      },
+      {
+        "enabled": true,
+        "icon": "restart_alt",
+        "id": "NLUFlJipW11MX74loT7eY",
+        "name": "Reload Preview",
+        "type": "link",
+        "url": "https://api.vercel.com/v1/integrations/deploy/prj_NJYdQ3yOSk8Th3JOYP7gLKVnmEds/vvjg1VUicV"
+      }
+    ],
+    "project_color": "#0F3F93",
+    "project_descriptor": null,
+    "project_id": "018b104b-1bc5-7bb9-b0af-54ea2895f0a9",
+    "project_logo": "c416a156-f61c-46f3-ac65-a584cc2e6449",
+    "project_name": "Real Experts",
+    "public_background": "5d8cd076-5525-49ed-ac5b-f5f1b2c1b307",
+    "public_favicon": null,
+    "public_foreground": null,
+    "public_note": null,
+    "public_registration": false,
+    "public_registration_email_filter": null,
+    "public_registration_role": null,
+    "public_registration_verify_email": true,
+    "report_bug_url": null,
+    "report_error_url": null,
+    "report_feature_url": null,
+    "storage_asset_presets": null,
+    "storage_asset_transform": "all",
+    "storage_default_folder": null,
+    "theme_dark_overrides": null,
+    "theme_light_overrides": null,
+    "visual_editor_urls": null
+  }
+]

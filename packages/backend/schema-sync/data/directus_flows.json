@@ -1,0 +1,30 @@
+[
+  {
+    "accountability": "all",
+    "color": null,
+    "date_created": "2023-11-24T10:25:11.044Z",
+    "description": null,
+    "icon": "bolt",
+    "id": "2665c993-99a9-4434-bb67-a838c2bb3e80",
+    "name": "Formular versenden --> E-Mail an Empfänger",
+    "operation": "4c413380-0fd1-42d6-b6b9-c84f46b3a6da",
+    "options": {},
+    "status": "active",
+    "trigger": "operation"
+  },
+  {
+    "accountability": "all",
+    "color": null,
+    "date_created": "2023-11-24T10:24:58.980Z",
+    "description": null,
+    "icon": "bolt",
+    "id": "7c54e420-88a6-46e7-906b-03f8f9c403af",
+    "name": "Formular versenden --> E-Mail an Absender",
+    "operation": "2c84c6c5-b632-43d8-a695-fb56acbba384",
+    "options": {
+      "return": "$last"
+    },
+    "status": "active",
+    "trigger": "operation"
+  }
+]

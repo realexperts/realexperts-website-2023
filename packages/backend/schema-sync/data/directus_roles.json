@@ -1,0 +1,16 @@
+[
+  {
+    "description": "$t:admin_description",
+    "icon": "verified",
+    "id": "05407e7f-1f84-4bae-bf92-c5c3830965dc",
+    "name": "Administrator",
+    "parent": null
+  },
+  {
+    "description": null,
+    "icon": "supervised_user_circle",
+    "id": "905563fb-f5e8-4f97-8f87-3948dfd2dd85",
+    "name": "Astro",
+    "parent": null
+  }
+]

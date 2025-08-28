@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "dependencies": {
     "directus": "^11.10.2",
-    "directus-extension-models": "^2.5.2"
+    "directus-extension-models": "^2.5.2",
+    "directus-extension-schema-sync": "^3.0.9"
   },
   "description": "",
   "license": "ISC",
@@ -11,6 +12,8 @@
     "bootstrap": "directus bootstrap",
     "start": "directus start",
     "start:bootstrap": "directus bootstrap && directus start",
-    "extension:models:export": "directus models snapshot ../frontend/src/lib/types.ts"
+    "extension:models:export": "directus models snapshot ../frontend/src/lib/types.ts",
+    "schema-sync:export": "directus schema-sync export",
+    "schema-sync:import": "directus schema-sync import"
   }
 }

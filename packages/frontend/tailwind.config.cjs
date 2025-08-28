@@ -31,12 +31,22 @@ module.exports = {
     },
     extend: {
       colors: {
-        're-blue': '#0F3F93',
-        're-gray': '#EEECEC',
-        're-turquoise': '#2DB7BC',
-        're-turquoise-light': '#EAF4F5',
-        're-turquoise-bright': '#87E0E3',
-        're-red': '#E7314B'
+        re: {
+          blue: '#0F3F93',
+          gray: '#EEECEC',
+          turquoise: '#2DB7BC',
+          turquoiseLight: '#EAF4F5',
+          turquoiseBright: '#87E0E3',
+          red: '#E7314B'
+        },
+        ha: {
+          blue: '#2F6D4D', // dunkler Grünton als Primärfarbe
+          gray: '#F1F1F1', // neutrales, helles Grau
+          turquoise: '#93DAB7', // deine Basisfarbe
+          turquoiseLight: '#E6F7F0', // sehr hell, Hintergrund
+          turquoiseBright: '#BFF0D8', // kräftigere Variante
+          red: '#F46A6A' // Kontrast / CTA
+        }
       },
       fontFamily: {
         sans: ['Poppins', ...defaultTheme.fontFamily.sans],

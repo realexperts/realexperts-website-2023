@@ -1,0 +1,32 @@
+[
+  {
+    "admin_access": false,
+    "app_access": false,
+    "description": "$t:public_description",
+    "enforce_tfa": false,
+    "icon": "public",
+    "id": "abf8a154-5b1c-4a46-ac9c-7300570f4f17",
+    "ip_access": null,
+    "name": "$t:public_label"
+  },
+  {
+    "admin_access": true,
+    "app_access": true,
+    "description": "$t:admin_policy_description",
+    "enforce_tfa": false,
+    "icon": "verified",
+    "id": "05407e7f-1f84-4bae-bf92-c5c3830965dc",
+    "ip_access": null,
+    "name": "Administrator"
+  },
+  {
+    "admin_access": false,
+    "app_access": false,
+    "description": null,
+    "enforce_tfa": false,
+    "icon": "supervised_user_circle",
+    "id": "905563fb-f5e8-4f97-8f87-3948dfd2dd85",
+    "ip_access": null,
+    "name": "Astro"
+  }
+]

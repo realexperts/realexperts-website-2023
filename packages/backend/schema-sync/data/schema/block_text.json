@@ -1,0 +1,909 @@
+{
+  "collection": "block_text",
+  "meta": {
+    "accountability": "all",
+    "archive_app_filter": true,
+    "archive_field": "status",
+    "archive_value": "archived",
+    "collapse": "open",
+    "collection": "block_text",
+    "color": null,
+    "display_template": "zuletzt geändert {{date_updated}}",
+    "group": "sections_blocks",
+    "hidden": false,
+    "icon": "format_color_text",
+    "item_duplication_fields": null,
+    "note": null,
+    "preview_url": null,
+    "singleton": false,
+    "sort": 2,
+    "sort_field": null,
+    "translations": [
+      {
+        "language": "de-DE",
+        "plural": "Text",
+        "singular": "Text",
+        "translation": "Text"
+      }
+    ],
+    "unarchive_value": "draft",
+    "versioning": false
+  },
+  "schema": {
+    "name": "block_text"
+  },
+  "fields": [
+    {
+      "field": "alignment",
+      "type": "string",
+      "meta": {
+        "collection": "block_text",
+        "conditions": null,
+        "display": null,
+        "display_options": null,
+        "field": "alignment",
+        "group": null,
+        "hidden": false,
+        "interface": "select-radio",
+        "note": null,
+        "options": {
+          "choices": [
+            {
+              "text": "Linksbündig",
+              "value": "left"
+            },
+            {
+              "text": "Zentriert",
+              "value": "center"
+            },
+            {
+              "text": "Rechtsbündig",
+              "value": "right"
+            }
+          ]
+        },
+        "readonly": false,
+        "required": false,
+        "sort": 9,
+        "special": null,
+        "translations": null,
+        "validation": null,
+        "validation_message": null,
+        "width": "full"
+      },
+      "schema": {
+        "name": "alignment",
+        "table": "block_text",
+        "data_type": "character varying",
+        "default_value": "center",
+        "max_length": 255,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": true,
+        "is_unique": false,
+        "is_indexed": false,
+        "is_primary_key": false,
+        "is_generated": false,
+        "generation_expression": null,
+        "has_auto_increment": false,
+        "foreign_key_table": null,
+        "foreign_key_column": null
+      }
+    },
+    {
+      "field": "color_headline",
+      "type": "string",
+      "meta": {
+        "collection": "block_text",
+        "conditions": null,
+        "display": null,
+        "display_options": null,
+        "field": "color_headline",
+        "group": null,
+        "hidden": false,
+        "interface": "select-dropdown",
+        "note": null,
+        "options": {
+          "choices": [
+            {
+              "text": "$t:re_blue",
+              "value": "re_blue"
+            },
+            {
+              "text": "$t:turquoise",
+              "value": "turquoise"
+            },
+            {
+              "text": "$t:white",
+              "value": "white"
+            }
+          ]
+        },
+        "readonly": false,
+        "required": true,
+        "sort": 12,
+        "special": null,
+        "translations": [
+          {
+            "language": "de-DE",
+            "translation": "Farbe Überschrift"
+          }
+        ],
+        "validation": null,
+        "validation_message": null,
+        "width": "full"
+      },
+      "schema": {
+        "name": "color_headline",
+        "table": "block_text",
+        "data_type": "character varying",
+        "default_value": "re_blue",
+        "max_length": 255,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": true,
+        "is_unique": false,
+        "is_indexed": false,
+        "is_primary_key": false,
+        "is_generated": false,
+        "generation_expression": null,
+        "has_auto_increment": false,
+        "foreign_key_table": null,
+        "foreign_key_column": null
+      }
+    },
+    {
+      "field": "color_text",
+      "type": "string",
+      "meta": {
+        "collection": "block_text",
+        "conditions": null,
+        "display": null,
+        "display_options": null,
+        "field": "color_text",
+        "group": null,
+        "hidden": false,
+        "interface": "select-dropdown",
+        "note": null,
+        "options": {
+          "choices": [
+            {
+              "text": "RE-Blau",
+              "value": "re_blue"
+            },
+            {
+              "text": "Türkis",
+              "value": "turquoise"
+            },
+            {
+              "text": "Weiß",
+              "value": "white"
+            }
+          ]
+        },
+        "readonly": false,
+        "required": true,
+        "sort": 13,
+        "special": null,
+        "translations": [
+          {
+            "language": "de-DE",
+            "translation": "Farbe Text"
+          }
+        ],
+        "validation": null,
+        "validation_message": null,
+        "width": "full"
+      },
+      "schema": {
+        "name": "color_text",
+        "table": "block_text",
+        "data_type": "character varying",
+        "default_value": "re_blue",
+        "max_length": 255,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": true,
+        "is_unique": false,
+        "is_indexed": false,
+        "is_primary_key": false,
+        "is_generated": false,
+        "generation_expression": null,
+        "has_auto_increment": false,
+        "foreign_key_table": null,
+        "foreign_key_column": null
+      }
+    },
+    {
+      "field": "date_created",
+      "type": "timestamp",
+      "meta": {
+        "collection": "block_text",
+        "conditions": null,
+        "display": "datetime",
+        "display_options": {
+          "relative": true
+        },
+        "field": "date_created",
+        "group": null,
+        "hidden": true,
+        "interface": "datetime",
+        "note": null,
+        "options": null,
+        "readonly": true,
+        "required": false,
+        "sort": 4,
+        "special": [
+          "date-created"
+        ],
+        "translations": null,
+        "validation": null,
+        "validation_message": null,
+        "width": "half"
+      },
+      "schema": {
+        "name": "date_created",
+        "table": "block_text",
+        "data_type": "timestamp with time zone",
+        "default_value": null,
+        "max_length": null,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": true,
+        "is_unique": false,
+        "is_indexed": false,
+        "is_primary_key": false,
+        "is_generated": false,
+        "generation_expression": null,
+        "has_auto_increment": false,
+        "foreign_key_table": null,
+        "foreign_key_column": null
+      }
+    },
+    {
+      "field": "date_updated",
+      "type": "timestamp",
+      "meta": {
+        "collection": "block_text",
+        "conditions": null,
+        "display": "datetime",
+        "display_options": {
+          "relative": true
+        },
+        "field": "date_updated",
+        "group": null,
+        "hidden": true,
+        "interface": "datetime",
+        "note": null,
+        "options": null,
+        "readonly": true,
+        "required": false,
+        "sort": 6,
+        "special": [
+          "date-updated",
+          "date-created"
+        ],
+        "translations": null,
+        "validation": null,
+        "validation_message": null,
+        "width": "half"
+      },
+      "schema": {
+        "name": "date_updated",
+        "table": "block_text",
+        "data_type": "timestamp with time zone",
+        "default_value": null,
+        "max_length": null,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": true,
+        "is_unique": false,
+        "is_indexed": false,
+        "is_primary_key": false,
+        "is_generated": false,
+        "generation_expression": null,
+        "has_auto_increment": false,
+        "foreign_key_table": null,
+        "foreign_key_column": null
+      }
+    },
+    {
+      "field": "design",
+      "type": "string",
+      "meta": {
+        "collection": "block_text",
+        "conditions": null,
+        "display": null,
+        "display_options": null,
+        "field": "design",
+        "group": null,
+        "hidden": true,
+        "interface": "select-radio",
+        "note": null,
+        "options": {
+          "choices": [
+            {
+              "text": "Dunkelblau komplett",
+              "value": "style_1"
+            },
+            {
+              "text": "Weiß komplett",
+              "value": "style_2"
+            },
+            {
+              "text": "Türkis komplett",
+              "value": "style_3"
+            },
+            {
+              "text": "Dunkelblaue Überschrift, Türkiser Text",
+              "value": "style_4"
+            },
+            {
+              "text": "Weiße Überschrift, Türkiser Text",
+              "value": "style_5"
+            }
+          ]
+        },
+        "readonly": false,
+        "required": true,
+        "sort": 8,
+        "special": null,
+        "translations": null,
+        "validation": null,
+        "validation_message": null,
+        "width": "full"
+      },
+      "schema": {
+        "name": "design",
+        "table": "block_text",
+        "data_type": "character varying",
+        "default_value": "style_1",
+        "max_length": 255,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": true,
+        "is_unique": false,
+        "is_indexed": false,
+        "is_primary_key": false,
+        "is_generated": false,
+        "generation_expression": null,
+        "has_auto_increment": false,
+        "foreign_key_table": null,
+        "foreign_key_column": null
+      }
+    },
+    {
+      "field": "id",
+      "type": "integer",
+      "meta": {
+        "collection": "block_text",
+        "conditions": null,
+        "display": null,
+        "display_options": null,
+        "field": "id",
+        "group": null,
+        "hidden": true,
+        "interface": "input",
+        "note": null,
+        "options": null,
+        "readonly": true,
+        "required": false,
+        "sort": 1,
+        "special": null,
+        "translations": null,
+        "validation": null,
+        "validation_message": null,
+        "width": "full"
+      },
+      "schema": {
+        "name": "id",
+        "table": "block_text",
+        "data_type": "integer",
+        "default_value": null,
+        "max_length": null,
+        "numeric_precision": 32,
+        "numeric_scale": 0,
+        "is_nullable": false,
+        "is_unique": true,
+        "is_indexed": false,
+        "is_primary_key": true,
+        "is_generated": false,
+        "generation_expression": null,
+        "has_auto_increment": true,
+        "foreign_key_table": null,
+        "foreign_key_column": null
+      }
+    },
+    {
+      "field": "margin",
+      "type": "boolean",
+      "meta": {
+        "collection": "block_text",
+        "conditions": null,
+        "display": null,
+        "display_options": null,
+        "field": "margin",
+        "group": null,
+        "hidden": false,
+        "interface": "boolean",
+        "note": null,
+        "options": null,
+        "readonly": false,
+        "required": false,
+        "sort": 7,
+        "special": [
+          "cast-boolean"
+        ],
+        "translations": [
+          {
+            "language": "de-DE",
+            "translation": "Außenabstand"
+          }
+        ],
+        "validation": null,
+        "validation_message": null,
+        "width": "full"
+      },
+      "schema": {
+        "name": "margin",
+        "table": "block_text",
+        "data_type": "boolean",
+        "default_value": true,
+        "max_length": null,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": true,
+        "is_unique": false,
+        "is_indexed": false,
+        "is_primary_key": false,
+        "is_generated": false,
+        "generation_expression": null,
+        "has_auto_increment": false,
+        "foreign_key_table": null,
+        "foreign_key_column": null
+      }
+    },
+    {
+      "field": "max_width",
+      "type": "string",
+      "meta": {
+        "collection": "block_text",
+        "conditions": null,
+        "display": null,
+        "display_options": null,
+        "field": "max_width",
+        "group": null,
+        "hidden": false,
+        "interface": "select-dropdown",
+        "note": null,
+        "options": {
+          "choices": [
+            {
+              "text": "max-w-none",
+              "value": "max-w-none"
+            },
+            {
+              "text": "max-w-xs",
+              "value": "max-w-xs"
+            },
+            {
+              "text": "max-w-sm",
+              "value": "max-w-sm"
+            },
+            {
+              "text": "max-w-md",
+              "value": "max-w-md"
+            },
+            {
+              "text": "max-w-lg",
+              "value": "max-w-lg"
+            },
+            {
+              "text": "max-w-xl",
+              "value": "max-w-xl"
+            },
+            {
+              "text": "max-w-2xl",
+              "value": "max-w-2xl"
+            }
+          ]
+        },
+        "readonly": false,
+        "required": false,
+        "sort": 10,
+        "special": null,
+        "translations": [
+          {
+            "language": "de-DE",
+            "translation": "Laufweite des Texts"
+          }
+        ],
+        "validation": null,
+        "validation_message": null,
+        "width": "full"
+      },
+      "schema": {
+        "name": "max_width",
+        "table": "block_text",
+        "data_type": "character varying",
+        "default_value": "max-w-none",
+        "max_length": 255,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": true,
+        "is_unique": false,
+        "is_indexed": false,
+        "is_primary_key": false,
+        "is_generated": false,
+        "generation_expression": null,
+        "has_auto_increment": false,
+        "foreign_key_table": null,
+        "foreign_key_column": null
+      }
+    },
+    {
+      "field": "max_width_container",
+      "type": "string",
+      "meta": {
+        "collection": "block_text",
+        "conditions": null,
+        "display": null,
+        "display_options": null,
+        "field": "max_width_container",
+        "group": null,
+        "hidden": false,
+        "interface": "select-dropdown",
+        "note": null,
+        "options": {
+          "choices": [
+            {
+              "text": "max-w-none",
+              "value": "max-w-none"
+            },
+            {
+              "text": "max-w-xs",
+              "value": "max-w-xs"
+            },
+            {
+              "text": "max-w-sm",
+              "value": "max-w-sm"
+            },
+            {
+              "text": "max-w-md",
+              "value": "max-w-md"
+            },
+            {
+              "text": "max-w-lg",
+              "value": "max-w-lg"
+            },
+            {
+              "text": "max-w-xl",
+              "value": "max-w-xl"
+            },
+            {
+              "text": "max-w-2xl",
+              "value": "max-w-2xl"
+            }
+          ]
+        },
+        "readonly": false,
+        "required": false,
+        "sort": 11,
+        "special": null,
+        "translations": [
+          {
+            "language": "de-DE",
+            "translation": "Maximalbreite des Containers, der den Text umschließt. Der Container wird immer zentriert dargestellt."
+          }
+        ],
+        "validation": null,
+        "validation_message": null,
+        "width": "full"
+      },
+      "schema": {
+        "name": "max_width_container",
+        "table": "block_text",
+        "data_type": "character varying",
+        "default_value": "max-w-none",
+        "max_length": 255,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": true,
+        "is_unique": false,
+        "is_indexed": false,
+        "is_primary_key": false,
+        "is_generated": false,
+        "generation_expression": null,
+        "has_auto_increment": false,
+        "foreign_key_table": null,
+        "foreign_key_column": null
+      }
+    },
+    {
+      "field": "status",
+      "type": "string",
+      "meta": {
+        "collection": "block_text",
+        "conditions": null,
+        "display": "labels",
+        "display_options": {
+          "choices": [
+            {
+              "background": "var(--primary)",
+              "foreground": "#FFFFFF",
+              "text": "$t:published",
+              "value": "published"
+            },
+            {
+              "background": "#D3DAE4",
+              "foreground": "#18222F",
+              "text": "$t:draft",
+              "value": "draft"
+            },
+            {
+              "background": "var(--warning)",
+              "foreground": "#FFFFFF",
+              "text": "$t:archived",
+              "value": "archived"
+            }
+          ],
+          "showAsDot": true
+        },
+        "field": "status",
+        "group": null,
+        "hidden": true,
+        "interface": "select-dropdown",
+        "note": null,
+        "options": {
+          "choices": [
+            {
+              "text": "$t:published",
+              "value": "published"
+            },
+            {
+              "text": "$t:draft",
+              "value": "draft"
+            },
+            {
+              "text": "$t:archived",
+              "value": "archived"
+            }
+          ]
+        },
+        "readonly": false,
+        "required": false,
+        "sort": 2,
+        "special": null,
+        "translations": null,
+        "validation": null,
+        "validation_message": null,
+        "width": "full"
+      },
+      "schema": {
+        "name": "status",
+        "table": "block_text",
+        "data_type": "character varying",
+        "default_value": "published",
+        "max_length": 255,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": true,
+        "is_unique": false,
+        "is_indexed": false,
+        "is_primary_key": false,
+        "is_generated": false,
+        "generation_expression": null,
+        "has_auto_increment": false,
+        "foreign_key_table": null,
+        "foreign_key_column": null
+      }
+    },
+    {
+      "field": "text",
+      "type": "text",
+      "meta": {
+        "collection": "block_text",
+        "conditions": null,
+        "display": null,
+        "display_options": null,
+        "field": "text",
+        "group": null,
+        "hidden": false,
+        "interface": "input-rich-text-md",
+        "note": null,
+        "options": {
+          "customSyntax": [
+            {
+              "box": "inline",
+              "icon": "sports_soccer",
+              "name": "Hellblau",
+              "prefix": "<hell>",
+              "suffix": "</hell>"
+            }
+          ],
+          "toolbar": [
+            "heading",
+            "bold",
+            "italic",
+            "bullist",
+            "numlist",
+            "empty"
+          ]
+        },
+        "readonly": false,
+        "required": true,
+        "sort": 14,
+        "special": null,
+        "translations": [
+          {
+            "language": "de-DE",
+            "translation": "Text"
+          }
+        ],
+        "validation": null,
+        "validation_message": null,
+        "width": "full"
+      },
+      "schema": {
+        "name": "text",
+        "table": "block_text",
+        "data_type": "text",
+        "default_value": null,
+        "max_length": null,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": true,
+        "is_unique": false,
+        "is_indexed": false,
+        "is_primary_key": false,
+        "is_generated": false,
+        "generation_expression": null,
+        "has_auto_increment": false,
+        "foreign_key_table": null,
+        "foreign_key_column": null
+      }
+    },
+    {
+      "field": "user_created",
+      "type": "uuid",
+      "meta": {
+        "collection": "block_text",
+        "conditions": null,
+        "display": "user",
+        "display_options": null,
+        "field": "user_created",
+        "group": null,
+        "hidden": true,
+        "interface": "select-dropdown-m2o",
+        "note": null,
+        "options": {
+          "template": "{{avatar.$thumbnail}} {{first_name}} {{last_name}}"
+        },
+        "readonly": true,
+        "required": false,
+        "sort": 3,
+        "special": [
+          "user-created"
+        ],
+        "translations": null,
+        "validation": null,
+        "validation_message": null,
+        "width": "half"
+      },
+      "schema": {
+        "name": "user_created",
+        "table": "block_text",
+        "data_type": "uuid",
+        "default_value": null,
+        "max_length": null,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": true,
+        "is_unique": false,
+        "is_indexed": false,
+        "is_primary_key": false,
+        "is_generated": false,
+        "generation_expression": null,
+        "has_auto_increment": false,
+        "foreign_key_table": "directus_users",
+        "foreign_key_column": "id"
+      }
+    },
+    {
+      "field": "user_updated",
+      "type": "uuid",
+      "meta": {
+        "collection": "block_text",
+        "conditions": null,
+        "display": "user",
+        "display_options": null,
+        "field": "user_updated",
+        "group": null,
+        "hidden": true,
+        "interface": "select-dropdown-m2o",
+        "note": null,
+        "options": {
+          "template": "{{avatar.$thumbnail}} {{first_name}} {{last_name}}"
+        },
+        "readonly": true,
+        "required": false,
+        "sort": 5,
+        "special": [
+          "user-updated"
+        ],
+        "translations": null,
+        "validation": null,
+        "validation_message": null,
+        "width": "half"
+      },
+      "schema": {
+        "name": "user_updated",
+        "table": "block_text",
+        "data_type": "uuid",
+        "default_value": null,
+        "max_length": null,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": true,
+        "is_unique": false,
+        "is_indexed": false,
+        "is_primary_key": false,
+        "is_generated": false,
+        "generation_expression": null,
+        "has_auto_increment": false,
+        "foreign_key_table": "directus_users",
+        "foreign_key_column": "id"
+      }
+    }
+  ],
+  "relations": [
+    {
+      "field": "user_created",
+      "related_collection": "directus_users",
+      "meta": {
+        "junction_field": null,
+        "many_collection": "block_text",
+        "many_field": "user_created",
+        "one_allowed_collections": null,
+        "one_collection": "directus_users",
+        "one_collection_field": null,
+        "one_deselect_action": "nullify",
+        "one_field": null,
+        "sort_field": null
+      },
+      "schema": {
+        "table": "block_text",
+        "column": "user_created",
+        "foreign_key_table": "directus_users",
+        "foreign_key_column": "id",
+        "constraint_name": "block_text_user_created_foreign",
+        "on_update": "NO ACTION",
+        "on_delete": "NO ACTION"
+      }
+    },
+    {
+      "field": "user_updated",
+      "related_collection": "directus_users",
+      "meta": {
+        "junction_field": null,
+        "many_collection": "block_text",
+        "many_field": "user_updated",
+        "one_allowed_collections": null,
+        "one_collection": "directus_users",
+        "one_collection_field": null,
+        "one_deselect_action": "nullify",
+        "one_field": null,
+        "sort_field": null
+      },
+      "schema": {
+        "table": "block_text",
+        "column": "user_updated",
+        "foreign_key_table": "directus_users",
+        "foreign_key_column": "id",
+        "constraint_name": "block_text_user_updated_foreign",
+        "on_update": "NO ACTION",
+        "on_delete": "NO ACTION"
+      }
+    }
+  ]
+}

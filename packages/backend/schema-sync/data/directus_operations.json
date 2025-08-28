@@ -1,0 +1,101 @@
+[
+  {
+    "date_created": "2023-11-24T10:32:19.374Z",
+    "flow": "7c54e420-88a6-46e7-906b-03f8f9c403af",
+    "id": "0522b387-7cc2-463e-adb5-358e66e3d7b2",
+    "key": "mail_nx14o",
+    "name": "Email senden",
+    "options": {
+      "body": "{{ $trigger.data.sender_email_text }}",
+      "subject": "{{ $trigger.data.sender_email_subject }}",
+      "to": [
+        "{{ $trigger.email }}"
+      ]
+    },
+    "position_x": 37,
+    "position_y": 1,
+    "reject": null,
+    "resolve": null,
+    "type": "mail"
+  },
+  {
+    "date_created": "2023-11-24T10:29:02.875Z",
+    "flow": "7c54e420-88a6-46e7-906b-03f8f9c403af",
+    "id": "2c84c6c5-b632-43d8-a695-fb56acbba384",
+    "key": "condition_bqidv",
+    "name": "Kondition",
+    "options": {
+      "filter": {
+        "$trigger": {
+          "data": {
+            "send_confirmation_to_sender": {
+              "_eq": true
+            }
+          }
+        }
+      }
+    },
+    "position_x": 19,
+    "position_y": 1,
+    "reject": null,
+    "resolve": "0522b387-7cc2-463e-adb5-358e66e3d7b2",
+    "type": "condition"
+  },
+  {
+    "date_created": "2023-11-24T10:44:09.038Z",
+    "flow": "2665c993-99a9-4434-bb67-a838c2bb3e80",
+    "id": "4c413380-0fd1-42d6-b6b9-c84f46b3a6da",
+    "key": "condition_yixr4",
+    "name": "Kondition",
+    "options": {
+      "filter": {
+        "$trigger": {
+          "data": {
+            "send_confirmation_to_receiver": {
+              "_eq": true
+            }
+          }
+        }
+      }
+    },
+    "position_x": 19,
+    "position_y": 1,
+    "reject": null,
+    "resolve": "8358e9b4-9fe4-4700-89b9-1cad55c315ff",
+    "type": "condition"
+  },
+  {
+    "date_created": "2023-11-24T10:40:33.828Z",
+    "flow": "2665c993-99a9-4434-bb67-a838c2bb3e80",
+    "id": "8358e9b4-9fe4-4700-89b9-1cad55c315ff",
+    "key": "exec_n0007",
+    "name": "Skript ausführen",
+    "options": {
+      "code": "module.exports = async function(data) {\n\t// Do something...\n\treturn data[\"$trigger\"][\"data\"][\"receiver_email_list\"].map(({ email }) => {\n        return email\n    }).join(\",\")\n}"
+    },
+    "position_x": 37,
+    "position_y": 1,
+    "reject": null,
+    "resolve": "df07e9af-b526-4a2f-bba5-a5bad9e945c8",
+    "type": "exec"
+  },
+  {
+    "date_created": "2023-11-24T10:42:09.053Z",
+    "flow": "2665c993-99a9-4434-bb67-a838c2bb3e80",
+    "id": "df07e9af-b526-4a2f-bba5-a5bad9e945c8",
+    "key": "mail_05bze",
+    "name": "Email senden",
+    "options": {
+      "body": "\n**Es ist eine neue E-Mail aus dem Kontaktofmrulat eingegangen:**\n\n````markdown\n{{ $trigger.formData.message }}\n````",
+      "subject": "RealExperts: Es ist eine neue Nachricht eingegangen",
+      "to": [
+        "{{ $last }}"
+      ]
+    },
+    "position_x": 55,
+    "position_y": 1,
+    "reject": null,
+    "resolve": null,
+    "type": "mail"
+  }
+]
