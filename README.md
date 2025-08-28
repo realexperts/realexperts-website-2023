@@ -21,7 +21,7 @@ Follow these steps to set up the project locally:
 
 1. **Install Node Packages:**
    ```bash
-   npm ci
+   yarn
    ```
 
 2. **Environment Setup:**
@@ -57,7 +57,7 @@ Make sure, your public key is added to the `~/.ssh/authorized_keys` file on the 
 
 - To start the development server, use:
   ```bash
-  npm run dev
+yarn dev
   ```
 
 # Additional commands
@@ -66,7 +66,7 @@ Make sure, your public key is added to the `~/.ssh/authorized_keys` file on the 
 
 - Run the following command to export TypeScript models for the frontend:
   ```bash
-  npm backend:extension:models:export
+ yarn export
   ```
 
 ---
