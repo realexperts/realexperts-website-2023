@@ -26,13 +26,13 @@ echo "(4) Importing dump $DUMP ..."
 make -s exec database "pg_restore --no-acl --no-owner -d $LOCAL_DB_CONNECTION_STRING /dumps/production/$DUMP"
 
 echo "(5) Running migrations ..."
-npm run backend:bootstrap
+yarn bootstrap
 
-echo "(5) Export models ..."
-npm run backend:extension:models:export
+echo "(6) Importing schema ..."
+yarn import
 
-echo "(6) Run lint:fix ..."
-npm run lint:fix
+echo "(7) Exporting models ..."
+yarn export
 
 echo ""
 echo "##########################################"

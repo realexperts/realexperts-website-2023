@@ -11,14 +11,17 @@
   },
   "scripts": {
     "dev": "yarn workspaces foreach -Api run dev",
-    "backend:bootstrap": "yarn run bootstrap @realexperts/backend",
+    "bootstrap": "yarn workspaces foreach -Api run bootstrap",
     "backend:start": "yarn run start @realexperts/backend",
     "backend:start:bootstrap": "yarn run start:bootstrap @realexperts/backend",
     "export": "yarn run schema-sync:export @realexperts/backend && yarn run extension:models:export @realexperts/backend",
     "import": "yarn run schema-sync:import @realexperts/backend && yarn run extension:models:export @realexperts/backend",
     "frontend:dev": "yarn run dev -w @realexperts/frontend",
     "frontend:start": "yarn run start -w @realexperts/frontend",
-    "frontend:build": "yarn run build -w @realexperts/frontend"
+    "frontend:build": "yarn run build -w @realexperts/frontend",
+    "lint": "yarn workspaces foreach -Api run lint",
+    "lint:fix": "yarn workspaces foreach -Api run lint:fix",
+    "check-types": "yarn workspaces foreach -Api run check-types"
   },
   "workspaces": [
     "packages/*"

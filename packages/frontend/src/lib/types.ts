@@ -3043,30 +3043,6 @@ export interface DirectusSetting {
    module_bar: any | null;
 
   /**
-   * No description.
-   *
-   * Type in directus: string
-   * Type in database: character varying
-   */
-   mv_hash: string;
-
-  /**
-   * No description.
-   *
-   * Type in directus: boolean
-   * Type in database: boolean
-   */
-   mv_locked: boolean;
-
-  /**
-   * No description.
-   *
-   * Type in directus: timestamp
-   * Type in database: timestamp with time zone
-   */
-   mv_ts: string;
-
-  /**
    * $t:field_options.directus_settings.project_color_note
    *
    * Type in directus: string
