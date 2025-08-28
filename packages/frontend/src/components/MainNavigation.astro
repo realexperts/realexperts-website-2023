@@ -36,9 +36,9 @@ const mainMenu = await fetchMainMenu();
           return (
             <li
               class:list={[
-                'ml-11 text-right hover:text-re-turquoise',
-                { 'text-re-turquoise': pathname === href },
-                { 'text-re-blue': pathname !== href }
+                'ml-11 text-right hover:text-secondary',
+                { 'text-secondary': pathname === href },
+                { 'text-primary': pathname !== href }
               ]}
             >
               <a href={href} set:text={menuItem?.title} />
@@ -52,7 +52,7 @@ const mainMenu = await fetchMainMenu();
         target='_blank'
         title='LinkedIn Profil'
       >
-        <i class='fa-brands fa-linkedin text-2xl text-re-blue'></i>
+        <i class='fa-brands fa-linkedin text-2xl text-primary'></i>
       </a>
     </li>
     <li class='ml-6 text-right'>
@@ -61,12 +61,12 @@ const mainMenu = await fetchMainMenu();
         target='_blank'
         title='Termin vereinbaren'
       >
-        <i class='fa-solid fa-calendar-check text-2xl text-re-blue'></i>
+        <i class='fa-solid fa-calendar-check text-2xl text-primary'></i>
       </a>
     </li>
     <li class='ml-6 text-right'>
       <a href='/#kontakt' title='Kontakt aufnehmen'>
-        <i class='fa-solid fa-envelope text-2xl text-re-blue'></i>
+        <i class='fa-solid fa-envelope text-2xl text-primary'></i>
       </a>
     </li>
   </ul>

@@ -71,26 +71,26 @@ const BlockForm = ({ formId }: Properties) => {
       <input type='hidden' {...register('formId')} />
       <div className='col-span-2 md:col-span-1'>
         <input
-          className='block w-full p-2.5 text-re-blue placeholder:text-re-blue'
+          className='block w-full p-2.5 text-primary placeholder:text-primary'
           type='text'
           placeholder='Name'
           {...register('name')}
         />
         {errors.name && (
-          <div className='mt-2 text-left text-sm text-re-red'>
+          <div className='mt-2 text-left text-sm text-accent'>
             {errors.name.message}
           </div>
         )}
       </div>
       <div className='col-span-2 md:col-span-1'>
         <input
-          className='block w-full p-2.5 text-re-blue placeholder:text-re-blue'
+          className='block w-full p-2.5 text-primary placeholder:text-primary'
           type='email'
           placeholder='E-Mail'
           {...register('email')}
         />
         {errors.email && (
-          <div className='mt-2 text-left text-sm text-re-red'>
+          <div className='mt-2 text-left text-sm text-accent'>
             {errors.email.message}
           </div>
         )}
@@ -100,16 +100,16 @@ const BlockForm = ({ formId }: Properties) => {
           placeholder='Nachricht'
           cols={30}
           rows={6}
-          className='w-full p-2.5 text-re-blue placeholder:text-re-blue'
+          className='w-full p-2.5 text-primary placeholder:text-primary'
           {...register('message')}
         />
         {errors.message && (
-          <div className='mt-2 text-left text-sm text-re-red'>
+          <div className='mt-2 text-left text-sm text-accent'>
             {errors.message.message}
           </div>
         )}
       </div>
-      <div className='col-span-2 text-sm text-re-blue'>
+      <div className='col-span-2 text-sm text-primary'>
         <label className='flex cursor-pointer items-start gap-2'>
           <input
             type='checkbox'
@@ -120,7 +120,7 @@ const BlockForm = ({ formId }: Properties) => {
           <span
             className={twMerge(
               'relative left-0 -mt-1 mr-2 inline-block h-6 w-6 flex-none cursor-pointer bg-white transition-all duration-300 ease-in-out',
-              checked && 'bg-re-blue'
+              checked && 'bg-primary'
             )}
           >
             <div
@@ -135,7 +135,7 @@ const BlockForm = ({ formId }: Properties) => {
           </span>
         </label>
         {errors.checkbox && (
-          <div className='mt-2 text-left text-sm text-re-red'>
+          <div className='mt-2 text-left text-sm text-accent'>
             {errors.checkbox.message}
           </div>
         )}
@@ -143,14 +143,14 @@ const BlockForm = ({ formId }: Properties) => {
       <div className='col-span-2 mt-12 flex justify-end'>
         <button
           type='submit'
-          className='inline-block whitespace-nowrap bg-re-red px-12 py-3 text-lg font-bold uppercase tracking-wide text-white'
+          className='inline-block whitespace-nowrap bg-accent px-12 py-3 text-lg font-bold uppercase tracking-wide text-white'
         >
           Absenden
         </button>
       </div>
 
       {sent && (
-        <div className='col-span-2 mt-6 text-re-blue'>
+        <div className='col-span-2 mt-6 text-primary'>
           Vielen Dank für Ihre Nachricht. Wir werden uns schnellstmöglich bei
           Ihnen melden.
         </div>

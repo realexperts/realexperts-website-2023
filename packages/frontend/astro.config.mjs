@@ -10,7 +10,7 @@ import robotsConfig from './robots-txt.config';
 
 const isProduction = process.env.BUILD_MODE === 'production';
 const isDraft = process.env.BUILD_MODE === 'draft';
-const isDev = !isProduction && !isDraft;
+const isDevelopment = !isProduction && !isDraft;
 
 let adapter = node({
   mode: 'standalone'
@@ -24,7 +24,7 @@ if (isDraft) {
   adapter = vercel();
 }
 
-if (isDev) {
+if (isDevelopment) {
   adapter = node({
     mode: 'development'
   });
@@ -32,7 +32,7 @@ if (isDev) {
 
 console.log('isProduction', isProduction);
 console.log('isDraft', isDraft);
-console.log('isDev', isDev);
+console.log('isDev', isDevelopment);
 
 // https://astro.build/config
 export default defineConfig({
@@ -52,6 +52,6 @@ export default defineConfig({
     }),
     sitemap()
   ],
-  output: isProduction || isDev ? 'static' : 'server',
+  output: isProduction || isDevelopment ? 'static' : 'server',
   adapter
 });

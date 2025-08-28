@@ -4867,6 +4867,14 @@ export interface Setting {
    * Type in database: boolean
    */
    robots_index: boolean | null;
+
+  /**
+   * No description.
+   *
+   * Type in directus: string
+   * Type in database: character varying
+   */
+   theme: 're-blue' | 'hg-green' | null;
 }
 
 

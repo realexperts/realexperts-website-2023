@@ -3,7 +3,7 @@ const { faIcon, linkText, linkHref, linkTarget } = Astro.props;
 ---
 
 <div
-  class='flex items-center gap-12 bg-re-turquoise px-24 py-12 font-serif text-xl text-white'
+  class='flex items-center gap-12 bg-secondary px-24 py-12 font-serif text-xl text-white'
 >
   <div class='flex w-[26%] justify-end'>
     <i class={`fa-solid fa-${faIcon} text-[150px]`}></i>
@@ -11,7 +11,7 @@ const { faIcon, linkText, linkHref, linkTarget } = Astro.props;
   <div class='mt-6'>
     <slot />
     <a
-      class='mt-5 inline-block text-re-blue underline'
+      class='mt-5 inline-block text-primary underline'
       href={linkHref}
       target={linkTarget}>{linkText}</a
     >

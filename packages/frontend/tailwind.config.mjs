@@ -1,7 +1,8 @@
-const defaultTheme = require('tailwindcss/defaultTheme');
+import typography from '@tailwindcss/typography';
+import defaultTheme from 'tailwindcss/defaultTheme';
 
 /** @type {import('tailwindcss').Config} */
-module.exports = {
+export default {
   content: ['./src/**/*.{astro,html,js,jsx,ts,tsx}'],
   safelist: ['my-8', 'my-16'],
   theme: {
@@ -31,22 +32,14 @@ module.exports = {
     },
     extend: {
       colors: {
-        re: {
-          blue: '#0F3F93',
-          gray: '#EEECEC',
-          turquoise: '#2DB7BC',
-          turquoiseLight: '#EAF4F5',
-          turquoiseBright: '#87E0E3',
-          red: '#E7314B'
-        },
-        ha: {
-          blue: '#2F6D4D', // dunkler Grünton als Primärfarbe
-          gray: '#F1F1F1', // neutrales, helles Grau
-          turquoise: '#93DAB7', // deine Basisfarbe
-          turquoiseLight: '#E6F7F0', // sehr hell, Hintergrund
-          turquoiseBright: '#BFF0D8', // kräftigere Variante
-          red: '#F46A6A' // Kontrast / CTA
-        }
+        // Rollen, NICHT markenspezifische Namen
+        primary: 'rgb(var(--color-primary) / <alpha-value>)', // re-blue
+        neutral: 'rgb(var(--color-neutral) / <alpha-value>)', // re-gray
+        secondary: 'rgb(var(--color-secondary) / <alpha-value>)', // re-turquoise
+        'secondary-light': 'rgb(var(--color-secondary-light) / <alpha-value>)', // re-turquoiseLight
+        'secondary-bright':
+          'rgb(var(--color-secondary-bright) / <alpha-value>)', // re-turquoiseBright
+        accent: 'rgb(var(--color-accent) / <alpha-value>)' // re-red
       },
       fontFamily: {
         sans: ['Poppins', ...defaultTheme.fontFamily.sans],
@@ -57,5 +50,5 @@ module.exports = {
       }
     }
   },
-  plugins: [require('@tailwindcss/typography')]
+  plugins: [typography]
 };

@@ -89,7 +89,7 @@ const imageStyleClasses = imageStyles
     }}
     class:list={[
       twMerge(
-        '-mx-8 flex h-[488px] items-center bg-re-gray bg-cover bg-center bg-no-repeat text-left xl:mx-0',
+        '-mx-8 flex h-[488px] items-center bg-neutral bg-cover bg-center bg-no-repeat text-left xl:mx-0',
         imageStyleClasses,
         optimizedMobileBackground
           ? 'bg-[image:var(--optimized-mobile-background-url)] lg:bg-[image:var(--optimized-background-url)]'
@@ -100,7 +100,7 @@ const imageStyleClasses = imageStyles
   </div>
   {
     (title || subtitle || hasCtas) && (
-      <div class='-mx-8 bg-re-blue px-8 py-8 text-white lg:absolute lg:top-1/2 lg:mx-24 lg:max-w-[620px] lg:-translate-y-1/2 lg:bg-transparent lg:text-left'>
+      <div class='-mx-8 bg-primary px-8 py-8 text-white lg:absolute lg:top-1/2 lg:mx-24 lg:max-w-[620px] lg:-translate-y-1/2 lg:bg-transparent lg:text-left'>
         <h2 class='mb-4 hyphens-auto font-serif text-4xl font-semibold leading-tight lg:hyphens-none lg:text-5xl'>
           {title}
         </h2>

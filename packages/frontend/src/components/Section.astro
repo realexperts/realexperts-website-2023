@@ -43,13 +43,13 @@ type ColorKey =
   | 'white';
 
 const colorMapping: Record<ColorKey, string> = {
-  '#0F3F93': 'bg-re-blue text-white',
-  '#2DB7BC': 'bg-re-turquoise text-white',
-  gray: 'bg-re-gray text-black',
+  '#0F3F93': 'bg-primary text-white',
+  '#2DB7BC': 'bg-secondary text-white',
+  gray: 'bg-neutral text-black',
   transparent: 'bg-transparent text-black',
-  '#EAF4F5': 'bg-re-turquoise-light text-re-blue',
-  'turquoise-dark': 'bg-re-turquoise text-white',
-  white: 'bg-white text-re-blue'
+  '#EAF4F5': 'bg-secondary-light text-primary',
+  'turquoise-dark': 'bg-secondary text-white',
+  white: 'bg-white text-primary'
 };
 
 // Define a type for the keys of stylesMapping

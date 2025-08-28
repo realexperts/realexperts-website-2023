@@ -1,3 +1,3 @@
 export default {
-  "disableIndexing": false
+  disableIndexing: false
 };

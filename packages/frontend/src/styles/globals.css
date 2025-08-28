@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* WICHTIG: Variablen im base-Layer definieren, dann sind sie global
+   und werden nicht weggepurged. */
+@layer base {
+  /* re = default */
+  :root {
+    --color-primary: 15 63 147;       /* #0F3F93 */
+    --color-neutral: 238 236 236;     /* #EEECEC */
+    --color-secondary: 45 183 188;    /* #2DB7BC */
+    --color-secondary-light: 234 244 245;  /* #EAF4F5 */
+    --color-secondary-bright: 135 224 227; /* #87E0E3 */
+    --color-accent: 231 49 75;        /* #E7314B */
+  }
+
+  /* ha Theme */
+  [data-theme="hg-green"] {
+    --color-primary: 47 109 77;       /* #2F6D4D */
+    --color-neutral: 241 241 241;     /* #F1F1F1 */
+    --color-secondary: 147 218 183;   /* #93DAB7 */
+    --color-secondary-light: 230 247 240;  /* #E6F7F0 */
+    --color-secondary-bright: 191 240 216; /* #BFF0D8 */
+    --color-accent: 244 106 106;      /* #F46A6A */
+  }
+}

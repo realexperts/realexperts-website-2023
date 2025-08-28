@@ -153,7 +153,7 @@ const SectionEdit = ({
               />
               <div className='items absolute flex h-full w-full items-center justify-end'>
                 <button
-                  className='relative z-20 rounded-lg bg-re-blue px-4 py-2 text-white'
+                  className='relative z-20 rounded-lg bg-primary px-4 py-2 text-white'
                   onClick={() => {
                     setOpen(true);
                   }}

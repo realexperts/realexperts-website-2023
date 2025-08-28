@@ -17,7 +17,7 @@ const {
 
 {
   questionHeading && answerHeading && (
-    <div class='flex font-serif text-2xl font-bold uppercase text-re-blue'>
+    <div class='flex font-serif text-2xl font-bold uppercase text-primary'>
       <div class='bold mr-1 w-1/2 text-left md:px-10 md:py-5 md:text-right'>
         {questionHeading}
       </div>
@@ -32,7 +32,7 @@ const {
     const isFirst = index === 0;
     const isLast = index === qnaList.length - 1;
     return (
-      <div class='relative -mx-8 items-stretch text-re-blue md:mx-0 md:flex lg:text-xl'>
+      <div class='relative -mx-8 items-stretch text-primary md:mx-0 md:flex lg:text-xl'>
         <div
           class:list={[
             'items-center justify-start py-5 text-left md:flex md:w-1/2 md:justify-end md:px-10 md:text-right',
@@ -40,7 +40,7 @@ const {
             isLast && 'md:pb-10'
           ]}
         >
-          <div class='w-fit max-w-[85%] hyphens-auto rounded-r-3xl bg-re-gray p-5 md:max-w-none md:bg-transparent md:p-0'>
+          <div class='w-fit max-w-[85%] hyphens-auto rounded-r-3xl bg-neutral p-5 md:max-w-none md:bg-transparent md:p-0'>
             {item.question}
           </div>
         </div>
@@ -51,16 +51,16 @@ const {
             isLast && 'md:pb-5'
           ]}
         >
-          <div class='h-8 w-8 -translate-x-2 rotate-45 border-r-[8px] border-t-[8px] border-re-turquoise' />
+          <div class='h-8 w-8 -translate-x-2 rotate-45 border-r-[8px] border-t-[8px] border-secondary' />
         </div>
         <div
           class:list={[
-            'items-center justify-end text-right md:ml-20 md:flex md:w-1/2 md:justify-start md:bg-re-turquoise-light md:px-10 md:py-5 md:text-left',
+            'items-center justify-end text-right md:ml-20 md:flex md:w-1/2 md:justify-start md:bg-secondary-light md:px-10 md:py-5 md:text-left',
             isFirst && 'md:pt-10',
             isLast && 'md:rounded-br-[70px] md:pb-10'
           ]}
         >
-          <div class='ml-auto w-fit max-w-[75%] hyphens-auto rounded-l-3xl bg-re-turquoise-light p-5 md:ml-0 md:max-w-none md:bg-transparent md:p-0'>
+          <div class='ml-auto w-fit max-w-[75%] hyphens-auto rounded-l-3xl bg-secondary-light p-5 md:ml-0 md:max-w-none md:bg-transparent md:p-0'>
             {item.answer}
           </div>
         </div>

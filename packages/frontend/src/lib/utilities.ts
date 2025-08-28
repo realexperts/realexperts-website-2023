@@ -31,16 +31,16 @@ export const getMaxWidthClass = (width: string | null | undefined) => {
 export const getBackgroundColorClass = (color: string | null | undefined) => {
   switch (color) {
     case 'turquoise': {
-      return 'bg-re-turquoise';
+      return 'bg-secondary';
     }
     case 'turquoise-light': {
-      return 'bg-re-turquoise-light';
+      return 'bg-secondary-light';
     }
     case 'white': {
       return 'bg-white';
     }
     case 'blue': {
-      return 'bg-re-blue';
+      return 'bg-primary';
     }
     default: {
       return 'bg-white';
@@ -51,13 +51,13 @@ export const getBackgroundColorClass = (color: string | null | undefined) => {
 export const getTextColorClass = (color: string | null | undefined) => {
   switch (color) {
     case 'turquoise': {
-      return 'text-re-turquoise';
+      return 'text-secondary';
     }
     case 'white': {
       return 'text-white';
     }
     default: {
-      return 'text-re-blue';
+      return 'text-primary';
     }
   }
 };

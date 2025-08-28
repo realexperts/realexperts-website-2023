@@ -22,6 +22,7 @@ export const fetchSettings = async () => {
         'page_404',
         'footer_headline',
         'footer_address',
+        'theme',
         {
           favicon: ['id', 'width', 'height'],
           logo_header: ['id', 'width', 'height', 'filename_disk'],

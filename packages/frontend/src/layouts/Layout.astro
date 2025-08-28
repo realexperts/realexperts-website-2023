@@ -8,6 +8,7 @@ import type { ArrayElement } from '@/lib/typescript';
 import { getImage } from 'astro:assets';
 import Footer from './Footer.astro';
 import Header from './Header.astro';
+import '../styles/globals.css';
 
 export interface Properties {
   page?: ArrayElement<Awaited<ReturnType<typeof fetchPages>>>;
@@ -44,10 +45,12 @@ const favicon = settings?.favicon
       height: settings?.favicon.height ?? undefined
     })
   : undefined;
+
+const theme = settings?.theme ?? 'ha-green';
 ---
 
 <!doctype html>
-<html lang='de' class='scroll-smooth focus:scroll-auto'>
+<html lang='de' class='scroll-smooth focus:scroll-auto' data-theme={theme}>
   <head>
     <meta charset='utf8' />
     <meta name='viewport' content='width=device-width, initial-scale=1' />
