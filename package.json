@@ -10,7 +10,7 @@
     "concurrently": "^9.2.1"
   },
   "scripts": {
-    "dev": "concurrently --kill-others \"npm run backend:start\" \"npm run frontend:dev\"",
+    "dev": "yarn workspaces foreach -Api run dev",
     "backend:bootstrap": "yarn run bootstrap @realexperts/backend",
     "backend:start": "yarn run start @realexperts/backend",
     "backend:start:bootstrap": "yarn run start:bootstrap @realexperts/backend",

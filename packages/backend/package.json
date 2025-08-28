@@ -2,7 +2,7 @@
   "name": "@realexperts/backend",
   "version": "1.0.0",
   "dependencies": {
-    "directus": "^11.10.2",
+    "directus": "^11.11.0",
     "directus-extension-models": "^2.5.2",
     "directus-extension-schema-sync": "^3.0.9"
   },
@@ -10,6 +10,7 @@
   "license": "ISC",
   "scripts": {
     "bootstrap": "directus bootstrap",
+    "dev": "directus start",
     "start": "directus start",
     "start:bootstrap": "directus bootstrap && directus start",
     "extension:models:export": "directus models snapshot ../frontend/src/lib/types.ts",
