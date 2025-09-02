@@ -12,13 +12,13 @@
   "scripts": {
     "dev": "yarn workspaces foreach -Api run dev",
     "bootstrap": "yarn workspaces foreach -Api run bootstrap",
-    "backend:start": "yarn run start @realexperts/backend",
-    "backend:start:bootstrap": "yarn run start:bootstrap @realexperts/backend",
+    "backend:start": "yarn workspace @realexperts/backend start",
+    "backend:start:bootstrap": "yarn workspace @realexperts/backend start:bootstrap",
     "export": "yarn run schema-sync:export @realexperts/backend && yarn run extension:models:export @realexperts/backend",
     "import": "yarn run schema-sync:import @realexperts/backend && yarn run extension:models:export @realexperts/backend",
-    "frontend:dev": "yarn run dev -w @realexperts/frontend",
-    "frontend:start": "yarn run start -w @realexperts/frontend",
-    "frontend:build": "yarn run build -w @realexperts/frontend",
+    "frontend:dev": "yarn workspace @realexperts/frontend dev",
+    "frontend:start": "yarn workspace @realexperts/frontend start",
+    "frontend:build": "yarn workspace @realexperts/frontend build",
     "lint": "yarn workspaces foreach -Api run lint",
     "lint:fix": "yarn workspaces foreach -Api run lint:fix",
     "check-types": "yarn workspaces foreach -Api run check-types"
