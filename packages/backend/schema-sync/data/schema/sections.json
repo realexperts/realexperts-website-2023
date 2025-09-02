@@ -45,7 +45,9 @@
         "readonly": false,
         "required": false,
         "sort": 7,
-        "special": ["m2a"],
+        "special": [
+          "m2a"
+        ],
         "translations": [
           {
             "language": "de-DE",
@@ -138,7 +140,9 @@
         "readonly": true,
         "required": false,
         "sort": 4,
-        "special": ["date-created"],
+        "special": [
+          "date-created"
+        ],
         "translations": null,
         "validation": null,
         "validation_message": null,
@@ -182,7 +186,10 @@
         "readonly": true,
         "required": false,
         "sort": 6,
-        "special": ["date-updated", "date-created"],
+        "special": [
+          "date-updated",
+          "date-created"
+        ],
         "translations": null,
         "validation": null,
         "validation_message": null,
@@ -224,7 +231,9 @@
         "readonly": false,
         "required": false,
         "sort": 9,
-        "special": ["o2m"],
+        "special": [
+          "o2m"
+        ],
         "translations": null,
         "validation": null,
         "validation_message": null,
@@ -565,7 +574,11 @@
         "readonly": false,
         "required": false,
         "sort": 8,
-        "special": ["alias", "no-data", "group"],
+        "special": [
+          "alias",
+          "no-data",
+          "group"
+        ],
         "translations": [
           {
             "language": "de-DE",
@@ -617,7 +630,9 @@
         "readonly": false,
         "required": false,
         "sort": 8,
-        "special": ["cast-json"],
+        "special": [
+          "cast-json"
+        ],
         "translations": [
           {
             "language": "de-DE",
@@ -794,7 +809,9 @@
         "readonly": true,
         "required": false,
         "sort": 3,
-        "special": ["user-created"],
+        "special": [
+          "user-created"
+        ],
         "translations": null,
         "validation": null,
         "validation_message": null,
@@ -838,7 +855,9 @@
         "readonly": true,
         "required": false,
         "sort": 5,
-        "special": ["user-updated"],
+        "special": [
+          "user-updated"
+        ],
         "translations": null,
         "validation": null,
         "validation_message": null,
