@@ -1,0 +1,32 @@
+---
+import BlockCta from '@/components/BlockCta.astro';
+import { client } from '@/lib/directus';
+import { readItem } from '@directus/sdk';
+import { getTypedCtaArray } from './cta-helpers';
+
+const { itemId } = Astro.props;
+
+export const getBlockCta = async (itemId: number) => {
+  return await client.request(
+    readItem('block_cta', itemId, {
+      fields: ['alignment', { ctas: ['item', 'collection'] }]
+    })
+  );
+};
+
+const response = await getBlockCta(itemId);
+
+const typedCtaArray = await getTypedCtaArray(
+  response.ctas?.map((cta) => ({
+    collection: cta.collection,
+    item: cta.item as number
+  }))
+);
+
+const blockCta = {
+  alignment: response.alignment,
+  ctas: typedCtaArray
+};
+---
+
+<BlockCta {...blockCta} />

@@ -1,0 +1,13 @@
+---
+import Button from './Button.astro';
+
+type Properties = {
+  type: 'internal';
+  title: string;
+  url: string;
+};
+
+const { title, url } = Astro.props as Properties;
+---
+
+<Button color='red' size='lg' link={url} label={title} title={title} />
