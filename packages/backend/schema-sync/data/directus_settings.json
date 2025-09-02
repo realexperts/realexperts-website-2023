@@ -63,24 +63,6 @@
     ],
     "project_descriptor": null,
     "project_id": "018b104b-1bc5-7059-8cab-129ce32ec9a3",
-    "project_logo": "c416a156-f61c-46f3-ac65-a584cc2e6449",
-    "project_name": "Real Experts",
-    "public_background": "5d8cd076-5525-49ed-ac5b-f5f1b2c1b307",
-    "public_favicon": null,
-    "public_foreground": null,
-    "public_note": null,
-    "public_registration": false,
-    "public_registration_email_filter": null,
-    "public_registration_role": null,
-    "public_registration_verify_email": true,
-    "report_bug_url": null,
-    "report_error_url": null,
-    "report_feature_url": null,
-    "storage_asset_presets": null,
-    "storage_asset_transform": "all",
-    "storage_default_folder": null,
-    "theme_dark_overrides": null,
-    "theme_light_overrides": null,
-    "visual_editor_urls": null
+    "project_name": "Real Experts"
   }
 ]
