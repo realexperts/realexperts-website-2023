@@ -5,6 +5,7 @@ import {
   getPaddingBottomClass,
   getPaddingTopClass
 } from '@/lib/utilities';
+import { Debug } from 'astro:components';
 import { twMerge } from 'tailwind-merge';
 import SectionEdit from './react/SectionEdit';
 
@@ -95,6 +96,7 @@ const classes = twMerge(
         paddingBottom={paddingBottom}
         client:load
       >
+       <Debug {bgColorClass} />
         <section class={classes} id={slug}>
           <slot />
         </section>
