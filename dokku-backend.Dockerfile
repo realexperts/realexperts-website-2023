@@ -58,5 +58,8 @@ USER directus
 # Expose port
 EXPOSE 8055
 
+# Run bootstrap script if it exists
+RUN yarn backend:bootstrap
+
 # Start command - Use the script from root package.json
 CMD ["yarn", "backend:start"]
