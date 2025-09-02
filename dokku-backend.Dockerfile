@@ -59,4 +59,4 @@ USER directus
 EXPOSE 8055
 
 # Start command - Use the script from root package.json for bootstrap and start the backend
-CMD ["yarn", "backend:start:bootstrap"]
+CMD yarn backend:bootstrap && yarn import && yarn backend:start
