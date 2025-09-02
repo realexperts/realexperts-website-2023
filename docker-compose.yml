@@ -21,3 +21,14 @@ services:
     ports:
       - "8025:8025"
       - "1025:1025"
+
+  adminer:
+    image: adminer
+    container_name: '${PROJECT_NAME}_adminer'
+    restart: always
+    depends_on:
+      - database
+    environment:
+      ADMINER_DEFAULT_SERVER: database
+    ports:
+      - '8080:8080'
