@@ -4580,7 +4580,7 @@ export interface Section {
    * Type in directus: string
    * Type in database: character varying
    */
-   color: string | null;
+   color: 'bg-primary' | 'bg-secondary' | 'bg-secondary-light' | null;
 
   /**
    * No description.

@@ -70,21 +70,36 @@
         "field": "color",
         "group": "section_settings",
         "hidden": false,
-        "interface": "select-color",
+        "interface": "select-dropdown",
         "note": null,
         "options": {
+          "choices": [
+            {
+              "color": null,
+              "text": "Primärfarbe",
+              "value": "bg-primary"
+            },
+            {
+              "text": "Sekundärfarbe",
+              "value": "bg-secondary"
+            },
+            {
+              "text": "Sekundärfarbe-Light",
+              "value": "bg-secondary-light"
+            }
+          ],
           "presets": [
             {
               "color": "bg-primary",
               "name": "Primärfarbe"
             },
             {
-              "color": "bg-secondary-light",
-              "name": "Sekundärfarbe Light"
-            },
-            {
               "color": "bg-secondary",
               "name": "Sekundärfarbe"
+            },
+            {
+              "color": "bg-secondary-light",
+              "name": "Sekundärfarbe Light"
             }
           ]
         },
