@@ -1,62 +1,34 @@
-# Build arguments
-ARG NODE_VERSION=22.18.0
+ARG NODE_VERSION=22.18.0-alpine
 
-# Node.js Base Image
-FROM node:${NODE_VERSION}-alpine AS base
+FROM node:${NODE_VERSION} AS base
 
-# Enable Corepack for Yarn management
-RUN corepack enable && corepack prepare yarn@4.9.2 --activate
+# Install python3, python3 setuptools, make, and g++
+# We need setuptools for python3 because some yarn packages (in this case sqlite3) require distutils which is not
+# available in python3.12
+RUN apk add --no-cache python3 py-setuptools make g++
 
-# Install dependencies only when needed
-FROM base AS deps
+# Enable corepack
+RUN corepack enable
+
+FROM base AS builder
+
+# Set the working directory
 WORKDIR /app
 
-# Copy root package files for workspace resolution
-COPY package.json yarn.lock* ./
-COPY .yarnrc.yml* ./
-COPY .yarn/releases/yarn-4.9.2.cjs ./.yarn/releases/
+# Copy the current directory contents into the container at /app
+COPY . /app
 
-# Copy all package.json files for workspace dependencies
-COPY packages/backend/package.json ./packages/backend/
-COPY packages/frontend/package.json ./packages/frontend/
-
-# Install dependencies
+# Install any needed packages specified in requirements.txt
 RUN yarn install --immutable
 
-# Build stage
-FROM base AS builder
-WORKDIR /app
-
-# Copy dependencies and yarn configuration
-COPY --from=deps /app/node_modules ./node_modules
-COPY --from=deps /app/.yarn ./.yarn
-
-# Copy source code
-COPY . .
-
-# Build the application if build script exists
-WORKDIR /app/packages/backend
-RUN yarn build 2>/dev/null || echo "No build script found, skipping..."
-
-# Production stage
-FROM base AS runner
-WORKDIR /app
-
-# Create directus user
-RUN addgroup --system --gid 1001 directus
-RUN adduser --system --uid 1001 directus
-
-# Copy the entire built application with proper structure
-COPY --from=builder --chown=directus:directus /app ./
-
-# Install only production dependencies for the backend workspace
-RUN yarn workspaces focus @realexperts/backend --production && yarn cache clean
-
-# Switch to non-root user
-USER directus
-
-# Expose port
+# Make port 8055 available to the world outside this container
 EXPOSE 8055
 
-# Start command - Use the script from root package.json for bootstrap and start the backend
+## Build libs
+#RUN yarn libs:build
+
+## Build extensions, import schema, and start the backend
+#RUN yarn extensions:build
+
+# Run app.py when the container launches
 CMD yarn backend:bootstrap && yarn import && yarn backend:start
