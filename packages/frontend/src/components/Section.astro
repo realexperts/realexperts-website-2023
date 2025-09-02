@@ -15,7 +15,7 @@ type Properties = {
   paddingTop?: Parameters<typeof getPaddingTopClass>[0];
   paddingBottom?: Parameters<typeof getPaddingBottomClass>[0];
   section_styles?: string[] | null;
-  color?: string | null;
+  bgColorClass?: 'bg-primary' | 'bg-secondary' | 'bg-secondary-light';
   slug?: string | null;
 };
 
@@ -28,29 +28,9 @@ const {
   paddingTop = 'pt-16',
   paddingBottom = 'pb-16',
   section_styles,
-  color = 'white',
+  bgColorClass = 'bg-white',
   slug
 } = Astro.props;
-
-// Define a type for the keys of colorMapping
-type ColorKey =
-  | '#0F3F93'
-  | '#EAF4F5'
-  | '#2DB7BC'
-  | 'gray'
-  | 'transparent'
-  | 'turquoise-dark'
-  | 'white';
-
-const colorMapping: Record<ColorKey, string> = {
-  '#0F3F93': 'bg-primary text-white',
-  '#2DB7BC': 'bg-secondary text-white',
-  gray: 'bg-neutral text-black',
-  transparent: 'bg-transparent text-black',
-  '#EAF4F5': 'bg-secondary-light text-primary',
-  'turquoise-dark': 'bg-secondary text-white',
-  white: 'bg-white text-primary'
-};
 
 // Define a type for the keys of stylesMapping
 type StyleKey =
@@ -68,6 +48,14 @@ const stylesMapping: Record<StyleKey, string> = {
   rounded_br: 'rounded-br-3xl'
 };
 
+type BgColorClass = 'bg-primary' | 'bg-secondary' | 'bg-secondary-light';
+
+const bgColorMapping: Record<BgColorClass, string> = {
+  'bg-primary': 'bg-primary text-white',
+  'bg-secondary': 'bg-secondary text-white',
+  'bg-secondary-light': 'bg-secondary-light text-primary'
+};
+
 const sectionStyles = section_styles
   ?.map((style: string) => {
     if (style in stylesMapping) {
@@ -82,7 +70,7 @@ const sectionWidth =
   'w-full max-w-website mx-auto scroll-mt-[99px]';
 
 const classes = twMerge(
-  colorMapping[color as ColorKey],
+  bgColorMapping[bgColorClass as BgColorClass],
   sectionWidth,
   sectionStyles,
   getMarginTopClass(marginTop),

@@ -4,7 +4,13 @@ import defaultTheme from 'tailwindcss/defaultTheme';
 /** @type {import('tailwindcss').Config} */
 export default {
   content: ['./src/**/*.{astro,html,js,jsx,ts,tsx}'],
-  safelist: ['my-8', 'my-16'],
+  safelist: [
+    'my-8',
+    'my-16',
+    'bg-primary',
+    'bg-secondary',
+    'bg-secondary-light'
+  ],
   theme: {
     fontSize: {
       xs: '0.75rem',

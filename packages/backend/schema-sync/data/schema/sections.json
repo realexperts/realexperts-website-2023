@@ -45,9 +45,7 @@
         "readonly": false,
         "required": false,
         "sort": 7,
-        "special": [
-          "m2a"
-        ],
+        "special": ["m2a"],
         "translations": [
           {
             "language": "de-DE",
@@ -75,16 +73,16 @@
         "options": {
           "presets": [
             {
-              "color": "#0F3F93",
-              "name": "Real Experts Blau"
+              "color": "bg-primary",
+              "name": "Primärfarbe"
             },
             {
-              "color": "#EAF4F5",
-              "name": "Real Experts Türkis Light"
+              "color": "bg-secondary-light",
+              "name": "Sekundärfarbe Light"
             },
             {
-              "color": "#2DB7BC",
-              "name": "Real Experts Türkis"
+              "color": "bg-secondary",
+              "name": "Sekundärfarbe"
             }
           ]
         },
@@ -140,9 +138,7 @@
         "readonly": true,
         "required": false,
         "sort": 4,
-        "special": [
-          "date-created"
-        ],
+        "special": ["date-created"],
         "translations": null,
         "validation": null,
         "validation_message": null,
@@ -186,10 +182,7 @@
         "readonly": true,
         "required": false,
         "sort": 6,
-        "special": [
-          "date-updated",
-          "date-created"
-        ],
+        "special": ["date-updated", "date-created"],
         "translations": null,
         "validation": null,
         "validation_message": null,
@@ -231,9 +224,7 @@
         "readonly": false,
         "required": false,
         "sort": 9,
-        "special": [
-          "o2m"
-        ],
+        "special": ["o2m"],
         "translations": null,
         "validation": null,
         "validation_message": null,
@@ -574,11 +565,7 @@
         "readonly": false,
         "required": false,
         "sort": 8,
-        "special": [
-          "alias",
-          "no-data",
-          "group"
-        ],
+        "special": ["alias", "no-data", "group"],
         "translations": [
           {
             "language": "de-DE",
@@ -630,9 +617,7 @@
         "readonly": false,
         "required": false,
         "sort": 8,
-        "special": [
-          "cast-json"
-        ],
+        "special": ["cast-json"],
         "translations": [
           {
             "language": "de-DE",
@@ -809,9 +794,7 @@
         "readonly": true,
         "required": false,
         "sort": 3,
-        "special": [
-          "user-created"
-        ],
+        "special": ["user-created"],
         "translations": null,
         "validation": null,
         "validation_message": null,
@@ -855,9 +838,7 @@
         "readonly": true,
         "required": false,
         "sort": 5,
-        "special": [
-          "user-updated"
-        ],
+        "special": ["user-updated"],
         "translations": null,
         "validation": null,
         "validation_message": null,
