@@ -27,14 +27,14 @@ RUN yarn install --immutable
 FROM base AS builder
 WORKDIR /app
 
-# Copy dependencies (nur Root node_modules, da Yarn 4.x alle Dependencies dort hoistet)
+# Copy dependencies and yarn configuration
 COPY --from=deps /app/node_modules ./node_modules
 COPY --from=deps /app/.yarn ./.yarn
 
 # Copy source code
 COPY . .
 
-# Build the application (falls Directus Extensions gebaut werden müssen)
+# Build the application if build script exists
 WORKDIR /app/packages/backend
 RUN yarn build 2>/dev/null || echo "No build script found, skipping..."
 
@@ -46,11 +46,11 @@ WORKDIR /app
 RUN addgroup --system --gid 1001 directus
 RUN adduser --system --uid 1001 directus
 
-# Copy built application
-COPY --from=builder --chown=directus:directus /app/packages/backend ./
+# Copy the entire built application with proper structure
+COPY --from=builder --chown=directus:directus /app ./
 
-# Install only production dependencies
-RUN yarn workspaces focus --production && yarn cache clean
+# Install only production dependencies for the backend workspace
+RUN yarn workspaces focus @realexperts/backend --production && yarn cache clean
 
 # Switch to non-root user
 USER directus
@@ -58,9 +58,5 @@ USER directus
 # Expose port
 EXPOSE 8055
 
-# Health check
-HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
-  CMD curl -f http://localhost:8055/server/health || exit 1
-
-# Start command
+# Start command - Use the script from root package.json
 CMD ["yarn", "backend:start"]
