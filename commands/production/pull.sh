@@ -16,7 +16,7 @@ echo ""
 echo "(0) Create a dump folder, if it does not exist ..."
 mkdir -p ./dumps/production
 echo "(1) Creating a temporary dump on production side and download it ..."
-$SSH_CMD "dokku postgres:export backend" | cat > "./dumps/production/$(date +%Y-%m-%d_%H-%M-%S)-$PROJECT_NAME.sql"
+$SSH_CMD "dokku postgres:export re-backend" | cat > "./dumps/production/$(date +%Y-%m-%d_%H-%M-%S)-$PROJECT_NAME.sql"
 echo "(2) Reading the latest production dump from local file system ..."
 DUMP=$(make -s exec database "ls -t ./dumps/production | head -1")
 echo "(3) Emptying local database ..."
