@@ -95,6 +95,7 @@ export const syncDirectusCollections = {
 		watch: ['settings'],
 		excludeFields: [
 			'project_url',
+      'project_color',
 			// always keep these 3 excluded
 			'mv_hash', 'mv_ts', 'mv_locked',
 		],
