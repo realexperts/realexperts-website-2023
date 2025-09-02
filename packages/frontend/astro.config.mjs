@@ -11,6 +11,7 @@ import robotsConfig from './robots-txt.config';
 const isProduction = process.env.BUILD_MODE === 'production';
 const isDraft = process.env.BUILD_MODE === 'draft';
 const isDevelopment = !isProduction && !isDraft;
+const site = process.env.SITE;
 
 let adapter = node({
   mode: 'standalone'
@@ -36,7 +37,7 @@ console.log('isDev', isDevelopment);
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://www.realexperts.de',
+  site,
   image: {
     remotePatterns: [
       {
