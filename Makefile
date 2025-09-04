@@ -96,10 +96,15 @@ shell-root:
 logs:
 	@$(COMPOSE_COMMAND) logs -f $(filter-out $@,$(MAKECMDGOALS))
 
-## pull	:	Pull from prod
-.PHONY: pull
-pull:
-	@./commands/production/pull.sh
+## pull	:	Pull re from prod
+.PHONY: re-pull
+re-pull:
+	@./commands/production/re-pull.sh
+
+## pull	:	Pull hg from prod
+.PHONY: hg-pull
+hg-pull:
+	@./commands/production/hg-pull.sh
 
 ## db-import	:	Import latest database dump from ./dumps folder.
 .PHONY: db-import
