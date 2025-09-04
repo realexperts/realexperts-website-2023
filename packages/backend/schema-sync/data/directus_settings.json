@@ -12,57 +12,7 @@
     "default_theme_light": null,
     "id": 1,
     "mapbox_key": null,
-    "module_bar": [
-      {
-        "enabled": true,
-        "id": "content",
-        "type": "module"
-      },
-      {
-        "enabled": false,
-        "id": "visual",
-        "type": "module"
-      },
-      {
-        "enabled": false,
-        "id": "users",
-        "type": "module"
-      },
-      {
-        "enabled": true,
-        "id": "files",
-        "type": "module"
-      },
-      {
-        "enabled": false,
-        "id": "insights",
-        "type": "module"
-      },
-      {
-        "enabled": true,
-        "id": "settings",
-        "locked": true,
-        "type": "module"
-      },
-      {
-        "enabled": true,
-        "icon": "publish",
-        "id": "p1H6zI6ogN6nZn0qKPTwh",
-        "name": "Publish",
-        "type": "link",
-        "url": "https://api.vercel.com/v1/integrations/deploy/prj_84io5I0f6j0EGOOK86RJTiTSh4dn/9Z7IaxyuO1"
-      },
-      {
-        "enabled": true,
-        "icon": "restart_alt",
-        "id": "NLUFlJipW11MX74loT7eY",
-        "name": "Reload Preview",
-        "type": "link",
-        "url": "https://api.vercel.com/v1/integrations/deploy/prj_NJYdQ3yOSk8Th3JOYP7gLKVnmEds/vvjg1VUicV"
-      }
-    ],
     "project_descriptor": null,
-    "project_id": "018b104b-1bc5-7059-8cab-129ce32ec9a3",
-    "project_name": "Real Experts"
+    "project_id": "018b104b-1bc5-7059-8cab-129ce32ec9a3"
   }
 ]

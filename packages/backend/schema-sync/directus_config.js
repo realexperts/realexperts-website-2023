@@ -94,6 +94,7 @@ export const syncDirectusCollections = {
 	directus_settings: {
 		watch: ['settings'],
 		excludeFields: [
+      'project_name',
 			'project_url',
       'project_color',
       'project_logo',
@@ -114,6 +115,7 @@ export const syncDirectusCollections = {
       'theme_dark_overrides',
       'theme_light_overrides',
       'visual_editor_urls',
+      'module_bar',
 			// always keep these 3 excluded
 			'mv_hash', 'mv_ts', 'mv_locked',
 		],
