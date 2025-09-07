@@ -22,7 +22,8 @@
     "frontend:build": "yarn workspace @realexperts/frontend build",
     "lint": "yarn workspaces foreach -Api run lint",
     "lint:fix": "yarn workspaces foreach -Api run lint:fix",
-    "check-types": "yarn workspaces foreach -Api run check-types"
+    "check-types": "yarn workspaces foreach -Api run check-types",
+    "release": "git push re-backend main && git push hg-backend main"
   },
   "workspaces": [
     "packages/*"
