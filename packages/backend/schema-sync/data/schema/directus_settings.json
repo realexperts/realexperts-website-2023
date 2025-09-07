@@ -1,0 +1,53 @@
+{
+  "collection": "directus_settings",
+  "fields": [
+    {
+      "field": "preview_base_url",
+      "type": "string",
+      "meta": {
+        "collection": "directus_settings",
+        "conditions": null,
+        "display": null,
+        "display_options": null,
+        "field": "preview_base_url",
+        "group": null,
+        "hidden": false,
+        "interface": "input",
+        "note": null,
+        "options": null,
+        "readonly": false,
+        "required": false,
+        "sort": 1,
+        "special": null,
+        "translations": [
+          {
+            "language": "de-DE",
+            "translation": "Vorschau-Basis-URL"
+          }
+        ],
+        "validation": null,
+        "validation_message": null,
+        "width": "full"
+      },
+      "schema": {
+        "name": "preview_base_url",
+        "table": "directus_settings",
+        "data_type": "character varying",
+        "default_value": null,
+        "max_length": 255,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": true,
+        "is_unique": false,
+        "is_indexed": false,
+        "is_primary_key": false,
+        "is_generated": false,
+        "generation_expression": null,
+        "has_auto_increment": false,
+        "foreign_key_table": null,
+        "foreign_key_column": null
+      }
+    }
+  ],
+  "relations": []
+}

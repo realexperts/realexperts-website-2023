@@ -14,7 +14,7 @@
     "icon": "import_export",
     "item_duplication_fields": null,
     "note": null,
-    "preview_url": "https://realexperts-website-2023-draft.vercel.app{{url}}",
+    "preview_url": "{{directus_settings.preview_base_url}}{{url}}",
     "singleton": false,
     "sort": 1,
     "sort_field": null,
@@ -33,6 +33,53 @@
     "name": "pages_translations"
   },
   "fields": [
+    {
+      "field": "directus_settings",
+      "type": "integer",
+      "meta": {
+        "collection": "pages_translations",
+        "conditions": null,
+        "display": null,
+        "display_options": null,
+        "field": "directus_settings",
+        "group": null,
+        "hidden": true,
+        "interface": "select-dropdown-m2o",
+        "note": null,
+        "options": {
+          "enableCreate": false,
+          "enableSelect": false
+        },
+        "readonly": true,
+        "required": false,
+        "sort": 9,
+        "special": [
+          "m2o"
+        ],
+        "translations": null,
+        "validation": null,
+        "validation_message": null,
+        "width": "full"
+      },
+      "schema": {
+        "name": "directus_settings",
+        "table": "pages_translations",
+        "data_type": "integer",
+        "default_value": null,
+        "max_length": null,
+        "numeric_precision": 32,
+        "numeric_scale": 0,
+        "is_nullable": true,
+        "is_unique": false,
+        "is_indexed": false,
+        "is_primary_key": false,
+        "is_generated": false,
+        "generation_expression": null,
+        "has_auto_increment": false,
+        "foreign_key_table": "directus_settings",
+        "foreign_key_column": "id"
+      }
+    },
     {
       "field": "footer_menu_nodes",
       "type": "alias",
@@ -656,6 +703,30 @@
         "foreign_key_table": "directus_files",
         "foreign_key_column": "id",
         "constraint_name": "pages_translations_meta_image_foreign",
+        "on_update": "NO ACTION",
+        "on_delete": "SET NULL"
+      }
+    },
+    {
+      "field": "directus_settings",
+      "related_collection": "directus_settings",
+      "meta": {
+        "junction_field": null,
+        "many_collection": "pages_translations",
+        "many_field": "directus_settings",
+        "one_allowed_collections": null,
+        "one_collection": "directus_settings",
+        "one_collection_field": null,
+        "one_deselect_action": "nullify",
+        "one_field": null,
+        "sort_field": null
+      },
+      "schema": {
+        "table": "pages_translations",
+        "column": "directus_settings",
+        "foreign_key_table": "directus_settings",
+        "foreign_key_column": "id",
+        "constraint_name": "pages_translations_directus_settings_foreign",
         "on_update": "NO ACTION",
         "on_delete": "SET NULL"
       }

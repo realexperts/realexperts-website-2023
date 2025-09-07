@@ -706,30 +706,6 @@
       }
     },
     {
-      "field": "anchor",
-      "related_collection": "sections",
-      "meta": {
-        "junction_field": null,
-        "many_collection": "main_menu_nodes",
-        "many_field": "anchor",
-        "one_allowed_collections": null,
-        "one_collection": "sections",
-        "one_collection_field": null,
-        "one_deselect_action": "nullify",
-        "one_field": null,
-        "sort_field": null
-      },
-      "schema": {
-        "table": "main_menu_nodes",
-        "column": "anchor",
-        "foreign_key_table": "sections",
-        "foreign_key_column": "id",
-        "constraint_name": "main_menu_nodes_anchor_foreign",
-        "on_update": "NO ACTION",
-        "on_delete": "CASCADE"
-      }
-    },
-    {
       "field": "parent_menu",
       "related_collection": "main_menu_translations",
       "meta": {
@@ -773,6 +749,30 @@
         "foreign_key_table": "pages_translations",
         "foreign_key_column": "id",
         "constraint_name": "main_menu_nodes_linked_page_foreign",
+        "on_update": "NO ACTION",
+        "on_delete": "CASCADE"
+      }
+    },
+    {
+      "field": "anchor",
+      "related_collection": "sections",
+      "meta": {
+        "junction_field": null,
+        "many_collection": "main_menu_nodes",
+        "many_field": "anchor",
+        "one_allowed_collections": null,
+        "one_collection": "sections",
+        "one_collection_field": null,
+        "one_deselect_action": "nullify",
+        "one_field": null,
+        "sort_field": null
+      },
+      "schema": {
+        "table": "main_menu_nodes",
+        "column": "anchor",
+        "foreign_key_table": "sections",
+        "foreign_key_column": "id",
+        "constraint_name": "main_menu_nodes_anchor_foreign",
         "on_update": "NO ACTION",
         "on_delete": "CASCADE"
       }
