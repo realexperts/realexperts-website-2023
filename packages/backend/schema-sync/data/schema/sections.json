@@ -73,6 +73,7 @@
         "interface": "select-dropdown",
         "note": null,
         "options": {
+          "allowNone": true,
           "choices": [
             {
               "color": null,
