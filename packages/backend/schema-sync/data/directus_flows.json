@@ -15,6 +15,24 @@
   {
     "accountability": "all",
     "color": null,
+    "date_created": "2025-09-14T11:28:33.030Z",
+    "description": "initially on server startup",
+    "icon": "bolt",
+    "id": "27120433-9024-45d8-a69a-f6bee5ca846f",
+    "name": "Automatically set public_preview_base_url",
+    "operation": "a1cf0de2-8617-4c74-b61c-2abb978e4a90",
+    "options": {
+      "scope": [
+        "server.start"
+      ],
+      "type": "action"
+    },
+    "status": "active",
+    "trigger": "event"
+  },
+  {
+    "accountability": "all",
+    "color": null,
     "date_created": "2023-11-24T10:24:58.980Z",
     "description": null,
     "icon": "bolt",
@@ -26,5 +44,26 @@
     },
     "status": "active",
     "trigger": "operation"
+  },
+  {
+    "accountability": "all",
+    "color": null,
+    "date_created": "2025-09-14T11:45:12.569Z",
+    "description": "on page create",
+    "icon": "bolt",
+    "id": "f7921577-a71b-49bd-bc7d-b7304065dca7",
+    "name": "Automatically set public_preview_base_url",
+    "operation": "26d0e487-bc0d-4432-b841-38a82986858a",
+    "options": {
+      "collections": [
+        "pages_translations"
+      ],
+      "scope": [
+        "items.create"
+      ],
+      "type": "action"
+    },
+    "status": "active",
+    "trigger": "event"
   }
 ]

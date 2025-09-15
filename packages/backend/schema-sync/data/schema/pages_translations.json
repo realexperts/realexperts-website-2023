@@ -14,7 +14,7 @@
     "icon": "import_export",
     "item_duplication_fields": null,
     "note": null,
-    "preview_url": "{{directus_settings.preview_base_url}}{{url}}",
+    "preview_url": "{{public_preview_base_url}}{{url}}",
     "singleton": false,
     "sort": 1,
     "sort_field": null,
@@ -418,6 +418,48 @@
       }
     },
     {
+      "field": "public_preview_base_url",
+      "type": "string",
+      "meta": {
+        "collection": "pages_translations",
+        "conditions": null,
+        "display": null,
+        "display_options": null,
+        "field": "public_preview_base_url",
+        "group": null,
+        "hidden": true,
+        "interface": "input",
+        "note": null,
+        "options": null,
+        "readonly": true,
+        "required": false,
+        "sort": 10,
+        "special": null,
+        "translations": null,
+        "validation": null,
+        "validation_message": null,
+        "width": "full"
+      },
+      "schema": {
+        "name": "public_preview_base_url",
+        "table": "pages_translations",
+        "data_type": "character varying",
+        "default_value": null,
+        "max_length": 255,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": true,
+        "is_unique": false,
+        "is_indexed": false,
+        "is_primary_key": false,
+        "is_generated": false,
+        "generation_expression": null,
+        "has_auto_increment": false,
+        "foreign_key_table": null,
+        "foreign_key_column": null
+      }
+    },
+    {
       "field": "sections",
       "type": "alias",
       "meta": {
@@ -506,7 +548,7 @@
         "options": null,
         "readonly": false,
         "required": false,
-        "sort": 3,
+        "sort": 4,
         "special": [
           "cast-boolean"
         ],
@@ -655,7 +697,7 @@
         "options": null,
         "readonly": false,
         "required": true,
-        "sort": 2,
+        "sort": 3,
         "special": null,
         "translations": null,
         "validation": null,

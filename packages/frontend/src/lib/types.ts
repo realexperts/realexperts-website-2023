@@ -3043,14 +3043,6 @@ export interface DirectusSetting {
    module_bar: any | null;
 
   /**
-   * No description.
-   *
-   * Type in directus: string
-   * Type in database: character varying
-   */
-   preview_base_url: string | null;
-
-  /**
    * $t:field_options.directus_settings.project_color_note
    *
    * Type in directus: string
@@ -4503,6 +4495,14 @@ export interface PagesTranslation {
    * Type in database: integer
    */
    pages_id: Page | Page["id"] | null;
+
+  /**
+   * No description.
+   *
+   * Type in directus: string
+   * Type in database: character varying
+   */
+   public_preview_base_url: string | null;
 
   /**
    * No description.

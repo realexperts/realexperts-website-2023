@@ -19,6 +19,29 @@
     "type": "mail"
   },
   {
+    "date_created": "2025-09-14T11:46:38.789Z",
+    "flow": "f7921577-a71b-49bd-bc7d-b7304065dca7",
+    "id": "26d0e487-bc0d-4432-b841-38a82986858a",
+    "key": "item_update_8t2qg",
+    "name": "Daten aktualisieren",
+    "options": {
+      "collection": "pages_translations",
+      "emitEvents": false,
+      "key": [
+        "{{ $trigger.key }}"
+      ],
+      "payload": {
+        "public_preview_base_url": "{{ $env.PUBLIC_PREVIEW_BASE_URL }}"
+      },
+      "permissions": "$full"
+    },
+    "position_x": 19,
+    "position_y": 1,
+    "reject": null,
+    "resolve": "eb60e8c9-3e80-4102-b7be-db8efca81037",
+    "type": "item-update"
+  },
+  {
     "date_created": "2023-11-24T10:29:02.875Z",
     "flow": "7c54e420-88a6-46e7-906b-03f8f9c403af",
     "id": "2c84c6c5-b632-43d8-a695-fb56acbba384",
@@ -80,6 +103,26 @@
     "type": "exec"
   },
   {
+    "date_created": "2025-09-14T11:29:17.831Z",
+    "flow": "27120433-9024-45d8-a69a-f6bee5ca846f",
+    "id": "a1cf0de2-8617-4c74-b61c-2abb978e4a90",
+    "key": "item_update_zju5o",
+    "name": "Daten aktualisieren",
+    "options": {
+      "collection": "pages_translations",
+      "emitEvents": false,
+      "payload": {
+        "public_preview_base_url": "{{ $env.PUBLIC_PREVIEW_BASE_URL }}"
+      },
+      "permissions": "$trigger"
+    },
+    "position_x": 19,
+    "position_y": 1,
+    "reject": null,
+    "resolve": null,
+    "type": "item-update"
+  },
+  {
     "date_created": "2023-11-24T10:42:09.053Z",
     "flow": "2665c993-99a9-4434-bb67-a838c2bb3e80",
     "id": "df07e9af-b526-4a2f-bba5-a5bad9e945c8",
@@ -97,5 +140,25 @@
     "reject": null,
     "resolve": null,
     "type": "mail"
+  },
+  {
+    "date_created": "2025-09-15T06:03:08.736Z",
+    "flow": "f7921577-a71b-49bd-bc7d-b7304065dca7",
+    "id": "eb60e8c9-3e80-4102-b7be-db8efca81037",
+    "key": "item_read_t8j2f",
+    "name": "Daten lesen",
+    "options": {
+      "collection": "pages_translations",
+      "emitEvents": false,
+      "key": [
+        "{{ $trigger.key }}"
+      ],
+      "permissions": "$full"
+    },
+    "position_x": 37,
+    "position_y": 1,
+    "reject": null,
+    "resolve": null,
+    "type": "item-read"
   }
 ]
