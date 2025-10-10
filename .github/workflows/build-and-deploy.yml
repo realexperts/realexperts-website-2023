@@ -6,7 +6,7 @@ on:
       - release
 
 env:
-  SSH_HOST: 'crauhut@203.166.205.92.host.secureserver.net'
+  SSH_HOST: 'dokku@203.166.205.92.host.secureserver.net'
   SSH_PORT: '22'
 
 jobs:
