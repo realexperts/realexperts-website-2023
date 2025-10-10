@@ -21,7 +21,7 @@ jobs:
         uses: dokku/github-action@master
         with:
           branch: 'release'
-          review_app_name: 're-backend'
+          trace: true
           git_remote_url: 'ssh://${{ env.SSH_HOST }}:${{ env.SSH_PORT }}/re-backend'
           ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
 
@@ -37,7 +37,6 @@ jobs:
         uses: dokku/github-action@master
         with:
           branch: 'release'
-          review_app_name: 'hg-backend'
           git_remote_url: 'ssh://${{ env.SSH_HOST }}:${{ env.SSH_PORT }}/hg-backend'
           ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
 
@@ -53,7 +52,6 @@ jobs:
         uses: dokku/github-action@master
         with:
           branch: 'release'
-          review_app_name: 'beijing-driver'
           git_remote_url: 'ssh://${{ env.SSH_HOST }}:${{ env.SSH_PORT }}/beijing-driver'
           ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
 
