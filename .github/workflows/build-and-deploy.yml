@@ -1,0 +1,79 @@
+---
+name: 'Sequential Deploy'
+on:
+  push:
+    branches:
+      - release
+
+env:
+  SSH_HOST: 'crauhut@203.166.205.92.host.secureserver.net'
+  SSH_PORT: '22'
+
+jobs:
+  deploy-re-backend:
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Cloning repo
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Deploy re-backend to Dokku
+        uses: dokku/github-action@master
+        with:
+          git_remote_url: 'ssh://${{ env.SSH_HOST }}:${{ env.SSH_PORT }}/re-backend'
+          ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
+
+  deploy-hg-backend:
+    runs-on: ubuntu-24.04
+    needs: deploy-re-backend
+    steps:
+      - name: Cloning repo
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Deploy hg-backend to Dokku
+        uses: dokku/github-action@master
+        with:
+          git_remote_url: 'ssh://${{ env.SSH_HOST }}:${{ env.SSH_PORT }}/hg-backend'
+          ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
+
+  deploy-beijing-driver:
+    runs-on: ubuntu-24.04
+    needs: deploy-hg-backend
+    steps:
+      - name: Cloning repo
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Deploy beijing-driver to Dokku
+        uses: dokku/github-action@master
+        with:
+          git_remote_url: 'ssh://${{ env.SSH_HOST }}:${{ env.SSH_PORT }}/beijing-driver'
+          ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
+
+  trigger-vercel-deployments:
+    runs-on: ubuntu-24.04
+    needs: deploy-beijing-driver
+    steps:
+      - name: Trigger Vercel Deployments (main branch)
+        run: |
+          echo "🚀 Triggering Vercel deployments for main branch..."
+          curl -X POST "${{ secrets.VERCEL_DEPLOY_HOOK_RE_BACKEND_MAIN }}"
+          curl -X POST "${{ secrets.VERCEL_DEPLOY_HOOK_HG_BACKEND_MAIN }}"
+          curl -X POST "${{ secrets.VERCEL_DEPLOY_HOOK_BEIJING_DRIVER_MAIN }}"
+          echo "✅ Vercel Deployments für main Branch ausgelöst"
+      
+      - name: Trigger Vercel Deployments (release branch)
+        run: |
+          echo "🚀 Triggering Vercel deployments for release branch..."
+          curl -X POST "${{ secrets.VERCEL_DEPLOY_HOOK_RE_BACKEND_RELEASE }}"
+          curl -X POST "${{ secrets.VERCEL_DEPLOY_HOOK_HG_BACKEND_RELEASE }}"
+          curl -X POST "${{ secrets.VERCEL_DEPLOY_HOOK_BEIJING_DRIVER_RELEASE }}"
+          echo "✅ Vercel Deployments für release Branch ausgelöst"
+      
+      - name: Deployment Summary
+        run: |
+          echo "🎉 Alle Deployments erfolgreich ausgelöst:"
+          echo "   ✅ Dokku: re-backend, hg-backend, beijing-driver"
+          echo "   ✅ Vercel main: re-backend, hg-backend, beijing-driver"
+          echo "   ✅ Vercel release: re-backend, hg-backend, beijing-driver"

@@ -1,0 +1,9 @@
+{
+  "git": {
+    "deploymentEnabled": {
+      "main": false,
+      "release": false
+    }
+  },
+  "ignoreCommand": "echo 'Manual deployment only - CMS content dependent' && exit 1"
+}
