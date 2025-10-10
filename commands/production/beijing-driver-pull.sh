@@ -7,7 +7,7 @@ ssh-add "$HOME"/.ssh/id_rsa
 
 SSH_CMD="ssh -o StrictHostKeyChecking=no -p $REMOTE_PORT $REMOTE_USER@$REMOTE_HOST"
 
-SITE=re-backend
+SITE=beijing-driver
 
 echo ""
 echo "###################################################"

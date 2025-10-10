@@ -7,6 +7,8 @@ ssh-add "$HOME"/.ssh/id_rsa
 
 SSH_CMD="ssh -o StrictHostKeyChecking=no -p $REMOTE_PORT $REMOTE_USER@$REMOTE_HOST"
 
+SITE=hg-backend
+
 echo ""
 echo "###################################################"
 echo "# Handling database dump from production to local"
@@ -14,16 +16,16 @@ echo "###############################################"
 echo ""
 
 echo "(0) Create a dump folder, if it does not exist ..."
-mkdir -p ./dumps/production
+mkdir -p ./dumps/production/$SITE
 echo "(1) Creating a temporary dump on production side and download it ..."
-$SSH_CMD "dokku postgres:export hg-backend" | cat > "./dumps/production/$(date +%Y-%m-%d_%H-%M-%S)-$PROJECT_NAME.sql"
+$SSH_CMD "dokku postgres:export $SITE" | cat > "./dumps/production/$SITE/$(date +%Y-%m-%d_%H-%M-%S)-$PROJECT_NAME.sql"
 echo "(2) Reading the latest production dump from local file system ..."
-DUMP=$(make -s exec database "ls -t ./dumps/production | head -1")
+DUMP=$(make -s exec database "ls -t ./dumps/production/$SITE | head -1")
 echo "(3) Emptying local database ..."
 make -s exec database "psql $LOCAL_DB_CONNECTION_STRING -c 'DROP SCHEMA public CASCADE; CREATE SCHEMA public;'"
 
 echo "(4) Importing dump $DUMP ..."
-make -s exec database "pg_restore --no-acl --no-owner -d $LOCAL_DB_CONNECTION_STRING /dumps/production/$DUMP"
+make -s exec database "pg_restore --no-acl --no-owner -d $LOCAL_DB_CONNECTION_STRING /dumps/production/$SITE/$DUMP"
 
 echo "(5) Running migrations ..."
 yarn bootstrap
