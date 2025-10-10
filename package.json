@@ -23,7 +23,7 @@
     "lint": "yarn workspaces foreach -Api run lint",
     "lint:fix": "yarn workspaces foreach -Api run lint:fix",
     "check-types": "yarn workspaces foreach -Api run check-types",
-    "release": "git push re-backend main && git push hg-backend main && git push beijing-driver main",
+    "release": "git push re-backend release && git push hg-backend release && git push beijing-driver release",
     "pull:re": "sh commands/production/re-pull.sh",
     "pull:hg": "sh commands/production/hg-pull.sh",
     "pull:beijing-driver": "sh commands/production/beijing-driver-pull.sh"
