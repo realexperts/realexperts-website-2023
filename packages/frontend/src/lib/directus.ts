@@ -12,6 +12,14 @@ export const client = createDirectus<Collections>(import.meta.env.DIRECTUS_URL)
   .with(rest())
   .with(staticToken(import.meta.env.DIRECTUS_TOKEN));
 
+export const fetchDirectusSettings = async () => {
+  return await client.request(
+    readSingleton('directus_settings', {
+      fields: ['project_name', 'project_url']
+    })
+  );
+};
+
 export const fetchSettings = async () => {
   return await client.request(
     readSingleton('settings', {

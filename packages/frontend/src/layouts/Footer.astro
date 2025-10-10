@@ -1,5 +1,9 @@
 ---
-import { fetchFooterMenu, fetchSettings } from '@/lib/directus';
+import {
+  fetchDirectusSettings,
+  fetchFooterMenu,
+  fetchSettings
+} from '@/lib/directus';
 import { Image } from 'astro:assets';
 import { marked } from 'marked';
 import Container from '../components/Container.astro';
@@ -9,6 +13,7 @@ import Section from '../components/Section.astro';
 
 const menu = await fetchFooterMenu();
 const settings = await fetchSettings();
+const directusSettings = await fetchDirectusSettings();
 
 const logoFooterSource = `${import.meta.env.DIRECTUS_URL}/assets/${
   settings.logo_footer?.id
@@ -29,7 +34,7 @@ const isSvg = settings.logo_footer?.filename_disk?.endsWith('.svg');
           <div class='mb-12 h-[177px]'>
             <Image
               src={logoFooterSource}
-              alt='Logo Real Experts   Network GmbH'
+              alt={`Logo ${directusSettings?.project_name}`}
               width='134'
               height='177'
               densities={[1, 2, 3]}

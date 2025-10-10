@@ -1,11 +1,12 @@
 ---
-import { fetchSettings } from '@/lib/directus';
+import { fetchDirectusSettings, fetchSettings } from '@/lib/directus';
 import { Image } from 'astro:assets';
 import Container from '../components/Container.astro';
 import MainNavigation from '../components/MainNavigation.astro';
 import Section from '../components/Section.astro';
 
 const settings = await fetchSettings();
+const directusSettings = await fetchDirectusSettings();
 const isSvg = settings.logo_header?.filename_disk?.endsWith('.svg');
 ---
 
@@ -30,7 +31,7 @@ const isSvg = settings.logo_header?.filename_disk?.endsWith('.svg');
                   src={`${import.meta.env.DIRECTUS_URL}/assets/${
                     settings.logo_header.id
                   }?access_token=${import.meta.env.DIRECTUS_TOKEN}`}
-                  alt='Logo Real Experts Network GmbH'
+                  alt={`Logo ${directusSettings?.project_name}`}
                   width='51'
                   height='72'
                   densities={[1, 2, 3]}
@@ -42,7 +43,7 @@ const isSvg = settings.logo_header?.filename_disk?.endsWith('.svg');
                   src={`${import.meta.env.DIRECTUS_URL}/assets/${
                     settings.logo_header.id
                   }?access_token=${import.meta.env.DIRECTUS_TOKEN}`}
-                  alt='Logo Real Experts Network GmbH'
+                  alt={`Logo ${directusSettings?.project_name}`}
                   width='63'
                   height='89'
                   densities={[1, 2, 3]}
