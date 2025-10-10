@@ -181,4 +181,3 @@ make exec [service-name] "[command]"
 
 By following these instructions, you should be able to set up and start developing the project on your local machine. For any additional information or troubleshooting, refer to the respective package documentation or the project's FAQ section.
 
--
