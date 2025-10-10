@@ -21,7 +21,6 @@ jobs:
         uses: dokku/github-action@master
         with:
           branch: 'release'
-          trace: true
           git_remote_url: 'ssh://${{ env.SSH_HOST }}:${{ env.SSH_PORT }}/re-backend'
           ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
 
