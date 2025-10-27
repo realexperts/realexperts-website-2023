@@ -320,6 +320,39 @@
   },
   {
     "action": "read",
+    "collection": "meta_menu",
+    "fields": [
+      "*"
+    ],
+    "permissions": null,
+    "policy": "905563fb-f5e8-4f97-8f87-3948dfd2dd85",
+    "presets": null,
+    "validation": null
+  },
+  {
+    "action": "read",
+    "collection": "meta_menu_nodes",
+    "fields": [
+      "*"
+    ],
+    "permissions": null,
+    "policy": "905563fb-f5e8-4f97-8f87-3948dfd2dd85",
+    "presets": null,
+    "validation": null
+  },
+  {
+    "action": "read",
+    "collection": "meta_menu_translations",
+    "fields": [
+      "*"
+    ],
+    "permissions": null,
+    "policy": "905563fb-f5e8-4f97-8f87-3948dfd2dd85",
+    "presets": null,
+    "validation": null
+  },
+  {
+    "action": "read",
     "collection": "pages",
     "fields": [
       "*"
