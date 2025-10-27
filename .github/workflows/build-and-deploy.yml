@@ -23,6 +23,7 @@ jobs:
           branch: 'release'
           git_remote_url: 'ssh://${{ env.SSH_HOST }}:${{ env.SSH_PORT }}/re-backend'
           ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
+          git_push_flags: '--force'
 
   deploy-hg-backend:
     runs-on: ubuntu-24.04
@@ -38,6 +39,7 @@ jobs:
           branch: 'release'
           git_remote_url: 'ssh://${{ env.SSH_HOST }}:${{ env.SSH_PORT }}/hg-backend'
           ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
+          git_push_flags: '--force'
 
   deploy-beijing-driver:
     runs-on: ubuntu-24.04
@@ -53,6 +55,7 @@ jobs:
           branch: 'release'
           git_remote_url: 'ssh://${{ env.SSH_HOST }}:${{ env.SSH_PORT }}/beijing-driver'
           ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
+          git_push_flags: '--force'
 
   trigger-vercel-deployments:
     runs-on: ubuntu-24.04
