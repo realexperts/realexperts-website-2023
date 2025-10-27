@@ -31,10 +31,6 @@ if (isDevelopment) {
   });
 }
 
-console.log('isProduction', isProduction);
-console.log('isDraft', isDraft);
-console.log('isDev', isDevelopment);
-
 // https://astro.build/config
 export default defineConfig({
   site,

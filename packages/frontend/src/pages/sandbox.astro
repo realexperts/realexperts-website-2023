@@ -16,6 +16,12 @@ import Spacer from '@/components/Spacer.astro';
 import TopicBoxList from '@/components/TopicBoxList.astro';
 import Layout from '@/layouts/Layout.astro';
 
+const isProduction = process.env.BUILD_MODE === 'production';
+
+if (!isProduction) {
+  return new Response('Not found', { status: 404 });
+}
+
 const image1Id = '3f135461-0cfe-4d29-9b7d-27741a9b0cdd';
 
 const jetzt = 'Jetzt Erstgespräch buchen';
