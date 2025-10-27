@@ -20,6 +20,7 @@ jobs:
       - name: Deploy re-backend to Dokku
         uses: dokku/github-action@master
         with:
+          branch: 'release'
           git_remote_url: 'ssh://${{ env.SSH_HOST }}:${{ env.SSH_PORT }}/re-backend'
           ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
 
@@ -34,6 +35,7 @@ jobs:
       - name: Deploy hg-backend to Dokku
         uses: dokku/github-action@master
         with:
+          branch: 'release'
           git_remote_url: 'ssh://${{ env.SSH_HOST }}:${{ env.SSH_PORT }}/hg-backend'
           ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
 
@@ -48,6 +50,7 @@ jobs:
       - name: Deploy beijing-driver to Dokku
         uses: dokku/github-action@master
         with:
+          branch: 'release'
           git_remote_url: 'ssh://${{ env.SSH_HOST }}:${{ env.SSH_PORT }}/beijing-driver'
           ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
 
