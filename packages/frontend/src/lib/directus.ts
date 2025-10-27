@@ -87,6 +87,23 @@ export const fetchMainMenu = async () => {
   );
 };
 
+export const fetchMetaMenu = async () => {
+  return await client.request(
+    readSingleton('meta_menu', {
+      fields: [
+        {
+          translations: [
+            'languages_code',
+            {
+              nodes: ['title', 'link', 'text', 'type', 'icon']
+            }
+          ]
+        }
+      ]
+    })
+  );
+};
+
 export const fetchFooterMenu = async () => {
   return await client.request(
     readSingleton('footer_menu', {

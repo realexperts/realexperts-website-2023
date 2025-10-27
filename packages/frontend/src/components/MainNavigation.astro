@@ -1,9 +1,11 @@
 ---
-import { fetchMainMenu } from '@/lib/directus';
+import { fetchMainMenu, fetchMetaMenu } from '@/lib/directus';
 
 const { pathname } = new URL(Astro.request.url);
 
 const mainMenu = await fetchMainMenu();
+
+const metaMenu = await fetchMetaMenu();
 ---
 
 <nav id='navbar' class='mb-1'>
@@ -46,29 +48,29 @@ const mainMenu = await fetchMainMenu();
           );
         })
     }
-    <li class='ml-9 text-right'>
-      <a
-        href='https://www.linkedin.com/in/crauhut/'
-        target='_blank'
-        title='LinkedIn Profil'
-      >
-        <i class='fa-brands fa-linkedin text-2xl text-primary'></i>
-      </a>
-    </li>
-    <li class='ml-6 text-right'>
-      <a
-        href='https://calendly.com/rauhut/erstgesprach-mit-christoph-rauhut'
-        target='_blank'
-        title='Termin vereinbaren'
-      >
-        <i class='fa-solid fa-calendar-check text-2xl text-primary'></i>
-      </a>
-    </li>
-    <li class='ml-6 text-right'>
-      <a href='/#kontakt' title='Kontakt aufnehmen'>
-        <i class='fa-solid fa-envelope text-2xl text-primary'></i>
-      </a>
-    </li>
+    {
+      metaMenu?.translations
+        ?.find((t) => t.languages_code === 'de-DE')
+        ?.nodes?.map((menuItem, index) => (
+          <li
+            class:list={[
+              'text-right',
+              { 'ml-9': index === 0, 'ml-6': index > 0 }
+            ]}
+          >
+            <a href={menuItem.link} target='_blank' title={menuItem.title}>
+              {menuItem.type === 'text' && (
+                <span class='text-primary hover:text-secondary'>
+                  {menuItem.text}
+                </span>
+              )}
+              {menuItem.type === 'icon' && menuItem.icon && (
+                <i class={`${menuItem.icon} text-2xl text-primary`} />
+              )}
+            </a>
+          </li>
+        ))
+    }
   </ul>
 </nav>
 

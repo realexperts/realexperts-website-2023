@@ -4379,6 +4379,127 @@ export interface MainMenuTranslation {
    title: string | null;
 }
 
+export interface MetaMenu {
+
+  /**
+   * No description.
+   *
+   * Type in directus: integer
+   * Type in database: integer
+   */
+   id: number;
+
+  /**
+   * No description.
+   *
+   * Type in directus: alias
+   * Type in database: no column
+   */
+   translations: MetaMenuTranslation[] | null;
+}
+
+export interface MetaMenuNode {
+
+  /**
+   * Zur Darstellung der Icons werden die FA-icons genutzt. Z.B. https://fontawesome.com/search?q=linked. Bitte den gewünschten String übergeben.
+   *
+   * Type in directus: string
+   * Type in database: character varying
+   */
+   icon: string | null;
+
+  /**
+   * No description.
+   *
+   * Type in directus: integer
+   * Type in database: integer
+   */
+   id: number;
+
+  /**
+   * No description.
+   *
+   * Type in directus: string
+   * Type in database: character varying
+   */
+   link: string | null;
+
+  /**
+   * No description.
+   *
+   * Type in directus: integer
+   * Type in database: integer
+   */
+   parent: MetaMenuTranslation | MetaMenuTranslation["id"] | null;
+
+  /**
+   * No description.
+   *
+   * Type in directus: integer
+   * Type in database: integer
+   */
+   sort: number | null;
+
+  /**
+   * No description.
+   *
+   * Type in directus: string
+   * Type in database: character varying
+   */
+   text: string | null;
+
+  /**
+   * No description.
+   *
+   * Type in directus: string
+   * Type in database: character varying
+   */
+   title: string | null;
+
+  /**
+   * No description.
+   *
+   * Type in directus: string
+   * Type in database: character varying
+   */
+   type: 'text' | 'icon' | null;
+}
+
+export interface MetaMenuTranslation {
+
+  /**
+   * No description.
+   *
+   * Type in directus: integer
+   * Type in database: integer
+   */
+   id: number;
+
+  /**
+   * No description.
+   *
+   * Type in directus: string
+   * Type in database: character varying
+   */
+   languages_code: Language | Language["code"] | null;
+
+  /**
+   * No description.
+   *
+   * Type in directus: integer
+   * Type in database: integer
+   */
+   meta_menu_id: MetaMenu | MetaMenu["id"] | null;
+
+  /**
+   * No description.
+   *
+   * Type in directus: alias
+   * Type in database: no column
+   */
+   nodes: MetaMenuNode[] | null;
+}
+
 export interface Page {
 
   /**
@@ -4926,6 +5047,9 @@ export type Collections = {
   main_menu: MainMenu;
   main_menu_nodes: MainMenuNode[];
   main_menu_translations: MainMenuTranslation[];
+  meta_menu: MetaMenu;
+  meta_menu_nodes: MetaMenuNode[];
+  meta_menu_translations: MetaMenuTranslation[];
   pages: Page[];
   pages_translations: PagesTranslation[];
   pages_translations_sections: PagesTranslationsSection[];
